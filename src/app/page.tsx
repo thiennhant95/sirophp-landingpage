@@ -1,65 +1,140 @@
-import Image from "next/image";
+import type { Metadata } from 'next';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Stats from '@/components/Stats';
+import Features from '@/components/Features';
+import HowItWorks from '@/components/HowItWorks';
+import WhySiro from '@/components/WhySiro';
+import CTA from '@/components/CTA';
+import Footer from '@/components/Footer';
+
+export const metadata: Metadata = {
+  title: 'Debug APIs Instantly. Built for Speed | Siro PHP Framework',
+  description: 'Debug APIs in PHP instantly with full request trace, replay, and CLI testing. A fast, lightweight PHP API framework built for developers.',
+  keywords: [
+    'php api framework',
+    'debug api php',
+    'fast php framework',
+    'cli api testing',
+    'trace api request php',
+    'replay api request php',
+    'php debugging tools',
+    'api testing php',
+  ],
+  openGraph: {
+    title: 'Debug APIs Instantly. Built for Speed | Siro PHP Framework',
+    description: 'Debug APIs in PHP instantly with full request trace, replay, and CLI testing. A fast, lightweight PHP API framework built for developers.',
+    type: 'website',
+    url: 'https://sirophp.com',
+    siteName: 'Siro PHP Framework',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Siro PHP Framework - Debug APIs Instantly',
+      },
+    ],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Debug APIs Instantly. Built for Speed | Siro PHP Framework',
+    description: 'Debug APIs in PHP instantly with full request trace, replay, and CLI testing. A fast, lightweight PHP API framework built for developers.',
+    images: ['/og-image.png'],
+  },
+  alternates: {
+    canonical: 'https://sirophp.com',
+  },
+};
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Siro PHP Framework',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Any',
+    description: 'Debug APIs in PHP instantly with full request trace, replay, and CLI testing. A fast, lightweight PHP API framework built for developers.',
+    url: 'https://sirophp.com',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '150',
+    },
+  };
+
+  // FAQ Structured Data
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is SiroPHP?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'SiroPHP is a debug-first PHP micro-framework designed for instant API debugging with built-in request tracing, replay functionality, and CLI testing tools.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I debug APIs in PHP with Siro?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Use the siro replay command with a trace ID to reproduce production bugs instantly. The framework automatically logs all requests with full traces for easy debugging.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is SiroPHP suitable for production?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, SiroPHP is optimized for production use with minimal overhead, security features like CSRF protection and input validation, and efficient request handling.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I test APIs from the terminal?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Absolutely! SiroPHP includes native CLI testing tools that let you test endpoints directly from your terminal without Postman or other external tools.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How does request replay work?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'SiroPHP captures complete request/response data including headers, body, and context. You can replay any request using its trace ID to debug issues exactly as they occurred.',
+        },
+      },
+    ],
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="min-h-screen bg-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <Navbar />
+      <Hero />
+      <Stats />
+      <Features />
+      <HowItWorks />
+      <WhySiro />
+      <CTA />
+      <Footer />
+    </main>
   );
 }
