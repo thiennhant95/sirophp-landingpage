@@ -83,6 +83,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5WC4X849');`,
         }} />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-S34G5E8PMK" strategy="afterInteractive" />
+        <Script id="gtag-config" strategy="afterInteractive" dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-S34G5E8PMK');`,
+        }} />
         <Navbar />
         {children}
         <Footer />
