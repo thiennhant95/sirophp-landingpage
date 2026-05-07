@@ -5,6 +5,7 @@ import FadeIn from '@/components/FadeIn';
 export const metadata: Metadata = {
   title: 'Privacy Policy | SiroPHP',
   description: 'SiroPHP privacy policy. Learn how we handle your data when using our open-source PHP framework and website.',
+  robots: 'noindex, follow',
   alternates: { canonical: 'https://sirophp.com/privacy' },
   openGraph: {
     title: 'Privacy Policy | SiroPHP',

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Page Not Found - 404 | Siro PHP Framework',
+  title: 'Page Not Found - 404 | SiroPHP',
   description: 'The page you are looking for does not exist. Return to SiroPHP homepage to debug APIs instantly.',
   robots: 'noindex, follow',
 };

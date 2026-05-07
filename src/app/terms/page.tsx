@@ -5,6 +5,7 @@ import FadeIn from '@/components/FadeIn';
 export const metadata: Metadata = {
   title: 'Terms of Service | SiroPHP',
   description: 'SiroPHP terms of service. Learn about the MIT license, usage guidelines, and disclaimers for our open-source PHP framework.',
+  robots: 'noindex, follow',
   alternates: { canonical: 'https://sirophp.com/terms' },
   openGraph: {
     title: 'Terms of Service | SiroPHP',
