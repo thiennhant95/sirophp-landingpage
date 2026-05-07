@@ -11,12 +11,12 @@ export default function CTA() {
       
       <div className="relative max-w-4xl mx-auto text-center">
         <FadeIn>
-          <div className="text-5xl mb-6">🚀</div>
+          <div className="text-5xl mb-6">⚡</div>
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Ready to Ship Fast?
+            Build Fast. Debug Faster.
           </h2>
           <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-            Start your next API project with SiroPHP - the API-first PHP framework built for speed and debugging
+            A lightweight PHP framework for rapid API development and instant production debugging. Minimal dependencies. Full request tracing. One-command replay.
           </p>
         </FadeIn>
         
@@ -25,14 +25,21 @@ export default function CTA() {
             href="https://github.com/SiroSoft/SiroPHP"
             className="px-8 py-4 bg-white text-black hover:bg-gray-100 font-semibold rounded-lg transition-all duration-200"
           >
-            Get Started Now →
+            Get Started on GitHub →
           </Link>
           <Link
-            href="/docs"
+            href="https://packagist.org/packages/sirosoft/core"
             className="px-8 py-4 border border-white/20 hover:border-white/40 text-gray-300 hover:text-white font-semibold rounded-lg transition-all duration-200"
           >
-            Explore Docs
+            Just the engine? sirosoft/core
           </Link>
+        </div>
+        <div className="mt-8 flex items-center justify-center gap-4 text-gray-500 text-xs">
+          <span>Open-source on GitHub</span>
+          <span className="w-1 h-1 rounded-full bg-gray-600" />
+          <span>MIT Licensed</span>
+          <span className="w-1 h-1 rounded-full bg-gray-600" />
+          <span>642 tests passing</span>
         </div>
       </div>
     </section>

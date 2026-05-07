@@ -51,3 +51,35 @@ body {
 .glow-effect {
   box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
 }
+
+/* Terminal cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: '▌';
+  animation: blink 1s step-end infinite;
+  color: #22d3ee;
+}
+
+/* Focus visible ring */
+*:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
+
+/* Step connector pulse */
+@keyframes connector-pulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(0, 212, 255, 0.3); }
+  50% { box-shadow: 0 0 12px rgba(0, 212, 255, 0.6); }
+}
+
+.step-glow {
+  animation: connector-pulse 2s ease-in-out infinite;
+}
+
+.step-glow:hover {
+  animation-duration: 0.5s;
+}

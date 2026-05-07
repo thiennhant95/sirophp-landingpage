@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 const footerLinks = {
-  Product: ['Documentation', 'Features', 'Changelog', 'Pricing'],
-  Resources: ['Blog', 'Tutorials', 'Examples', 'FAQ'],
+  Product: ['Documentation', 'Features', 'Changelog', 'Roadmap'],
+  Resources: ['Docs', 'Blog', 'Tutorials', 'Examples', 'FAQ'],
   Community: ['GitHub', 'Discord', 'Twitter'],
   Legal: ['Privacy', 'Terms'],
 };
@@ -21,7 +21,7 @@ export default function Footer() {
               <span className="text-white font-semibold text-lg">SiroPHP</span>
             </div>
             <p className="text-gray-400 text-sm">
-              The debug-first PHP framework for APIs
+              Build fast. Debug faster.
             </p>
           </div>
 
@@ -30,16 +30,31 @@ export default function Footer() {
             <div key={category}>
               <h3 className="text-white font-semibold mb-4 text-sm">{category}</h3>
               <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <Link
-                      href={link === 'Blog' ? '/blog' : '#'}
-                      className="text-gray-400 hover:text-white text-sm transition-colors"
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                ))}
+                {links.map((link) => {
+                  const href = link === 'Docs' ? '/docs'
+                    : link === 'Blog' ? '/blog'
+                    : link === 'Tutorials' ? '/tutorials'
+                    : link === 'Examples' ? '/examples'
+                    : link === 'FAQ' ? '/faq'
+                    : link === 'Privacy' ? '/privacy'
+                    : link === 'Terms' ? '/terms'
+                    : link === 'GitHub' ? 'https://github.com/SiroSoft/SiroPHP'
+                    : link === 'Documentation' ? '/docs'
+                    : link === 'Features' ? '/#features'
+                    : link === 'Changelog' ? 'https://github.com/SiroSoft/SiroPHP/releases'
+                    : link === 'Roadmap' ? 'https://github.com/SiroSoft/SiroPHP/issues'
+                    : '#';
+                  return (
+                    <li key={link}>
+                      <Link
+                        href={href}
+                        className="text-gray-400 hover:text-white text-sm transition-colors"
+                      >
+                        {link}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -47,8 +62,11 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="pt-8 border-t border-white/10 text-center">
-          <p className="text-gray-500 text-sm">
-            © 2026 SiroPHP. Built with speed in mind.
+          <p className="text-gray-500 text-sm mb-2">
+            Built for developers who debug real APIs.
+          </p>
+          <p className="text-gray-600 text-xs">
+            © 2026 SiroPHP. The fastest feedback loop for API developers.
           </p>
         </div>
       </div>

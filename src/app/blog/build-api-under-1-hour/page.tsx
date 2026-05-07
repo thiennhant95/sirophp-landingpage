@@ -3,7 +3,7 @@ import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'Build Your First API in Under 1 Hour with SiroPHP | Siro PHP Framework',
+  title: 'Build Your First API in Under 1 Hour with SiroPHP',
   description: 'Stop writing boilerplate code. Learn how to scaffold complete CRUD APIs in seconds with one command. From zero to production-ready API in under an hour.',
   keywords: [
     'php api scaffolding',
@@ -14,6 +14,23 @@ export const metadata: Metadata = {
     'rapid api development',
     'php code generation',
   ],
+  alternates: {
+    canonical: 'https://sirophp.com/blog/build-api-under-1-hour',
+  },
+  openGraph: {
+    title: 'Build Your First API in Under 1 Hour with SiroPHP | SiroPHP',
+    description: 'Scaffold complete CRUD APIs in seconds with one command. From zero to production-ready API in under an hour.',
+    type: 'article',
+    publishedTime: '2026-02-19',
+    url: 'https://sirophp.com/blog/build-api-under-1-hour',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Build Your First API in Under 1 Hour with SiroPHP | SiroPHP',
+    description: 'Scaffold complete CRUD APIs in seconds. From zero to production-ready API in under an hour.',
+    images: ['/opengraph-image.png'],
+  },
 };
 
 export default function Article6() {
@@ -22,7 +39,7 @@ export default function Article6() {
     '@type': 'Article',
     headline: 'Build Your First API in Under 1 Hour with SiroPHP',
     description: 'Stop writing boilerplate code. Learn how to scaffold complete CRUD APIs in seconds with one command. From zero to production-ready API in under an hour.',
-    image: 'https://sirophp.com/og-image.png',
+    image: 'https://sirophp.com/opengraph-image.png',
     author: {
       '@type': 'Organization',
       name: 'SiroPHP',
@@ -33,7 +50,7 @@ export default function Article6() {
       name: 'SiroPHP',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://sirophp.com/logo.png',
+        url: 'https://sirophp.com/logo',
       },
     },
     datePublished: '2026-02-19',
@@ -543,16 +560,16 @@ $validated = $request->validate([
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/#get-started"
+                  href="https://github.com/SiroSoft/SiroPHP"
                   className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
                 >
                   Try SiroPHP →
                 </Link>
                 <Link
-                  href="/docs/scaffolding"
+                  href="https://github.com/SiroSoft/siro-core"
                   className="px-8 py-3 border border-white/20 text-gray-300 hover:text-white font-semibold rounded-lg hover:border-white/40 transition-all"
                 >
-                  Scaffolding Docs
+                  View Core Framework
                 </Link>
               </div>
             </div>

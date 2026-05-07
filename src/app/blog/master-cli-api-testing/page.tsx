@@ -3,7 +3,7 @@ import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'Master CLI API Testing: The Complete Developer Guide | Siro PHP',
+  title: 'Master CLI API Testing: The Complete Developer Guide',
   description: 'Learn how to test APIs efficiently from the command line. Auto-authentication, request history, automation scripts, and keyboard-driven workflows.',
   keywords: [
     'cli api testing php',
@@ -14,6 +14,23 @@ export const metadata: Metadata = {
     'command line api testing',
     'api testing workflow',
   ],
+  alternates: {
+    canonical: 'https://sirophp.com/blog/master-cli-api-testing',
+  },
+  openGraph: {
+    title: 'Master CLI API Testing: The Complete Developer Guide | SiroPHP',
+    description: 'Learn how to test APIs efficiently from the command line. Auto-authentication, request history, automation scripts, and keyboard-driven workflows.',
+    type: 'article',
+    publishedTime: '2026-02-05',
+    url: 'https://sirophp.com/blog/master-cli-api-testing',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Master CLI API Testing: The Complete Developer Guide | SiroPHP',
+    description: 'Test APIs from the command line with auto-authentication, request history, and keyboard-driven workflows.',
+    images: ['/opengraph-image.png'],
+  },
 };
 
 export default function Article4() {
@@ -22,7 +39,7 @@ export default function Article4() {
     '@type': 'Article',
     headline: 'Master CLI API Testing: The Complete Developer Guide',
     description: 'Learn how to test APIs efficiently from the command line. Auto-authentication, request history, automation scripts, and keyboard-driven workflows.',
-    image: 'https://sirophp.com/og-image.png',
+    image: 'https://sirophp.com/opengraph-image.png',
     author: {
       '@type': 'Organization',
       name: 'SiroPHP',
@@ -33,7 +50,7 @@ export default function Article4() {
       name: 'SiroPHP',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://sirophp.com/logo.png',
+        url: 'https://sirophp.com/logo',
       },
     },
     datePublished: '2026-02-05',
@@ -94,9 +111,9 @@ export default function Article4() {
               keyboard-driven testing that integrates seamlessly with your development process.
             </p>
             <p className="text-gray-400 leading-relaxed mb-8">
-              <strong className="text-white">SiroPHP is an API-first PHP framework</strong> that 
-              includes native CLI testing tools. With features like auto-authentication, request 
-              history, and automation scripts, you can test APIs faster than ever before.
+                <strong className="text-white">SiroPHP is a lightweight PHP API framework</strong> that 
+                includes native CLI testing tools. With features like auto-authentication, request 
+                history, and automation scripts, you can test APIs faster than ever before.
             </p>
 
             {/* Table of Contents */}
@@ -461,16 +478,16 @@ seq 1 100 | parallel -j 10 php siro api:test GET /api/users --as=admin`}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/#get-started"
+                  href="https://github.com/SiroSoft/SiroPHP"
                   className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
                 >
                   Get Started →
                 </Link>
                 <Link
-                  href="/docs/cli-commands"
+                  href="https://github.com/SiroSoft/SiroPHP"
                   className="px-8 py-3 border border-white/20 text-gray-300 hover:text-white font-semibold rounded-lg hover:border-white/40 transition-all"
                 >
-                  View CLI Docs
+                  View on GitHub
                 </Link>
               </div>
             </div>

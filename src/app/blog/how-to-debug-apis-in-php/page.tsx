@@ -3,7 +3,7 @@ import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'How to Debug APIs in PHP: Complete Guide (Trace, Replay, CLI) | Siro PHP',
+  title: 'How to Debug APIs in PHP: Complete Guide (Trace, Replay, CLI)',
   description: 'Learn the complete workflow for debugging PHP APIs in production using request tracing, replay functionality, and CLI testing tools.',
   keywords: [
     'debug api php',
@@ -14,6 +14,23 @@ export const metadata: Metadata = {
     'php debugging tools',
     'api error handling php',
   ],
+  alternates: {
+    canonical: 'https://sirophp.com/blog/how-to-debug-apis-in-php',
+  },
+  openGraph: {
+    title: 'How to Debug APIs in PHP: Complete Guide (Trace, Replay, CLI) | SiroPHP',
+    description: 'Learn the complete workflow for debugging PHP APIs in production using request tracing, replay functionality, and CLI testing tools.',
+    type: 'article',
+    publishedTime: '2026-01-15',
+    url: 'https://sirophp.com/blog/how-to-debug-apis-in-php',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Debug APIs in PHP: Complete Guide (Trace, Replay, CLI) | SiroPHP',
+    description: 'Learn the complete workflow for debugging PHP APIs in production using request tracing, replay, and CLI testing.',
+    images: ['/opengraph-image.png'],
+  },
 };
 
 export default function Article1() {
@@ -22,7 +39,7 @@ export default function Article1() {
     '@type': 'Article',
     headline: 'How to Debug APIs in PHP: Complete Guide (Trace, Replay, CLI)',
     description: 'Learn the complete workflow for debugging PHP APIs in production using request tracing, replay functionality, and CLI testing tools.',
-    image: 'https://sirophp.com/og-image.png',
+    image: 'https://sirophp.com/opengraph-image.png',
     author: {
       '@type': 'Organization',
       name: 'SiroPHP',
@@ -33,7 +50,7 @@ export default function Article1() {
       name: 'SiroPHP',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://sirophp.com/logo.png',
+        url: 'https://sirophp.com/logo',
       },
     },
     datePublished: '2026-01-15',
@@ -92,7 +109,7 @@ export default function Article1() {
                 response payload, the right debugging workflow can save you hours of frustration.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                <strong className="text-white">SiroPHP is an API-first PHP framework</strong> designed 
+                <strong className="text-white">SiroPHP is a lightweight PHP API framework</strong> designed 
                 specifically for developers who need to debug production APIs quickly. With built-in 
                 request tracing, replay functionality, and CLI testing tools, you can fix bugs in minutes 
                 instead of hours.
@@ -285,7 +302,7 @@ php siro api:test POST /api/users \
                   Start using SiroPHP's debugging tools in your next project
                 </p>
                 <Link
-                  href="/#get-started"
+                  href="https://github.com/SiroSoft/SiroPHP"
                   className="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
                 >
                   Get Started with SiroPHP →

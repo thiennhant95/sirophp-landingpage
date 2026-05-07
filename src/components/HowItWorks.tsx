@@ -12,49 +12,49 @@ interface Step {
 const steps: Step[] = [
   {
     number: 1,
-    icon: '🐞',
-    title: 'Production Bug',
-    description: 'API returns 500 error',
+    icon: '⚡',
+    title: 'Scaffold CRUD',
+    description: 'php siro make:crud products',
   },
   {
     number: 2,
-    icon: '🔍',
-    title: 'Get Trace ID',
-    description: 'Extract from headers',
+    icon: '🔥',
+    title: 'Test & Ship',
+    description: 'php siro api:test GET /products',
   },
   {
     number: 3,
-    icon: '🔄',
-    title: 'Replay Request',
-    description: 'Exact reproduction',
+    icon: '🐞',
+    title: 'Bug Reported',
+    description: 'Client sends trace ID from header',
   },
   {
     number: 4,
-    icon: '🔧',
-    title: 'Fix Issue',
-    description: 'Apply solution',
+    icon: '🔄',
+    title: 'Replay & Fix',
+    description: 'php siro replay <id> && php siro fix',
   },
   {
     number: 5,
     icon: '✅',
-    title: 'Test & Verify',
-    description: 'Validate fix',
+    title: 'Verify',
+    description: 'php siro replay --diff',
   },
 ];
 
-const cliExample = `# Production error
-500 Internal Server Error
+const cliExample = `# Build — full CRUD in 2 seconds
+php siro make:crud products
 
-# Find trace
-php siro log:trace siro_abc123
+# Debug — replay any production request
+php siro replay a1b2c3d4
 
-# Replay request
-php siro log:replay siro_abc123
+# Fix with watch mode — auto re-test on save
+php siro fix
 
-# Fix and test
-php siro api:test POST /auth/login
+# Verify — diff before/after fix
+php siro replay --diff
 
-✔ Status: 200 OK`;
+✔ Status: 200 OK — 2 SQL queries — 45ms`;
 
 export default function HowItWorks() {
   return (
@@ -62,10 +62,10 @@ export default function HowItWorks() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            How to Debug APIs in Production
+            Build → Debug → Fix → Verify
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            From bug to fix in minutes, not hours
+            One CLI workflow from scaffolding to production debugging
           </p>
         </div>
         
@@ -74,7 +74,7 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <FadeIn key={step.number} delay={index * 80}>
               <div
-                className="relative p-6 rounded-xl border border-white/10 bg-white/5 text-center hover:border-cyan-400/30 transition-all duration-300"
+                className="relative p-6 rounded-xl border border-white/10 bg-white/5 text-center hover:border-cyan-400/30 step-glow transition-all duration-300"
               >
                 <div className="text-2xl mb-2">{step.icon}</div>
                 <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm mx-auto mb-3">
@@ -95,10 +95,10 @@ export default function HowItWorks() {
         <FadeIn>
           <div className="text-center mb-8">
             <h3 className="text-2xl font-semibold mb-2 text-white">
-              CLI Debugging for PHP APIs
+              The Fastest Feedback Loop for API Developers
             </h3>
             <p className="text-gray-400 text-lg">
-              From production bug to fix in seconds:
+              Build fast. Debug faster. All from your terminal.
             </p>
           </div>
         </FadeIn>
@@ -109,6 +109,10 @@ export default function HowItWorks() {
             <pre className="font-mono text-sm text-cyan-400 whitespace-pre">
               {cliExample}
             </pre>
+            <div className="flex items-center gap-1.5 mt-2">
+              <span className="text-gray-500 text-xs">$</span>
+              <span className="text-cyan-400 text-xs font-mono cursor-blink" />
+            </div>
           </div>
         </div>
       </div>

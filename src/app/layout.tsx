@@ -1,6 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,13 +20,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sirophp.dev"),
+  metadataBase: new URL("https://sirophp.com"),
   title: {
-    default: "SiroPHP — Debug Instantly. Built for Speed",
+    default: "SiroPHP — Build APIs Fast. Debug Faster.",
     template: "%s | SiroPHP",
   },
   description:
-    "SiroPHP is an API-first PHP framework focused on raw speed and instant debugging: Trace ID, replay, CLI API testing, and production-ready scaffolding.",
+    "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. <1ms cold boot.",
   keywords: [
     "SiroPHP",
     "PHP framework",
@@ -35,19 +42,19 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "SiroPHP — Debug Instantly. Built for Speed",
+    title: "SiroPHP — Build APIs Fast. Debug Faster.",
     description:
-      "Build fast APIs with SiroPHP: blazing performance, trace-based debugging, request replay, and CLI-first workflows.",
-    url: "https://sirophp.dev",
+      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. <1ms cold boot.",
+    url: "https://sirophp.com",
     siteName: "SiroPHP",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SiroPHP — Debug Instantly. Built for Speed",
+    title: "SiroPHP — Build APIs Fast. Debug Faster.",
     description:
-      "Fast API development for PHP devs with replay, trace and CLI testing built in.",
+      "Build APIs in seconds. Debug production bugs instantly. A lightweight PHP API framework built for rapid development.",
   },
   robots: {
     index: true,
@@ -65,7 +72,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-black`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white">{children}</body>
+      <body className="min-h-full flex flex-col bg-black text-white [overscroll-behavior:contain]">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

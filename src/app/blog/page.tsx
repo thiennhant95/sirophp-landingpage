@@ -3,8 +3,8 @@ import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'Blog - PHP API Debugging Tips & Tutorials | Siro PHP Framework',
-  description: 'Learn how to debug APIs in PHP with trace, replay, and CLI testing. Tutorials, guides, and best practices for PHP developers.',
+  title: 'Blog - PHP API Development & Debugging Resources',
+  description: 'Tutorials, comparisons, and best practices for PHP API development. Learn debugging, CLI testing, request replay, and rapid scaffolding with SiroPHP.',
   keywords: [
     'php api debugging',
     'debug api php tutorial',
@@ -12,10 +12,37 @@ export const metadata: Metadata = {
     'trace api requests php',
     'replay api requests php',
     'cli api testing php',
+    'sirophp vs laravel',
   ],
+  alternates: {
+    canonical: 'https://sirophp.com/blog',
+  },
+  openGraph: {
+    title: 'Blog - PHP API Development & Debugging Resources | SiroPHP',
+    description: 'Tutorials, comparisons, and best practices for PHP API development. Learn debugging, CLI testing, request replay, and rapid scaffolding.',
+    type: 'website',
+    url: 'https://sirophp.com/blog',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog - PHP API Development & Debugging Resources | SiroPHP',
+    description: 'Tutorials, comparisons, and best practices for PHP API development.',
+    images: ['/opengraph-image.png'],
+  },
 };
 
 const blogPosts = [
+  {
+    slug: 'sirophp-vs-laravel-comparison',
+    title: 'SiroPHP vs Laravel: A Practical Comparison for Modern API Development',
+    excerpt: 'Compare SiroPHP and Laravel across 15 dimensions: performance, dependencies, debugging workflow, hosting costs, and when to choose each.',
+    date: '2026-05-07',
+    readTime: '10 min read',
+    category: 'Comparison',
+    tags: ['comparison', 'laravel', 'performance', 'architecture'],
+    featured: true,
+  },
   {
     slug: 'build-api-under-1-hour',
     title: 'Build Your First API in Under 1 Hour with SiroPHP',
@@ -73,6 +100,9 @@ const blogPosts = [
 ];
 
 export default function BlogIndex() {
+  const featuredPost = blogPosts.find(p => p.featured);
+  const otherPosts = blogPosts.filter(p => !p.featured);
+
   return (
     <main className="min-h-screen bg-black">
       {/* Hero Section */}
@@ -81,51 +111,79 @@ export default function BlogIndex() {
           <FadeIn>
             <div className="text-center mb-16">
               <h1 className="text-5xl sm:text-6xl font-bold mb-6">
-                PHP API <span className="gradient-text">Debugging</span> Resources
+                PHP API <span className="gradient-text">Development</span> Resources
               </h1>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                Tutorials, guides, and best practices for debugging APIs in PHP. 
-                Learn trace, replay, and CLI testing techniques.
+                Tutorials, comparisons, and best practices for building and debugging PHP APIs.
+                From rapid scaffolding to production debugging.
               </p>
             </div>
           </FadeIn>
+
+          {/* Featured Post */}
+          {featuredPost && (
+            <FadeIn delay={100}>
+              <Link
+                href={`/blog/${featuredPost.slug}`}
+                className="group block p-8 rounded-xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/10 to-purple-500/5 hover:from-cyan-500/20 hover:to-purple-500/10 transition-all duration-300 mb-12"
+              >
+                <div className="flex items-start justify-between gap-8">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-semibold">
+                        {featuredPost.category}
+                      </span>
+                      <span className="text-cyan-400 text-xs font-medium">Featured</span>
+                    </div>
+                    <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
+                      {featuredPost.title}
+                    </h2>
+                    <p className="text-gray-400 mb-4 leading-relaxed">
+                      {featuredPost.excerpt}
+                    </p>
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <span>{featuredPost.date}</span>
+                      <span>•</span>
+                      <span>{featuredPost.readTime}</span>
+                    </div>
+                  </div>
+                  <div className="hidden md:flex items-center text-cyan-400 group-hover:translate-x-1 transition-transform">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            </FadeIn>
+          )}
         </div>
       </section>
 
-      {/* Blog Posts Grid */}
+      {/* All Posts Grid */}
       <section className="pb-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
+            {otherPosts.map((post, index) => (
               <FadeIn key={post.slug} delay={index * 100}>
                 <Link
                   href={`/blog/${post.slug}`}
                   className="group block p-6 rounded-xl border border-white/10 bg-white/5 hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300"
                 >
-                  {/* Category Badge */}
                   <div className="mb-4">
                     <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold">
                       {post.category}
                     </span>
                   </div>
-
-                  {/* Title */}
                   <h2 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
                     {post.title}
                   </h2>
-
-                  {/* Excerpt */}
                   <p className="text-gray-400 text-sm mb-4 leading-relaxed">
                     {post.excerpt}
                   </p>
-
-                  {/* Meta */}
                   <div className="flex items-center justify-between text-xs text-gray-500">
                     <span>{post.date}</span>
                     <span>{post.readTime}</span>
                   </div>
-
-                  {/* Tags */}
                   <div className="mt-4 flex flex-wrap gap-2">
                     {post.tags.map((tag) => (
                       <span

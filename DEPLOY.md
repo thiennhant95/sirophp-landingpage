@@ -21,10 +21,10 @@ vercel --prod
 2. Click "Add New Project"
 3. Import from GitHub: `SiroSoft/siro-landing-page`
 4. Configure project:
-   - **Framework Preset**: Next.js
-   - **Root Directory**: `siro-php-landing` (if needed)
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `.next`
+   - **Framework Preset**: Next.js (auto-detected)
+   - **Root Directory**: `/` (default)
+   - **Build Command**: `npm run build` (auto-detected)
+   - **Output Directory**: `.next` (auto-detected)
 5. Click "Deploy"
 
 ---

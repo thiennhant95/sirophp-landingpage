@@ -8,10 +8,10 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: 'Replay', label: 'Any Request' },
-  { value: 'Full Trace', label: 'Every Request Logged' },
-  { value: 'CLI', label: 'Native Testing' },
-  { value: 'Fix Bugs', label: 'From Real Requests' },
+  { value: '0', label: 'Dependencies' },
+  { value: '<1ms', label: 'Cold Boot' },
+  { value: '642', label: 'Tests Passing' },
+  { value: '~2MB', label: 'RAM per Request' },
 ];
 
 export default function Stats() {

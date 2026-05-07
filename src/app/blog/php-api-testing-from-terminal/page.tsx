@@ -3,7 +3,7 @@ import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'PHP API Testing from Terminal: The Complete CLI Guide | Siro PHP',
+  title: 'PHP API Testing from Terminal: The Complete CLI Guide',
   description: 'Master CLI-based API testing in PHP. Learn how to test endpoints, automate workflows, and debug without leaving your terminal.',
   keywords: [
     'cli api testing php',
@@ -14,6 +14,23 @@ export const metadata: Metadata = {
     'terminal api testing',
     'php rest api testing',
   ],
+  alternates: {
+    canonical: 'https://sirophp.com/blog/php-api-testing-from-terminal',
+  },
+  openGraph: {
+    title: 'PHP API Testing from Terminal: The Complete CLI Guide | SiroPHP',
+    description: 'Master CLI-based API testing in PHP. Learn how to test endpoints, automate workflows, and debug without leaving your terminal.',
+    type: 'article',
+    publishedTime: '2026-01-22',
+    url: 'https://sirophp.com/blog/php-api-testing-from-terminal',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PHP API Testing from Terminal: The Complete CLI Guide | SiroPHP',
+    description: 'Master CLI-based API testing in PHP. Learn how to test endpoints and debug without leaving your terminal.',
+    images: ['/opengraph-image.png'],
+  },
 };
 
 export default function Article2() {
@@ -22,7 +39,7 @@ export default function Article2() {
     '@type': 'Article',
     headline: 'PHP API Testing from Terminal: The Complete CLI Guide',
     description: 'Master CLI-based API testing in PHP. Learn how to test endpoints, automate workflows, and debug without leaving your terminal.',
-    image: 'https://sirophp.com/og-image.png',
+    image: 'https://sirophp.com/opengraph-image.png',
     author: {
       '@type': 'Organization',
       name: 'SiroPHP',
@@ -33,7 +50,7 @@ export default function Article2() {
       name: 'SiroPHP',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://sirophp.com/logo.png',
+        url: 'https://sirophp.com/logo',
       },
     },
     datePublished: '2026-01-22',
@@ -87,7 +104,7 @@ export default function Article2() {
                 debug, and automate your PHP APIs without ever leaving your terminal.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                <strong className="text-white">SiroPHP is an API-first PHP framework</strong> that 
+                <strong className="text-white">SiroPHP is a lightweight PHP API framework</strong> that 
                 includes native CLI testing tools. Unlike traditional PHP frameworks that require external 
                 tools like Postman, SiroPHP lets you test endpoints directly from your terminal with 
                 auto-authentication and instant feedback.
@@ -134,7 +151,7 @@ export default function Article2() {
                   </p>
                 </div>
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
-                  <h3 className="text-lg font-semibold text-white mb-2"> Scriptable</h3>
+                  <h3 className="text-lg font-semibold text-white mb-2">📜 Scriptable</h3>
                   <p className="text-gray-400 text-sm">
                     Chain tests together and create complex testing workflows.
                   </p>
@@ -332,7 +349,7 @@ All tests passed! ✓`}
                   SiroPHP includes built-in CLI testing tools out of the box
                 </p>
                 <Link
-                  href="/#get-started"
+                  href="https://github.com/SiroSoft/SiroPHP"
                   className="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
                 >
                   Try SiroPHP CLI Testing →

@@ -1,18 +1,17 @@
 import type { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Stats from '@/components/Stats';
 import Features from '@/components/Features';
 import HowItWorks from '@/components/HowItWorks';
 import WhySiro from '@/components/WhySiro';
 import CTA from '@/components/CTA';
-import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Debug APIs Instantly. Built for Speed | Siro PHP Framework',
-  description: 'Debug APIs in PHP instantly with full request trace, replay, and CLI testing. A fast, lightweight PHP API framework built for developers.',
+  title: 'Build APIs Fast. Debug Faster | SiroPHP — Lightweight PHP API Framework',
+  description: 'Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay and CLI testing. Minimal dependencies. <1ms cold boot.',
   keywords: [
     'php api framework',
+    'lightweight php framework',
     'debug api php',
     'fast php framework',
     'cli api testing',
@@ -20,28 +19,29 @@ export const metadata: Metadata = {
     'replay api request php',
     'php debugging tools',
     'api testing php',
+    'crud scaffolding php',
   ],
   openGraph: {
-    title: 'Debug APIs Instantly. Built for Speed | Siro PHP Framework',
-    description: 'Debug APIs in PHP instantly with full request trace, replay, and CLI testing. A fast, lightweight PHP API framework built for developers.',
+    title: 'Build APIs Fast. Debug Faster | SiroPHP — Lightweight PHP API Framework',
+    description: 'Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay and CLI testing. Minimal dependencies. <1ms cold boot.',
     type: 'website',
     url: 'https://sirophp.com',
-    siteName: 'Siro PHP Framework',
+    siteName: 'SiroPHP',
     images: [
       {
-        url: '/og-image.png',
+        url: '/opengraph-image.png',
         width: 1200,
         height: 630,
-        alt: 'Siro PHP Framework - Debug APIs Instantly',
+        alt: 'SiroPHP — Build APIs Fast. Debug Faster.',
       },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Debug APIs Instantly. Built for Speed | Siro PHP Framework',
-    description: 'Debug APIs in PHP instantly with full request trace, replay, and CLI testing. A fast, lightweight PHP API framework built for developers.',
-    images: ['/og-image.png'],
+    title: 'Build APIs Fast. Debug Faster | SiroPHP — Lightweight PHP API Framework',
+    description: 'Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay and CLI testing. Minimal dependencies. <1ms cold boot.',
+    images: ['/opengraph-image.png'],
   },
   alternates: {
     canonical: 'https://sirophp.com',
@@ -55,7 +55,7 @@ export default function Home() {
     name: 'Siro PHP Framework',
     applicationCategory: 'DeveloperApplication',
     operatingSystem: 'Any',
-    description: 'Debug APIs in PHP instantly with full request trace, replay, and CLI testing. A fast, lightweight PHP API framework built for developers.',
+    description: 'Build APIs fast with CRUD scaffolding. Debug production bugs instantly with request replay. Zero dependencies. <1ms cold boot.',
     url: 'https://sirophp.com',
     offers: {
       '@type': 'Offer',
@@ -79,39 +79,39 @@ export default function Home() {
         name: 'What is SiroPHP?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SiroPHP is a debug-first PHP micro-framework designed for instant API debugging with built-in request tracing, replay functionality, and CLI testing tools.',
+          text: 'SiroPHP is a lightweight PHP API framework built for rapid development and instant debugging. It features zero dependencies, CRUD scaffolding, full request tracing, and one-command production bug replay.',
         },
       },
       {
         '@type': 'Question',
-        name: 'How do I debug APIs in PHP with Siro?',
+        name: 'How is SiroPHP different from Laravel?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Use the siro replay command with a trace ID to reproduce production bugs instantly. The framework automatically logs all requests with full traces for easy debugging.',
+          text: 'SiroPHP has zero dependencies vs Laravel\'s ~200 packages, <1ms cold boot vs 50-100ms, and ~2MB RAM vs 256MB. It focuses on pure API development with built-in debugging workflow.',
         },
       },
       {
         '@type': 'Question',
-        name: 'Is SiroPHP suitable for production?',
+        name: 'How do I build APIs fast with SiroPHP?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes, SiroPHP is optimized for production use with minimal overhead, security features like CSRF protection and input validation, and efficient request handling.',
+          text: 'Use php siro make:crud to generate full CRUD endpoints with model, migration, controller, routes, and tests in 2 seconds. Then php siro serve to start the dev server.',
         },
       },
       {
         '@type': 'Question',
-        name: 'Can I test APIs from the terminal?',
+        name: 'How does production debugging work?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Absolutely! SiroPHP includes native CLI testing tools that let you test endpoints directly from your terminal without Postman or other external tools.',
+          text: 'Every response includes an X-Siro-Trace-Id header. Use php siro replay <trace_id> to reproduce the exact request, complete with headers, body, SQL queries, and timing.',
         },
       },
       {
         '@type': 'Question',
-        name: 'How does request replay work?',
+        name: 'Is SiroPHP production ready?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SiroPHP captures complete request/response data including headers, body, and context. You can replay any request using its trace ID to debug issues exactly as they occurred.',
+          text: 'Yes. 642 tests with 100% pass rate, security audited (37 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, and log sanitization.',
         },
       },
     ],
@@ -127,14 +127,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <Navbar />
       <Hero />
       <Stats />
       <Features />
       <HowItWorks />
       <WhySiro />
       <CTA />
-      <Footer />
     </main>
   );
 }

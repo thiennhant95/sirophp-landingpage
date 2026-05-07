@@ -3,20 +3,29 @@
 import FadeIn from './FadeIn';
 
 const reasons = [
-  { icon: '📖', text: 'Read the entire framework in one afternoon' },
-  { icon: '🎯', text: 'No learning curve - familiar PHP patterns' },
-  { icon: '🚀', text: 'Ship production APIs in under one hour' },
-  { icon: '🐛', text: 'Stop guessing API bugs' },
-  { icon: '👥', text: 'Perfect for startups and teams' },
-  { icon: '❤️', text: 'Built for developers, by developers' },
+  { icon: '🪶', text: 'Minimal dependencies — no supply chain risk, no composer audit' },
+  { icon: '⚡', text: '<1ms cold boot, ~2MB RAM — runs on $2/month hosting' },
+  { icon: '📖', text: 'Readable core architecture — understand the entire framework in one afternoon' },
+  { icon: '🚀', text: 'Ship production APIs in under one hour with make:crud' },
+  { icon: '🔄', text: 'Replay any production bug — stop guessing what went wrong' },
+  { icon: '🔓', text: 'No lock-in — migrate to Laravel anytime, patterns are compatible' },
 ];
 
-const codeExample = `// Define API endpoints
-Route::post('/webhooks', function() {
-    $payload = request()->json();
-    
-    // That's it! Zero setup, validation, auth
-});`;
+const codeExample = `# 🚀 Build — full CRUD in 2 seconds
+php siro make:crud products
+  ├── app/Models/Product.php
+  ├── app/Controllers/ProductController.php
+  ├── app/Resources/ProductResource.php
+  ├── database/migrations/create_products_table.php
+  ├── routes/api.php
+  └── tests/Feature/ProductTest.php
+
+php siro migrate
+php siro serve  # → localhost:8080
+
+# 🐞 Debug — replay production request
+php siro replay a1b2c3d4
+  └── Full context: headers, body, SQL, timing`;
 
 export default function WhySiro() {
   return (

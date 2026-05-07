@@ -6,40 +6,65 @@ interface FeatureCard {
   icon: string;
   title: string;
   description: string;
+  tag: string;
 }
 
 const features: FeatureCard[] = [
   {
-    icon: '🔍',
-    title: 'Advanced Debugging',
-    description: 'Trace IDs, request replay, log exporting, and CLI testing for instant issue resolution.',
+    icon: '⚡',
+    title: 'Fast CRUD Scaffolding',
+    description: 'Generate full API endpoints with model, migration, controller, routes, and tests in 2 seconds.',
+    tag: 'build',
+  },
+  {
+    icon: '🔥',
+    title: 'CLI API Testing',
+    description: 'Test endpoints directly from terminal with auto-auth. No Postman. No cURL. Just instant feedback.',
+    tag: 'build',
   },
   {
     icon: '🔄',
-    title: 'Trace & Replay',
-    description: 'Full request/response capture with one-command replay. Debug like it never happened.',
+    title: 'Replay Production Requests',
+    description: 'Replay real production requests from your terminal. php siro replay &lt;trace_id&gt; restores full context.',
+    tag: 'debug',
   },
   {
-    icon: '⚡',
-    title: 'CLI API Testing',
-    description: 'Test endpoints directly from terminal. No Postman needed. Auto-auth, instant feedback.',
-  },
-  {
-    icon: '🚀',
-    title: 'Lightning Fast',
-    description: 'Micro-framework architecture with zero dependencies. Optimized for speed at every layer.',
+    icon: '🧠',
+    title: 'Trace Every Request',
+    description: 'Every response includes X-Siro-Trace-Id. View full context: headers, body, SQL queries, timing.',
+    tag: 'debug',
   },
   {
     icon: '🔒',
-    title: 'Secure by Default',
-    description: 'Built-in JWT auth, rate limiting, CSRF protection, and automatic input sanitization.',
+    title: 'Production-Safe Debugging',
+    description: 'Sensitive data auto-sanitized in logs. Replay locked with --dry-run in production. Full audit trail for every replay.',
+    tag: 'debug',
   },
   {
-    icon: '💡',
-    title: 'Developer Friendly',
-    description: 'Intuitive API, comprehensive docs, and CLI tools to scaffold your project in seconds.',
+    icon: '📄',
+    title: 'Auto OpenAPI Docs',
+    description: 'Generate Swagger UI and Postman collection automatically from your validation rules. Docs that never go stale.',
+    tag: 'ship',
+  },
+  {
+    icon: '🪶',
+    title: 'Lightweight Core',
+    description: 'Minimal dependencies. Runs on $2/month hosting. Readable architecture you can understand in one afternoon.',
+    tag: 'ship',
   },
 ];
+
+const tagLabels: Record<string, string> = {
+  build: 'Build',
+  debug: 'Debug',
+  ship: 'Ship',
+};
+
+const tagColors: Record<string, string> = {
+  build: 'text-emerald-400 border-emerald-400/30 bg-emerald-400/10',
+  debug: 'text-cyan-400 border-cyan-400/30 bg-cyan-400/10',
+  ship: 'text-purple-400 border-purple-400/30 bg-purple-400/10',
+};
 
 export default function Features() {
   return (
@@ -47,10 +72,10 @@ export default function Features() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Debug APIs in PHP with Trace and Replay
+            Build Fast. Deploy Light. Debug Instantly.
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Everything you need to debug APIs in production
+            Not just a debug tool. Not just a micro-framework. The fastest feedback loop for API developers.
           </p>
         </div>
         
@@ -60,7 +85,12 @@ export default function Features() {
               <div
                 className="group relative p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="text-2xl mb-4">{feature.icon}</div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl">{feature.icon}</span>
+                  <span className={`text-xs font-medium px-2 py-0.5 rounded-full border ${tagColors[feature.tag]}`}>
+                    {tagLabels[feature.tag]}
+                  </span>
+                </div>
                 <h3 className="text-lg font-semibold text-white mb-3">
                   {feature.title}
                 </h3>

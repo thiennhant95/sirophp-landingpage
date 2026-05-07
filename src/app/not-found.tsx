@@ -53,8 +53,8 @@ export default function NotFound() {
             <Link href="/#get-started" className="text-cyan-400 hover:text-cyan-300 transition-colors">
               Get Started
             </Link>
-            <Link href="/docs" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-              Documentation
+            <Link href="/tutorials" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+              Tutorials
             </Link>
             <Link href="https://github.com/SiroSoft/SiroPHP" className="text-cyan-400 hover:text-cyan-300 transition-colors" target="_blank">
               GitHub

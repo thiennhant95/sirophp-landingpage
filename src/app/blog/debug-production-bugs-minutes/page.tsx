@@ -3,7 +3,7 @@ import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'Debug Production API Bugs in Minutes, Not Hours | Siro PHP',
+  title: 'Debug Production API Bugs in Minutes, Not Hours',
   description: 'Stop struggling with unreproducible bugs. Learn how to capture, replay, and fix production API issues instantly with request tracing.',
   keywords: [
     'debug production bugs php',
@@ -14,6 +14,23 @@ export const metadata: Metadata = {
     'php debugging workflow',
     'sirophp debugging',
   ],
+  alternates: {
+    canonical: 'https://sirophp.com/blog/debug-production-bugs-minutes',
+  },
+  openGraph: {
+    title: 'Debug Production API Bugs in Minutes, Not Hours | SiroPHP',
+    description: 'Stop struggling with unreproducible bugs. Capture, replay, and fix production API issues instantly with request tracing.',
+    type: 'article',
+    publishedTime: '2026-02-12',
+    url: 'https://sirophp.com/blog/debug-production-bugs-minutes',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Debug Production API Bugs in Minutes, Not Hours | SiroPHP',
+    description: 'Capture, replay, and fix production API issues instantly with request tracing.',
+    images: ['/opengraph-image.png'],
+  },
 };
 
 export default function Article5() {
@@ -22,7 +39,7 @@ export default function Article5() {
     '@type': 'Article',
     headline: 'Debug Production API Bugs in Minutes, Not Hours',
     description: 'Stop struggling with unreproducible bugs. Learn how to capture, replay, and fix production API issues instantly with request tracing.',
-    image: 'https://sirophp.com/og-image.png',
+    image: 'https://sirophp.com/opengraph-image.png',
     author: {
       '@type': 'Organization',
       name: 'SiroPHP',
@@ -33,7 +50,7 @@ export default function Article5() {
       name: 'SiroPHP',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://sirophp.com/logo.png',
+        url: 'https://sirophp.com/logo',
       },
     },
     datePublished: '2026-02-12',
@@ -181,9 +198,9 @@ export default function Article5() {
               3. Request Replay: A Better Way
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              <strong className="text-white">SiroPHP is an API-first PHP framework</strong> with 
-              built-in request replay technology. Every API request is automatically captured with 
-              complete context, allowing you to reproduce any issue instantly.
+                <strong className="text-white">SiroPHP is a lightweight PHP API framework</strong> with 
+                built-in request replay technology. Every API request is automatically captured with 
+                complete context, allowing you to reproduce any issue instantly.
             </p>
 
             <div className="bg-green-500/5 border border-green-500/20 rounded-xl p-6 mb-8">
@@ -453,16 +470,16 @@ php siro log:export \
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/#get-started"
+                  href="https://github.com/SiroSoft/SiroPHP"
                   className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
                 >
                   Try SiroPHP →
                 </Link>
                 <Link
-                  href="/docs/debugging"
+                  href="https://github.com/SiroSoft/SiroPHP"
                   className="px-8 py-3 border border-white/20 text-gray-300 hover:text-white font-semibold rounded-lg hover:border-white/40 transition-all"
                 >
-                  Debugging Docs
+                  View on GitHub
                 </Link>
               </div>
             </div>
