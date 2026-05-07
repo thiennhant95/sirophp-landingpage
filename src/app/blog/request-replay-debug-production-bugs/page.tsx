@@ -255,7 +255,7 @@ export default function Article3() {
 
 # Step 2: Get trace ID from error response
 curl -v https://api.yoursite.com/orders
-# Response header: X-Request-ID: siro_xyz789
+# Response header: X-Siro-Trace-Id: siro_xyz789
 
 # Step 3: View the captured request
 php siro log:trace siro_xyz789

@@ -1,44 +1,50 @@
-'use client';
+'use client'
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react'
 
 interface FadeInProps {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
+  children: React.ReactNode
+  delay?: number
+  className?: string
 }
 
 export default function FadeIn({ children, delay = 0, className = '' }: FadeInProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const el = ref.current
+    if (!el) return
+
+    let timeoutId: ReturnType<typeof setTimeout>
 
     const show = () => {
-      setTimeout(() => setIsVisible(true), delay);
-    };
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => setIsVisible(true), delay)
+    }
 
     if (el.getBoundingClientRect().top < window.innerHeight) {
-      show();
-      return;
+      show()
+      return () => clearTimeout(timeoutId)
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          show();
-          observer.disconnect();
+          show()
+          observer.disconnect()
         }
       },
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
+    )
 
-    observer.observe(el);
+    observer.observe(el)
 
-    return () => observer.disconnect();
-  }, [delay]);
+    return () => {
+      observer.disconnect()
+      clearTimeout(timeoutId)
+    }
+  }, [delay])
 
   return (
     <div
@@ -49,5 +55,5 @@ export default function FadeIn({ children, delay = 0, className = '' }: FadeInPr
     >
       {children}
     </div>
-  );
+  )
 }

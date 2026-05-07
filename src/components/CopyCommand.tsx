@@ -1,14 +1,31 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function CopyCommand({ command }: { command: string }) {
   const [copied, setCopied] = useState(false)
+  const timer = useRef(0)
+
+  useEffect(() => {
+    return () => clearTimeout(timer.current)
+  }, [])
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(command)
+    try {
+      await navigator.clipboard.writeText(command)
+    } catch {
+      const ta = document.createElement('textarea')
+      ta.value = command
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
     setCopied(true)
-    setTimeout(() => setCopied(false), 1500)
+    clearTimeout(timer.current)
+    timer.current = window.setTimeout(() => setCopied(false), 1500)
   }
 
   return (

@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: 'Code Examples — SiroPHP API Framework',
   description: 'Real code examples for building APIs with SiroPHP. CRUD scaffolding, JWT authentication, request replay, and CLI testing snippets.',
   alternates: { canonical: 'https://sirophp.com/examples' },
+  openGraph: {
+    title: 'Code Examples — SiroPHP API Framework',
+    description: 'Real code examples for building APIs with SiroPHP. CRUD scaffolding, JWT authentication, request replay, and CLI testing snippets.',
+    url: 'https://sirophp.com/examples',
+    siteName: 'SiroPHP',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Code Examples — SiroPHP API Framework',
+    description: 'Real code examples for building APIs with SiroPHP. CRUD scaffolding, JWT authentication, request replay, and CLI testing snippets.',
+  },
 };
 
 const examples = [

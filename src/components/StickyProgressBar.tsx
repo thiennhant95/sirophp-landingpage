@@ -27,14 +27,14 @@ export default function StickyProgressBar() {
 
     const sectionObserver = new IntersectionObserver(
       (entries) => {
-        let latest = activeIndex
+        let latest = -1
         for (const entry of entries) {
           if (entry.isIntersecting) {
             const idx = sections.findIndex((s) => s.id === entry.target.id)
             if (idx !== -1 && idx > latest) latest = idx
           }
         }
-        if (latest !== activeIndex) setActiveIndex(latest)
+        if (latest !== -1) setActiveIndex(latest)
       },
       { threshold: 0.2, rootMargin: '-60px 0px -55% 0px' }
     )

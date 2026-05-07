@@ -3,7 +3,7 @@ import Link from 'next/link';
 const footerLinks = {
   Product: ['Documentation', 'Features', 'Changelog', 'Roadmap'],
   Resources: ['Docs', 'Blog', 'Tutorials', 'Examples', 'FAQ'],
-  Community: ['GitHub', 'Discord', 'Twitter'],
+  Community: ['GitHub'],
   Legal: ['Privacy', 'Terms'],
 };
 

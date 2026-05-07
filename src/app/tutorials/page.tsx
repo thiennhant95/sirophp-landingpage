@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: 'Tutorials — PHP API Development',
   description: 'Step-by-step tutorials for building APIs with SiroPHP. Learn CRUD scaffolding, authentication, debugging, and deployment.',
   alternates: { canonical: 'https://sirophp.com/tutorials' },
+  openGraph: {
+    title: 'Tutorials — PHP API Development',
+    description: 'Step-by-step tutorials for building APIs with SiroPHP. Learn CRUD scaffolding, authentication, debugging, and deployment.',
+    url: 'https://sirophp.com/tutorials',
+    siteName: 'SiroPHP',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tutorials — PHP API Development',
+    description: 'Step-by-step tutorials for building APIs with SiroPHP. Learn CRUD scaffolding, authentication, debugging, and deployment.',
+  },
 };
 
 const tutorials = [

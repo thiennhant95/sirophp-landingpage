@@ -176,7 +176,7 @@ export default function Article1() {
 curl -v https://api.yoursite.com/users
 
 # Look for header:
-X-Request-ID: siro_abc123def456
+X-Siro-Trace-Id: siro_abc123def456
 
 # View full trace
 php siro log:trace siro_abc123def456`}
