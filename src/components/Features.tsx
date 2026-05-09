@@ -52,6 +52,12 @@ const features: FeatureCard[] = [
     description: 'Minimal dependencies. Runs on $2/month hosting. Readable architecture you can understand in one afternoon.',
     tag: 'ship',
   },
+  {
+    icon: '📊',
+    title: 'Built-in Benchmarking',
+    description: 'Run php siro benchmark to measure performance metrics. Compare endpoints, track regressions, optimize with data.',
+    tag: 'debug',
+  },
 ];
 
 const tagLabels: Record<string, string> = {
