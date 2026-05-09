@@ -10,7 +10,7 @@ interface Stat {
 const stats: Stat[] = [
   { value: '0', label: 'Dependencies' },
   { value: '<1ms', label: 'Cold Boot' },
-  { value: '907', label: 'Tests Passing' },
+  { value: '1204', label: 'Tests Passing' },
   { value: '~2MB', label: 'RAM per Request' },
 ];
 
