@@ -104,7 +104,7 @@ export default function Article1() {
           <FadeIn>
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                Debugging APIs in PHP doesn't have to be a nightmare. Whether you're dealing with a 
+                Debugging APIs in PHP doesn&apos;t have to be a nightmare. Whether you&apos;re dealing with a 
                 <strong className="text-white"> 500 Internal Server Error</strong> or an unexpected 
                 response payload, the right debugging workflow can save you hours of frustration.
               </p>
@@ -115,10 +115,10 @@ export default function Article1() {
                 instead of hours.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                In this complete guide, you'll learn how to debug PHP APIs in production using three 
+                In this complete guide, you&apos;ll learn how to debug PHP APIs in production using three 
                 powerful techniques: <strong className="text-white">request tracing</strong>, 
                 <strong className="text-white"> request replay</strong>, and 
-                <strong className="text-white"> CLI testing</strong>. By the end, you'll have a 
+                <strong className="text-white"> CLI testing</strong>. By the end, you&apos;ll have a 
                 battle-tested workflow for fixing API bugs fast.
               </p>
 
@@ -139,7 +139,7 @@ export default function Article1() {
                 1. Understand the Problem
               </h2>
               <p className="text-gray-400 leading-relaxed mb-4">
-                Before you can debug an API, you need to understand what's happening. Common PHP API 
+                Before you can debug an API, you need to understand what&apos;s happening. Common PHP API 
                 issues include:
               </p>
               <ul className="list-disc list-inside text-gray-400 space-y-2 mb-8 ml-4">
@@ -188,7 +188,7 @@ php siro log:trace siro_abc123def456`}
                 3. Request Replay: Reproduce Instantly
               </h2>
               <p className="text-gray-400 leading-relaxed mb-4">
-                Here's where it gets powerful. Instead of trying to manually reproduce the bug (which 
+                Here&apos;s where it gets powerful. Instead of trying to manually reproduce the bug (which 
                 often fails), you can <strong className="text-white">replay the exact request</strong> 
                 that caused the error.
               </p>
@@ -241,7 +241,7 @@ php siro api:test POST /api/users \
               </div>
 
               <p className="text-gray-400 leading-relaxed mb-8">
-                The best part? CLI testing includes automatic authentication, so you don't need to 
+                The best part? CLI testing includes automatic authentication, so you don&apos;t need to 
                 manually handle tokens or sessions.
               </p>
 
@@ -259,7 +259,7 @@ php siro api:test POST /api/users \
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
                   <h3 className="text-lg font-semibold text-white mb-2">✓ Log Before You Fix</h3>
                   <p className="text-gray-400 text-sm">
-                    Capture the error state before applying any changes. You'll thank yourself later.
+                    Capture the error state before applying any changes. You&apos;ll thank yourself later.
                   </p>
                 </div>
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
@@ -280,7 +280,7 @@ php siro api:test POST /api/users \
               <div className="p-8 rounded-xl border border-cyan-400/30 bg-cyan-500/5 mb-8">
                 <h2 className="text-2xl font-bold text-white mb-4">Conclusion</h2>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Debugging APIs in PHP doesn't have to be slow and painful. With the right tools—
+                  Debugging APIs in PHP doesn&apos;t have to be slow and painful. With the right tools—
                   <strong className="text-white"> request tracing</strong>, 
                   <strong className="text-white"> request replay</strong>, and 
                   <strong className="text-white"> CLI testing</strong>—you can go from bug to fix 
@@ -288,7 +288,7 @@ php siro api:test POST /api/users \
                 </p>
                 <p className="text-gray-400 leading-relaxed">
                   The key is having a systematic workflow that eliminates guesswork and gives you 
-                  exact reproduction every time. That's what makes the difference between junior and 
+                  exact reproduction every time. That&apos;s what makes the difference between junior and 
                   senior developers when debugging production issues.
                 </p>
               </div>
@@ -299,7 +299,7 @@ php siro api:test POST /api/users \
                   Ready to Debug Faster?
                 </h3>
                 <p className="text-gray-400 mb-6">
-                  Start using SiroPHP's debugging tools in your next project
+                  Start using SiroPHP&apos;s debugging tools in your next project
                 </p>
                 <Link
                   href="https://github.com/SiroSoft/SiroPHP"

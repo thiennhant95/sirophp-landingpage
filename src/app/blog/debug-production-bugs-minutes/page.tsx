@@ -101,13 +101,13 @@ export default function Article5() {
 
             {/* Introduction */}
             <p className="text-gray-400 leading-relaxed mb-6">
-              It's 2 AM. Your phone buzzes. A critical API endpoint is returning 500 errors in 
+              It&apos;s 2 AM. Your phone buzzes. A critical API endpoint is returning 500 errors in 
               production. Users are complaining. The error logs show nothing useful. You deploy a 
               debug build, wait for the bug to reappear, and spend the next 6 hours chasing ghosts.
             </p>
             <p className="text-gray-400 leading-relaxed mb-6">
               Sound familiar? This scenario plays out thousands of times every day across the 
-              industry. The root cause isn't bad code—it's <strong className="text-white">bad debugging tools</strong>.
+              industry. The root cause isn&apos;t bad code—it&apos;s <strong className="text-white">bad debugging tools</strong>.
             </p>
             <p className="text-gray-400 leading-relaxed mb-8">
               What if you could reproduce that exact production bug on your local machine in under 
@@ -159,7 +159,7 @@ export default function Article5() {
             </div>
 
             <p className="text-gray-400 leading-relaxed mb-6">
-              Without the exact context, you're debugging blind. You guess what might be wrong, 
+              Without the exact context, you&apos;re debugging blind. You guess what might be wrong, 
               add logging, redeploy, and hope the bug appears again. This cycle can take hours or 
               even days.
             </p>
@@ -169,15 +169,15 @@ export default function Article5() {
               2. Traditional Debugging Workflow (The Pain)
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Here's how most developers debug production API issues today:
+              Here&apos;s how most developers debug production API issues today:
             </p>
 
             <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-6 mb-8">
               <h3 className="text-xl font-semibold text-red-400 mb-4">❌ The Old Way</h3>
               <ol className="text-gray-400 space-y-3">
-                <li><strong className="text-white">1. Receive bug report</strong> - User says "API is broken"</li>
+                <li><strong className="text-white">1. Receive bug report</strong> - User says &quot;API is broken&quot;</li>
                 <li><strong className="text-white">2. Check logs</strong> - Generic error message, no context</li>
-                <li><strong className="text-white">3. Try to reproduce</strong> - Can't make it fail locally</li>
+                <li><strong className="text-white">3. Try to reproduce</strong> - Can&apos;t make it fail locally</li>
                 <li><strong className="text-white">4. Add debug logging</strong> - Deploy new version to production</li>
                 <li><strong className="text-white">5. Wait for bug</strong> - Could take minutes, hours, or days</li>
                 <li><strong className="text-white">6. Analyze new logs</strong> - Still missing information</li>
@@ -227,7 +227,7 @@ export default function Article5() {
               4. How Request Replay Works
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              The magic happens through automatic request capturing and trace ID generation. Here's 
+              The magic happens through automatic request capturing and trace ID generation. Here&apos;s 
               the complete workflow:
             </p>
 
@@ -329,7 +329,7 @@ curl -X GET 'http://localhost:8080/api/users/123' \
             <h3 className="text-2xl font-semibold text-white mb-3">The Scenario</h3>
             <p className="text-gray-400 leading-relaxed mb-4">
               A user reports that their profile page is showing a 500 error. The error only happens 
-              for this specific user, and you can't reproduce it with test accounts.
+              for this specific user, and you can&apos;t reproduce it with test accounts.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -448,7 +448,7 @@ php siro log:export \
             {/* Conclusion */}
             <h2 className="text-3xl font-bold text-white mb-4 mt-12">Conclusion</h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Production debugging doesn't have to be a nightmare. With request replay technology, 
+              Production debugging doesn&apos;t have to be a nightmare. With request replay technology, 
               you can eliminate the guesswork and fix bugs in minutes instead of hours.
             </p>
             <p className="text-gray-400 leading-relaxed mb-6">

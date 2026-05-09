@@ -99,7 +99,7 @@ export default function Article2() {
           <FadeIn>
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                Testing APIs shouldn't require switching between your editor, browser, and Postman. 
+                Testing APIs shouldn&apos;t require switching between your editor, browser, and Postman. 
                 With <strong className="text-white">CLI-based API testing</strong>, you can test, 
                 debug, and automate your PHP APIs without ever leaving your terminal.
               </p>
@@ -162,7 +162,7 @@ export default function Article2() {
                 2. Basic CLI API Testing
               </h2>
               <p className="text-gray-400 leading-relaxed mb-4">
-                Let's start with the basics. Here's how to test common API operations from your terminal:
+                Let&apos;s start with the basics. Here&apos;s how to test common API operations from your terminal:
               </p>
 
               <h3 className="text-2xl font-semibold text-white mb-3">GET Request</h3>
@@ -306,13 +306,13 @@ All tests passed! ✓`}
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
                   <h3 className="text-lg font-semibold text-white mb-2">✓ Use Descriptive Test Names</h3>
                   <p className="text-gray-400 text-sm">
-                    Name your tests clearly so you know what they're testing at a glance.
+                    Name your tests clearly so you know what they&apos;re testing at a glance.
                   </p>
                 </div>
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
                   <h3 className="text-lg font-semibold text-white mb-2">✓ Test Edge Cases</h3>
                   <p className="text-gray-400 text-sm">
-                    Don't just test happy paths. Test invalid data, missing fields, and error scenarios.
+                    Don&apos;t just test happy paths. Test invalid data, missing fields, and error scenarios.
                   </p>
                 </div>
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
@@ -336,7 +336,7 @@ All tests passed! ✓`}
                   switching, enables automation, and keeps your testing workflow fast and efficient.
                 </p>
                 <p className="text-gray-400 leading-relaxed">
-                  Whether you're testing a single endpoint or running a full test suite, the terminal 
+                  Whether you&apos;re testing a single endpoint or running a full test suite, the terminal 
                   gives you the power and flexibility to test APIs the way professional developers do.
                 </p>
               </div>

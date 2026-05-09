@@ -23,8 +23,8 @@ export default function NotFound() {
 
         {/* Description */}
         <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-          Oops! The page you're looking for doesn't exist or has been moved. 
-          But don't worry, you can still debug APIs instantly with SiroPHP.
+          Oops! The page you&apos;re looking for doesn&apos;t exist or has been moved. 
+          But don&apos;t worry, you can still debug APIs instantly with SiroPHP.
         </p>
 
         {/* CTA Buttons */}

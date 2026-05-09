@@ -134,7 +134,7 @@ export default function Article4() {
               1. Why Test APIs from CLI?
             </h2>
             <p className="text-gray-400 leading-relaxed mb-4">
-              Backend developers live in the terminal. It's where we feel most productive. CLI-based 
+              Backend developers live in the terminal. It&apos;s where we feel most productive. CLI-based 
               API testing respects this workflow by keeping everything in one place.
             </p>
             
@@ -150,7 +150,7 @@ export default function Article4() {
 
             <div className="p-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5 mb-8">
               <p className="text-cyan-300 text-sm">
-                💡 <strong>Pro Tip:</strong> If you're already comfortable with curl or httpie, 
+                💡 <strong>Pro Tip:</strong> If you&apos;re already comfortable with curl or httpie, 
                 CLI testing will feel natural. SiroPHP makes it even easier with auto-authentication 
                 and built-in helpers.
               </p>
@@ -162,7 +162,7 @@ export default function Article4() {
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
               Testing an API endpoint from the command line is straightforward. Here are the essential 
-              commands you'll use daily.
+              commands you&apos;ll use daily.
             </p>
 
             <h3 className="text-2xl font-semibold text-white mb-3">GET Requests</h3>
@@ -270,7 +270,7 @@ php siro api:test GET /admin/dashboard --as=moderator   # ✓ Access granted`}
             <div className="p-6 rounded-xl border border-purple-500/20 bg-purple-500/5 mb-8">
               <p className="text-purple-300 text-sm">
                 ⚡ <strong>Time Saved:</strong> Auto-authentication saves ~2-3 minutes per testing 
-                session. Over a week, that's 1-2 hours of productivity regained.
+                session. Over a week, that&apos;s 1-2 hours of productivity regained.
               </p>
             </div>
 
@@ -279,7 +279,7 @@ php siro api:test GET /admin/dashboard --as=moderator   # ✓ Access granted`}
               4. Request History & Reusability
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              CLI testing isn't just about running commands—it's about building a reusable testing 
+              CLI testing isn&apos;t just about running commands—it&apos;s about building a reusable testing 
               workflow. SiroPHP tracks your request history and lets you save frequently used commands.
             </p>
 
@@ -450,12 +450,12 @@ seq 1 100 | parallel -j 10 php siro api:test GET /api/users --as=admin`}
             {/* Conclusion */}
             <h2 className="text-3xl font-bold text-white mb-4 mt-12">Conclusion</h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              CLI-based API testing isn't just about avoiding GUI tools—it's about embracing a 
+              CLI-based API testing isn&apos;t just about avoiding GUI tools—it&apos;s about embracing a 
               workflow that aligns with how backend developers naturally work. By keeping everything 
               in the terminal, you reduce context switching, increase speed, and enable automation.
             </p>
             <p className="text-gray-400 leading-relaxed mb-6">
-              With SiroPHP's built-in CLI testing tools, you get:
+              With SiroPHP&apos;s built-in CLI testing tools, you get:
             </p>
             <ul className="list-disc list-inside text-gray-400 space-y-2 mb-8 ml-4">
               <li>Auto-authentication (no more manual token management)</li>

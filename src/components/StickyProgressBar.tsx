@@ -48,7 +48,6 @@ export default function StickyProgressBar() {
       heroObserver.disconnect()
       sectionObserver.disconnect()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (!visible) return null

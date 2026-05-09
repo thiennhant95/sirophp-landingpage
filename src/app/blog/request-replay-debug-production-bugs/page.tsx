@@ -99,8 +99,8 @@ export default function Article3() {
           <FadeIn>
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                The hardest part of debugging isn't fixing the bug—it's <strong className="text-white">reproducing it</strong>. 
-                You've been there: a user reports an error, but you can't make it happen again. The 
+                The hardest part of debugging isn&apos;t fixing the bug—it&apos;s <strong className="text-white">reproducing it</strong>. 
+                You&apos;ve been there: a user reports an error, but you can&apos;t make it happen again. The 
                 bug disappears like it never existed.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
@@ -145,12 +145,12 @@ export default function Article3() {
                 </div>
                 <div className="p-4 rounded-lg border border-white/10 bg-white/5">
                   <p className="text-gray-300">
-                    <strong className="text-white">Scenario C:</strong> Intermittent error that happens once per 100 requests → You can't reproduce it at all
+                    <strong className="text-white">Scenario C:</strong> Intermittent error that happens once per 100 requests → You can&apos;t reproduce it at all
                   </p>
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed mb-8">
-                The problem? You're missing critical information: exact payload, authentication state, 
+                The problem? You&apos;re missing critical information: exact payload, authentication state, 
                 environment variables, database state, and more.
               </p>
 
@@ -245,7 +245,7 @@ export default function Article3() {
                 4. The Replay Debugging Workflow
               </h2>
               <p className="text-gray-400 leading-relaxed mb-4">
-                Here's the complete workflow for debugging with request replay:
+                Here&apos;s the complete workflow for debugging with request replay:
               </p>
 
               <div className="p-6 rounded-xl border border-white/10 bg-black/50 mb-8">
@@ -298,7 +298,7 @@ php siro log:replay siro_xyz789
                   <h3 className="text-lg font-semibold text-white mb-3">Example 2: Intermittent 500 Error</h3>
                   <p className="text-gray-400 text-sm mb-3">
                     <strong className="text-gray-300">Problem:</strong> API returned 500 error once per 
-                    100 requests. Couldn't reproduce manually.
+                    100 requests. Couldn&apos;t reproduce manually.
                   </p>
                   <p className="text-gray-400 text-sm mb-3">
                     <strong className="text-gray-300">Replay revealed:</strong> Race condition in 
@@ -312,12 +312,12 @@ php siro log:replay siro_xyz789
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
                   <h3 className="text-lg font-semibold text-white mb-3">Example 3: Authentication Edge Case</h3>
                   <p className="text-gray-400 text-sm mb-3">
-                    <strong className="text-gray-300">Problem:</strong> Some users couldn't access 
+                    <strong className="text-gray-300">Problem:</strong> Some users couldn&apos;t access 
                     their own data, getting 403 errors.
                   </p>
                   <p className="text-gray-400 text-sm mb-3">
                     <strong className="text-gray-300">Replay revealed:</strong> Token had expired but 
-                    client was still sending it, and the error message wasn't clear.
+                    client was still sending it, and the error message wasn&apos;t clear.
                   </p>
                   <p className="text-cyan-400 text-sm">
                     ✓ Debug time: 10 minutes (vs hours of user interviews)
@@ -332,7 +332,7 @@ php siro log:replay siro_xyz789
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
                   <h3 className="text-lg font-semibold text-white mb-2">✓ Enable Replay for All API Endpoints</h3>
                   <p className="text-gray-400 text-sm">
-                    Don't selectively log. Capture everything—you never know which request will have a bug.
+                    Don&apos;t selectively log. Capture everything—you never know which request will have a bug.
                   </p>
                 </div>
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
@@ -350,7 +350,7 @@ php siro log:replay siro_xyz789
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
                   <h3 className="text-lg font-semibold text-white mb-2">✓ Use Replay for Regression Testing</h3>
                   <p className="text-gray-400 text-sm">
-                    After fixing, replay old requests to ensure your fix works and doesn't break other cases.
+                    After fixing, replay old requests to ensure your fix works and doesn&apos;t break other cases.
                   </p>
                 </div>
               </div>
@@ -363,9 +363,9 @@ php siro log:replay siro_xyz789
                   and fix it in minutes.
                 </p>
                 <p className="text-gray-400 leading-relaxed">
-                  This isn't just a productivity improvement—it's a fundamental shift in how you 
-                  approach debugging. From reactive guessing to proactive reproduction. From "I can't 
-                  reproduce it" to "Here's exactly what happened."
+                  This isn&apos;t just a productivity improvement—it&apos;s a fundamental shift in how you 
+                  approach debugging. From reactive guessing to proactive reproduction. From &quot;I can&apos;t 
+                  reproduce it&quot; to &quot;Here&apos;s exactly what happened.&quot;
                 </p>
               </div>
 

@@ -101,7 +101,7 @@ export default function Article6() {
 
             {/* Introduction */}
             <p className="text-gray-400 leading-relaxed mb-6">
-              How long does it take you to build a simple CRUD API? If you're like most developers, 
+              How long does it take you to build a simple CRUD API? If you&apos;re like most developers, 
               the answer is probably <strong className="text-white">half a day or more</strong>. You 
               spend hours writing boilerplate code: models, controllers, migrations, routes, 
               validation, tests...
@@ -112,7 +112,7 @@ export default function Article6() {
               structure, validation, and tests.
             </p>
             <p className="text-gray-400 leading-relaxed mb-8">
-              With <strong className="text-white">SiroPHP's intelligent scaffolding system</strong>, 
+              With <strong className="text-white">SiroPHP&apos;s intelligent scaffolding system</strong>, 
               you can. Let me show you how to go from zero to a complete API in under an hour.
             </p>
 
@@ -134,7 +134,7 @@ export default function Article6() {
               1. The Boilerplate Problem
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Every CRUD API follows the same pattern. For a simple "products" resource, you need:
+              Every CRUD API follows the same pattern. For a simple &quot;products&quot; resource, you need:
             </p>
             
             <div className="bg-white/5 rounded-xl p-6 mb-8 border border-white/10">
@@ -160,8 +160,8 @@ export default function Article6() {
             </div>
 
             <p className="text-gray-400 leading-relaxed mb-6">
-              This is wasted time. You're not solving unique problems—you're writing repetitive 
-              code that follows predictable patterns. There's a better way.
+              This is wasted time. You&apos;re not solving unique problems—you&apos;re writing repetitive 
+              code that follows predictable patterns. There&apos;s a better way.
             </p>
 
             {/* Section 2 */}
@@ -169,7 +169,7 @@ export default function Article6() {
               2. Quick Start: Install & Setup (5 minutes)
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Let's start from scratch and build a complete API project.
+              Let&apos;s start from scratch and build a complete API project.
             </p>
 
             <h3 className="text-2xl font-semibold text-white mb-3">Step 1: Install SiroPHP</h3>
@@ -223,7 +223,7 @@ php siro migrate`}
               3. One-Command CRUD Generation (30 seconds)
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Here's where the magic happens. Instead of manually creating files, use the 
+              Here&apos;s where the magic happens. Instead of manually creating files, use the 
               scaffolding command:
             </p>
 
@@ -244,7 +244,7 @@ Generated 5 files in 0.3 seconds! 🚀`}
             </div>
 
             <p className="text-gray-400 leading-relaxed mb-6">
-              That's it. In less than a second, you have a fully functional CRUD API. Let's see 
+              That&apos;s it. In less than a second, you have a fully functional CRUD API. Let&apos;s see 
               what was generated.
             </p>
 
@@ -456,7 +456,7 @@ $validated = $request->validate([
               6. Building a Complete Project in 1 Hour
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Let's build a complete e-commerce API with multiple resources. Here's the timeline:
+              Let&apos;s build a complete e-commerce API with multiple resources. Here&apos;s the timeline:
             </p>
 
             <div className="space-y-4 mb-8">
@@ -531,9 +531,9 @@ $validated = $request->validate([
             {/* Conclusion */}
             <h2 className="text-3xl font-bold text-white mb-4 mt-12">Conclusion</h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Building APIs shouldn't be about writing boilerplate code. It should be about solving 
-              real business problems. SiroPHP's scaffolding system eliminates the repetitive work, 
-              letting you focus on what matters: your application's unique features.
+              Building APIs shouldn&apos;t be about writing boilerplate code. It should be about solving 
+              real business problems. SiroPHP&apos;s scaffolding system eliminates the repetitive work, 
+              letting you focus on what matters: your application&apos;s unique features.
             </p>
             <p className="text-gray-400 leading-relaxed mb-6">
               With one command, you get:
