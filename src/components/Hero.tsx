@@ -12,6 +12,8 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '100ms' }}>
           <span className="text-cyan-400">⚡</span>
           <span className="text-gray-300 text-sm">Lightweight API Framework</span>
+          <span className="text-gray-600">|</span>
+          <span className="text-emerald-400 text-sm font-semibold">863 Tests</span>
         </div>
               
         {/* Main heading - H1 for SEO - CRITICAL: Must render immediately */}
