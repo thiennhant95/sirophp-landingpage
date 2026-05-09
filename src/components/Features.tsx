@@ -58,6 +58,12 @@ const features: FeatureCard[] = [
     description: 'Run php siro benchmark to measure performance metrics. Compare endpoints, track regressions, optimize with data.',
     tag: 'debug',
   },
+  {
+    icon: '🛡️',
+    title: 'Type-Safe',
+    description: 'PHPStan Level max, 0 errors. Every mixed type tracked. Catch bugs before runtime with strict static analysis.',
+    tag: 'ship',
+  },
 ];
 
 const tagLabels: Record<string, string> = {
