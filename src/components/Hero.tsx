@@ -13,7 +13,7 @@ export default function Hero() {
           <span className="text-cyan-400">⚡</span>
           <span className="text-gray-300 text-sm">Lightweight API Framework</span>
           <span className="text-gray-600">|</span>
-          <span className="text-emerald-400 text-sm font-semibold">863 Tests</span>
+          <span className="text-emerald-400 text-sm font-semibold">1277 Tests</span>
         </div>
               
         {/* Main heading - H1 for SEO - CRITICAL: Must render immediately */}
