@@ -111,7 +111,7 @@ export default function Home() {
         name: 'Is SiroPHP production ready?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. 642 tests with 100% pass rate, security audited (37 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, and log sanitization.',
+          text: 'Yes. 1,294 tests with 100% pass rate (868 core + 426 app), security audited (37 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, and log sanitization.',
         },
       },
     ],

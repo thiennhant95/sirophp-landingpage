@@ -3,7 +3,7 @@ import Link from 'next/link';
 const footerLinks = {
   Product: ['Documentation', 'Features', 'Changelog', 'Roadmap'],
   Resources: ['Docs', 'Blog', 'Tutorials', 'Examples', 'FAQ'],
-  Community: ['GitHub'],
+  Community: ['GitHub', 'Discord'],
   Legal: ['Privacy', 'Terms'],
 };
 
@@ -39,6 +39,7 @@ export default function Footer() {
                     : link === 'Privacy' ? '/privacy'
                     : link === 'Terms' ? '/terms'
                     : link === 'GitHub' ? 'https://github.com/SiroSoft/SiroPHP'
+                    : link === 'Discord' ? 'https://discord.gg/sirophp'
                     : link === 'Documentation' ? '/docs'
                     : link === 'Features' ? '/#features'
                     : link === 'Changelog' ? 'https://github.com/SiroSoft/SiroPHP/releases'
@@ -61,11 +62,28 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-white/10 text-center">
-          <p className="text-gray-500 text-sm mb-2">
+        <div className="pt-8 border-t border-white/10">
+          {/* Badges */}
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
+            <a 
+              href="https://packagist.org/packages/sirossoft/core" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-colors"
+            >
+              <span className="text-xs text-gray-400">Packagist</span>
+              <span className="text-xs font-semibold text-cyan-400">v1.0.0</span>
+            </a>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10">
+              <span className="text-xs text-gray-400">PHPStan</span>
+              <span className="text-xs font-semibold text-emerald-400">Level Max</span>
+            </div>
+          </div>
+          
+          <p className="text-gray-500 text-sm mb-2 text-center">
             Built for developers who debug real APIs.
           </p>
-          <p className="text-gray-600 text-xs">
+          <p className="text-gray-600 text-xs text-center">
             © 2026 SiroPHP. The fastest feedback loop for API developers.
           </p>
         </div>
