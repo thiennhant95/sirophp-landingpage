@@ -27,10 +27,19 @@ export default function Hero() {
         </p>
         
         {/* Quick Install Command */}
-        <div className="max-w-2xl mx-auto mb-6 p-4 rounded-lg border border-white/10 bg-black/30 opacity-0 animate-fade-in" style={{ animationDelay: '350ms' }}>
-          <code className="text-sm text-gray-300">
+        <div className="max-w-2xl mx-auto mb-6 p-4 rounded-lg border border-white/10 bg-black/30 opacity-0 animate-fade-in relative group" style={{ animationDelay: '350ms' }}>
+          <code className="text-sm text-gray-300 pr-12">
             <span className="text-cyan-400">composer create-project</span> sirosoft/api my-app
           </code>
+          <button
+            onClick={() => navigator.clipboard.writeText('composer create-project sirosoft/api my-app')}
+            className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 hover:border-cyan-400/30 transition-all opacity-0 group-hover:opacity-100"
+            title="Copy to clipboard"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400 hover:text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </button>
         </div>
         
         <p className="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in" style={{ animationDelay: '400ms' }}>
