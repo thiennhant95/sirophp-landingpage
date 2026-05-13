@@ -13,7 +13,7 @@ export default function Hero() {
           <span className="text-cyan-400">⚡</span>
           <span className="text-gray-300 text-sm">Lightweight API Framework</span>
           <span className="text-gray-600">|</span>
-          <span className="text-emerald-400 text-sm font-semibold">1294 Tests</span>
+          <span className="text-emerald-400 text-sm font-semibold">1436 Tests</span>
         </div>
               
         {/* Main heading - H1 for SEO - CRITICAL: Must render immediately */}
@@ -23,7 +23,7 @@ export default function Hero() {
         </h1>
               
         <p className="text-lg sm:text-xl text-gray-400 mb-4 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in" style={{ animationDelay: '300ms' }}>
-          Generate full CRUD APIs in seconds. Replay real production requests. Fix bugs directly from your terminal.
+          Generate full CRUD APIs in minutes. Replay real production requests. Fix bugs directly from your terminal.
         </p>
         
         {/* Quick Install Command */}
@@ -46,6 +46,19 @@ export default function Hero() {
           A lightweight PHP framework built for rapid API development and instant production debugging.
           Minimal dependencies. Full request tracing. php siro replay &lt;trace_id&gt;.
         </p>
+        
+        {/* Performance Badges */}
+        <div className="flex flex-wrap justify-center gap-3 mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '450ms' }}>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300">
+            🚀 500K Routes/sec
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300">
+            ⚡ O(1) Cached Route Matching
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300">
+            🔹 Negligible Middleware Overhead
+          </span>
+        </div>
         
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 opacity-0 animate-fade-in" style={{ animationDelay: '400ms' }}>

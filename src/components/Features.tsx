@@ -61,8 +61,26 @@ const features: FeatureCard[] = [
   {
     icon: '🛡️',
     title: 'Type-Safe',
-    description: 'PHPStan Level max, 0 errors. Every mixed type tracked. Catch bugs before runtime with strict static analysis.',
+    description: 'PHPStan Level max with baseline. Every mixed type tracked. Catch bugs before runtime with strict static analysis.',
     tag: 'ship',
+  },
+  {
+    icon: '🔒',
+    title: 'Brute Force Protection',
+    description: 'Auto account lockout after 5 failed attempts. 15-minute cooldown prevents credential stuffing attacks.',
+    tag: 'debug',
+  },
+  {
+    icon: '🛡️',
+    title: 'Penetration Tested',
+    description: '35+ attack vectors verified. SQL injection, XSS, CSRF, path traversal — all blocked by default.',
+    tag: 'ship',
+  },
+  {
+    icon: '📊',
+    title: 'Built-in Metrics',
+    description: 'Prometheus format metrics with batch persist. Monitor performance, track bottlenecks, optimize with data.',
+    tag: 'debug',
   },
 ];
 
