@@ -263,7 +263,7 @@ php siro api:test POST /api/users \
                   </p>
                 </div>
                 <div className="p-6 rounded-xl border border-white/10 bg-white/5">
-                  <h3 className="text-lg font-semibold text-white mb-2">✓ Replay, Don't Guess</h3>
+                  <h3 className="text-lg font-semibold text-white mb-2">✓ Replay, Don&apos;t Guess</h3>
                   <p className="text-gray-400 text-sm">
                     Never try to manually reproduce bugs. Use request replay for exact reproduction.
                   </p>
