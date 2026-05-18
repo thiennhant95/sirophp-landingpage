@@ -7,69 +7,32 @@ import WhySiro from '@/components/WhySiro';
 import CTA from '@/components/CTA';
 
 export const metadata: Metadata = {
-  title: 'Build APIs Fast. Debug Faster | SiroPHP — Lightweight PHP API Framework',
-  description: 'Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay and CLI testing. Minimal dependencies. <1ms cold boot.',
-  keywords: [
-    'php api framework',
-    'lightweight php framework',
-    'debug api php',
-    'fast php framework',
-    'cli api testing',
-    'trace api request php',
-    'replay api request php',
-    'php debugging tools',
-    'api testing php',
-    'crud scaffolding php',
-  ],
+  title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
+  description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, <1ms cold boot, ~2MB RAM per request.',
+  alternates: { canonical: 'https://sirophp.com' },
   openGraph: {
-    title: 'Build APIs Fast. Debug Faster | SiroPHP — Lightweight PHP API Framework',
-    description: 'Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay and CLI testing. Minimal dependencies. <1ms cold boot.',
+    title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
+    description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, <1ms cold boot, ~2MB RAM per request.',
     type: 'website',
     url: 'https://sirophp.com',
-    siteName: 'SiroPHP',
     images: [
       {
-        url: '/opengraph-image.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'SiroPHP — Build APIs Fast. Debug Faster.',
+        alt: 'SiroPHP - Build fast. Debug faster.',
       },
     ],
-    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Build APIs Fast. Debug Faster | SiroPHP — Lightweight PHP API Framework',
-    description: 'Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay and CLI testing. Minimal dependencies. <1ms cold boot.',
-    images: ['/opengraph-image.png'],
-  },
-  alternates: {
-    canonical: 'https://sirophp.com',
+    title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
+    description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay.',
+    images: ['/og-image.png'],
   },
 };
 
 export default function Home() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Siro PHP Framework',
-    applicationCategory: 'DeveloperApplication',
-    operatingSystem: 'Any',
-    description: 'Build APIs fast with CRUD scaffolding. Debug production bugs instantly with request replay. Zero dependencies. <1ms cold boot.',
-    url: 'https://sirophp.com',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '150',
-    },
-  };
-
-  // FAQ Structured Data
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -79,7 +42,7 @@ export default function Home() {
         name: 'What is SiroPHP?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SiroPHP is a lightweight PHP API framework built for rapid development and instant debugging. It features zero dependencies, CRUD scaffolding, full request tracing, and one-command production bug replay.',
+          text: 'SiroPHP is a lightweight PHP API framework built for rapid development and instant debugging. It features minimal dependencies, CRUD scaffolding, full request tracing, and one-command production bug replay.',
         },
       },
       {
@@ -87,7 +50,15 @@ export default function Home() {
         name: 'How is SiroPHP different from Laravel?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SiroPHP has zero dependencies vs Laravel\'s ~200 packages, <1ms cold boot vs 50-100ms, and ~2MB RAM vs 256MB. It focuses on pure API development with built-in debugging workflow.',
+          text: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, <1ms cold boot vs 50-100ms, and ~2MB RAM vs 256MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I install SiroPHP?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Run "composer create-project sirosoft/api my-app" for a full project skeleton, or "composer require sirosoft/core" to add the framework engine to an existing project.',
         },
       },
       {
@@ -95,7 +66,7 @@ export default function Home() {
         name: 'How do I build APIs fast with SiroPHP?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Use php siro make:crud to generate full CRUD endpoints with model, migration, controller, routes, and tests in 2 seconds. Then php siro serve to start the dev server.',
+          text: 'Use "php siro make:crud products" to generate full CRUD endpoints with model, migration, controller, routes, and tests in 2 seconds. Then run "php siro serve" to start the dev server.',
         },
       },
       {
@@ -111,7 +82,7 @@ export default function Home() {
         name: 'Is SiroPHP production ready?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. 1,436 tests with 100% pass rate (1005 core + 431 app), security audited (35+ attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, and log sanitization.',
+          text: 'Yes. 19,034 core tests + 462 skeleton tests with 100% pass rate, security audited (35+ attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, and log sanitization.',
         },
       },
     ],
@@ -119,14 +90,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Hero />
       <Stats />
       <Features />
