@@ -116,7 +116,7 @@ export default function Hero() {
 
         {/* Live Demo Animation */}
         <FadeIn delay={500}>
-          <div className="max-w-3xl mx-auto rounded-xl border border-white/10 bg-black/50 p-6 text-left">
+          <div className="max-w-3xl mx-auto rounded-xl border border-white/10 bg-black/50 p-6 text-left mb-16">
             <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/10">
               <div className="w-3 h-3 rounded-full bg-red-500" />
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
