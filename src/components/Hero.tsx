@@ -2,8 +2,29 @@
 
 import Link from 'next/link';
 import FadeIn from './FadeIn';
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
+  const [currentStep, setCurrentStep] = useState(0);
+  
+  const demoSteps = [
+    { cmd: 'php siro why', output: '🔍 Analyzing request patterns...', delay: 800 },
+    { cmd: '', output: '✓ Found 12 slow endpoints', delay: 600 },
+    { cmd: '', output: '✓ Detected 3 N+1 queries', delay: 600 },
+    { cmd: '', output: '✓ Identified memory leaks in /api/users', delay: 600 },
+    { cmd: 'php siro replay abc123', output: '▶ Replaying request #abc123...', delay: 800 },
+    { cmd: '', output: '✓ Exact reproduction achieved', delay: 400 },
+    { cmd: '', output: '✓ Bug fixed in 2 minutes!', delay: 400 },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentStep((prev) => (prev < demoSteps.length - 1 ? prev + 1 : 0));
+    }, 2000);
+    
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden" aria-label="Hero section">
       {/* Background gradient */}
@@ -19,9 +40,9 @@ export default function Hero() {
         </div>
               
         {/* Main heading - H1 for SEO - CRITICAL: Must render immediately */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight opacity-0 animate-fade-in" style={{ animationDelay: '200ms' }}>
-          Build APIs Fast.{' '}
-          <span className="gradient-text">Debug Faster.</span>
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight opacity-0 animate-fade-in" style={{ animationDelay: '200ms' }}>
+          Build APIs in Minutes.{' '}
+          <span className="gradient-text">Debug Instantly.</span>
         </h1>
               
         <p className="text-lg sm:text-xl text-gray-400 mb-4 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in" style={{ animationDelay: '300ms' }}>
@@ -51,15 +72,30 @@ export default function Hero() {
         
         {/* Performance Badges */}
         <div className="flex flex-wrap justify-center gap-3 mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '450ms' }}>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300">
+          <a 
+            href="https://github.com/SiroSoft/SiroPHP/blob/main/PERFORMANCE.md" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/30 text-xs text-gray-300 transition-colors cursor-pointer"
+          >
             🚀 500K Routes/sec
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300">
+          </a>
+          <a 
+            href="https://github.com/SiroSoft/SiroPHP/blob/main/PERFORMANCE.md" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/30 text-xs text-gray-300 transition-colors cursor-pointer"
+          >
             ⚡ O(1) Cached Route Matching
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300">
+          </a>
+          <a 
+            href="https://github.com/SiroSoft/SiroPHP/blob/main/PERFORMANCE.md" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/30 text-xs text-gray-300 transition-colors cursor-pointer"
+          >
             🔹 Negligible Middleware Overhead
-          </span>
+          </a>
         </div>
         
         {/* CTA Buttons */}
@@ -74,22 +110,36 @@ export default function Hero() {
             href="https://github.com/SiroSoft/SiroPHP"
             className="px-6 py-3 border border-white/20 hover:border-white/40 text-gray-300 hover:text-white font-semibold rounded-lg transition-all duration-200 text-sm w-full sm:w-auto"
           >
-            View on GitHub
+            View on GitHub →
           </Link>
         </div>
 
-        {/* CLI example - Lazy load with Intersection Observer */}
+        {/* Live Demo Animation */}
         <FadeIn delay={500}>
-          <div className="max-w-2xl mx-auto rounded-xl border border-white/10 bg-black/50 p-5">
-            <pre className="font-mono text-sm text-left text-gray-400 whitespace-pre">
-              <span className="text-gray-500"># Zero to API in 5 minutes</span>{'\n'}
-              <span className="text-cyan-400">composer</span> create-project sirosoft/api my-app{'\n'}
-              <span className="text-gray-500">cd</span> my-app{'\n'}
-              <span className="text-cyan-400">php siro</span> make:crud products{'\n'}
-              <span className="text-cyan-400">php siro</span> migrate{'\n'}
-              <span className="text-cyan-400">php siro</span> serve{'  '}
-              <span className="text-gray-500"># → localhost:8080</span>{'\n'}
-            </pre>
+          <div className="max-w-3xl mx-auto rounded-xl border border-white/10 bg-black/50 p-6 text-left">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/10">
+              <div className="w-3 h-3 rounded-full bg-red-500" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500" />
+              <div className="w-3 h-3 rounded-full bg-green-500" />
+              <span className="text-xs text-gray-500 ml-2">SiroPHP Terminal Demo</span>
+            </div>
+            <div className="font-mono text-sm space-y-2">
+              {demoSteps.slice(0, currentStep + 1).map((step, idx) => (
+                <div key={idx} className="animate-fade-in">
+                  {step.cmd && (
+                    <div className="text-cyan-400">
+                      $ {step.cmd}
+                    </div>
+                  )}
+                  {step.output && (
+                    <div className="text-gray-300 pl-4">
+                      {step.output}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <div className="animate-pulse text-cyan-400">$ <span className="inline-block w-2 h-4 bg-cyan-400 ml-1" /></div>
+            </div>
           </div>
         </FadeIn>
       </div>
