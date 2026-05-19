@@ -9,6 +9,9 @@ const navLinks = [
   { href: '/blog', label: 'Blog' },
   { href: '/tutorials', label: 'Tutorials' },
   { href: '/docs', label: 'Docs' },
+  { href: '/security', label: 'Security' },
+  { href: '/benchmarks', label: 'Benchmarks' },
+  { href: '/replay', label: 'Replay' },
 ]
 
 export default function Navbar() {

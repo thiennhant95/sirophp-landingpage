@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const footerLinks = {
   Product: ['Documentation', 'Features', 'Changelog', 'Roadmap'],
-  Resources: ['Docs', 'Blog', 'Tutorials', 'Examples', 'FAQ'],
+  Resources: ['Docs', 'Blog', 'Tutorials', 'Examples', 'FAQ', 'Security', 'Benchmarks', 'Replay'],
   Community: ['GitHub', 'Discord'],
   Legal: ['Privacy', 'Terms'],
 };
@@ -36,6 +36,9 @@ export default function Footer() {
                     : link === 'Tutorials' ? '/tutorials'
                     : link === 'Examples' ? '/examples'
                     : link === 'FAQ' ? '/faq'
+                    : link === 'Security' ? '/security'
+                    : link === 'Benchmarks' ? '/benchmarks'
+                    : link === 'Replay' ? '/replay'
                     : link === 'Privacy' ? '/privacy'
                     : link === 'Terms' ? '/terms'
                     : link === 'GitHub' ? 'https://github.com/SiroSoft/SiroPHP'
