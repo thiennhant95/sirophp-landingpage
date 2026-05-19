@@ -73,14 +73,12 @@ export function BenchmarksContent() {
                 { metric: 'Dependencies', siro: 'Minimal', laravel: 'Heavy', symfony: 'Moderate' },
                 { metric: 'PHPStan Level', siro: 'Max', laravel: 'Level 5', symfony: 'Level 6' },
               ].map((row, index) => (
-                <FadeIn key={index} delay={700 + index * 100}>
-                  <tr className="border-b border-gray-800/50 hover:bg-gray-900/30 transition-colors">
-                    <td className="py-4 px-6 font-medium">{row.metric}</td>
-                    <td className="py-4 px-6 text-center text-cyan-400 font-semibold">{row.siro}</td>
-                    <td className="py-4 px-6 text-center text-gray-400">{row.laravel}</td>
-                    <td className="py-4 px-6 text-center text-gray-400">{row.symfony}</td>
-                  </tr>
-                </FadeIn>
+                <tr key={index} className="border-b border-gray-800/50 hover:bg-gray-900/30 transition-colors">
+                  <td className="py-4 px-6 font-medium">{row.metric}</td>
+                  <td className="py-4 px-6 text-center text-cyan-400 font-semibold">{row.siro}</td>
+                  <td className="py-4 px-6 text-center text-gray-400">{row.laravel}</td>
+                  <td className="py-4 px-6 text-center text-gray-400">{row.symfony}</td>
+                </tr>
               ))}
             </tbody>
           </table>
