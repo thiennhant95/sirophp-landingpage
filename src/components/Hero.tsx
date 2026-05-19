@@ -8,13 +8,13 @@ export default function Hero() {
   const [currentStep, setCurrentStep] = useState(0);
   
   const demoSteps = [
-    { cmd: 'php siro why', output: '🔍 Analyzing request patterns...', delay: 800 },
-    { cmd: '', output: '✓ Found 12 slow endpoints', delay: 600 },
-    { cmd: '', output: '✓ Detected 3 N+1 queries', delay: 600 },
-    { cmd: '', output: '✓ Identified memory leaks in /api/users', delay: 600 },
-    { cmd: 'php siro replay abc123', output: '▶ Replaying request #abc123...', delay: 800 },
-    { cmd: '', output: '✓ Exact reproduction achieved', delay: 400 },
-    { cmd: '', output: '✓ Bug fixed in 2 minutes!', delay: 400 },
+    { cmd: '> php siro why', output: '🤖 AI analyzing your codebase...', delay: 800 },
+    { cmd: '', output: '✓ Detected performance bottlenecks in 3 endpoints', delay: 600 },
+    { cmd: '', output: '✓ Found N+1 query pattern in /api/users', delay: 600 },
+    { cmd: '> php siro replay abc123 --diff', output: '▶ Comparing with baseline...', delay: 800 },
+    { cmd: '', output: '✓ Response time: 245ms → 89ms (-64%)', delay: 400 },
+    { cmd: '', output: '✓ Memory usage: 12MB → 4MB (-67%)', delay: 400 },
+    { cmd: '> php siro replay abc123 --edit', output: '✏️ Opening in default editor...', delay: 600 },
   ];
 
   useEffect(() => {
