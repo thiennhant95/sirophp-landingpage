@@ -10,7 +10,7 @@ interface Stat {
 const stats: Stat[] = [
   { value: 'Minimal', label: 'Dependencies' },
   { value: '<1ms', label: 'Cold Boot' },
-  { value: '19034', label: 'Tests Passing' },
+  { value: '19496', label: 'Tests Passing' },
   { value: '~2MB', label: 'RAM per Request' },
   { value: 'Max', label: 'PHPStan Level' },
 ];

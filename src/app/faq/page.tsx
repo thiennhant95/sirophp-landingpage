@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: 'Is SiroPHP production ready?',
-    a: 'Yes. 19,034 core tests + 462 skeleton tests with 100% pass rate, security audited (35+ attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, and log sanitization.',
+    a: 'Yes. 19,496 tests with 100% pass rate, security audited (42 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, env 5-tier chain, FrankenPHP support, and log sanitization.',
   },
   {
     q: 'What databases does SiroPHP support?',
@@ -62,6 +62,14 @@ const faqs = [
   {
     q: 'Is SiroPHP suitable for serverless deployment?',
     a: 'Yes. With <1ms cold boot and ~2MB memory usage, SiroPHP is ideal for serverless platforms like AWS Lambda, Vercel, and Laravel Vapor.',
+  },
+  {
+    q: 'What is .env.local and how does env priority work?',
+    a: 'SiroPHP uses a 5-tier environment priority chain: .env.local (highest) → .env.siro → .env.{environment} → .env → defaults. This allows safe local overrides without affecting team configs or production.',
+  },
+  {
+    q: 'Does SiroPHP support FrankenPHP?',
+    a: 'Yes. SiroPHP includes official Docker images with FrankenPHP for production deployment. FrankenPHP provides better performance than traditional PHP-FPM with automatic HTTPS, early hints, and real-time capabilities.',
   },
 ];
 

@@ -73,7 +73,7 @@ const features: FeatureCard[] = [
   {
     icon: '🛡️',
     title: 'Penetration Tested',
-    description: '35+ attack vectors verified. SQL injection, XSS, CSRF, path traversal — all blocked by default.',
+    description: '42 attack vectors verified. SQL injection, XSS, CSRF, path traversal — all blocked by default.',
     tag: 'ship',
   },
   {
