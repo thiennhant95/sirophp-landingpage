@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Navbar } from '../components/Navbar';
-import { Footer } from '../components/Footer';
-import { FadeIn } from '../components/FadeIn';
 import { Metadata } from 'next';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import FadeIn from '@/components/FadeIn';
 
 export const metadata: Metadata = {
   title: 'Request Replay - SiroPHP | Debug Production Bugs',
