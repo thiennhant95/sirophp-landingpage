@@ -82,6 +82,12 @@ const features: FeatureCard[] = [
     description: 'Prometheus format metrics with batch persist. Monitor performance, track bottlenecks, optimize with data.',
     tag: 'debug',
   },
+  {
+    icon: '⌨️',
+    title: 'Tab Completion & IDE Helper',
+    description: 'Bash/Zsh tab completion for all CLI commands. PHPStorm helper for autocomplete and inline documentation.',
+    tag: 'build',
+  },
 ];
 
 const tagLabels: Record<string, string> = {
