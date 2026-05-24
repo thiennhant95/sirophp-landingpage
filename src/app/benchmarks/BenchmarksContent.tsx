@@ -59,23 +59,25 @@ export function BenchmarksContent() {
             <thead>
               <tr className="border-b border-gray-800">
                 <th className="text-left py-4 px-6 text-gray-400 font-medium">Metric</th>
-                <th className="text-center py-4 px-6 text-cyan-400 font-bold">SiroPHP v0.29.0+</th>
+                <th className="text-center py-4 px-6 text-cyan-400 font-bold">SiroPHP v0.28.0</th>
+                <th className="text-center py-4 px-6 text-purple-400 font-bold">SiroPHP v0.29.5</th>
                 <th className="text-center py-4 px-6 text-gray-400">Laravel</th>
                 <th className="text-center py-4 px-6 text-gray-400">Symfony</th>
               </tr>
             </thead>
             <tbody>
               {[
-                { metric: 'Boot Time', siro: '<1ms', laravel: '~50ms', symfony: '~100ms' },
-                { metric: 'Memory/Request', siro: '~2MB', laravel: '~20MB', symfony: '~25MB' },
-                { metric: 'Routing Speed', siro: '500K routes/s', laravel: '~100K routes/s', symfony: '~80K routes/s' },
-                { metric: 'Test Count', siro: '19,496', laravel: '~8,000', symfony: '~12,000' },
-                { metric: 'Dependencies', siro: 'Minimal', laravel: 'Heavy', symfony: 'Moderate' },
-                { metric: 'PHPStan Level', siro: 'Max', laravel: 'Level 5', symfony: 'Level 6' },
+                { metric: 'Boot Time', siroOld: '<1ms', siro: '<1ms (~0.87ms OPcache)', laravel: '~50ms', symfony: '~100ms' },
+                { metric: 'Memory/Request', siroOld: '~2MB', siro: '~2MB (+16KB framework)', laravel: '~20MB', symfony: '~25MB' },
+                { metric: 'Routing Speed', siroOld: '500K routes/s', siro: '500K+ routes/s (peak 893K grouped)', laravel: '~100K routes/s', symfony: '~80K routes/s' },
+                { metric: 'Test Count', siroOld: '19,496', siro: '19,496', laravel: '~8,000', symfony: '~12,000' },
+                { metric: 'Dependencies', siroOld: 'Minimal', siro: 'Minimal (3 ext, 0 runtime)', laravel: 'Heavy', symfony: 'Moderate' },
+                { metric: 'PHPStan Level', siroOld: 'Max', siro: 'Max', laravel: 'Level 5', symfony: 'Level 6' },
               ].map((row, index) => (
                 <tr key={index} className="border-b border-gray-800/50 hover:bg-gray-900/30 transition-colors">
                   <td className="py-4 px-6 font-medium">{row.metric}</td>
-                  <td className="py-4 px-6 text-center text-cyan-400 font-semibold">{row.siro}</td>
+                  <td className="py-4 px-6 text-center text-cyan-400 font-semibold">{row.siroOld}</td>
+                  <td className="py-4 px-6 text-center text-purple-400 font-semibold">{row.siro}</td>
                   <td className="py-4 px-6 text-center text-gray-400">{row.laravel}</td>
                   <td className="py-4 px-6 text-center text-gray-400">{row.symfony}</td>
                 </tr>
