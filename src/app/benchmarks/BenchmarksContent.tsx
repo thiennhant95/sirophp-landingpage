@@ -59,7 +59,7 @@ export function BenchmarksContent() {
             <thead>
               <tr className="border-b border-gray-800">
                 <th className="text-left py-4 px-6 text-gray-400 font-medium">Metric</th>
-                <th className="text-center py-4 px-6 text-cyan-400 font-bold">SiroPHP v0.28.0</th>
+                <th className="text-center py-4 px-6 text-cyan-400 font-bold">SiroPHP v0.29.0+</th>
                 <th className="text-center py-4 px-6 text-gray-400">Laravel</th>
                 <th className="text-center py-4 px-6 text-gray-400">Symfony</th>
               </tr>

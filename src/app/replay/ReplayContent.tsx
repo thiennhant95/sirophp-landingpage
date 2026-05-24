@@ -117,6 +117,16 @@ export function ReplayContent() {
         </div>
       </section>
 
+      <FadeIn delay={1200}>
+        <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+          <div className="flex items-start justify-between mb-3">
+            <code className="text-cyan-400 font-mono text-lg">php siro replay &lt;trace_id&gt; --test</code>
+            <span className="text-xs font-semibold text-pink-400 bg-pink-400/10 px-3 py-1 rounded-full">generate</span>
+          </div>
+          <p className="text-gray-400 text-sm">Auto-generate a PHPUnit regression test from the trace for CI pipelines</p>
+        </div>
+      </FadeIn>
+      
       {/* Use Cases */}
       <section className="mb-20">
         <FadeIn delay={1200}>

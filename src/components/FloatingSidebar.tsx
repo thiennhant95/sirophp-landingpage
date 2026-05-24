@@ -10,7 +10,11 @@ const sidebarSections = [
   { num: '05', id: 'production-safety', title: 'Production' },
   { num: '06', id: 'openapi', title: 'OpenAPI' },
   { num: '07', id: 'deploy', title: 'Deploy' },
-  { num: '08', id: 'real-examples', title: 'Examples' },
+  { num: '08', id: 'log-management', title: 'Log Mgmt' },
+  { num: '09', id: 'queue-system', title: 'Queue' },
+  { num: '10', id: 'environment', title: 'Env & Maint' },
+  { num: '11', id: 'advanced-cli', title: 'Advanced CLI' },
+  { num: '12', id: 'regression-testing', title: 'Regression' },
 ]
 
 export default function FloatingSidebar() {

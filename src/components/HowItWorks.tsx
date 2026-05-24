@@ -13,48 +13,53 @@ const steps: Step[] = [
   {
     number: 1,
     icon: '⚡',
-    title: 'Scaffold CRUD',
+    title: 'Build & Ship',
     description: 'php siro make:crud products',
   },
   {
     number: 2,
-    icon: '🔥',
-    title: 'Test & Ship',
-    description: 'php siro api:test GET /products',
+    icon: '🔍',
+    title: 'Why',
+    description: 'php siro api:why GET /products',
   },
   {
     number: 3,
-    icon: '🐞',
-    title: 'Bug Reported',
-    description: 'Client sends trace ID from header',
+    icon: '🔄',
+    title: 'Replay',
+    description: 'php siro replay <id> --test',
   },
   {
     number: 4,
-    icon: '🔄',
-    title: 'Replay & Fix',
-    description: 'php siro replay <id> && php siro fix',
+    icon: '✏️',
+    title: 'Fix & Test',
+    description: 'make:test --from-trace=<id>',
   },
   {
     number: 5,
-    icon: '✅',
-    title: 'Verify',
-    description: 'php siro replay --diff',
+    icon: '📊',
+    title: 'Regression',
+    description: 'php siro test:regression',
   },
 ];
 
 const cliExample = `# Build — full CRUD in 2 seconds
 php siro make:crud products
 
-# Debug — replay any production request
-php siro replay a1b2c3d4
+# Why — diagnose root cause
+php siro api:why GET /api/products
+php siro db:why abc123 --slow
+
+# Replay — reproduce with test generation
+php siro replay a1b2c3d4 --test
 
 # Fix with watch mode — auto re-test on save
 php siro fix
+php siro make:test --from-trace=a1b2c3d4
 
-# Verify — diff before/after fix
-php siro replay --diff
+# Regression — verify no regressions
+php siro test:regression --limit=50
 
-✔ Status: 200 OK — 2 SQL queries — 45ms`;
+✔ Status: 200 OK — 2 SQL queries — 45ms ✔ All regression tests pass`;
 
 export default function HowItWorks() {
   return (
@@ -62,7 +67,7 @@ export default function HowItWorks() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Build → Debug → Fix → Verify
+            Build → Ship → Why → Replay → Fix → Test → Regression
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             One CLI workflow from scaffolding to production debugging
@@ -70,7 +75,7 @@ export default function HowItWorks() {
         </div>
         
         {/* Steps */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
           {steps.map((step, index) => (
             <FadeIn key={step.number} delay={index * 80}>
               <div

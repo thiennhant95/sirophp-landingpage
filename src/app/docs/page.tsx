@@ -57,10 +57,10 @@ export default function DocsPage() {
             <FadeIn delay={100}>
               <div className="flex flex-wrap items-center gap-2 text-sm p-4 rounded-xl border border-white/10 bg-white/5 mb-16">
                 <span className="text-cyan-400 font-semibold">Flow:</span>
-                {['Start', 'Create API', 'Test', 'Debug', 'Replay', 'Deploy'].map((step, i) => (
+                {['Start', 'Create API', 'Test', 'Why', 'Replay', 'Fix & Test', 'Regression', 'Deploy'].map((step, i) => (
                   <span key={step} className="flex items-center gap-2">
                     <span className="text-white">{step}</span>
-                    {i < 5 && <span className="text-gray-600">→</span>}
+                    {i < 7 && <span className="text-gray-600">→</span>}
                   </span>
                 ))}
               </div>

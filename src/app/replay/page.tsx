@@ -5,10 +5,10 @@ import { ReplayContent } from './ReplayContent';
 
 export const metadata: Metadata = {
   title: 'Request Replay - SiroPHP | Debug Production Bugs',
-  description: 'Capture, replay, and fix production bugs with confidence. CLI commands: --diff, --edit, --set, --dry-run for safe debugging.',
+  description: 'Capture, replay, and fix production bugs with confidence. CLI commands: --diff, --edit, --set, --test, --dry-run for safe debugging and regression test generation.',
   openGraph: {
     title: 'SiroPHP Request Replay - Debug Production Bugs',
-    description: 'Debug production issues without affecting live traffic. Replay requests with --diff comparison and --edit workflow.',
+    description: 'Debug production issues without affecting live traffic. Replay requests with --diff comparison, --edit workflow, and --test regression generation.',
     url: 'https://sirophp.com/replay',
     siteName: 'SiroPHP',
     type: 'website',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'SiroPHP Request Replay - Debug Production Bugs',
-    description: 'Capture failed requests, replay locally, compare performance. The smart way to debug PHP applications.',
+    description: 'Capture failed requests, replay locally, compare performance, and auto-generate tests. The smart way to debug PHP applications.',
   },
 };
 

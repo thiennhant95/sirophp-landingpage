@@ -71,6 +71,14 @@ const faqs = [
     q: 'Does SiroPHP support FrankenPHP?',
     a: 'Yes. SiroPHP includes official Docker images with FrankenPHP for production deployment. FrankenPHP provides better performance than traditional PHP-FPM with automatic HTTPS, early hints, and real-time capabilities.',
   },
+  {
+    q: 'How does regression testing work with SiroPHP?',
+    a: 'Run "php siro test:regression --limit=50" to replay all recorded traces and automatically detect changes in status codes, response structure, or success rates. Use --fail to exit non-zero on any regression (CI-friendly). This ensures your fix doesn&#39;t break existing behavior.',
+  },
+  {
+    q: 'Can I create tests from real production bugs?',
+    a: 'Yes. After replaying a bug with "php siro replay <trace_id> --test", SiroPHP auto-generates a PHPUnit test file from the actual production trace. This creates a permanent regression test for that bug — so it never comes back. Run "php siro make:test --from-trace=<id>" to do this from any trace.',
+  },
 ];
 
 export default function FAQPage() {
