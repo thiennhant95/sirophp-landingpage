@@ -77,7 +77,7 @@ export function ReplayContent() {
                 <code className="text-cyan-400 font-mono text-lg">php siro replay &lt;trace_id&gt; --diff</code>
                 <span className="text-xs font-semibold text-purple-400 bg-purple-400/10 px-3 py-1 rounded-full">compare</span>
               </div>
-              <p className="text-gray-400 text-sm">So sánh before/after response — response time, memory, status code</p>
+              <p className="text-gray-400 text-sm">Compare before/after response — response time, memory, status code</p>
               <div className="mt-3 bg-black/50 rounded p-3 font-mono text-xs text-gray-300">
                 <div>✓ Response time: 245ms → 89ms (-64%)</div>
                 <div>✓ Memory usage: 12MB → 4MB (-67%)</div>
@@ -131,7 +131,7 @@ export function ReplayContent() {
                 <code className="text-cyan-400 font-mono text-lg">php siro log:replay &lt;trace_id&gt; --force</code>
                 <span className="text-xs font-semibold text-red-400 bg-red-400/10 px-3 py-1 rounded-full">execute</span>
               </div>
-              <p className="text-gray-400 text-sm">Execute thật request — cho phép POST/PUT/DELETE trong production</p>
+              <p className="text-gray-400 text-sm">Execute the actual request — allows POST/PUT/DELETE in production</p>
             </div>
           </FadeIn>
 
@@ -141,7 +141,7 @@ export function ReplayContent() {
                 <code className="text-cyan-400 font-mono text-lg">php siro log:replay &lt;trace_id&gt; --safe</code>
                 <span className="text-xs font-semibold text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">safe</span>
               </div>
-              <p className="text-gray-400 text-sm">Safe mode (mặc định) — chỉ GET request, không thay đổi dữ liệu</p>
+              <p className="text-gray-400 text-sm">Safe mode (default) — GET-only requests, no data mutation</p>
             </div>
           </FadeIn>
 
@@ -151,7 +151,7 @@ export function ReplayContent() {
                 <code className="text-cyan-400 font-mono text-lg">php siro log:replay &lt;trace_id&gt; --format=curl</code>
                 <span className="text-xs font-semibold text-cyan-400 bg-cyan-400/10 px-3 py-1 rounded-full">export</span>
               </div>
-              <p className="text-gray-400 text-sm">Output dạng curl command — copy-paste để chạy ngoài terminal</p>
+              <p className="text-gray-400 text-sm">Output as a curl command — copy-paste to run outside the terminal</p>
             </div>
           </FadeIn>
 
@@ -161,7 +161,7 @@ export function ReplayContent() {
                 <code className="text-cyan-400 font-mono text-lg">php siro log:replay &lt;trace_id&gt; --format=httpie</code>
                 <span className="text-xs font-semibold text-cyan-400 bg-cyan-400/10 px-3 py-1 rounded-full">export</span>
               </div>
-              <p className="text-gray-400 text-sm">Output dạng httpie command — tương thích với HTTPie CLI</p>
+              <p className="text-gray-400 text-sm">Output as an HTTPie command — compatible with HTTPie CLI</p>
             </div>
           </FadeIn>
 
@@ -171,7 +171,7 @@ export function ReplayContent() {
                 <code className="text-cyan-400 font-mono text-lg">php siro log:replay &lt;trace_id&gt; --seed</code>
                 <span className="text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full">seed</span>
               </div>
-              <p className="text-gray-400 text-sm">Seed database từ request data — tái tạo state cần thiết trước khi replay</p>
+              <p className="text-gray-400 text-sm">Seed the database from request data — recreate required state before replaying</p>
             </div>
           </FadeIn>
 
@@ -181,7 +181,7 @@ export function ReplayContent() {
                 <code className="text-cyan-400 font-mono text-lg">php siro fix [trace_id]</code>
                 <span className="text-xs font-semibold text-green-400 bg-green-400/10 px-3 py-1 rounded-full">workflow</span>
               </div>
-              <p className="text-gray-400 text-sm">Watch mode — auto re-test khi save file. Truyền trace_id để fix + replay cùng lúc</p>
+              <p className="text-gray-400 text-sm">Watch mode — auto re-test on file save. Pass a trace_id to fix and replay in one go</p>
             </div>
           </FadeIn>
         </div>
