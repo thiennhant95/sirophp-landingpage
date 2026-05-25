@@ -11,7 +11,7 @@ const stats: Stat[] = [
   { value: 'Minimal', label: 'Dependencies' },
   { value: '~3ms*', label: 'Cold Boot (Win)' },
   { value: '19496', label: 'Tests Passing' },
-  { value: '~30MB', label: 'RAM per Request' },
+  { value: '~4MB+', label: 'Baseline RAM' },
   { value: 'Max', label: 'PHPStan Level' },
 ];
 

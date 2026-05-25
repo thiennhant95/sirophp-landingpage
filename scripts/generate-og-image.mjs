@@ -50,7 +50,7 @@ const svg = `
   </text>
 
   <text x="600" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#6b7280">
-    Zero Dependencies • &lt;1ms Cold Boot • ~2MB RAM
+    Zero Dependencies • &lt;1ms Cold Boot • ~4MB+ RAM
   </text>
 </svg>
 `

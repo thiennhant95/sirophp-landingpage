@@ -33,8 +33,8 @@ export function BenchmarksContent() {
           <FadeIn delay={400}>
             <div className="bg-gradient-to-br from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
               <div className="text-5xl font-bold text-purple-400 mb-2">~30MB</div>
-              <div className="text-sm text-gray-400 mb-2">RAM per Request (peak)</div>
-              <div className="text-xs text-gray-500">PHP baseline ~2MB</div>
+              <div className="text-sm text-gray-400 mb-2">Peak Memory (benchmark suite)</div>
+              <div className="text-xs text-gray-500">~4MB+ baseline per request (PHP ~2MB)</div>
             </div>
           </FadeIn>
 
@@ -68,7 +68,7 @@ export function BenchmarksContent() {
             <tbody>
               {[
                 { metric: 'Boot Time', siroOld: '~3ms (Win)', siro: '~0.5ms (Linux+OPcache) / ~3ms (Win)', laravel: '~60-101ms', symfony: '~90ms' },
-                { metric: 'Memory/Request', siroOld: '~30MB', siro: '~30MB (PHP baseline ~2MB)', laravel: '~84MB', symfony: '~55MB' },
+                { metric: 'Memory/Request', siroOld: '~30MB', siro: '~30MB peak (~4MB+ baseline)', laravel: '~84MB', symfony: '~55MB' },
                 { metric: 'Routing Speed', siroOld: '~360K/s', siro: '~360K routes/s (static dispatch)', laravel: '~20K routes/s', symfony: '~12K routes/s' },
                 { metric: 'Test Count', siroOld: '19,496', siro: '19,496', laravel: '~8,000', symfony: '~12,000' },
                 { metric: 'Dependencies', siroOld: 'Minimal', siro: 'Minimal (3 ext, 0 runtime)', laravel: 'Heavy', symfony: 'Moderate' },
