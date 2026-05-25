@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import { SecurityContent } from './SecurityContent';
 
 export const metadata: Metadata = {
-  title: 'Security - SiroPHP | Enterprise-Grade PHP Framework',
-  description: 'Enterprise-grade security with 42 attack vectors tested, zero vulnerabilities. JWT auth, rate limiting, CSRF protection built-in.',
+  title: 'Security - SiroPHP | Security-Hardened PHP Framework',
+  description: 'Security-hardened by default with 42 attack vectors tested, zero vulnerabilities. JWT auth, rate limiting, CSRF protection built-in.',
   openGraph: {
     title: 'SiroPHP Security - Zero Vulnerabilities Framework',
     description: '42 attack vectors verified. SQL injection, XSS, CSRF all blocked by default. Production-ready security.',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'SiroPHP Security - Zero Vulnerabilities Framework',
-    description: '42 attack vectors verified. Zero vulnerabilities found. Enterprise-grade security for PHP.',
+    description: '42 attack vectors verified. Zero vulnerabilities found. Security-hardened by default for PHP.',
   },
 };
 

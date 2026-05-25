@@ -41,7 +41,7 @@ export default function Image() {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <span style={{ fontSize: '22px', color: '#9ca3af' }}>Lightweight PHP API Framework</span>
         <span style={{ fontSize: '16px', color: '#6b7280', marginTop: '8px' }}>
-          Zero Dependencies • &lt;1ms Cold Boot • ~2MB RAM
+          Zero Dependencies • ~0.5ms Boot (Linux) • ~4MB+ RAM
         </span>
       </div>
     </div>,

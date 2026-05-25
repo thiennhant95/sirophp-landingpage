@@ -5,10 +5,10 @@ import { BenchmarksContent } from './BenchmarksContent';
 
 export const metadata: Metadata = {
   title: 'Benchmarks - SiroPHP | Performance Comparison',
-  description: 'Blazing fast performance: <1ms cold boot, ~2MB RAM per request, 500K+ routes/sec. Compare with Laravel and Symfony.',
+  description: 'Blazing fast performance: ~3ms cold boot (Win) / ~0.5ms (Linux), ~30MB RAM per request (peak), ~360K routes/sec. Compare with Laravel and Symfony.',
   openGraph: {
     title: 'SiroPHP Benchmarks - Fastest PHP Framework',
-    description: '<1ms boot time, minimal memory usage. See how SiroPHP outperforms Laravel and Symfony in performance tests.',
+    description: '~3ms cold boot (Win) / ~0.5ms (Linux), minimal memory usage. See how SiroPHP compares with Laravel and Symfony.',
     url: 'https://sirophp.com/benchmarks',
     siteName: 'SiroPHP',
     type: 'website',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'SiroPHP Benchmarks - Fastest PHP Framework',
-    description: '<1ms cold boot, ~2MB RAM. The fastest PHP framework for production.',
+    description: '~3ms cold boot (Win) / ~0.5ms (Linux), ~30MB RAM. PHP framework performance benchmarks.',
   },
 };
 

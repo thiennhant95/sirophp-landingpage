@@ -8,11 +8,11 @@ import CTA from '@/components/CTA';
 
 export const metadata: Metadata = {
   title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
-  description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, <1ms cold boot, ~2MB RAM per request.',
+    description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, ~0.5ms cold boot (Linux+OPcache) / ~3ms (Windows), ~4MB+ RAM per request.',
   alternates: { canonical: 'https://sirophp.com' },
   openGraph: {
     title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
-    description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, <1ms cold boot, ~2MB RAM per request.',
+  description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, ~0.5ms cold boot (Linux+OPcache) / ~3ms (Windows), ~4MB+ RAM per request.',
     type: 'website',
     url: 'https://sirophp.com',
     images: [
@@ -50,7 +50,7 @@ export default function Home() {
         name: 'How is SiroPHP different from Laravel?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, <1ms cold boot vs 50-100ms, and ~2MB RAM vs 256MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
+          text: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, ~0.5ms cold boot (Linux) vs 60-101ms, and ~4MB+ RAM vs ~84MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
         },
       },
       {

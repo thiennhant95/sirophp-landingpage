@@ -97,9 +97,9 @@ const featureGroups = [
     title: 'Performance',
     color: 'teal',
     items: [
-      '<1ms cold boot — no warmup needed',
-      '~2MB RAM per request — runs on $2/month hosting',
-      '500K+ routes/sec — O(1) cached route matching',
+      '~0.5ms cold boot (Linux+OPcache) / ~3ms (Windows)',
+      '~4MB+ RAM per request — framework ~30MB peak, PHP baseline ~2MB',
+      '~360K routes/sec — O(1) cached route matching',
       'Minimal dependencies — no supply chain risk',
       'FrankenPHP support — production Docker images included',
     ],

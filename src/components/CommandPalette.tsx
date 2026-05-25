@@ -10,7 +10,7 @@ interface SearchItem {
 }
 
 const searchableSections: SearchItem[] = [
-  { id: 'quick-start', title: 'Quick Start', desc: 'From zero to running in 2 commands.', commands: ['composer create-project sirosoft/api my-app', 'cd my-app && php siro key:generate', 'php siro start'] },
+  { id: 'quick-start', title: 'Quick Start', desc: 'From zero to running in 2 commands.', commands: ['composer create-project sirosoft/api my-app', 'cd my-app && php siro key:generate', 'php siro serve'] },
   { id: 'first-crud', title: 'First CRUD API', desc: 'Scaffold a complete CRUD in 2 seconds.', commands: ['php siro make:crud products', 'php siro migrate'] },
   { id: 'testing', title: 'Testing APIs', desc: 'Test endpoints right from your terminal.', commands: ['php siro t GET /api/products', 'php siro t POST /api/products name=Laptop price=999', 'php siro t POST /api/auth/login email=admin@test.com password=secret --as=admin', 'php siro t GET /api/products --as=admin --loop=50'] },
   { id: 'debugging', title: 'Debugging Workflow', desc: 'Find and fix bugs in seconds.', commands: ['php siro why', 'php siro replay a1b2c3d4', 'php siro fix', 'php siro log:trace a1b2c3d4', 'php siro log:slow --limit=10'] },

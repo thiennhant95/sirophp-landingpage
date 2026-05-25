@@ -78,7 +78,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/30 text-xs text-gray-300 transition-colors cursor-pointer"
           >
-            🚀 500K Routes/sec
+             🚀 ~360K Routes/sec
           </a>
           <a 
             href="https://github.com/SiroSoft/SiroPHP/blob/main/PERFORMANCE.md" 

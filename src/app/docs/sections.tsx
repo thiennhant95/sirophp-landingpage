@@ -18,7 +18,7 @@ export const sections: DocSection[] = [
     commands: [
       'composer create-project sirosoft/api my-app',
       'cd my-app && php siro key:generate',
-      'php siro start',
+      'php siro serve',
     ],
     note: 'Your dev server is live at http://localhost:8080. That\'s it.',
     nextId: 'first-crud',

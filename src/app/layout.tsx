@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | SiroPHP",
   },
   description:
-    "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. <1ms cold boot.",
+      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. ~0.5ms cold boot (Linux) / ~3ms (Windows).",
   keywords: [
     "SiroPHP",
     "PHP framework",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SiroPHP — Build APIs Fast. Debug Faster.",
     description:
-      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. <1ms cold boot.",
+    "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. ~0.5ms cold boot (Linux) / ~3ms (Windows).",
     url: "https://sirophp.com",
     siteName: "SiroPHP",
     type: "website",

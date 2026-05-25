@@ -24,25 +24,25 @@ export function BenchmarksContent() {
         <div className="grid md:grid-cols-3 gap-6">
           <FadeIn delay={300}>
             <div className="bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 border border-cyan-500/30 rounded-lg p-6">
-              <div className="text-5xl font-bold text-cyan-400 mb-2">&lt;1ms</div>
-              <div className="text-sm text-gray-400 mb-2">Cold Boot Time</div>
-              <div className="text-xs text-gray-500">No warmup needed</div>
+              <div className="text-5xl font-bold text-cyan-400 mb-2">~3ms</div>
+              <div className="text-sm text-gray-400 mb-2">Cold Boot Time (Win)</div>
+              <div className="text-xs text-gray-500">~0.5ms on Linux+OPcache</div>
             </div>
           </FadeIn>
 
           <FadeIn delay={400}>
             <div className="bg-gradient-to-br from-purple-900/20 to-purple-800/10 border border-purple-500/30 rounded-lg p-6">
-              <div className="text-5xl font-bold text-purple-400 mb-2">~2MB</div>
-              <div className="text-sm text-gray-400 mb-2">RAM per Request</div>
-              <div className="text-xs text-gray-500">Minimal memory footprint</div>
+              <div className="text-5xl font-bold text-purple-400 mb-2">~30MB</div>
+              <div className="text-sm text-gray-400 mb-2">RAM per Request (peak)</div>
+              <div className="text-xs text-gray-500">PHP baseline ~2MB</div>
             </div>
           </FadeIn>
 
           <FadeIn delay={500}>
             <div className="bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
-              <div className="text-5xl font-bold text-green-400 mb-2">500K+</div>
+              <div className="text-5xl font-bold text-green-400 mb-2">~360K</div>
               <div className="text-sm text-gray-400 mb-2">Routes/sec</div>
-              <div className="text-xs text-gray-500">High throughput routing</div>
+              <div className="text-xs text-gray-500">Static dispatch benchmark</div>
             </div>
           </FadeIn>
         </div>
@@ -67,9 +67,9 @@ export function BenchmarksContent() {
             </thead>
             <tbody>
               {[
-                { metric: 'Boot Time', siroOld: '<1ms', siro: '<1ms (~0.87ms OPcache)', laravel: '~50ms', symfony: '~100ms' },
-                { metric: 'Memory/Request', siroOld: '~2MB', siro: '~2MB (+16KB framework)', laravel: '~20MB', symfony: '~25MB' },
-                { metric: 'Routing Speed', siroOld: '500K routes/s', siro: '500K+ routes/s (peak 893K grouped)', laravel: '~100K routes/s', symfony: '~80K routes/s' },
+                { metric: 'Boot Time', siroOld: '~3ms (Win)', siro: '~0.5ms (Linux+OPcache) / ~3ms (Win)', laravel: '~60-101ms', symfony: '~90ms' },
+                { metric: 'Memory/Request', siroOld: '~30MB', siro: '~30MB (PHP baseline ~2MB)', laravel: '~84MB', symfony: '~55MB' },
+                { metric: 'Routing Speed', siroOld: '~360K/s', siro: '~360K routes/s (static dispatch)', laravel: '~20K routes/s', symfony: '~12K routes/s' },
                 { metric: 'Test Count', siroOld: '19,496', siro: '19,496', laravel: '~8,000', symfony: '~12,000' },
                 { metric: 'Dependencies', siroOld: 'Minimal', siro: 'Minimal (3 ext, 0 runtime)', laravel: 'Heavy', symfony: 'Moderate' },
                 { metric: 'PHPStan Level', siroOld: 'Max', siro: 'Max', laravel: 'Level 5', symfony: 'Level 6' },

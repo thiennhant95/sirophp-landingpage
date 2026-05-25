@@ -11,7 +11,7 @@ export function SecurityContent() {
           Security First<span className="text-cyan-400">.</span>
         </h1>
         <p className="text-xl text-gray-400 mb-12 max-w-3xl">
-          Enterprise-grade security built into every layer of SiroPHP. Zero vulnerabilities, zero compromises.
+          Security-hardened by default. Zero vulnerabilities, zero compromises.
         </p>
       </FadeIn>
 
@@ -40,9 +40,9 @@ export function SecurityContent() {
 
           <FadeIn delay={400}>
             <div className="bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-6">
-              <div className="text-5xl font-bold text-blue-400 mb-2">100%</div>
-              <div className="text-sm text-gray-400 mb-4">OWASP Coverage</div>
-              <div className="text-sm text-gray-300">All critical OWASP Top 10 categories covered</div>
+              <div className="text-5xl font-bold text-blue-400 mb-2">90%</div>
+              <div className="text-sm text-gray-400 mb-4">OWASP ASVS L2</div>
+              <div className="text-sm text-gray-300">90% OWASP ASVS Level 2 coverage (verified)</div>
             </div>
           </FadeIn>
         </div>
@@ -173,7 +173,7 @@ export function SecurityContent() {
       <section className="text-center">
         <FadeIn delay={1000}>
           <h2 className="text-3xl font-bold mb-4">Ready to Ship Securely?</h2>
-          <p className="text-gray-400 mb-8">Start building with enterprise-grade security from day one.</p>
+          <p className="text-gray-400 mb-8">Start building with security-hardened defaults from day one.</p>
           <a
             href="/docs"
             className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/25"
