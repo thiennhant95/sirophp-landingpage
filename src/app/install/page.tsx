@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import InstallCommands from '@/components/InstallCommands';
 import DownloadButton from '@/components/DownloadButton';
-import { INSTALLER } from '@/lib/installer';
-
 export const metadata: Metadata = {
   title: 'Install SiroPHP — One Command Setup',
   description: 'Install SiroPHP in seconds. Zero-dependency installer for Windows, macOS, and Linux. Download PHAR or use Composer.',

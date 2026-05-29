@@ -22,12 +22,11 @@ function detectOS(): Platform {
 }
 
 export default function InstallCommands() {
-  const [active, setActive] = useState<Platform>('composer');
+  const [active, setActive] = useState<Platform>(detectOS);
   const [copied, setCopied] = useState(false);
   const timer = useRef(0);
 
   useEffect(() => {
-    setActive(detectOS());
     return () => clearTimeout(timer.current);
   }, []);
 

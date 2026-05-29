@@ -4,10 +4,7 @@ import Link from 'next/link';
 import FadeIn from './FadeIn';
 import { useState, useEffect } from 'react';
 
-export default function Hero() {
-  const [currentStep, setCurrentStep] = useState(0);
-  
-  const demoSteps = [
+const demoSteps = [
     { cmd: '> php siro why', output: '🤖 AI analyzing your codebase...', delay: 800 },
     { cmd: '', output: '✓ Detected performance bottlenecks in 3 endpoints', delay: 600 },
     { cmd: '', output: '✓ Found N+1 query pattern in /api/users', delay: 600 },
@@ -16,6 +13,9 @@ export default function Hero() {
     { cmd: '', output: '✓ Memory usage: 12MB → 4MB (-67%)', delay: 400 },
     { cmd: '> php siro replay abc123 --edit', output: '✏️ Opening in default editor...', delay: 600 },
   ];
+
+export default function Hero() {
+  const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
