@@ -141,21 +141,50 @@ if ($userPath -notlike "*$binDir*") {
     Write-Success "Step 3: Siro already in PATH"
 }
 
-# --- Step 4: Create project ---
+# --- Step 4: Install Composer ---
+Write-Host "[...] Step 4: Installing Composer..."
+$composerPhar = "$siroDir\composer.phar"
+$composerBat = "$siroDir\composer.bat"
+
+if (Get-Command composer -ErrorAction SilentlyContinue) {
+    Write-Success "Step 4: Composer already installed"
+} else {
+    $composerUrl = "https://getcomposer.org/composer.phar"
+    try {
+        $webClient = New-Object System.Net.WebClient
+        $webClient.DownloadFile($composerUrl, $composerPhar)
+    } catch {
+        Write-Error "Failed to download Composer. Install manually: https://getcomposer.org"
+        exit 1
+    }
+    $batContent = '@php "%~dp0composer.phar" %*'
+    $batContent | Set-Content -Path $composerBat -Encoding ASCII
+    Write-Success "Step 4: Composer installed"
+}
+
+# --- Step 5: Create project ---
 $CreateProject = -not $NoProject
 
 if ($CreateProject) {
-    Write-Host "[...] Step 4: Creating project '$Name'..."
+    Write-Host "[...] Step 5: Creating project '$Name'..."
     
     if (Test-Path ".\$Name") {
         Write-Error "Directory '$Name' already exists"
     } else {
-        # Create project via Siro CLI
         php "$siroPhar" new $Name
         
         if (-not (Test-Path ".\$Name\composer.json")) {
             Write-Error "Project creation failed"
         }
+        
+        # Run composer install
+        Push-Location ".\$Name"
+        Write-Host "[...] Running composer install..."
+        & composer install --no-interaction
+        if ($LASTEXITCODE -ne 0) {
+            Write-Warning "composer install failed, run manually: cd $Name && composer install"
+        }
+        Pop-Location
         
         Write-Host ""
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
@@ -164,6 +193,8 @@ if ($CreateProject) {
         Write-Host "|   cd $Name                                 |" -ForegroundColor Green
         Write-Host "|   siro serve                               |" -ForegroundColor Green
         Write-Host "|   http://localhost:8080                    |" -ForegroundColor Green
+        Write-Host "|   siro db:init --mysql                     |" -ForegroundColor Green
+        Write-Host "|     (MariaDB portable)                     |" -ForegroundColor Green
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
         Write-Host ""
     }
@@ -172,5 +203,6 @@ if ($CreateProject) {
     Write-Host "[OK] Siro CLI installed. Usage:"
     Write-Host "  siro new my-api"
     Write-Host "  siro runtime:install 8.3"
+    Write-Host "  siro db:init --mysql"
     Write-Host ""
 }
