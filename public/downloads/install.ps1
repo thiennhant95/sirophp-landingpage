@@ -5,169 +5,192 @@
 param(
     [string]$Name = "my-api",
     [switch]$NoProject,
-    [switch]$Help
+    [switch]$Help,
+    [switch]$Quiet
 )
 
+$ScriptVersion = "0.32.1"
+
 if ($Help) {
-    Write-Host "Siro Framework Installer"
+    Write-Host "Siro Framework Installer v$ScriptVersion"
     Write-Host "Usage:"
-    Write-Host "  iwr https://sirophp.com/downloads/install.ps1 -UseBasicParsing | iex"
-    Write-Host "  iwr ... | iex --- -Name my-project"
-    Write-Host "  iwr ... | iex --- -NoProject"
+    Write-Host "  iwr ... -UseBasicParsing | iex"
+    Write-Host "  iwr ... -UseBasicParsing | iex --- -Name my-project"
+    Write-Host "  iwr ... -UseBasicParsing | iex --- -NoProject"
+    Write-Host "  iwr ... -UseBasicParsing | iex --- -Quiet"
     exit 0
 }
 
-# Define functions
-function Write-Success {
-    param([string]$Message)
-    Write-Host "[OK] $Message" -ForegroundColor Green
+# ── Helpers ────────────────────────────
+$logOK = if ($Quiet) { $null } else { { Write-Host "  [OK] $args" -ForegroundColor Green } }
+$logWarn = if ($Quiet) { $null } else { { Write-Host "  [WARN] $args" -ForegroundColor Yellow } }
+$logFail = { Write-Host "  [FAIL] $args" -ForegroundColor Red }
+$logStep = if ($Quiet) { $null } else { { Write-Host "`n  $args" -ForegroundColor Cyan } }
+
+function Download-File($url, $dest, $label, [switch]$Progress) {
+    $retries = 3
+    for ($try = 1; $try -le $retries; $try++) {
+        try {
+            if (-not $Quiet -and $Progress) {
+                Write-Host "    Downloading $label..."
+                $wc = New-Object System.Net.WebClient
+                $wc.DownloadFile($url, $dest)
+                $size = (Get-Item $dest -ErrorAction SilentlyContinue).Length
+                if ($size) {
+                    $mb = [math]::Round($size / 1MB, 1)
+                    Write-Host "    Downloaded $mb MB"
+                }
+            } else {
+                $wc = New-Object System.Net.WebClient
+                $wc.DownloadFile($url, $dest)
+            }
+            return $true
+        } catch {
+            Remove-Item $dest -Force -ErrorAction SilentlyContinue
+            if ($try -lt $retries) {
+                if (-not $Quiet) { Write-Host "    Retry $try/$retries..." }
+                Start-Sleep -Seconds 2
+            }
+        }
+    }
+    return $false
 }
 
-function Write-Warning {
-    param([string]$Message)
-    Write-Host "[WARN] $Message" -ForegroundColor Yellow
+# ── Banner ────────────────────────────
+if (-not $Quiet) {
+    Write-Host ""
+    Write-Host "+--------------------------------------------+" -ForegroundColor Cyan
+    Write-Host "|   ** Siro Framework Installer             |" -ForegroundColor Cyan
+    Write-Host "|   v$ScriptVersion                                 |" -ForegroundColor Cyan
+    Write-Host "|   1 command, 0 dependency                 |" -ForegroundColor Cyan
+    Write-Host "+--------------------------------------------+" -ForegroundColor Cyan
 }
 
-function Write-Error {
-    param([string]$Message)
-    Write-Host "[FAIL] $Message" -ForegroundColor Red
-}
+$timer = [System.Diagnostics.Stopwatch]::StartNew()
 
-# --- Banner ---
-Write-Host ""
-Write-Host "+--------------------------------------------+" -ForegroundColor Cyan
-Write-Host "|   ** Siro Framework Installer             |" -ForegroundColor Cyan
-Write-Host "|   v0.32.1                                 |" -ForegroundColor Cyan
-Write-Host "|   1 command, 0 dependency                 |" -ForegroundColor Cyan
-Write-Host "+--------------------------------------------+" -ForegroundColor Cyan
-Write-Host ""
-
-# --- Step 1: Detect / Install PHP ---
+# ── Step 1: PHP ───────────────────────
 $phpExe = Get-Command php -ErrorAction SilentlyContinue
+$phpInstalled = $false
 
 if (-not $phpExe) {
     $targetPhpDir = "$env:ProgramFiles\php"
     if (-not (Test-Path "$targetPhpDir\php.exe")) {
-        Write-Host "[...] Step 1: Installing PHP 8.2.31..."
+        & $logStep "Step 1: Installing PHP 8.2.31..."
         
-        $phpZip = "$env:TEMP\php.zip"
+        $phpZip = "$env:TEMP\php-install-$PID.zip"
         $phpUrl = "https://windows.php.net/downloads/releases/php-8.2.31-nts-Win32-vs16-x64.zip"
         
-        try {
-            $webClient = New-Object System.Net.WebClient
-            $webClient.DownloadFile($phpUrl, $phpZip)
-        } catch {
-            Write-Error "Failed to download PHP. Try installing PHP manually."
+        $ok = Download-File $phpUrl $phpZip "PHP 8.2.31" -Progress
+        if (-not $ok) {
+            & $logFail "Failed to download PHP. Install manually: https://windows.php.net"
             exit 1
         }
         
-        if (-not (Test-Path $targetPhpDir)) {
-            New-Item -ItemType Directory -Force -Path $targetPhpDir | Out-Null
-        }
+        # Extract
+        if (-not (Test-Path $targetPhpDir)) { New-Item -ItemType Directory -Force -Path $targetPhpDir | Out-Null }
         
         Add-Type -AssemblyName System.IO.Compression.FileSystem
-        [System.IO.Compression.ZipFile]::ExtractToDirectory($phpZip, $targetPhpDir)
-        Remove-Item $phpZip -Force
+        try {
+            [System.IO.Compression.ZipFile]::ExtractToDirectory($phpZip, $targetPhpDir)
+        } catch {
+            & $logFail "Failed to extract PHP"
+            Remove-Item $phpZip -Force -ErrorAction SilentlyContinue
+            exit 1
+        }
+        Remove-Item $phpZip -Force -ErrorAction SilentlyContinue
         
-        # Enable required extensions
+        # Enable extensions
         $iniPath = "$targetPhpDir\php.ini"
         if (-not (Test-Path $iniPath)) {
             Copy-Item "$targetPhpDir\php.ini-development" $iniPath
         }
-        
-        $extensions = @(
-            "extension=curl",
-            "extension=mbstring",
-            "extension=openssl",
-            "extension=pdo_mysql",
-            "extension=pdo_sqlite",
-            "extension=sockets"
-        )
-        
         $iniContent = Get-Content $iniPath -Raw
-        foreach ($ext in $extensions) {
-            $iniContent = $iniContent -replace ";$ext", $ext
+        foreach ($ext in @("curl","mbstring","openssl","pdo_mysql","pdo_sqlite","sockets")) {
+            $iniContent = $iniContent -replace ";extension=$ext", "extension=$ext"
         }
+        Set-Content -Path $iniPath -Value $iniContent
         
-        $iniContent | Set-Content -Path $iniPath
-        
-        # Add PHP to PATH for current session
         $env:Path = "$targetPhpDir;$env:Path"
+        $phpInstalled = $true
         
-        Write-Host "[OK] Step 1: PHP installed to $targetPhpDir"
+        & $logOK "PHP 8.2.31 installed"
     } else {
-        Write-Host "[OK] Step 1: PHP found at $targetPhpDir"
+        $env:Path = "$targetPhpDir;$env:Path"
+        & $logOK "PHP found at $targetPhpDir"
     }
     $phpExe = "$targetPhpDir\php.exe"
 } else {
-    Write-Success "Step 1: PHP $(& php -r 'echo PHP_VERSION;') found (system)"
+    $phpVer = & php -r "echo PHP_VERSION;" 2>$null
+    & $logOK "PHP $phpVer found"
     $phpExe = "php"
 }
 
-# --- Step 2: Download Siro CLI ---
-Write-Host "[...] Step 2: Installing Siro CLI..."
-
+# ── Step 2: Siro CLI ──────────────────
 $siroDir = "$env:USERPROFILE\.siro"
-if (-not (Test-Path $siroDir)) {
-    New-Item -ItemType Directory -Force -Path $siroDir | Out-Null
-}
+if (-not (Test-Path $siroDir)) { New-Item -ItemType Directory -Force -Path $siroDir | Out-Null }
 
 $siroPhar = "$siroDir\siro.phar"
 $pharUrl = "https://sirophp.com/downloads/siro.phar"
 
-try {
-    $webClient = New-Object System.Net.WebClient
-    $webClient.DownloadFile($pharUrl, $siroPhar)
-} catch {
-    Write-Error "Failed to download Siro CLI."
-    exit 1
+& $logStep "Step 2: Installing Siro CLI..."
+$skipPhar = $false
+if (Test-Path $siroPhar) {
+    # Check version to skip re-download
+    $ver = & $phpExe -r @"
+try { require '$siroPhar'; } catch {}
+"@ 2>&1 | Out-String
+    if ($ver -match "v(\d+\.\d+\.\d+)") {
+        $pharVer = $Matches[1]
+        if ($pharVer -eq $ScriptVersion) {
+            $skipPhar = $true
+            & $logOK "Siro CLI v$pharVer already installed (cached)"
+        }
+    }
 }
 
-if (-not (Test-Path $siroPhar)) {
-    Write-Error "Siro CLI download failed"
-    exit 1
+if (-not $skipPhar) {
+    $ok = Download-File $pharUrl $siroPhar "Siro CLI" -Progress
+    if (-not $ok) {
+        & $logFail "Failed to download Siro CLI."
+        exit 1
+    }
+    & $logOK "Siro CLI downloaded"
 }
 
-Write-Host "[OK] Step 2: Siro CLI downloaded"
-
-# --- Step 3: Add Siro to PATH ---
-$binDir = $siroDir
+# ── Step 3: PATH ──────────────────────
+& $logStep "Step 3: Adding to PATH..."
 $userPath = [Environment]::GetEnvironmentVariable("Path", "User")
-
-if ($userPath -notlike "*$binDir*") {
-    [Environment]::SetEnvironmentVariable("Path", "$binDir;$userPath", "User")
-    $env:Path = "$binDir;$env:Path"
-    Write-Success "Step 3: Siro added to PATH"
+if ($userPath -notlike "*$siroDir*") {
+    [Environment]::SetEnvironmentVariable("Path", "$siroDir;$userPath", "User")
+    $env:Path = "$siroDir;$env:Path"
+    & $logOK "Siro added to PATH"
 } else {
-    Write-Success "Step 3: Siro already in PATH"
+    & $logOK "Siro already in PATH"
 }
 
-# --- Step 4: Install Composer ---
-Write-Host "[...] Step 4: Installing Composer..."
+# ── Step 4: Composer ──────────────────
+& $logStep "Step 4: Installing Composer..."
 $composerPhar = "$siroDir\composer.phar"
 $composerBat = "$siroDir\composer.bat"
 
-if (Get-Command composer -ErrorAction SilentlyContinue) {
-    Write-Success "Step 4: Composer already installed"
+$hasComposer = (Get-Command composer -ErrorAction SilentlyContinue) -or (Test-Path $composerBat)
+
+if ($hasComposer) {
+    & $logOK "Composer already installed"
 } else {
-    $composerUrl = "https://getcomposer.org/composer.phar"
-    try {
-        $webClient = New-Object System.Net.WebClient
-        $webClient.DownloadFile($composerUrl, $composerPhar)
-    } catch {
-        Write-Error "Failed to download Composer. Install manually: https://getcomposer.org"
+    $ok = Download-File "https://getcomposer.org/composer.phar" $composerPhar "Composer" -Progress
+    if (-not $ok) {
+        & $logFail "Failed to download Composer. Install manually: https://getcomposer.org"
         exit 1
     }
-    $batContent = '@php "%~dp0composer.phar" %*'
-    $batContent | Set-Content -Path $composerBat -Encoding ASCII
-    Write-Success "Step 4: Composer installed"
+    Set-Content -Path $composerBat -Value '@php "%~dp0composer.phar" %*' -Encoding ASCII
+    & $logOK "Composer installed"
 }
 
-# --- Step 5: Create project ---
+# ── Step 5: Project ───────────────────
 $CreateProject = -not $NoProject
 
 if ($CreateProject) {
-    # Auto-generate unique name if folder exists
     $projectName = $Name
     $counter = 2
     while (Test-Path ".\$projectName") {
@@ -175,84 +198,80 @@ if ($CreateProject) {
         $counter++
     }
     if ($projectName -ne $Name) {
-        Write-Warning "Directory '$Name' already exists, using '$projectName' instead"
+        & $logWarn "Directory '$Name' exists, using '$projectName'"
     }
     
-    Write-Host "[...] Step 5: Creating project '$projectName'..."
+    & $logStep "Step 5: Creating project '$projectName'..."
     
-    if (-not (Test-Path ".\$projectName")) {
-        php "$siroPhar" new $projectName
-        
-        if (-not (Test-Path ".\$projectName\composer.json")) {
-            Write-Error "Project creation failed"
-            exit 1
-        }
-        
-        Push-Location ".\$projectName"
-        
-        # Fix composer.json: add vendor prefix, move mcp-server to suggest
-        # (keep local siro-core path repo for db:init & runtime support)
-        $composerJson = Get-Content composer.json -Raw | ConvertFrom-Json
-        $composerJson.name = "app/$projectName"
-        
-        # Find local siro-core and fix path repos
-        $siroCorePaths = @(
-            "./siro-core",
-            "../siro-core",
-            "D:/VietVang/SiroSoft/siro-core",
-            "$env:USERPROFILE/.siro/siro-core"
-        )
-        $foundSiroCore = $null
-        foreach ($p in $siroCorePaths) {
-            if (Test-Path "$p/composer.json") {
-                $foundSiroCore = $p
-                break
-            }
-        }
-        $fixedRepos = @()
-        foreach ($repo in $composerJson.repositories) {
-            $url = $repo.url
-            if ($url.EndsWith("siro-core")) {
-                if ($foundSiroCore) {
-                    $repo.url = $foundSiroCore
-                    $fixedRepos += $repo
-                    $composerJson.'minimum-stability' = 'dev'
-                }
-            } else {
+    & $phpExe "$siroPhar" new $projectName
+    
+    if (-not (Test-Path ".\$projectName\composer.json")) {
+        & $logFail "Project creation failed"
+        exit 1
+    }
+    
+    Push-Location ".\$projectName"
+    
+    # Fix composer.json
+    $composerJson = Get-Content composer.json -Raw | ConvertFrom-Json
+    $composerJson.name = "app/$projectName"
+    
+    $siroCorePaths = @(
+        "./siro-core", "../siro-core",
+        "D:/VietVang/SiroSoft/siro-core",
+        "$env:USERPROFILE/.siro/siro-core"
+    )
+    $foundSiroCore = $null
+    foreach ($p in $siroCorePaths) {
+        if (Test-Path "$p/composer.json") { $foundSiroCore = $p; break }
+    }
+    
+    $fixedRepos = @()
+    foreach ($repo in $composerJson.repositories) {
+        if ($repo.url.EndsWith("siro-core")) {
+            if ($foundSiroCore) {
+                $repo.url = $foundSiroCore
                 $fixedRepos += $repo
+                $composerJson | Add-Member -NotePropertyName 'minimum-stability' -NotePropertyValue 'dev' -Force
             }
+        } else {
+            $fixedRepos += $repo
         }
-        $composerJson.repositories = $fixedRepos
-        
-        $require = $composerJson.require
-        $mcpVersion = $require.'sirosoft/mcp-server'
-        if ($mcpVersion) {
-            $require.PSObject.Properties.Remove('sirosoft/mcp-server')
-            if (-not $composerJson.suggest) {
-                $composerJson | Add-Member -Name 'suggest' -Type NoteProperty -Value @{}
-            }
-            $composerJson.suggest | Add-Member -Name 'sirosoft/mcp-server' -Type NoteProperty -Value $mcpVersion -Force
+    }
+    $composerJson.repositories = $fixedRepos
+    
+    $require = $composerJson.require
+    $mcpKey = 'sirosoft/mcp-server'
+    if ($require.$mcpKey) {
+        $require.PSObject.Properties.Remove($mcpKey)
+        if (-not $composerJson.suggest) {
+            $composerJson | Add-Member -NotePropertyName 'suggest' -NotePropertyValue @{} -Force
         }
-        $composerJson | ConvertTo-Json -Depth 10 | Set-Content composer.json
-        
-        # Copy .env if not exists
-        if ((Test-Path .env.example) -and -not (Test-Path .env)) {
-            Copy-Item .env.example .env
-        }
-        
-        Write-Host "[...] Running composer install..."
-        & composer install --no-interaction --quiet
-        if ($LASTEXITCODE -ne 0) {
-            Write-Warning "composer install had warnings"
-        }
-        
-        # Generate app key (needs vendor/autoload.php)
-        if (Test-Path vendor/autoload.php) {
-            Write-Host "[...] Generating app key..."
-            php siro key:generate 2>$null
-        }
-        Pop-Location
-        
+        $composerJson.suggest | Add-Member -NotePropertyName $mcpKey -NotePropertyValue $require.$mcpKey -Force
+    }
+    $composerJson | ConvertTo-Json -Depth 10 | Set-Content composer.json
+    
+    # .env
+    if ((Test-Path .env.example) -and -not (Test-Path .env)) {
+        Copy-Item .env.example .env
+    }
+    
+    & $logStep "Running composer install..."
+    & composer install --no-interaction --quiet 2>&1 | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        & $logWarn "composer install had warnings"
+    }
+    
+    if (Test-Path vendor/autoload.php) {
+        & $phpExe siro key:generate 2>$null
+    }
+    
+    Pop-Location
+    
+    $timer.Stop()
+    $elapsed = "{0:N1}" -f $timer.Elapsed.TotalSeconds
+    
+    if (-not $Quiet) {
         Write-Host ""
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
         Write-Host "|   >> Project ready (SQLite default)        |" -ForegroundColor Green
@@ -268,12 +287,17 @@ if ($CreateProject) {
         Write-Host "|     (MySQL Community Server)           |" -ForegroundColor Green
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
         Write-Host ""
+        Write-Host "  Done in ${elapsed}s"
+        Write-Host ""
     }
 } else {
-    Write-Host ""
-    Write-Host "[OK] Siro CLI installed. Usage:"
-    Write-Host "  siro new my-api"
-    Write-Host "  php siro runtime list"
-    Write-Host "  php siro runtime install 8.3"
-    Write-Host ""
+    $timer.Stop()
+    if (-not $Quiet) {
+        Write-Host ""
+        Write-Host "  [OK] Siro CLI installed. Usage:"
+        Write-Host "    php siro new my-api"
+        Write-Host "    php siro runtime list"
+        Write-Host "    php siro runtime install 8.3"
+        Write-Host ""
+    }
 }
