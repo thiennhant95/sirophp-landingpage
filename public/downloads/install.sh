@@ -166,13 +166,12 @@ if [ "$NO_PROJECT" = false ]; then
     done
     [ "$PROJECT_NAME" != "$BASE_NAME" ] && log_warn "Directory '$BASE_NAME' exists, using '$PROJECT_NAME'"
 
-    log_step "Step 4: Creating project '$PROJECT_NAME'..."
+    log_step "Step 5: Creating project '$PROJECT_NAME'..."
     $PHP_BIN "$SIRO_PHAR" new "$PROJECT_NAME"
     [ -f "$PROJECT_NAME/composer.json" ] || log_fail "Project creation failed"
 
     cd "$PROJECT_NAME"
 
-    # Fix composer.json
     $PHP_BIN -r "
         \$json = json_decode(file_get_contents('composer.json'), true);
         \$json['name'] = 'app/$PROJECT_NAME';
@@ -210,7 +209,7 @@ if [ "$NO_PROJECT" = false ]; then
     echo "|     (MySQL Community Server)           |"
     echo "+--------------------------------------------+"
     echo ""
-    echo "  Done in ${ELAPSED}s"
+    echo "  Done in ${ELAPSED}s  |  To uninstall: rm -rf $SIRO_DIR && rm ~/.local/bin/siro"
     echo ""
 else
     echo ""
