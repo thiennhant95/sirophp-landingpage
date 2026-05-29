@@ -1,5 +1,5 @@
 #!/bin/sh
-# Siro - 1 command, 0 dependency PHP API Framework (v0.32.1)
+# Siro - 1 command, 0 dependency PHP API Framework (v0.32.0)
 # Usage: curl -sS https://sirophp.com/downloads/install.sh | bash
 # Or:    curl -sS https://sirophp.com/downloads/install.sh | bash -s my-api
 
@@ -147,11 +147,10 @@ export PATH="$HOME/.local/bin:$PATH"
 if command -v composer >/dev/null 2>&1 || [ -f "$COMPOSER_BIN" ]; then
     log_ok "Composer already installed"
 else
-    COMPOSER_URL="https://getcomposer.org/composer.phar"
     if command -v curl >/dev/null 2>&1; then
-        curl -sSL --connect-timeout 15 --max-time 60 "$COMPOSER_URL" -o "$COMPOSER_BIN"
+        curl -sSL --connect-timeout 15 --max-time 60 "https://getcomposer.org/composer.phar" -o "$COMPOSER_BIN"
     elif command -v wget >/dev/null 2>&1; then
-        wget -q "$COMPOSER_URL" -O "$COMPOSER_BIN"
+        wget -q "https://getcomposer.org/composer.phar" -O "$COMPOSER_BIN"
     fi
     chmod +x "$COMPOSER_BIN"
     log_ok "Composer installed"
@@ -218,7 +217,5 @@ else
     echo "    php siro new my-api"
     echo "    php siro runtime list"
     echo "    php siro runtime install 8.3"
-    echo ""
-    echo "  To uninstall: rm -rf $SIRO_DIR && rm ~/.local/bin/siro"
     echo ""
 fi
