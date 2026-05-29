@@ -190,14 +190,35 @@ if ($CreateProject) {
         
         Push-Location ".\$projectName"
         
-        # Fix composer.json: add vendor prefix, remove local path repos,
-        # move mcp-server to suggest (incompatible with current core version)
+        # Fix composer.json: add vendor prefix, move mcp-server to suggest
+        # (keep local siro-core path repo for db:init & runtime support)
         $composerJson = Get-Content composer.json -Raw | ConvertFrom-Json
         $composerJson.name = "app/$projectName"
+        
+        # Find local siro-core and fix path repos
+        $siroCorePaths = @(
+            "./siro-core",
+            "../siro-core",
+            "D:/VietVang/SiroSoft/siro-core",
+            "$env:USERPROFILE/.siro/siro-core"
+        )
+        $foundSiroCore = $null
+        foreach ($p in $siroCorePaths) {
+            if (Test-Path "$p/composer.json") {
+                $foundSiroCore = $p
+                break
+            }
+        }
         $fixedRepos = @()
         foreach ($repo in $composerJson.repositories) {
-            $repoUrl = $repo.url
-            if ($repoUrl -ne '../siro-core') {
+            $url = $repo.url
+            if ($url.EndsWith("siro-core")) {
+                if ($foundSiroCore) {
+                    $repo.url = $foundSiroCore
+                    $fixedRepos += $repo
+                    $composerJson.'minimum-stability' = 'dev'
+                }
+            } else {
                 $fixedRepos += $repo
             }
         }
@@ -239,6 +260,10 @@ if ($CreateProject) {
         Write-Host "|   cd $projectName                          |" -ForegroundColor Green
         Write-Host "|   php siro serve                           |" -ForegroundColor Green
         Write-Host "|   http://localhost:8080                    |" -ForegroundColor Green
+        Write-Host "|                                            |" -ForegroundColor Green
+        Write-Host "|   For MySQL:                               |" -ForegroundColor Green
+        Write-Host "|   php siro db init --mysql                 |" -ForegroundColor Green
+        Write-Host "|   (auto-installs MariaDB portable)         |" -ForegroundColor Green
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
         Write-Host ""
     }
@@ -246,5 +271,7 @@ if ($CreateProject) {
     Write-Host ""
     Write-Host "[OK] Siro CLI installed. Usage:"
     Write-Host "  siro new my-api"
+    Write-Host "  php siro runtime list"
+    Write-Host "  php siro runtime install 8.3"
     Write-Host ""
 }

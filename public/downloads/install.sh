@@ -180,15 +180,6 @@ if [ "$NO_PROJECT" = false ]; then
     $PHP_BIN -r "
         \$json = json_decode(file_get_contents('composer.json'), true);
         \$json['name'] = 'app/$PROJECT_NAME';
-        if (isset(\$json['repositories'])) {
-            \$fixed = [];
-            foreach (\$json['repositories'] as \$r) {
-                if (\$r['url'] !== '../siro-core') {
-                    \$fixed[] = \$r;
-                }
-            }
-            \$json['repositories'] = \$fixed;
-        }
         if (isset(\$json['require']['sirosoft/mcp-server'])) {
             \$ver = \$json['require']['sirosoft/mcp-server'];
             unset(\$json['require']['sirosoft/mcp-server']);
@@ -221,11 +212,17 @@ if [ "$NO_PROJECT" = false ]; then
     echo "|   cd $PROJECT_NAME                         |"
     echo "|   php siro serve                           |"
     echo "|   http://localhost:8080                    |"
+    echo "|                                            |"
+    echo "|   For MySQL:                               |"
+    echo "|   php siro db init --mysql                 |"
+    echo "|   (auto-installs MariaDB portable)         |"
     echo "+--------------------------------------------+"
     echo ""
 else
     echo ""
     echo "[OK] Siro CLI installed. Usage:"
     echo "  siro new my-api"
+    echo "  php siro runtime list"
+    echo "  php siro runtime install 8.3"
     echo ""
 fi
