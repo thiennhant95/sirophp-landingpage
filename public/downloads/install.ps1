@@ -15,7 +15,7 @@ $ErrorActionPreference = "Stop"
 $siroDir = "$env:USERPROFILE\.siro"
 $runtimeDir = "$siroDir\runtime"
 $binDir = "$siroDir\bin"
-$version = "0.32.1"
+$version = "0.32.1"  # Released 2026-05-29
 
 function Write-Step($msg) { Write-Host "  $msg" -ForegroundColor Gray }
 function Write-Success($msg) { Write-Host "  ✅ $msg" -ForegroundColor Green }
