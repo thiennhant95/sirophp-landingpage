@@ -131,7 +131,7 @@ for RC in "$HOME/.zshrc" "$HOME/.bashrc" "$HOME/.profile"; do
 done
 
 if [ -f "$SIRO_PHAR" ]; then
-    echo "[OK] Step 2: Siro CLI $(php -r "require '$SIRO_PHAR';" 2>/dev/null | head -1) installed"
+    echo "[OK] Step 2: Siro CLI installed"
 fi
 
 # ── Step 3: Install Composer ────────────────
@@ -216,24 +216,16 @@ if [ "$NO_PROJECT" = false ]; then
 
     echo ""
     echo "+--------------------------------------------+"
-    echo "|   >> Project ready with SQLite             |"
+    echo "|   >> Project ready (SQLite default)        |"
     echo "|                                            |"
     echo "|   cd $PROJECT_NAME                         |"
     echo "|   php siro serve                           |"
     echo "|   http://localhost:8080                    |"
-    echo "|                                            |"
-    echo "|   For MySQL:                               |"
-    echo "|   siro db:init --mysql                     |"
-    echo "|   (auto-installs MariaDB portable)         |"
     echo "+--------------------------------------------+"
     echo ""
 else
     echo ""
     echo "[OK] Siro CLI installed. Usage:"
     echo "  siro new my-api"
-    echo "  siro runtime:install 8.3"
-    echo ""
-    echo "Project defaults to SQLite. For MySQL:"
-    echo "  siro db:init --mysql"
     echo ""
 fi

@@ -234,15 +234,11 @@ if ($CreateProject) {
         
         Write-Host ""
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
-        Write-Host "|   >> Project ready with SQLite             |" -ForegroundColor Green
+        Write-Host "|   >> Project ready (SQLite default)        |" -ForegroundColor Green
         Write-Host "|                                            |" -ForegroundColor Green
         Write-Host "|   cd $projectName                          |" -ForegroundColor Green
         Write-Host "|   php siro serve                           |" -ForegroundColor Green
         Write-Host "|   http://localhost:8080                    |" -ForegroundColor Green
-        Write-Host "|                                            |" -ForegroundColor Green
-        Write-Host "|   For MySQL:                               |" -ForegroundColor Green
-        Write-Host "|   siro db:init --mysql                     |" -ForegroundColor Green
-        Write-Host "|   (auto-installs MariaDB portable)         |" -ForegroundColor Green
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
         Write-Host ""
     }
@@ -250,9 +246,5 @@ if ($CreateProject) {
     Write-Host ""
     Write-Host "[OK] Siro CLI installed. Usage:"
     Write-Host "  siro new my-api"
-    Write-Host "  siro runtime:install 8.3"
-    Write-Host ""
-    Write-Host "Project defaults to SQLite. For MySQL:"
-    Write-Host "  siro db:init --mysql"
     Write-Host ""
 }
