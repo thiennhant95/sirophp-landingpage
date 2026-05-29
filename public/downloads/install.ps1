@@ -261,9 +261,11 @@ if ($CreateProject) {
         Write-Host "|   php siro serve                           |" -ForegroundColor Green
         Write-Host "|   http://localhost:8080                    |" -ForegroundColor Green
         Write-Host "|                                            |" -ForegroundColor Green
-        Write-Host "|   For MySQL:                               |" -ForegroundColor Green
-        Write-Host "|   php siro db init --mysql                 |" -ForegroundColor Green
-        Write-Host "|   (auto-installs MariaDB portable)         |" -ForegroundColor Green
+        Write-Host "|   For databases:                           |" -ForegroundColor Green
+        Write-Host "|   php siro db init --mysql             |" -ForegroundColor Green
+        Write-Host "|     (MariaDB portable)                 |" -ForegroundColor Green
+        Write-Host "|   php siro db init --mysql-official    |" -ForegroundColor Green
+        Write-Host "|     (MySQL Community Server)           |" -ForegroundColor Green
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
         Write-Host ""
     }
