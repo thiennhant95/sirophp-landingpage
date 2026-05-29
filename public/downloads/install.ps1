@@ -130,5 +130,4 @@ if (-not $NoProject) {
     Write-Host "  siro runtime:install 8.3"
     Write-Host ""
 }
-Read-Host -Prompt "Press Enter to exit"
 
