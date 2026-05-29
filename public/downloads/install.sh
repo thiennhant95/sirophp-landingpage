@@ -1,5 +1,5 @@
 #!/bin/sh
-# Siro — 1 command, 0 dependency PHP API Framework
+# Siro — 1 command, 0 dependency PHP API Framework (v0.32.1)
 # Usage: curl -sS https://sirophp.com/install.sh | bash
 # Or:    curl -sS https://sirophp.com/install.sh | bash -s my-api
 
