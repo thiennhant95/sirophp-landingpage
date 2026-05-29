@@ -15,7 +15,7 @@ $ErrorActionPreference = "Stop"
 $siroDir = "$env:USERPROFILE\.siro"
 $runtimeDir = "$siroDir\runtime"
 $binDir = "$siroDir\bin"
-$version = "0.32.1"  # Released 2026-05-29
+$version = "0.32.1"
 
 function Write-Step($msg) { Write-Host "  $msg" -ForegroundColor Gray }
 function Write-Success($msg) { Write-Host "  ✅ $msg" -ForegroundColor Green }
@@ -37,7 +37,7 @@ if (-not $phpExe) {
         Write-Host "📥 Step 1: Installing Siro Runtime $PhpVersion..." -ForegroundColor Cyan
         New-Item -ItemType Directory -Path $targetPhpDir -Force | Out-Null
 
-        $phpUrl = "https://windows.php.net/downloads/releases/php-8.2.30-Win32-vs16-x64.zip"
+        $phpUrl = "https://windows.php.net/downloads/releases/php-8.2.31-Win32-vs16-x64.zip"
         $zipFile = "$env:TEMP\siro-php-$PhpVersion.zip"
 
         Write-Step "Downloading PHP $PhpVersion..."
@@ -78,13 +78,8 @@ if (-not (Test-Path $siroPhar)) {
     New-Item -ItemType Directory -Path $siroDir -Force | Out-Null
 
     Write-Step "Downloading siro.phar..."
-    $pharUrl = "https://sirophp.com/siro.phar"
-    try {
-        Invoke-WebRequest -Uri $pharUrl -OutFile $siroPhar -UseBasicParsing
-    } catch {
-        # Fallback: local copy
-        Copy-Item "$PSScriptRoot\siro.phar" $siroPhar -ErrorAction SilentlyContinue
-    }
+    $pharUrl = "https://sirophp.com/downloads/siro.phar"
+    Invoke-WebRequest -Uri $pharUrl -OutFile $siroPhar -UseBasicParsing
     Write-Success "Siro CLI installed"
 }
 
