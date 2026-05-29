@@ -128,7 +128,6 @@ if (-not (Test-Path $siroPhar)) {
 }
 
 Write-Host "[OK] Step 2: Siro CLI downloaded"
-Write-Host "[OK] Siro version: $(php -r "require '$siroPhar';")" -ForegroundColor Gray
 
 # --- Step 3: Add Siro to PATH ---
 $binDir = $siroDir
@@ -167,8 +166,6 @@ if ($CreateProject) {
         Write-Host "|   http://localhost:8080                    |" -ForegroundColor Green
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
         Write-Host ""
-        cd $Name
-        & $phpExe siro serve
     }
 } else {
     Write-Host ""
