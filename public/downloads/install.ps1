@@ -125,8 +125,12 @@ if (-not $NoProject) {
     & $phpExe siro serve
 } else {
     Write-Host ""
-    Write-Host "✅ Siro CLI installed. Usage:"
+} else {
+    Write-Host ""
+    Write-Host "Si\u1ec7n Siro CLI installed. Usage:"
     Write-Host "  siro new my-api"
     Write-Host "  siro runtime:install 8.3"
     Write-Host ""
 }
+Read-Host -Prompt "Press Enter to exit"
+
