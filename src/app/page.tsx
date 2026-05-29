@@ -4,6 +4,7 @@ import Stats from '@/components/Stats';
 import Features from '@/components/Features';
 import HowItWorks from '@/components/HowItWorks';
 import WhySiro from '@/components/WhySiro';
+import InstallSection from '@/components/InstallSection';
 import CTA from '@/components/CTA';
 
 export const metadata: Metadata = {
@@ -58,7 +59,7 @@ export default function Home() {
         name: 'How do I install SiroPHP?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Run "composer create-project sirosoft/api my-app" for a full project skeleton, or "composer require sirosoft/core" to add the framework engine to an existing project.',
+          text: 'Zero-dependency one-liner: run "iwr https://sirophp.com/downloads/install.ps1 | iex" (Windows) or "curl -sS https://sirophp.com/downloads/install.sh | bash" (macOS/Linux). For existing PHP environments: "composer create-project sirosoft/api my-app". Download the PHAR at sirophp.com/install.',
         },
       },
       {
@@ -96,6 +97,7 @@ export default function Home() {
       <Features />
       <HowItWorks />
       <WhySiro />
+      <InstallSection />
       <CTA />
     </main>
   );

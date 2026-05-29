@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# installer binaries (managed by CI)
+/public/downloads/siro.phar
+
 # debug
 npm-debug.log*
 yarn-debug.log*
