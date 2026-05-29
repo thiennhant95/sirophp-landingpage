@@ -12,7 +12,8 @@ if ($Help) {
     Write-Host "Siro Framework Installer"
     Write-Host "Usage:"
     Write-Host "  iwr https://sirophp.com/downloads/install.ps1 -UseBasicParsing | iex"
-    Write-Host "  iwr https://sirophp.com/downloads/install.ps1 -UseBasicParsing | iex --- -Name my-project"
+    Write-Host "  iwr ... | iex --- -Name my-project"
+    Write-Host "  iwr ... | iex --- -NoProject"
     exit 0
 }
 
@@ -166,35 +167,82 @@ if (Get-Command composer -ErrorAction SilentlyContinue) {
 $CreateProject = -not $NoProject
 
 if ($CreateProject) {
-    Write-Host "[...] Step 5: Creating project '$Name'..."
+    # Auto-generate unique name if folder exists
+    $projectName = $Name
+    $counter = 2
+    while (Test-Path ".\$projectName") {
+        $projectName = "$Name-$counter"
+        $counter++
+    }
+    if ($projectName -ne $Name) {
+        Write-Warning "Directory '$Name' already exists, using '$projectName' instead"
+    }
     
-    if (Test-Path ".\$Name") {
-        Write-Error "Directory '$Name' already exists"
-    } else {
-        php "$siroPhar" new $Name
+    Write-Host "[...] Step 5: Creating project '$projectName'..."
+    
+    if (-not (Test-Path ".\$projectName")) {
+        php "$siroPhar" new $projectName
         
-        if (-not (Test-Path ".\$Name\composer.json")) {
+        if (-not (Test-Path ".\$projectName\composer.json")) {
             Write-Error "Project creation failed"
+            exit 1
         }
         
-        # Run composer install
-        Push-Location ".\$Name"
+        Push-Location ".\$projectName"
+        
+        # Fix composer.json: add vendor prefix, remove local path repos,
+        # move mcp-server to suggest (incompatible with current core version)
+        $composerJson = Get-Content composer.json -Raw | ConvertFrom-Json
+        $composerJson.name = "app/$projectName"
+        $fixedRepos = @()
+        foreach ($repo in $composerJson.repositories) {
+            $repoUrl = $repo.url
+            if ($repoUrl -ne '../siro-core') {
+                $fixedRepos += $repo
+            }
+        }
+        $composerJson.repositories = $fixedRepos
+        
+        $require = $composerJson.require
+        $mcpVersion = $require.'sirosoft/mcp-server'
+        if ($mcpVersion) {
+            $require.PSObject.Properties.Remove('sirosoft/mcp-server')
+            if (-not $composerJson.suggest) {
+                $composerJson | Add-Member -Name 'suggest' -Type NoteProperty -Value @{}
+            }
+            $composerJson.suggest | Add-Member -Name 'sirosoft/mcp-server' -Type NoteProperty -Value $mcpVersion -Force
+        }
+        $composerJson | ConvertTo-Json -Depth 10 | Set-Content composer.json
+        
+        # Copy .env if not exists
+        if ((Test-Path .env.example) -and -not (Test-Path .env)) {
+            Copy-Item .env.example .env
+        }
+        
         Write-Host "[...] Running composer install..."
-        & composer install --no-interaction
+        & composer install --no-interaction --quiet
         if ($LASTEXITCODE -ne 0) {
-            Write-Warning "composer install failed, run manually: cd $Name && composer install"
+            Write-Warning "composer install had warnings"
+        }
+        
+        # Generate app key (needs vendor/autoload.php)
+        if (Test-Path vendor/autoload.php) {
+            Write-Host "[...] Generating app key..."
+            php siro key:generate 2>$null
         }
         Pop-Location
         
         Write-Host ""
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
-        Write-Host "|   >> Siro is ready!                        |" -ForegroundColor Green
+        Write-Host "|   >> Project ready with SQLite             |" -ForegroundColor Green
         Write-Host "|                                            |" -ForegroundColor Green
-        Write-Host "|   cd $Name                                 |" -ForegroundColor Green
-        Write-Host "|   siro serve                               |" -ForegroundColor Green
+        Write-Host "|   cd $projectName                          |" -ForegroundColor Green
+        Write-Host "|   php siro serve                           |" -ForegroundColor Green
         Write-Host "|   http://localhost:8080                    |" -ForegroundColor Green
+        Write-Host "|                                            |" -ForegroundColor Green
+        Write-Host "|   For MySQL:                               |" -ForegroundColor Green
         Write-Host "|   siro db:init --mysql                     |" -ForegroundColor Green
-        Write-Host "|     (MariaDB portable)                     |" -ForegroundColor Green
+        Write-Host "|   (auto-installs MariaDB portable)         |" -ForegroundColor Green
         Write-Host "+--------------------------------------------+" -ForegroundColor Green
         Write-Host ""
     }
@@ -203,6 +251,8 @@ if ($CreateProject) {
     Write-Host "[OK] Siro CLI installed. Usage:"
     Write-Host "  siro new my-api"
     Write-Host "  siro runtime:install 8.3"
+    Write-Host ""
+    Write-Host "Project defaults to SQLite. For MySQL:"
     Write-Host "  siro db:init --mysql"
     Write-Host ""
 }
