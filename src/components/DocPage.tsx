@@ -20,10 +20,10 @@ export default function DocPage({ doc, prev, next }: DocPageProps) {
   }, [])
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black lg:flex">
       <DocSidebar />
 
-      <div className="lg:pl-72 min-h-screen">
+      <div className="flex-1 min-w-0">
         <article className="px-4 sm:px-6 pt-16 lg:pt-20 pb-32">
           <div className="max-w-3xl mx-auto">
             <Link

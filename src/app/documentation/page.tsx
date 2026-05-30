@@ -54,10 +54,10 @@ const categories = [
 
 export default function DocumentationIndex() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black lg:flex">
       <DocSidebar />
 
-      <div className="lg:pl-72">
+      <div className="flex-1 min-w-0">
         {/* Hero */}
         <section className="pt-24 lg:pt-28 pb-20 px-6">
           <div className="max-w-4xl mx-auto">

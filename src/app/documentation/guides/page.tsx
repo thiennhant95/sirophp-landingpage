@@ -7,9 +7,9 @@ import { allGuides } from '@/docs-content/guides'
 
 export default function GuidesIndex() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black lg:flex">
       <DocSidebar />
-      <div className="lg:pl-72">
+      <div className="flex-1 min-w-0">
         <section className="px-6 pt-20 pb-32">
           <div className="max-w-3xl mx-auto">
             <Link href="/documentation" className="text-cyan-400/70 hover:text-cyan-400 text-sm inline-flex items-center gap-1.5 mb-8 transition-colors">← Back to Documentation</Link>
