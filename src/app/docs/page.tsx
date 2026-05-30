@@ -69,6 +69,30 @@ export default function DocsPage() {
         </div>
       </section>
 
+      {/* Full Docs Link */}
+      {!commandsOnly && (
+        <section className="pb-8 px-6">
+          <div className="max-w-4xl mx-auto">
+            <Link
+              href="/documentation"
+              className="group flex items-center justify-between p-4 rounded-xl border border-cyan-500/20 bg-cyan-500/[0.03] hover:bg-cyan-500/[0.06] hover:border-cyan-500/40 transition-all"
+            >
+              <div>
+                <span className="text-sm font-medium text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                  Browse Full Documentation →
+                </span>
+                <p className="text-xs text-gray-500 mt-0.5">
+                  Guides, API reference, architecture, security, and examples
+                </p>
+              </div>
+              <svg className="w-5 h-5 text-cyan-400/50 group-hover:text-cyan-400 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </section>
+      )}
+
       {/* Docs Sections */}
       <section className="pb-32 px-6">
         <div className="max-w-4xl mx-auto space-y-16 sm:space-y-20">
