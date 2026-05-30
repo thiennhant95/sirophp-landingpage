@@ -16,25 +16,19 @@ export default function DocPage({ doc, prev, next }: DocPageProps) {
     <main className="min-h-screen bg-black">
       <DocSidebar />
 
-      <div className="lg:pl-72">
-        {/* Breadcrumb */}
-        <div className="pt-24 px-6 pb-4 border-b border-white/5">
+      <div className="lg:pl-72 min-h-screen">
+        {/* Header + Breadcrumb */}
+        <article className="px-6 pt-20 pb-32">
           <div className="max-w-3xl mx-auto">
             <Link
               href="/documentation"
-              className="text-cyan-400 hover:text-cyan-300 text-sm inline-flex items-center gap-1"
+              className="text-cyan-400 hover:text-cyan-300 text-sm inline-flex items-center gap-1 mb-6 block"
             >
               ← Documentation
             </Link>
-          </div>
-        </div>
 
-        {/* Content */}
-        <article className="px-6 pb-32">
-          <div className="max-w-3xl mx-auto">
-            {/* Header */}
-            <header className="py-12">
-              <div className="flex items-center gap-2 mb-4">
+            <header className="mb-10">
+              <div className="flex items-center gap-2 mb-3">
                 <span className="text-xs font-semibold text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-full uppercase tracking-wider">
                   {doc.meta.category === 'guide' ? 'Guide' :
                    doc.meta.category === 'api' ? 'API Reference' :
@@ -42,11 +36,11 @@ export default function DocPage({ doc, prev, next }: DocPageProps) {
                    doc.meta.category === 'example' ? 'Example' : 'Documentation'}
                 </span>
               </div>
-              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
                 {doc.meta.icon && <span className="mr-3">{doc.meta.icon}</span>}
                 {doc.meta.title}
               </h1>
-              <p className="text-xl text-gray-400 max-w-2xl">{doc.meta.description}</p>
+              <p className="text-lg text-gray-400 max-w-2xl">{doc.meta.description}</p>
             </header>
 
             <DocContent blocks={doc.content} />

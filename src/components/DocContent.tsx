@@ -6,22 +6,47 @@ interface DocContentProps {
   blocks: ContentBlock[]
 }
 
+function renderInline(text: string): React.ReactNode {
+  const parts: React.ReactNode[] = []
+  const regex = /(`[^`]+`)|(\*\*[^*]+\*\*)|(\*[^*]+\*)/g
+  let last = 0
+  let match
+  let key = 0
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > last) {
+      parts.push(<span key={key++}>{text.slice(last, match.index)}</span>)
+    }
+    if (match[1]) {
+      parts.push(<code key={key++} className="text-cyan-300 bg-white/5 px-1.5 py-0.5 rounded text-sm font-mono">{match[1].slice(1, -1)}</code>)
+    } else if (match[2]) {
+      parts.push(<strong key={key++} className="text-white font-semibold">{match[2].slice(2, -2)}</strong>)
+    } else if (match[3]) {
+      parts.push(<em key={key++} className="text-gray-300 italic">{match[3].slice(1, -1)}</em>)
+    }
+    last = match.index + match[0].length
+  }
+  if (last < text.length) {
+    parts.push(<span key={key++}>{text.slice(last)}</span>)
+  }
+  return parts.length ? parts : text
+}
+
 function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
     <div className="overflow-x-auto my-6 rounded-xl border border-white/10">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-white/10 bg-white/5">
-            {headers.map((h) => (
-              <th key={h} className="text-left px-4 py-3 font-semibold text-cyan-400">{h}</th>
+          <tr className="border-b border-white/10 bg-white/[0.04]">
+            {headers.map((h, i) => (
+              <th key={i} className="text-left px-4 py-3 font-semibold text-cyan-400 whitespace-nowrap">{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {rows.map((row, i) => (
-            <tr key={i} className="border-b border-white/5 last:border-0 hover:bg-white/[0.02]">
+            <tr key={i} className={`border-b border-white/5 last:border-0 hover:bg-white/[0.03] ${i % 2 === 0 ? 'bg-white/[0.01]' : ''}`}>
               {row.map((cell, j) => (
-                <td key={j} className="px-4 py-3 text-gray-300">{cell}</td>
+                <td key={j} className="px-4 py-3 text-gray-300">{renderInline(cell)}</td>
               ))}
             </tr>
           ))}
@@ -60,7 +85,7 @@ function Note({ variant, title, text }: { variant: string; title?: string; text:
         <span className="text-lg shrink-0">{c.icon}</span>
         <div>
           {title && <strong className={`block mb-1 text-sm ${c.text}`}>{title}</strong>}
-          <p className="text-sm text-gray-400">{text}</p>
+          <p className="text-sm text-gray-400 leading-relaxed">{renderInline(text)}</p>
         </div>
       </div>
     </div>
@@ -77,7 +102,7 @@ export default function DocContent({ blocks }: DocContentProps) {
           case 'h3':
             return <h3 key={i} id={block.id} className="text-xl font-semibold text-white mt-8 mb-3 scroll-mt-24">{block.text}</h3>
           case 'p':
-            return <p key={i} className="text-gray-400 leading-relaxed my-3">{block.text}</p>
+            return <p key={i} className="text-gray-400 leading-relaxed my-3">{renderInline(block.text)}</p>
           case 'code':
             return <CodeBlock key={i} code={block.code} lang={block.lang} />
           case 'ul':
@@ -88,11 +113,11 @@ export default function DocContent({ blocks }: DocContentProps) {
                     <span className="text-cyan-400 mt-1.5 shrink-0">•</span>
                     {Array.isArray(item) ? (
                       <div className="space-y-1">
-                        <span>{item[0]}</span>
+                        <span>{renderInline(item[0])}</span>
                         <span className="block text-sm text-gray-500">{item[1]}</span>
                       </div>
                     ) : (
-                      <span>{item}</span>
+                      <span>{renderInline(item)}</span>
                     )}
                   </li>
                 ))}
@@ -102,7 +127,7 @@ export default function DocContent({ blocks }: DocContentProps) {
             return (
               <ol key={i} className="space-y-1.5 my-3 list-decimal list-inside text-gray-400">
                 {block.items.map((item, j) => (
-                  <li key={j}>{item}</li>
+                  <li key={j}>{renderInline(item)}</li>
                 ))}
               </ol>
             )

@@ -40,7 +40,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "Windows cold boot is slower due to filesystem I/O (directory creation, config file scanning).\r Production should always use Linux + OPcache for optimal performance."
+    "text": "Windows cold boot is slower due to filesystem I/O (directory creation, config file scanning). Production should always use Linux + OPcache for optimal performance."
   },
   {
     "type": "h3",

@@ -13,7 +13,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "From installation to production — one continuous flow, no breaks.\r  **🔁 Replay Debug** · **⚡ 1-command CRUD** · **🔒 OWASP Top 10** · **🧪 19K tests**\r  **🛠️ From zero to production — CLI only. No PhpStorm, no Postman, no Sequel Ace, no Jenkins.**\r Every task in this workflow is done with `php siro <command>`. Zero third-party tools required.\r  No other framework — PHP, Node, Go, Rust, Python, Ruby — has all five."
+    "text": "From installation to production — one continuous flow, no breaks. **🔁 Replay Debug** · **⚡ 1-command CRUD** · **🔒 OWASP Top 10** · **🧪 19K tests** **🛠️ From zero to production — CLI only. No PhpStorm, no Postman, no Sequel Ace, no Jenkins.** Every task in this workflow is done with `php siro <command>`. Zero third-party tools required. No other framework — PHP, Node, Go, Rust, Python, Ruby — has all five."
   },
   {
     "type": "h2",
@@ -35,7 +35,57 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "**Everything in this workflow is done from the terminal. Zero GUI tools needed.**\r \r | Task | Without Siro | With Siro |\r |------|-------------|-----------|\r | Create project | `composer create-project` | `composer create-project sirosoft/api` ✅ |\r | Generate JWT secret | Open random generator website | `php siro key:generate` ✅ |\r | Create database | Open Sequel Ace / phpMyAdmin | `php siro migrate` ✅ |\r | Build CRUD API | Write 6 files manually | `php siro make:crud` ✅ |\r | Test endpoints | Open Postman | `php siro t` ✅ |\r | Debug production | ssh → grep log → guess | `php siro log:replay` ✅ |\r | Deploy | Config Nginx + CI | `php siro deploy` / `docker compose up` ✅ |\r \r **CLI from A to Z. No third-party tools. No GUI. No context switching.**"
+    "text": "**Everything in this workflow is done from the terminal. Zero GUI tools needed.**"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Task",
+      "Without Siro",
+      "With Siro"
+    ],
+    "rows": [
+      [
+        "Create project",
+        "`composer create-project`",
+        "`composer create-project sirosoft/api` ✅"
+      ],
+      [
+        "Generate JWT secret",
+        "Open random generator website",
+        "`php siro key:generate` ✅"
+      ],
+      [
+        "Create database",
+        "Open Sequel Ace / phpMyAdmin",
+        "`php siro migrate` ✅"
+      ],
+      [
+        "Build CRUD API",
+        "Write 6 files manually",
+        "`php siro make:crud` ✅"
+      ],
+      [
+        "Test endpoints",
+        "Open Postman",
+        "`php siro t` ✅"
+      ],
+      [
+        "Debug production",
+        "ssh → grep log → guess",
+        "`php siro log:replay` ✅"
+      ],
+      [
+        "Deploy",
+        "Config Nginx + CI",
+        "`php siro deploy` / `docker compose up` ✅"
+      ]
+    ]
+  },
+  {
+    "type": "note",
+    "variant": "info",
+    "text": "**CLI from A to Z. No third-party tools. No GUI. No context switching.**"
   },
   {
     "type": "h2",
@@ -162,7 +212,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "**⚡ Killer Feature #1 — 1-command CRUD**\r Laravel: `php artisan make:model -mcr Product` + manually write Controller, Service, Resource, Test\r **Siro: `php siro make:crud products`** — 6 files, zero config, instantly working."
+    "text": "**⚡ Killer Feature #1 — 1-command CRUD** Laravel: `php artisan make:model -mcr Product` + manually write Controller, Service, Resource, Test **Siro: `php siro make:crud products`** — 6 files, zero config, instantly working."
   },
   {
     "type": "h3",
@@ -295,7 +345,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "**⚡ Killer Feature #2 — CLI API Testing (no Postman)**\r Other frameworks: open Postman/Insomnia, enter URL, set headers, type body, copy token...\r **Siro: `php siro t`** — one command, token auto-saved."
+    "text": "**⚡ Killer Feature #2 — CLI API Testing (no Postman)** Other frameworks: open Postman/Insomnia, enter URL, set headers, type body, copy token... **Siro: `php siro t`** — one command, token auto-saved."
   },
   {
     "type": "h3",
@@ -345,7 +395,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "**⚡ Killer Feature #2 (continued) — Testing without Postman, auto-generated tests**\r Other frameworks: manually write tests, use Postman for API testing, configure separate HTTP client.\r **Siro: `php siro make:crud` auto-generates CRUD tests, `php siro t` for CLI testing, `php siro test` runs everything.**\r From manual testing → automated tests → coverage — all in the terminal, never leave your editor."
+    "text": "**⚡ Killer Feature #2 (continued) — Testing without Postman, auto-generated tests** Other frameworks: manually write tests, use Postman for API testing, configure separate HTTP client. **Siro: `php siro make:crud` auto-generates CRUD tests, `php siro t` for CLI testing, `php siro test` runs everything.** From manual testing → automated tests → coverage — all in the terminal, never leave your editor."
   },
   {
     "type": "h3",
@@ -486,7 +536,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "**⚡ Killer Feature #3 — Request Replay (THE REAL MOAT)**\r Laravel/Symfony/Rails/FastAPI/Express/Gin: send logs → \"let me reproduce it manually\"\r **Siro: `php siro log:replay`** — one command to replay the exact production request.\r Search trace → Inspect → Edit → Diff → Verify. All in terminal. No manual reproduction needed."
+    "text": "**⚡ Killer Feature #3 — Request Replay (THE REAL MOAT)** Laravel/Symfony/Rails/FastAPI/Express/Gin: send logs → \"let me reproduce it manually\" **Siro: `php siro log:replay`** — one command to replay the exact production request. Search trace → Inspect → Edit → Diff → Verify. All in terminal. No manual reproduction needed."
   },
   {
     "type": "h3",
@@ -533,7 +583,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "**⚡ Killer Feature #4 — Zero dependency runtime + Security built-in**\r Other frameworks: ~60-200 dependencies (composer install takes 2 minutes, audit finds 10 vulnerabilities).\r **Siro: 0 dependencies.** `composer install` in 5 seconds, `composer audit` = 0 vulnerabilities.\r OWASP Top 10 mitigated from the start — CSP, CORS, CSRF, SQLi (100% prepared statements), XSS."
+    "text": "**⚡ Killer Feature #4 — Zero dependency runtime + Security built-in** Other frameworks: ~60-200 dependencies (composer install takes 2 minutes, audit finds 10 vulnerabilities). **Siro: 0 dependencies.** `composer install` in 5 seconds, `composer audit` = 0 vulnerabilities. OWASP Top 10 mitigated from the start — CSP, CORS, CSRF, SQLi (100% prepared statements), XSS."
   },
   {
     "type": "h3",

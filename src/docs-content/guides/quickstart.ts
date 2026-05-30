@@ -59,7 +59,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "**New in v0.32.0**: Packages auto-register CLI commands and service providers.\r Just `composer require vendor/package` — no manual configuration needed."
+    "text": "**New in v0.32.0**: Packages auto-register CLI commands and service providers. Just `composer require vendor/package` — no manual configuration needed."
   },
   {
     "type": "h2",

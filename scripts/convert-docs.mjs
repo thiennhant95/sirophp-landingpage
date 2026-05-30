@@ -94,15 +94,39 @@ function parseMarkdown(text) {
       continue
     }
 
-    // Blockquote / Note
+    // Blockquote / Note (with embedded table support)
     if (/^>\s/.test(line)) {
-      let noteLines = []
+      let bqLines = []
       while (i < lines.length && /^>/.test(lines[i])) {
-        noteLines.push(lines[i].replace(/^>\s?/, ''))
+        bqLines.push(lines[i].replace(/^>\s?/, ''))
         i++
       }
-      const text = noteLines.join(' ').trim()
-      if (text) addBlock({ type: 'note', variant: 'info', text })
+      // Check if blockquote contains a table
+      const tableIdx = bqLines.findIndex((l, idx) =>
+        l.includes('|') && bqLines[idx + 1] && /^[\s|:-]+$/.test(bqLines[idx + 1].trim())
+      )
+      if (tableIdx >= 0) {
+        // Text before table
+        const beforeText = bqLines.slice(0, tableIdx).map(l => l.trim()).filter(Boolean).join(' ')
+        if (beforeText) addBlock({ type: 'note', variant: 'info', text: beforeText })
+        // Parse the table
+        const headerLine = bqLines[tableIdx]
+        const headers = headerLine.split('|').filter(c => c.trim()).map(c => c.trim())
+        let rowIdx = tableIdx + 2 // skip header separator
+        const rows = []
+        while (rowIdx < bqLines.length && bqLines[rowIdx].includes('|')) {
+          const cells = bqLines[rowIdx].split('|').filter(c => c.trim()).map(c => c.trim())
+          if (cells.length === headers.length) rows.push(cells)
+          rowIdx++
+        }
+        addBlock({ type: 'table', headers, rows })
+        // Text after table
+        const afterText = bqLines.slice(rowIdx).map(l => l.trim()).filter(Boolean).join(' ')
+        if (afterText) addBlock({ type: 'note', variant: 'info', text: afterText })
+      } else {
+        const text = bqLines.map(l => l.trim()).filter(Boolean).join(' ')
+        if (text) addBlock({ type: 'note', variant: 'info', text })
+      }
       continue
     }
 
