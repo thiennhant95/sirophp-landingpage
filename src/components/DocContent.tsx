@@ -133,7 +133,7 @@ function Heading({ level, id, text }: { level: 2 | 3; id: string; text: string }
   return (
     <Tag id={id} className={`group flex items-center gap-2 ${base}`}>
       <span>{text}</span>
-      <a href={`#${id}`} className="opacity-0 group-hover:opacity-100 text-gray-600 hover:text-cyan-400 transition-all text-lg -ml-1">
+      <a href={`#${id}`} className="opacity-0 group-hover:opacity-100 focus-visible:opacity-100 text-gray-600 hover:text-cyan-400 transition-all text-lg -ml-1">
         #
       </a>
     </Tag>

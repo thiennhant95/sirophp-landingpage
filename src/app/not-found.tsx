@@ -12,7 +12,7 @@ export default function NotFound() {
     <main className="min-h-screen bg-black flex items-center justify-center px-6">
       <div className="text-center max-w-2xl mx-auto">
         {/* 404 Number */}
-        <div className="text-8xl sm:text-9xl font-bold gradient-text mb-6">
+        <div className="text-8xl sm:text-9xl font-bold gradient-text mb-6 text-white">
           404
         </div>
 

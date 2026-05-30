@@ -10,7 +10,7 @@ const sections = [
   { id: 'production-safety', label: 'Production' },
   { id: 'openapi', label: 'OpenAPI' },
   { id: 'deploy', label: 'Deploy' },
-  { id: 'real-examples', label: 'Examples' },
+  { id: 'log-management', label: 'Log Mgmt' },
 ]
 
 export default function StickyProgressBar() {

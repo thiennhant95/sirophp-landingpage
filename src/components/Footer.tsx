@@ -46,7 +46,7 @@ export default function Footer() {
                     : link === 'Documentation' ? '/documentation'
                     : link === 'Features' ? '/#features'
                     : link === 'Changelog' ? 'https://github.com/SiroSoft/SiroPHP/releases'
-                    : link === 'Roadmap' ? 'https://github.com/SiroSoft/SiroPHP/issues'
+                    : link === 'Roadmap' ? 'https://github.com/SiroSoft/SiroPHP/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement'
                     : '#';
                   return (
                     <li key={link}>

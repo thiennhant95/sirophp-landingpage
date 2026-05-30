@@ -5,10 +5,6 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false, // Remove X-Powered-By header for security
   
-  // Performance: Optimize package imports
-  experimental: {
-    optimizePackageImports: ['lucide-react', '@heroicons/react'],
-  },
   
   // Image Optimization
   images: {
