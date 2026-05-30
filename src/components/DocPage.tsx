@@ -24,7 +24,7 @@ export default function DocPage({ doc, prev, next }: DocPageProps) {
       <DocSidebar />
 
       <div className="lg:pl-72 min-h-screen">
-        <article className="px-4 sm:px-6 pt-16 pb-32">
+        <article className="px-4 sm:px-6 pt-16 lg:pt-20 pb-32">
           <div className="max-w-3xl mx-auto lg:ml-8 xl:ml-16 xl:mr-80">
             <Link
               href="/documentation"

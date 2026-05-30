@@ -233,7 +233,7 @@ export default function DocSidebar() {
     <div
       className={`fixed top-0 left-0 z-50 h-full w-72 bg-black/95 border-r border-white/10 backdrop-blur-xl transform transition-transform duration-300 ${
         open ? 'translate-x-0' : '-translate-x-full'
-      } lg:translate-x-0 lg:sticky lg:top-0 lg:h-screen`}
+      } lg:translate-x-0 lg:sticky lg:top-20 lg:h-[calc(100vh-5rem)]`}
     >
       <div className="p-4 border-b border-white/10 flex items-center justify-between">
         <Link href="/documentation" className="text-sm font-semibold text-gray-400 uppercase tracking-wider hover:text-cyan-400 transition-colors">
