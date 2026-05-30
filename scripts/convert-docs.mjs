@@ -101,18 +101,28 @@ function parseMarkdown(text) {
         bqLines.push(lines[i].replace(/^>\s?/, ''))
         i++
       }
+      // Convert blockquote lines to text preserving paragraph breaks
+      const joinBq = (arr) => {
+        const paras = []
+        let cur = []
+        for (const l of arr) {
+          const t = l.trim()
+          if (!t) { if (cur.length) { paras.push(cur.join(' ')); cur = [] } }
+          else cur.push(t)
+        }
+        if (cur.length) paras.push(cur.join(' '))
+        return paras.join('\n\n')
+      }
       // Check if blockquote contains a table
       const tableIdx = bqLines.findIndex((l, idx) =>
         l.includes('|') && bqLines[idx + 1] && /^[\s|:-]+$/.test(bqLines[idx + 1].trim())
       )
       if (tableIdx >= 0) {
-        // Text before table
-        const beforeText = bqLines.slice(0, tableIdx).map(l => l.trim()).filter(Boolean).join(' ')
+        const beforeText = joinBq(bqLines.slice(0, tableIdx))
         if (beforeText) addBlock({ type: 'note', variant: 'info', text: beforeText })
-        // Parse the table
         const headerLine = bqLines[tableIdx]
         const headers = headerLine.split('|').filter(c => c.trim()).map(c => c.trim())
-        let rowIdx = tableIdx + 2 // skip header separator
+        let rowIdx = tableIdx + 2
         const rows = []
         while (rowIdx < bqLines.length && bqLines[rowIdx].includes('|')) {
           const cells = bqLines[rowIdx].split('|').filter(c => c.trim()).map(c => c.trim())
@@ -120,11 +130,10 @@ function parseMarkdown(text) {
           rowIdx++
         }
         addBlock({ type: 'table', headers, rows })
-        // Text after table
-        const afterText = bqLines.slice(rowIdx).map(l => l.trim()).filter(Boolean).join(' ')
+        const afterText = joinBq(bqLines.slice(rowIdx))
         if (afterText) addBlock({ type: 'note', variant: 'info', text: afterText })
       } else {
-        const text = bqLines.map(l => l.trim()).filter(Boolean).join(' ')
+        const text = joinBq(bqLines)
         if (text) addBlock({ type: 'note', variant: 'info', text })
       }
       continue

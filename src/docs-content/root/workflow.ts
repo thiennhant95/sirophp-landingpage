@@ -13,7 +13,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "From installation to production — one continuous flow, no breaks. **🔁 Replay Debug** · **⚡ 1-command CRUD** · **🔒 OWASP Top 10** · **🧪 19K tests** **🛠️ From zero to production — CLI only. No PhpStorm, no Postman, no Sequel Ace, no Jenkins.** Every task in this workflow is done with `php siro <command>`. Zero third-party tools required. No other framework — PHP, Node, Go, Rust, Python, Ruby — has all five."
+    "text": "From installation to production — one continuous flow, no breaks.\n\n**🔁 Replay Debug** · **⚡ 1-command CRUD** · **🔒 OWASP Top 10** · **🧪 19K tests**\n\n**🛠️ From zero to production — CLI only. No PhpStorm, no Postman, no Sequel Ace, no Jenkins.** Every task in this workflow is done with `php siro <command>`. Zero third-party tools required.\n\nNo other framework — PHP, Node, Go, Rust, Python, Ruby — has all five."
   },
   {
     "type": "h2",

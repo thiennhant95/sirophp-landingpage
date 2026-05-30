@@ -79,13 +79,16 @@ function Note({ variant, title, text }: { variant: string; title?: string; text:
     danger: { border: 'border-red-500/30', bg: 'bg-red-500/5', text: 'text-red-300', icon: '🚫' },
   }
   const c = colors[variant as keyof typeof colors] || colors.info
+  const paragraphs = text.split('\n\n').filter(Boolean)
   return (
     <div className={`my-6 p-4 rounded-xl border ${c.border} ${c.bg}`}>
       <div className="flex items-start gap-3">
-        <span className="text-lg shrink-0">{c.icon}</span>
-        <div>
+        <span className="text-lg shrink-0 mt-0.5">{c.icon}</span>
+        <div className="space-y-2 min-w-0">
           {title && <strong className={`block mb-1 text-sm ${c.text}`}>{title}</strong>}
-          <p className="text-sm text-gray-400 leading-relaxed">{renderInline(text)}</p>
+          {paragraphs.map((p, i) => (
+            <p key={i} className="text-sm text-gray-400 leading-relaxed">{renderInline(p)}</p>
+          ))}
         </div>
       </div>
     </div>
