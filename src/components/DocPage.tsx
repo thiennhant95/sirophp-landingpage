@@ -25,7 +25,7 @@ export default function DocPage({ doc, prev, next }: DocPageProps) {
 
       <div className="flex-1 min-w-0">
         <article className="px-4 sm:px-6 pt-16 lg:pt-20 pb-32">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl lg:ml-8 xl:ml-16 mr-auto">
             <Link
               href="/documentation"
               className="text-cyan-400/70 hover:text-cyan-400 text-sm inline-flex items-center gap-1.5 mb-8 transition-colors"
