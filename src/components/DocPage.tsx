@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import DocSidebar from '@/components/DocSidebar'
 import DocContent from '@/components/DocContent'
@@ -12,76 +13,104 @@ interface DocPageProps {
 }
 
 export default function DocPage({ doc, prev, next }: DocPageProps) {
+  const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([])
+
+  const onHeadings = useCallback((h: { id: string; text: string; level: number }[]) => {
+    setHeadings(h)
+  }, [])
+
   return (
     <main className="min-h-screen bg-black">
       <DocSidebar />
 
       <div className="lg:pl-72 min-h-screen">
-        {/* Header + Breadcrumb */}
-        <article className="px-6 pt-20 pb-32">
-          <div className="max-w-3xl mx-auto">
+        <article className="px-4 sm:px-6 pt-16 pb-32">
+          <div className="max-w-3xl mx-auto lg:ml-8 xl:ml-16 xl:mr-80">
             <Link
               href="/documentation"
-              className="text-cyan-400 hover:text-cyan-300 text-sm inline-flex items-center gap-1 mb-6 block"
+              className="text-cyan-400/70 hover:text-cyan-400 text-sm inline-flex items-center gap-1.5 mb-8 transition-colors"
             >
-              ← Documentation
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to Documentation
             </Link>
 
-            <header className="mb-10">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-semibold text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <header className="mb-12">
+              <div className="flex items-center gap-2.5 mb-4">
+                <span className="text-xs font-semibold text-cyan-400/80 bg-cyan-500/[0.08] px-3 py-1 rounded-full border border-cyan-500/20 uppercase tracking-wider">
                   {doc.meta.category === 'guide' ? 'Guide' :
                    doc.meta.category === 'api' ? 'API Reference' :
                    doc.meta.category === 'convention' ? 'Convention' :
                    doc.meta.category === 'example' ? 'Example' : 'Documentation'}
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">
                 {doc.meta.icon && <span className="mr-3">{doc.meta.icon}</span>}
                 {doc.meta.title}
               </h1>
-              <p className="text-lg text-gray-400 max-w-2xl">{doc.meta.description}</p>
+              <p className="text-[15px] text-gray-400 max-w-2xl leading-relaxed">{doc.meta.description}</p>
             </header>
 
-            <DocContent blocks={doc.content} />
+            <DocContent blocks={doc.content} onHeadings={onHeadings} />
 
             {/* Prev / Next Navigation */}
-            <nav className="mt-16 pt-8 border-t border-white/10 flex items-center justify-between">
+            <nav className="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 gap-4 sm:gap-8">
               <div>
                 {prev && (
                   <Link
                     href={prev.slug}
-                    className="group flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
+                    className="group flex flex-col p-4 rounded-xl border border-white/[0.06] hover:border-cyan-500/25 hover:bg-cyan-500/[0.03] transition-all"
                   >
-                    <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                    <div>
-                      <div className="text-xs text-gray-600">Previous</div>
-                      <div className="text-sm font-medium">{prev.title}</div>
-                    </div>
+                    <span className="text-xs text-gray-600 mb-1 group-hover:text-cyan-400/60 transition-colors">
+                      ← Previous
+                    </span>
+                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+                      {prev.title}
+                    </span>
                   </Link>
                 )}
               </div>
-              <div>
+              <div className="text-right">
                 {next && (
                   <Link
                     href={next.slug}
-                    className="group flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors text-right"
+                    className="group flex flex-col p-4 rounded-xl border border-white/[0.06] hover:border-cyan-500/25 hover:bg-cyan-500/[0.03] transition-all"
                   >
-                    <div>
-                      <div className="text-xs text-gray-600">Next</div>
-                      <div className="text-sm font-medium">{next.title}</div>
-                    </div>
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
+                    <span className="text-xs text-gray-600 mb-1 group-hover:text-cyan-400/60 transition-colors">
+                      Next →
+                    </span>
+                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+                      {next.title}
+                    </span>
                   </Link>
                 )}
               </div>
             </nav>
           </div>
         </article>
+
+        {/* On This Page - TOC */}
+        {headings.length > 0 && (
+          <aside className="fixed top-24 right-8 w-56 hidden xl:block max-h-[calc(100vh-8rem)] overflow-y-auto">
+            <div className="border-l border-white/10 pl-4">
+              <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">On this page</h4>
+              <nav className="space-y-1">
+                {headings.map((h) => (
+                  <a
+                    key={h.id}
+                    href={`#${h.id}`}
+                    className={`block text-sm transition-colors hover:text-cyan-400 ${
+                      h.level === 2 ? 'text-gray-400 pl-0' : 'text-gray-500 pl-4 text-xs'
+                    }`}
+                  >
+                    {h.text}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+        )}
       </div>
     </main>
   )
