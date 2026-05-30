@@ -11,7 +11,7 @@ const categories = [
     color: 'from-cyan-500 to-blue-500',
     items: [
       { href: '/documentation/guides/quickstart', label: 'Quick Start', desc: 'Build an API in 5 minutes' },
-      { href: '/documentation/guides/workflow', label: 'Developer Workflow', desc: 'Zero to production workflow' },
+      { href: '/documentation/workflow', label: 'Developer Workflow', desc: 'Zero to production workflow' },
       { href: '/documentation/guides/deployment', label: 'Deployment', desc: 'Ship to production' },
     ],
   },
@@ -59,7 +59,7 @@ export default function DocumentationIndex() {
 
       <div className="lg:pl-72">
         {/* Hero */}
-        <section className="pt-32 pb-20 px-6">
+        <section className="pt-24 lg:pt-28 pb-20 px-6">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
               <Link href="/" className="text-cyan-400 hover:text-cyan-300 text-sm mb-8 inline-block">← Back to Home</Link>
@@ -112,7 +112,7 @@ export default function DocumentationIndex() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {[
                 { href: '/documentation/guides/quickstart', label: 'Quick Start' },
-                { href: '/documentation/guides/workflow', label: 'Developer Workflow' },
+                { href: '/documentation/workflow', label: 'Developer Workflow' },
                 { href: '/documentation/guides/deployment', label: 'Deployment Guide' },
                 { href: '/documentation/guides/authentication', label: 'Authentication' },
                 { href: '/documentation/guides/database', label: 'Database Guide' },

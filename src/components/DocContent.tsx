@@ -182,9 +182,9 @@ export default function DocContent({ blocks, onHeadings }: DocContentProps) {
             )
           case 'ol':
             return (
-              <ol key={i} className="space-y-1.5 my-4 ml-5 text-gray-300">
+              <ol key={i} className="space-y-2 my-4 ml-5 text-gray-300 list-decimal">
                 {block.items.map((item, j) => (
-                  <li key={j} className="list-decimal pl-1 marker:text-cyan-400">{renderInline(item)}</li>
+                  <li key={j} className="pl-2 marker:text-cyan-400 marker:font-medium">{renderInline(item)}</li>
                 ))}
               </ol>
             )

@@ -10,16 +10,12 @@ export default function GuidesIndex() {
     <main className="min-h-screen bg-black">
       <DocSidebar />
       <div className="lg:pl-72">
-        <div className="pt-24 px-6 pb-4 border-b border-white/5">
+        <section className="px-6 pt-20 pb-32">
           <div className="max-w-3xl mx-auto">
-            <Link href="/documentation" className="text-cyan-400 hover:text-cyan-300 text-sm inline-flex items-center gap-1">← Documentation</Link>
-          </div>
-        </div>
-        <section className="px-6 pb-32">
-          <div className="max-w-3xl mx-auto">
-            <header className="py-12">
-              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4"><span className="mr-3">📚</span>Guides</h1>
-              <p className="text-xl text-gray-400">Step-by-step guides for building APIs with SiroPHP.</p>
+            <Link href="/documentation" className="text-cyan-400/70 hover:text-cyan-400 text-sm inline-flex items-center gap-1.5 mb-8 transition-colors">← Back to Documentation</Link>
+            <header className="mb-10">
+              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3"><span className="mr-3">📚</span>Guides</h1>
+              <p className="text-lg text-gray-400">Step-by-step guides for building APIs with SiroPHP.</p>
             </header>
             <div className="space-y-4">
               {Object.entries(allGuides).map(([slug, doc], i) => (

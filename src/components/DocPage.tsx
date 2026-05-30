@@ -25,7 +25,7 @@ export default function DocPage({ doc, prev, next }: DocPageProps) {
 
       <div className="lg:pl-72 min-h-screen">
         <article className="px-4 sm:px-6 pt-16 lg:pt-20 pb-32">
-          <div className="max-w-3xl mx-auto lg:ml-8 xl:ml-16 xl:mr-80">
+          <div className="max-w-3xl mx-auto">
             <Link
               href="/documentation"
               className="text-cyan-400/70 hover:text-cyan-400 text-sm inline-flex items-center gap-1.5 mb-8 transition-colors"
@@ -92,16 +92,16 @@ export default function DocPage({ doc, prev, next }: DocPageProps) {
 
         {/* On This Page - TOC */}
         {headings.length > 0 && (
-          <aside className="fixed top-24 right-8 w-56 hidden xl:block max-h-[calc(100vh-8rem)] overflow-y-auto">
-            <div className="border-l border-white/10 pl-4">
+          <aside className="fixed top-20 right-8 w-56 hidden xl:block max-h-[calc(100vh-6rem)] overflow-y-auto pointer-events-none">
+            <div className="border-l border-white/10 pl-4 pointer-events-auto">
               <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">On this page</h4>
-              <nav className="space-y-1">
+              <nav className="space-y-1.5">
                 {headings.map((h) => (
                   <a
                     key={h.id}
                     href={`#${h.id}`}
-                    className={`block text-sm transition-colors hover:text-cyan-400 ${
-                      h.level === 2 ? 'text-gray-400 pl-0' : 'text-gray-500 pl-4 text-xs'
+                    className={`block transition-colors hover:text-cyan-400 ${
+                      h.level === 2 ? 'text-gray-400 pl-0 text-sm' : 'text-gray-500 pl-4 text-xs'
                     }`}
                   >
                     {h.text}
