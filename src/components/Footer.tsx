@@ -43,7 +43,7 @@ export default function Footer() {
                     : link === 'Terms' ? '/terms'
                     : link === 'GitHub' ? 'https://github.com/SiroSoft/SiroPHP'
                     : link === 'Discord' ? 'https://discord.gg/sirophp'
-                    : link === 'Documentation' ? '/docs'
+                    : link === 'Documentation' ? '/documentation'
                     : link === 'Features' ? '/#features'
                     : link === 'Changelog' ? 'https://github.com/SiroSoft/SiroPHP/releases'
                     : link === 'Roadmap' ? 'https://github.com/SiroSoft/SiroPHP/issues'

@@ -8,7 +8,7 @@ const navLinks = [
   { href: '/#why-siro', label: 'Why Siro' },
   { href: '/blog', label: 'Blog' },
   { href: '/tutorials', label: 'Tutorials' },
-  { href: '/documentation', label: 'Documentation' },
+  { href: '/docs', label: 'Docs' },
   { href: '/security', label: 'Security' },
   { href: '/benchmarks', label: 'Benchmarks' },
   { href: '/replay', label: 'Replay' },
