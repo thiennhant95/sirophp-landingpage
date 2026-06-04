@@ -59,7 +59,7 @@ export const doc: Doc = {
   {
     "type": "note",
     "variant": "info",
-    "text": "**New in v0.32.0**: Packages auto-register CLI commands and service providers. Just `composer require vendor/package` — no manual configuration needed."
+    "text": "**New in v0.34.0**: Packages auto-register CLI commands and service providers. Just `composer require vendor/package` — no manual configuration needed."
   },
   {
     "type": "h2",
@@ -68,7 +68,7 @@ export const doc: Doc = {
   },
   {
     "type": "p",
-    "text": "SiroPHP v0.29.2+ auto-discovers CLI commands and service providers from any installed Composer package."
+    "text": "SiroPHP v0.34.0+ auto-discovers CLI commands and service providers from any installed Composer package."
   },
   {
     "type": "h3",

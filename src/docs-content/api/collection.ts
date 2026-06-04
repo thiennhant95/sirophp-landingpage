@@ -57,7 +57,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$col = collect([1, 2, 3]);\r\n$doubled = $col->map(fn($n) => $n * 2);\r\n// [2, 4, 6]\r"
+    "code": "$col = Collection::make([1, 2, 3]);\r\n$doubled = $col->map(fn($n) => $n * 2);\r\n// [2, 4, 6]\r"
   },
   {
     "type": "h3",
@@ -67,7 +67,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$col = collect([1, 2, 3, 4, 5]);\r\n$evens = $col->filter(fn($n) => $n % 2 === 0);\r\n// [2, 4]\r"
+    "code": "$col = Collection::make([1, 2, 3, 4, 5]);\r\n$evens = $col->filter(fn($n) => $n % 2 === 0);\r\n// [2, 4]\r"
   },
   {
     "type": "h3",
@@ -77,7 +77,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$users = collect([\r\n    ['id' => 1, 'name' => 'Alice'],\r\n    ['id' => 2, 'name' => 'Bob'],\r\n]);\r\n\r\n$names = $users->pluck('name');\r\n// ['Alice', 'Bob']\r\n\r\n$keyed = $users->pluck('name', 'id');\r\n// [1 => 'Alice', 2 => 'Bob']\r"
+    "code": "$users = Collection::make([\r\n    ['id' => 1, 'name' => 'Alice'],\r\n    ['id' => 2, 'name' => 'Bob'],\r\n]);\r\n\r\n$names = $users->pluck('name');\r\n// ['Alice', 'Bob']\r\n\r\n$keyed = $users->pluck('name', 'id');\r\n// [1 => 'Alice', 2 => 'Bob']\r"
   },
   {
     "type": "h3",
@@ -87,7 +87,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$total = collect([1, 2, 3])->reduce(fn($carry, $n) => $carry + $n, 0);\r\n// 6\r"
+    "code": "$total = Collection::make([1, 2, 3])->reduce(fn($carry, $n) => $carry + $n, 0);\r\n// 6\r"
   },
   {
     "type": "h2",
@@ -102,7 +102,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$products = collect([\r\n    ['name' => 'Laptop', 'price' => 999, 'stock' => 5],\r\n    ['name' => 'Mouse', 'price' => 25, 'stock' => 100],\r\n    ['name' => 'Keyboard', 'price' => 75, 'stock' => 0],\r\n]);\r\n\r\n$available = $products->where('stock', '>', 0);\r\n// [['name' => 'Laptop', ...], ['name' => 'Mouse', ...]]\r\n\r\n$cheap = $products->where('price', '<', 100);\r\n// [['name' => 'Mouse', ...], ['name' => 'Keyboard', ...]]\r"
+    "code": "$products = Collection::make([\r\n    ['name' => 'Laptop', 'price' => 999, 'stock' => 5],\r\n    ['name' => 'Mouse', 'price' => 25, 'stock' => 100],\r\n    ['name' => 'Keyboard', 'price' => 75, 'stock' => 0],\r\n]);\r\n\r\n$available = $products->where('stock', '>', 0);\r\n// [['name' => 'Laptop', ...], ['name' => 'Mouse', ...]]\r\n\r\n$cheap = $products->where('price', '<', 100);\r\n// [['name' => 'Mouse', ...], ['name' => 'Keyboard', ...]]\r"
   },
   {
     "type": "h3",
@@ -142,7 +142,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$prices = collect([10, 20, 30, 40]);\r\n\r\n$prices->sum();      // 100\r\n$prices->avg();      // 25\r\n$prices->min();      // 10\r\n$prices->max();      // 40\r"
+    "code": "$prices = Collection::make([10, 20, 30, 40]);\r\n\r\n$prices->sum();      // 100\r\n$prices->avg();      // 25\r\n$prices->min();      // 10\r\n$prices->max();      // 40\r"
   },
   {
     "type": "h2",
@@ -152,7 +152,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$col = collect([1, 2, 3]);\r\n\r\n$col->push(4);          // [1, 2, 3, 4]\r\n$col->pop();            // returns 4, collection becomes [1, 2, 3]\r\n$col->shift();          // returns 1, collection becomes [2, 3]\r\n$col->unshift(0);       // [0, 1, 2, 3]\r"
+    "code": "$col = Collection::make([1, 2, 3]);\r\n\r\n$col->push(4);          // [1, 2, 3, 4]\r\n$col->pop();            // returns 4, collection becomes [1, 2, 3]\r\n$col->shift();          // returns 1, collection becomes [2, 3]\r\n$col->unshift(0);       // [0, 1, 2, 3]\r"
   },
   {
     "type": "h3",
@@ -162,7 +162,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$chunks = collect([1, 2, 3, 4, 5])->chunk(2);\r\n// [[1, 2], [3, 4], [5]]\r"
+    "code": "$chunks = Collection::make([1, 2, 3, 4, 5])->chunk(2);\r\n// [[1, 2], [3, 4], [5]]\r"
   },
   {
     "type": "h3",
@@ -172,7 +172,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$slice = collect([1, 2, 3, 4, 5])->slice(1, 3);\r\n// [2, 3, 4]\r"
+    "code": "$slice = Collection::make([1, 2, 3, 4, 5])->slice(1, 3);\r\n// [2, 3, 4]\r"
   },
   {
     "type": "h3",
@@ -182,7 +182,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$unique = collect([1, 1, 2, 2, 3])->unique();\r\n// [1, 2, 3]\r"
+    "code": "$unique = Collection::make([1, 1, 2, 2, 3])->unique();\r\n// [1, 2, 3]\r"
   },
   {
     "type": "h2",
@@ -192,7 +192,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$col = collect(['name' => 'Siro', 'version' => '0.28']);\r\n\r\n$col->toArray();         // ['name' => 'Siro', 'version' => '0.28']\r\n$col->toJson();          // '{\"name\":\"Siro\",\"version\":\"0.28\"}'\r\n$col->implode(', ');     // 'Siro, 0.28'\r"
+    "code": "$col = Collection::make(['name' => 'Siro', 'version' => '0.34']);\r\n\r\n$col->toArray();         // ['name' => 'Siro', 'version' => '0.34']\r\n$col->toJson();          // '{\"name\":\"Siro\",\"version\":\"0.34\"}'\r\n$col->implode(', ');     // 'Siro, 0.34'\r"
   },
   {
     "type": "h2",
@@ -206,7 +206,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$result = collect($products)\r\n    ->where('price', '>', 100)\r\n    ->where('stock', '>', 0)\r\n    ->sort('price')\r\n    ->pluck('name');\r"
+    "code": "$result = Collection::make($products)\r\n    ->where('price', '>', 100)\r\n    ->where('stock', '>', 0)\r\n    ->sort('price')\r\n    ->pluck('name');\r"
   },
   {
     "type": "h2",
@@ -216,7 +216,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// tap — do something without breaking chain\r\n$result = collect($data)\r\n    ->tap(fn($c) => Logger::debug('Processing', ['count' => $c->count()]))\r\n    ->map(fn($item) => $this->process($item));\r\n\r\n// pipe — pass collection to a function\r\n$result = collect($data)->pipe(fn($c) => $this->customTransform($c));\r"
+    "code": "// tap — do something without breaking chain\r\n$result = Collection::make($data)\r\n    ->tap(fn($c) => Logger::debug('Processing', ['count' => $c->count()]))\r\n    ->map(fn($item) => $this->process($item));\r\n\r\n// pipe — pass collection to a function\r\n$result = Collection::make($data)->pipe(fn($c) => $this->customTransform($c));\r"
   },
   {
     "type": "h2",
@@ -226,7 +226,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Dump and die\r\ncollect($data)->dd();\r\n\r\n// Dump and continue\r\ncollect($data)->dump();\r"
+    "code": "// Dump and die\r\nCollection::make($data)->dd();\r\n\r\n// Dump and continue\r\nCollection::make($data)->dump();\r"
   },
   {
     "type": "h2",

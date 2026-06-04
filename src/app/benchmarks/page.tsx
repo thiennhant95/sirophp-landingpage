@@ -6,6 +6,7 @@ import { BenchmarksContent } from './BenchmarksContent';
 export const metadata: Metadata = {
   title: 'Benchmarks - SiroPHP | Performance Comparison',
   description: 'Blazing fast performance: ~3ms cold boot (Win) / ~0.5ms (Linux), ~4MB+ baseline RAM (~30MB peak), ~360K routes/sec. Compare with Laravel and Symfony.',
+  alternates: { canonical: '/benchmarks' },
   openGraph: {
     title: 'SiroPHP Benchmarks - Fastest PHP Framework',
     description: '~3ms cold boot (Win) / ~0.5ms (Linux), minimal memory usage. See how SiroPHP compares with Laravel and Symfony.',
@@ -21,8 +22,17 @@ export const metadata: Metadata = {
 };
 
 export default function BenchmarksPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Benchmarks - SiroPHP | Performance Comparison',
+    description: 'Blazing fast performance: ~3ms cold boot (Win) / ~0.5ms (Linux), ~4MB+ baseline RAM (~30MB peak), ~360K routes/sec. Compare with Laravel and Symfony.',
+    url: 'https://sirophp.com/benchmarks',
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <BenchmarksContent />
       <Footer />

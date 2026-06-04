@@ -42,7 +42,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Create\r\n$user = User::create([\r\n    'name' => 'John Doe',\r\n    'email' => 'john@example.com',\r\n    'password' => bcrypt('secret'),\r\n]);\r\n\r\n// Find by ID\r\n$user = User::find(1);\r\n\r\n// Find or fail\r\n$user = User::findOrFail(1); // Throws exception if not found\r\n\r\n// Update\r\n$user->update(['name' => 'Jane Doe']);\r\n\r\n// Delete\r\n$user->delete();\r\n\r\n// All records\r\n$users = User::all();\r\n\r\n// Count\r\n$count = User::count();\r"
+    "code": "// Create\r\n$user = User::create([\r\n    'name' => 'John Doe',\r\n    'email' => 'john@example.com',\r\n    'password' => Hash::make('secret'),\r\n]);\r\n\r\n// Find by ID\r\n$user = User::find(1);\r\n\r\n// Find or fail\r\n$user = User::findOrFail(1); // Throws exception if not found\r\n\r\n// Update\r\n$user->update(['name' => 'Jane Doe']);\r\n\r\n// Delete\r\n$user->delete();\r\n\r\n// All records\r\n$users = User::all();\r\n\r\n// Count\r\n$count = User::count();\r"
   },
   {
     "type": "h2",
@@ -230,7 +230,7 @@ export const doc: Doc = {
   {
     "type": "h2",
     "id": "accessors-mutators-v0-28",
-    "text": "Accessors & Mutators (v0.28+)"
+    "text": "Accessors & Mutators (v0.34+)"
   },
   {
     "type": "p",
@@ -285,7 +285,7 @@ export const doc: Doc = {
   {
     "type": "h2",
     "id": "virtual-attributes-with-appends-v0-28",
-    "text": "Virtual Attributes with Appends (v0.28+)"
+    "text": "Virtual Attributes with Appends (v0.34+)"
   },
   {
     "type": "p",
@@ -294,7 +294,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "class User extends Model\r\n{\r\n    protected array $appends = ['full_name', 'initials', 'age'];\r\n    \r\n    // These accessors will be included in toArray() and json_encode()\r\n    public function getFullNameAttribute(): string\r\n    {\r\n        return ($this->first_name ?? '') . ' ' . ($this->last_name ?? '');\r\n    }\r\n    \r\n    public function getInitialsAttribute(): string\r\n    {\r\n        $first = $this->first_name ?? '';\r\n        $last = $this->last_name ?? '';\r\n        return strtoupper(substr($first, 0, 1) . substr($last, 0, 1));\r\n    }\r\n    \r\n    public function getAgeAttribute(): int\r\n    {\r\n        return \\Carbon\\Carbon::parse($this->birth_date)->age;\r\n    }\r\n}\r\n\r\n$user = User::find(1);\r\n$data = $user->toArray();\r\n// Includes: id, first_name, last_name, birth_date, full_name, initials, age\r\n\r\n$json = json_encode($user);\r\n// {\"id\":1,\"first_name\":\"John\",\"last_name\":\"Doe\",\"full_name\":\"John Doe\",\"initials\":\"JD\",\"age\":30}\r"
+    "code": "class User extends Model\r\n{\r\n    protected array $appends = ['full_name', 'initials', 'age'];\r\n    \r\n    // These accessors will be included in toArray() and json_encode()\r\n    public function getFullNameAttribute(): string\r\n    {\r\n        return ($this->first_name ?? '') . ' ' . ($this->last_name ?? '');\r\n    }\r\n    \r\n    public function getInitialsAttribute(): string\r\n    {\r\n        $first = $this->first_name ?? '';\r\n        $last = $this->last_name ?? '';\r\n        return strtoupper(substr($first, 0, 1) . substr($last, 0, 1));\r\n    }\r\n    \r\n    public function getAgeAttribute(): int\r\n    {\r\n        return date_diff(date_create($this->birth_date), date_create('now'))->y;\r\n    }\r\n}\r\n\r\n$user = User::find(1);\r\n$data = $user->toArray();\r\n// Includes: id, first_name, last_name, birth_date, full_name, initials, age\r\n\r\n$json = json_encode($user);\r\n// {\"id\":1,\"first_name\":\"John\",\"last_name\":\"Doe\",\"full_name\":\"John Doe\",\"initials\":\"JD\",\"age\":30}\r"
   },
   {
     "type": "p",
@@ -308,7 +308,7 @@ export const doc: Doc = {
   {
     "type": "h2",
     "id": "datetime-auto-formatting-v0-28",
-    "text": "DateTime Auto-Formatting (v0.28+)"
+    "text": "DateTime Auto-Formatting (v0.34+)"
   },
   {
     "type": "p",
@@ -512,7 +512,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Get published posts with author and tags\r\n$posts = Post::published()\r\n    ->with('author', 'tags')\r\n    ->orderBy('published_at', 'desc')\r\n    ->paginate(20);\r\n\r\n// Create new post\r\n$post = Post::create([\r\n    'title' => 'My First Post',\r\n    'slug' => 'my-first-post',\r\n    'content' => 'Content here...',\r\n    'status' => 'draft',\r\n    'user_id' => auth()->id(),\r\n]);\r\n\r\n// Publish post\r\n$post->update(['status' => 'published', 'published_at' => now()]);\r\n\r\n// Add tags\r\n$post->tags()->attach([1, 2, 3]);\r"
+    "code": "// Get published posts with author and tags\r\n$posts = Post::published()\r\n    ->with('author', 'tags')\r\n    ->orderBy('published_at', 'desc')\r\n    ->paginate(20);\r\n\r\n// Create new post\r\n$post = Post::create([\r\n    'title' => 'My First Post',\r\n    'slug' => 'my-first-post',\r\n    'content' => 'Content here...',\r\n    'status' => 'draft',\r\n    'user_id' => $request->user()['id'],\r\n]);\r\n\r\n// Publish post\r\n$post->update(['status' => 'published', 'published_at' => date('Y-m-d H:i:s')]);\r\n\r\n// Add tags\r\n$post->tags()->attach([1, 2, 3]);\r"
   },
   {
     "type": "h2",

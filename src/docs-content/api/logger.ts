@@ -42,17 +42,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "Logger::debug('Query executed', ['sql' => $sql, 'time' => '2.3ms']);\r\nLogger::info('User registered', ['user_id' => 42]);\r\nLogger::notice('Rate limit approaching', ['remaining' => 5]);\r\nLogger::warning('Slow query detected', ['sql' => $sql, 'duration' => 500]);\r\nLogger::error('Payment failed', ['order_id' => 100, 'reason' => 'insufficient_funds']);\r\nLogger::critical('Database connection lost');\r\nLogger::alert('Disk space critical');\r\nLogger::emergency('System is down');\r"
-  },
-  {
-    "type": "h2",
-    "id": "log-channels",
-    "text": "Log Channels"
-  },
-  {
-    "type": "code",
-    "lang": "php",
-    "code": "// Default channel\r\nLogger::info('Request completed');\r\n\r\n// Request log\r\nLogger::channel('request')->info('GET /api/products — 200');\r\n\r\n// Slow query log\r\nLogger::channel('slow')->warning('Query took 450ms', ['sql' => $sql]);\r\n\r\n// Security log (SIEM-ready)\r\nLogger::channel('security')->warning('Failed login attempt', [\r\n    'ip' => $ip,\r\n    'email' => $email,\r\n    'attempts' => 3,\r\n]);\r\n\r\n// Error log\r\nLogger::channel('error')->error('Unhandled exception', [\r\n    'exception' => get_class($e),\r\n    'message' => $e->getMessage(),\r\n]);\r\n\r\n// Debug log\r\nLogger::channel('debug')->debug('Variable dump', $data);\r\n\r\n// Trace log (per-request)\r\nLogger::channel('trace')->info('Trace captured', ['trace_id' => $traceId]);\r"
+    "code": "Logger::debug('Query executed', ['sql' => $sql, 'time' => '2.3ms']);\r\nLogger::request('GET /api/products — 200', ['duration_ms' => 12.3]);\r\nLogger::slowRequest('Query took 450ms', ['sql' => $sql, 'duration' => 450]);\r\nLogger::warning('Slow query detected', ['sql' => $sql, 'duration' => 500]);\r\nLogger::error('Payment failed', ['order_id' => 100, 'reason' => 'insufficient_funds']);\r\nLogger::security('Failed login attempt', ['ip' => $ip, 'email' => $email]);\r\nLogger::trace('Trace captured', ['trace_id' => $traceId]);\r"
   },
   {
     "type": "h2",
@@ -70,7 +60,7 @@ export const doc: Doc = {
   },
   {
     "type": "p",
-    "text": "Sanitized fields: authorization, cookie, x-api-key, password, passwd, token, secret, credit_card, cc_number, jwt, bearer, refresh_token, api_key, private_key."
+    "text": "Sanitized fields: authorization, cookie, x-api-key, x-csrf-token, session-id, password, token, otp, secret, credit_card, credit-card, card_number, cvv, pin, ssn, passport."
   },
   {
     "type": "h2",
@@ -80,7 +70,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Global context (included in every log entry)\r\nLogger::setContext([\r\n    'trace_id' => $traceId,\r\n    'user_id' => $userId,\r\n    'ip' => $request->ip(),\r\n]);\r\n\r\n// Log entries automatically include context\r\nLogger::info('Order created', ['order_id' => 100]);\r\n// Output: { \"message\": \"Order created\", \"context\": { \"order_id\": 100 }, \"global\": { \"trace_id\": \"...\", \"user_id\": 42 } }\r"
+    "code": "// Log entries with context\r\nLogger::debug('Order created', ['order_id' => 100, 'user_id' => 42]);\r\n// Output: { \"message\": \"Order created\", \"context\": { \"order_id\": 100, \"user_id\": 42 } }\r"
   },
   {
     "type": "h2",
@@ -134,12 +124,12 @@ export const doc: Doc = {
         "Debug level"
       ],
       [
-        "`info(string $message, array $context)`",
-        "Info level"
+        "`request(string $message, array $context)`",
+        "Request logging"
       ],
       [
-        "`notice(string $message, array $context)`",
-        "Notice level"
+        "`slowRequest(string $message, array $context)`",
+        "Slow request logging"
       ],
       [
         "`warning(string $message, array $context)`",
@@ -150,32 +140,12 @@ export const doc: Doc = {
         "Error level"
       ],
       [
-        "`critical(string $message, array $context)`",
-        "Critical level"
+        "`security(string $message, array $context)`",
+        "Security events (SIEM-ready)"
       ],
       [
-        "`alert(string $message, array $context)`",
-        "Alert level"
-      ],
-      [
-        "`emergency(string $message, array $context)`",
-        "Emergency level"
-      ],
-      [
-        "`channel(string $name)`",
-        "Get/create log channel"
-      ],
-      [
-        "`setContext(array $context)`",
-        "Set global context"
-      ],
-      [
-        "`sanitize(array $data)`",
-        "Sanitize sensitive data"
-      ],
-      [
-        "`log(string $level, string $message, array $context)`",
-        "Log at arbitrary level"
+        "`trace(string $message, array $context)`",
+        "Request trace capture"
       ]
     ]
   }

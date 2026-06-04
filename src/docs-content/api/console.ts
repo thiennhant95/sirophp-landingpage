@@ -91,7 +91,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$version = Console::getVersion();  // \"0.28.1\"\r"
+    "code": "$version = Console::getVersion();  // \"0.34.0\"\r"
   },
   {
     "type": "h2",

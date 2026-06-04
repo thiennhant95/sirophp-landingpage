@@ -12,6 +12,37 @@ export const doc: Doc = {
   content: [
   {
     "type": "h2",
+    "id": "v0-34-0-2026-06-04",
+    "text": "v0.34.0 (2026-06-04)"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Enterprise audit: PHPStan level max — zero errors across source + test suite",
+      "19,190 tests passing — 0 failures, 0 skipped",
+      "QueryBuilder UPSERT fix: INSERT ON DUPLICATE KEY UPDATE now works correctly",
+      "Admin starters CSRF/security hardening applied to Next.js + Nuxt starters",
+      "CLI help texts fixed: all command descriptions rendering correctly across terminals",
+      "Response Contract v1 finalized — standardized envelope for all API responses"
+    ]
+  },
+  {
+    "type": "h2",
+    "id": "v0-33-0-2026-06-02",
+    "text": "v0.33.0 (2026-06-02)"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Security audit: OWASP Top 10 full coverage — 42/42 penetration tests passed",
+      "Auth timing attack fix: constant-time comparison for token verification",
+      "Session hardening: regenerate ID on privilege escalation",
+      "CSRF token rotation: tokens invalidated after use",
+      "Rate limiter: sliding window algorithm prevents bypass via reset"
+    ]
+  },
+  {
+    "type": "h2",
     "id": "v0-32-0-2026-05-30",
     "text": "v0.32.0 (2026-05-30)"
   },

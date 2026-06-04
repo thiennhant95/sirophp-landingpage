@@ -130,8 +130,17 @@ const colorMap: Record<string, { border: string; bg: string; text: string }> = {
 };
 
 export default function FeaturesPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Features — SiroPHP | Build Fast. Debug Faster.',
+    description: 'Explore all SiroPHP features: CRUD scaffolding, CLI API testing, request replay, trace logging, OpenAPI docs, and more.',
+    url: 'https://sirophp.com/features',
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <FadeIn>

@@ -6,6 +6,7 @@ import { SecurityContent } from './SecurityContent';
 export const metadata: Metadata = {
   title: 'Security - SiroPHP | Security-Hardened PHP Framework',
   description: 'Security-hardened by default with 42 attack vectors tested, zero vulnerabilities. JWT auth, rate limiting, CSRF protection built-in.',
+  alternates: { canonical: '/security' },
   openGraph: {
     title: 'SiroPHP Security - Zero Vulnerabilities Framework',
     description: '42 attack vectors verified. SQL injection, XSS, CSRF all blocked by default. Production-ready security.',
@@ -21,8 +22,17 @@ export const metadata: Metadata = {
 };
 
 export default function SecurityPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Security - SiroPHP | Security-Hardened PHP Framework',
+    description: 'Security-hardened by default with 42 attack vectors tested, zero vulnerabilities. JWT auth, rate limiting, CSRF protection built-in.',
+    url: 'https://sirophp.com/security',
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <SecurityContent />
       <Footer />

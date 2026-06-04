@@ -12,8 +12,8 @@ export const doc: Doc = {
   content: [
   {
     "type": "h2",
-    "id": "v0-32-known-issues",
-    "text": "v0.32 Known Issues"
+    "id": "v0-34-known-issues",
+    "text": "v0.34 Known Issues"
   },
   {
     "type": "h3",
@@ -41,7 +41,7 @@ export const doc: Doc = {
       [
         "No partial rollback for specific migration",
         "Low",
-        "`migrate:rollback --step=N` or `migrate:fresh` (v0.28.1)"
+        "`migrate:rollback --step=N` or `migrate:fresh` (v0.34.0)"
       ]
     ]
   },

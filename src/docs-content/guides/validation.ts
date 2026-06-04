@@ -136,7 +136,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "use Siro\\Core\\Request;\r\n\r\nfinal class StoreProductRequest extends Request\r\n{\r\n    public function validate(): array\r\n    {\r\n        return parent::validate([\r\n            'name' => 'required|min:2|max:200',\r\n            'price' => 'required|numeric|min:0',\r\n            'stock' => 'integer|min:0',\r\n            'category' => 'required',\r\n            'status' => 'in:active,inactive',\r\n        ]);\r\n    }\r\n}\r"
+    "code": "use Siro\\Core\\Request;\r\n\r\nfinal class StoreProductRequest extends FormRequest\r\n{\r\n    public function validate(): array\r\n    {\r\n        return parent::validate([\r\n            'name' => 'required|min:2|max:200',\r\n            'price' => 'required|numeric|min:0',\r\n            'stock' => 'integer|min:0',\r\n            'category' => 'required',\r\n            'status' => 'in:active,inactive',\r\n        ]);\r\n    }\r\n}\r"
   },
   {
     "type": "p",

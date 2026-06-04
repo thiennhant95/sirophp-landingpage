@@ -22,7 +22,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "use Siro\\Core\\Event;\r\n\r\n// Register a listener\r\nEvent::on('user.registered', function (array $payload) {\r\n    // Handle the event\r\n    $userId = $payload['id'];\r\n    Log::info(\"User registered: $userId\");\r\n});\r\n\r\n// Emit an event\r\nEvent::emit('user.registered', ['id' => 1, 'email' => 'user@example.com']);\r"
+    "code": "use Siro\\Core\\Event;\r\n\r\n// Register a listener\r\nEvent::on('user.registered', function (array $payload) {\r\n    // Handle the event\r\n    $userId = $payload['id'];\r\n    Logger::debug(\"User registered: $userId\");\r\n});\r\n\r\n// Emit an event\r\nEvent::emit('user.registered', ['id' => 1, 'email' => 'user@example.com']);\r"
   },
   {
     "type": "h2",
@@ -129,7 +129,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "Event::on('users.*', function ($payload) {\r\n    $event = Event::currentEvent();  // 'users.created', 'users.updated', etc.\r\n    Log::info(\"$event fired\");\r\n});\r"
+    "code": "Event::on('users.*', function ($payload) {\r\n    $event = Event::currentEvent();  // 'users.created', 'users.updated', etc.\r\n    Logger::debug(\"$event fired\");\r\n});\r"
   },
   {
     "type": "h2",
@@ -215,7 +215,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// The `creating`/`saving`/`deleting` events receive the Model instance\r\nEvent::on('users.creating', function ($model) {\r\n    $model->token_version = 1;\r\n});\r\n\r\n// The `created`/`saved`/`deleted` events receive no arguments\r\nEvent::on('users.created', function () {\r\n    Log::info('User was created');\r\n});\r\n\r\n// Block deletion of protected users\r\nEvent::on('users.deleting', function ($model) {\r\n    if ($model->role === 'superadmin') {\r\n        return false;  // Prevent deletion\r\n    }\r\n});\r"
+    "code": "// The `creating`/`saving`/`deleting` events receive the Model instance\r\nEvent::on('users.creating', function ($model) {\r\n    $model->token_version = 1;\r\n});\r\n\r\n// The `created`/`saved`/`deleted` events receive no arguments\r\nEvent::on('users.created', function () {\r\n    Logger::debug('User was created');\r\n});\r\n\r\n// Block deletion of protected users\r\nEvent::on('users.deleting', function ($model) {\r\n    if ($model->role === 'superadmin') {\r\n        return false;  // Prevent deletion\r\n    }\r\n});\r"
   },
   {
     "type": "h2",

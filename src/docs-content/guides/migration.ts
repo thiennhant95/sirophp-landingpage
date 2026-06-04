@@ -16,13 +16,26 @@ export const doc: Doc = {
   },
   {
     "type": "h2",
-    "id": "v0-22-v0-23-current",
-    "text": "v0.22 → v0.23 (Current)"
+    "id": "v0-33-v0-34-current",
+    "text": "v0.33 → v0.34 (Current)"
   },
   {
     "type": "code",
     "lang": "bash",
-    "code": "composer update sirosoft/core:^0.23\r"
+    "code": "composer update sirosoft/core:^0.34\r"
+  },
+  {
+    "type": "h3",
+    "id": "breaking",
+    "text": "⚠ Breaking Changes"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "**Database::connection()** now returns raw PDO directly. Use `DB::table()` for the QueryBuilder instead.",
+      "**API Response Contract v1**: All responses now use standardized envelope format — update any custom response formatting.",
+      "**CSRF token rotation**: Tokens are invalidated after use — update frontend to expect new token header."
+    ]
   },
   {
     "type": "h3",
@@ -40,8 +53,8 @@ export const doc: Doc = {
   },
   {
     "type": "h2",
-    "id": "v0-16-v0-22",
-    "text": "v0.16 → v0.22"
+    "id": "v0-22-v0-23",
+    "text": "v0.22 → v0.23"
   },
   {
     "type": "ul",

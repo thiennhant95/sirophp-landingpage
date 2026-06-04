@@ -4,7 +4,7 @@ import type { Doc } from '../types'
 export const doc: Doc = {
   meta: {
     title: "CLI Command Reference",
-    description: "Siro ships with 72+ CLI commands. Every task — from project creation to production debugging — is done from the terminal. No GUI tools needed.",
+    description: "Siro ships with **91 CLI commands**. Every task — from project creation to production debugging — is done from the terminal. No GUI tools needed.",
     category: "api",
     order: 0,
     icon: "⚙️",
@@ -17,7 +17,7 @@ export const doc: Doc = {
   },
   {
     "type": "p",
-    "text": "Siro ships with 72+ CLI commands. Every task — from project creation to production debugging — is done from the terminal. No GUI tools needed."
+    "text": "Siro ships with **91 CLI commands**. Every task — from project creation to production debugging — is done from the terminal. No GUI tools needed."
   },
   {
     "type": "code",

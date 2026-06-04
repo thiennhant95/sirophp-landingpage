@@ -42,7 +42,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Dispatch with payload\r\nEvent::dispatch(new UserCreatedEvent($user->id, $user->email));\r\n\r\n// Dispatch with string name + payload\r\nEvent::dispatch('user.created', ['user_id' => $user->id, 'email' => $user->email]);\r\n\r\n// Dispatch with wildcard\r\nEvent::dispatch('user.*', $data);\r"
+    "code": "// Dispatch with payload\r\nEvent::emit(new UserCreatedEvent($user->id, $user->email));\r\n\r\n// Dispatch with string name + payload\r\nEvent::emit('user.created', ['user_id' => $user->id, 'email' => $user->email]);\r\n\r\n// Dispatch with wildcard\r\nEvent::emit('user.*', $data);\r"
   },
   {
     "type": "h2",
@@ -57,7 +57,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "use App\\Events\\UserCreatedEvent;\r\nuse App\\Listeners\\SendWelcomeEmailListener;\r\n\r\n// Class-based listener\r\nEvent::listen(UserCreatedEvent::class, SendWelcomeEmailListener::class);\r\n\r\n// Closure listener\r\nEvent::listen(UserCreatedEvent::class, function (UserCreatedEvent $event): void {\r\n    Mail::to($event->email)->send(new WelcomeMail($event->userId));\r\n});\r\n\r\n// Wildcard listener\r\nEvent::listen('user.*', function (string $event, array $data): void {\r\n    Logger::info(\"User event: {$event}\", $data);\r\n});\r"
+    "code": "use App\\Events\\UserCreatedEvent;\r\nuse App\\Listeners\\SendWelcomeEmailListener;\r\n\r\n// Class-based listener\r\nEvent::on(UserCreatedEvent::class, SendWelcomeEmailListener::class);\r\n\r\n// Closure listener\r\nEvent::on(UserCreatedEvent::class, function (UserCreatedEvent $event): void {\r\n    Mail::to($event->email)->send(new WelcomeMail($event->userId));\r\n});\r\n\r\n// Wildcard listener\r\nEvent::on('user.*', function (string $event, array $data): void {\r\n    Logger::debug(\"User event: {$event}\", $data);\r\n});\r"
   },
   {
     "type": "h2",
@@ -87,7 +87,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Listener runs once, then removed\r\nEvent::listenOnce('user.created', function ($event): void {\r\n    Logger::info('First user created');\r\n});\r"
+    "code": "// Listener runs once, then removed\r\nEvent::once('user.created', function ($event): void {\r\n    Logger::debug('First user created');\r\n});\r"
   },
   {
     "type": "h2",
@@ -101,7 +101,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "Event::listen('user.created', function ($event): void {\r\n    if ($this->shouldBlock()) {\r\n        return false; // Stops further listeners\r\n    }\r\n});\r"
+    "code": "Event::on('user.created', function ($event): void {\r\n    if ($this->shouldBlock()) {\r\n        return false; // Stops further listeners\r\n    }\r\n});\r"
   },
   {
     "type": "h2",
@@ -115,7 +115,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Available model events\r\nEvent::listen('model.creating', function ($model): void {});\r\nEvent::listen('model.created', function ($model): void {});\r\nEvent::listen('model.saving', function ($model): void {});\r\nEvent::listen('model.saved', function ($model): void {});\r\nEvent::listen('model.updating', function ($model): void {});\r\nEvent::listen('model.updated', function ($model): void {});\r\nEvent::listen('model.deleting', function ($model): void {});\r\nEvent::listen('model.deleted', function ($model): void {});\r"
+    "code": "// Available model events (replace `{table}` with your model's table name)\r\nEvent::on('{table}.creating', function ($model): void {});\r\nEvent::on('{table}.created', function ($model): void {});\r\nEvent::on('{table}.saving', function ($model): void {});\r\nEvent::on('{table}.saved', function ($model): void {});\r\nEvent::on('{table}.updating', function ($model): void {});\r\nEvent::on('{table}.updated', function ($model): void {});\r\nEvent::on('{table}.deleting', function ($model): void {});\r\nEvent::on('{table}.deleted', function ($model): void {});\r"
   },
   {
     "type": "h2",
@@ -130,20 +130,28 @@ export const doc: Doc = {
     ],
     "rows": [
       [
-        "`listenOnce(string $event, callable $listener)`",
+        "`emit(object|string $event, mixed $payload)`",
+        "Emit event"
+      ],
+      [
+        "`on(string $event, callable|string $listener)`",
+        "Register listener"
+      ],
+      [
+        "`once(string $event, callable $listener)`",
         "Register one-time listener"
       ],
       [
-        "`removeListener(string $event, callable $listener)`",
-        "Remove listener"
-      ],
-      [
-        "`getListeners(string $event)`",
-        "Get all listeners for event"
+        "`off(string $event)`",
+        "Remove all listeners for event"
       ],
       [
         "`hasListeners(string $event)`",
         "Check if event has listeners"
+      ],
+      [
+        "`currentEvent()`",
+        "Get name of currently firing event"
       ],
       [
         "`flush()`",
