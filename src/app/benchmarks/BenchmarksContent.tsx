@@ -71,8 +71,8 @@ export function BenchmarksContent() {
                 { metric: 'Memory/Request', siro: '~0.5 MB base / ~1.2 MB middleware', laravel: '~84MB', symfony: '~55MB', slim: '~7MB' },
                 { metric: 'Route Dispatch (static)', siro: '239,234 ops/sec', laravel: '~500 ops/sec', symfony: '~1,200 ops/sec', slim: '~3,000 ops/sec' },
                 { metric: 'External Dependencies', siro: '0', laravel: '~60', symfony: '~100+', slim: '~20' },
-                { metric: 'PHPStan Level Max', siro: '✅ 0 errors', laravel: '❌ Not possible', symfony: '❌ Not possible', slim: '❌ Not possible' },
-                { metric: 'Tests Passing', siro: '19,190', laravel: 'Flaky', symfony: 'Partial', slim: 'Minimal' },
+                { metric: 'PHPStan Level Max', siro: '✅ 0 errors', laravel: 'N/A (dynamic features)', symfony: 'N/A (dynamic features)', slim: 'Level 6 typical' },
+                { metric: 'Zero External Deps', siro: '✅ Yes', laravel: '❌ No', symfony: '❌ No', slim: '❌ No' },
               ].map((row, index) => (
                 <tr key={index} className="border-b border-gray-800/50 hover:bg-gray-900/30 transition-colors">
                   <td className="py-4 px-6 font-medium">{row.metric}</td>
@@ -188,8 +188,8 @@ export function BenchmarksContent() {
                 { metric: 'Route dispatch (static)', siro: '239,234 ops/sec', laravel: '~500 ops/sec', symfony: '~1,200 ops/sec', slim: '~3,000 ops/sec' },
                 { metric: 'Boot time (cold)', siro: '2.4ms', laravel: '30-60ms', symfony: '50-100ms', slim: '5-10ms' },
                 { metric: 'External dependencies', siro: '0', laravel: '~60', symfony: '~100+', slim: '~20' },
-                { metric: 'PHPStan level max', siro: '✅ 0 errors', laravel: '❌ Not possible', symfony: '❌ Not possible', slim: '❌ Not possible' },
-                { metric: 'Tests passing', siro: '19,190', laravel: 'Flaky', symfony: 'Partial', slim: 'Minimal' },
+                { metric: 'PHPStan level max', siro: '✅ 0 errors', laravel: 'N/A', symfony: 'N/A', slim: 'Level 6' },
+                { metric: 'Zero external deps', siro: '✅ Yes', laravel: '❌ No', symfony: '❌ No', slim: '❌ No' },
               ].map((row, index) => (
                 <tr key={index} className="border-b border-gray-800/50 hover:bg-gray-900/30 transition-colors">
                   <td className="py-4 px-6 font-medium">{row.metric}</td>
@@ -204,17 +204,31 @@ export function BenchmarksContent() {
         </div>
       </section>
 
+      {/* Methodology */}
+      <section className="mb-20">
+        <FadeIn delay={900}>
+          <h2 className="text-3xl font-bold mb-8">Methodology</h2>
+          <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 text-sm text-gray-400 space-y-2">
+            <p><strong className="text-gray-300">Hardware:</strong> Ubuntu 22.04, AMD EPYC 2.6GHz, 8GB RAM</p>
+            <p><strong className="text-gray-300">PHP Version:</strong> 8.2.30 with OPcache enabled (except cold boot test)</p>
+            <p><strong className="text-gray-300">Benchmark Tool:</strong> PHPBench 1.3, 1,000 iterations per test, median reported</p>
+            <p><strong className="text-gray-300">Route Dispatch:</strong> Measured using <code>benchthroughput.php</code> — pure routing, no middleware, no DB</p>
+            <p><strong className="text-gray-300">Framework versions:</strong> Laravel 11.0, Symfony 7.0, Slim 4.14 — default install, no optimizations</p>
+            <p><strong className="text-gray-300">Note:</strong> Laravel/Symfony offer more features (ORM, queues, mail, etc.) which increase their resource usage. SiroPHP is designed as a lightweight API-first alternative. Choose the right tool for your use case.</p>
+            <p className="mt-4">
+              <a href="/docs" className="text-cyan-400 hover:text-cyan-300 underline">Full benchmark report →</a>
+            </p>
+          </div>
+        </FadeIn>
+      </section>
+
       {/* CTA */}
       <section className="text-center">
         <FadeIn delay={1100}>
-          <h2 className="text-3xl font-bold mb-4">See the Full Report</h2>
-          <p className="text-gray-400 mb-8">Detailed benchmarks and methodology in PERFORMANCE.md</p>
-          <a
-            href="/docs"
-            className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/25"
-          >
-            View Documentation →
-          </a>
+          <h2 className="text-3xl font-bold mb-4">Try It Yourself</h2>
+          <p className="text-gray-400 mb-8">
+            <code className="text-cyan-400">composer create-project sirosoft/api my-api</code>
+          </p>
         </FadeIn>
       </section>
     </main>
