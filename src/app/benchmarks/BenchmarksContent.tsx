@@ -51,7 +51,12 @@ export function BenchmarksContent() {
       {/* Framework Comparison */}
       <section className="mb-20">
         <FadeIn delay={600}>
-          <h2 className="text-3xl font-bold mb-8">Framework Comparison</h2>
+          <h2 className="text-3xl font-bold mb-4">How We Compare</h2>
+          <p className="text-gray-400 mb-8 max-w-3xl">
+            Laravel and Symfony are full-stack powerhouses with massive ecosystems. SiroPHP takes a different approach:
+            lightweight, zero-dependency, API-first. These numbers reflect our different design goals — not a competition.
+            <strong className="text-gray-300"> Choose the right tool for your project.</strong>
+          </p>
         </FadeIn>
         
         <div className="overflow-x-auto">
@@ -59,24 +64,23 @@ export function BenchmarksContent() {
             <thead>
               <tr className="border-b border-gray-800">
                 <th className="text-left py-4 px-6 text-gray-400 font-medium">Metric</th>
-                <th className="text-center py-4 px-6 text-cyan-400 font-bold">SiroPHP v0.34</th>
-                <th className="text-center py-4 px-6 text-gray-400">Laravel 11</th>
-                <th className="text-center py-4 px-6 text-gray-400">Symfony 7</th>
-                <th className="text-center py-4 px-6 text-gray-400">Slim 4</th>
+                <th className="text-center py-4 px-6 text-cyan-400 font-medium">SiroPHP</th>
+                <th className="text-center py-4 px-6 text-gray-300">Laravel 11</th>
+                <th className="text-center py-4 px-6 text-gray-300">Symfony 7</th>
+                <th className="text-center py-4 px-6 text-gray-300">Slim 4</th>
               </tr>
             </thead>
             <tbody>
               {[
                 { metric: 'Boot Time', siro: '2.4ms cold / 0.5ms OPcache', laravel: '30-60ms', symfony: '50-100ms', slim: '5-10ms' },
-                { metric: 'Memory/Request', siro: '~0.5 MB base / ~1.2 MB middleware', laravel: '~84MB', symfony: '~55MB', slim: '~7MB' },
-                { metric: 'Route Dispatch (static)', siro: '239,234 ops/sec', laravel: '~500 ops/sec', symfony: '~1,200 ops/sec', slim: '~3,000 ops/sec' },
-                { metric: 'External Dependencies', siro: '0', laravel: '~60', symfony: '~100+', slim: '~20' },
-                { metric: 'PHPStan Level Max', siro: '✅ 0 errors', laravel: 'N/A (dynamic features)', symfony: 'N/A (dynamic features)', slim: 'Level 6 typical' },
-                { metric: 'Zero External Deps', siro: '✅ Yes', laravel: '❌ No', symfony: '❌ No', slim: '❌ No' },
+                { metric: 'Memory/Request', siro: '~0.5 MB base', laravel: '~84 MB', symfony: '~55 MB', slim: '~7 MB' },
+                { metric: 'Route Dispatch (static)', siro: '239K ops/sec', laravel: '~500 ops/sec', symfony: '~1.2K ops/sec', slim: '~3K ops/sec' },
+                { metric: 'Ecosystem Size', siro: 'Niche (debug-testing)', laravel: 'Massive', symfony: 'Very large', slim: 'Small' },
+                { metric: 'Zero Dependencies', siro: 'Yes', laravel: '~60 packages', symfony: '~100+', slim: '~20' },
               ].map((row, index) => (
                 <tr key={index} className="border-b border-gray-800/50 hover:bg-gray-900/30 transition-colors">
-                  <td className="py-4 px-6 font-medium">{row.metric}</td>
-                  <td className="py-4 px-6 text-center text-cyan-400 font-semibold">{row.siro}</td>
+                  <td className="py-4 px-6 font-medium text-gray-300">{row.metric}</td>
+                  <td className="py-4 px-6 text-center text-cyan-400">{row.siro}</td>
                   <td className="py-4 px-6 text-center text-gray-400">{row.laravel}</td>
                   <td className="py-4 px-6 text-center text-gray-400">{row.symfony}</td>
                   <td className="py-4 px-6 text-center text-gray-400">{row.slim}</td>
@@ -166,37 +170,39 @@ export function BenchmarksContent() {
         </div>
       </section>
 
-      {/* Comparison Table */}
+      {/* Quick Comparison */}
       <section className="mb-20">
         <FadeIn delay={800}>
-          <h2 className="text-3xl font-bold mb-8">SiroPHP vs The Competition</h2>
+          <h2 className="text-3xl font-bold mb-4">Design Philosophy</h2>
+          <p className="text-gray-400 mb-8 max-w-3xl">
+            Every framework makes trade-offs. Here&apos;s where SiroPHP deliberately differs.
+          </p>
         </FadeIn>
 
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-gray-800">
-                <th className="text-left py-4 px-6 text-gray-400 font-medium">Metric</th>
-                <th className="text-center py-4 px-6 text-cyan-400 font-bold">SiroPHP v0.34</th>
-                <th className="text-center py-4 px-6 text-gray-400">Laravel 11</th>
-                <th className="text-center py-4 px-6 text-gray-400">Symfony 7</th>
-                <th className="text-center py-4 px-6 text-gray-400">Slim 4</th>
+                <th className="text-left py-4 px-6 text-gray-400 font-medium">Aspect</th>
+                <th className="text-center py-4 px-6 text-cyan-400 font-medium">SiroPHP</th>
+                <th className="text-center py-4 px-6 text-gray-300">Laravel 11</th>
+                <th className="text-center py-4 px-6 text-gray-300">Symfony 7</th>
               </tr>
             </thead>
             <tbody>
               {[
-                { metric: 'Route dispatch (static)', siro: '239,234 ops/sec', laravel: '~500 ops/sec', symfony: '~1,200 ops/sec', slim: '~3,000 ops/sec' },
-                { metric: 'Boot time (cold)', siro: '2.4ms', laravel: '30-60ms', symfony: '50-100ms', slim: '5-10ms' },
-                { metric: 'External dependencies', siro: '0', laravel: '~60', symfony: '~100+', slim: '~20' },
-                { metric: 'PHPStan level max', siro: '✅ 0 errors', laravel: 'N/A', symfony: 'N/A', slim: 'Level 6' },
-                { metric: 'Zero external deps', siro: '✅ Yes', laravel: '❌ No', symfony: '❌ No', slim: '❌ No' },
+                { metric: 'Focus', siro: 'API + Debug workflow', laravel: 'Full-stack web', symfony: 'Enterprise web' },
+                { metric: 'Template Engine', siro: 'None (API-first)', laravel: 'Blade', symfony: 'Twig' },
+                { metric: 'ORM', siro: 'Minimal, no deps', laravel: 'Eloquent', symfony: 'Doctrine' },
+                { metric: 'Dependencies', siro: 'Zero', laravel: '~60 packages', symfony: '~100+' },
+                { metric: 'Learning Curve', siro: 'Low', laravel: 'Medium', symfony: 'Steep' },
+                { metric: 'Ecosystem', siro: 'Niche', laravel: 'Massive', symfony: 'Very large' },
               ].map((row, index) => (
                 <tr key={index} className="border-b border-gray-800/50 hover:bg-gray-900/30 transition-colors">
-                  <td className="py-4 px-6 font-medium">{row.metric}</td>
-                  <td className="py-4 px-6 text-center text-cyan-400 font-semibold">{row.siro}</td>
+                  <td className="py-4 px-6 font-medium text-gray-300">{row.metric}</td>
+                  <td className="py-4 px-6 text-center text-cyan-400">{row.siro}</td>
                   <td className="py-4 px-6 text-center text-gray-400">{row.laravel}</td>
                   <td className="py-4 px-6 text-center text-gray-400">{row.symfony}</td>
-                  <td className="py-4 px-6 text-center text-gray-400">{row.slim}</td>
                 </tr>
               ))}
             </tbody>
@@ -214,7 +220,7 @@ export function BenchmarksContent() {
             <p><strong className="text-gray-300">Benchmark Tool:</strong> PHPBench 1.3, 1,000 iterations per test, median reported</p>
             <p><strong className="text-gray-300">Route Dispatch:</strong> Measured using <code>benchthroughput.php</code> — pure routing, no middleware, no DB</p>
             <p><strong className="text-gray-300">Framework versions:</strong> Laravel 11.0, Symfony 7.0, Slim 4.14 — default install, no optimizations</p>
-            <p><strong className="text-gray-300">Note:</strong> Laravel/Symfony offer more features (ORM, queues, mail, etc.) which increase their resource usage. SiroPHP is designed as a lightweight API-first alternative. Choose the right tool for your use case.</p>
+            <p><strong className="text-gray-300">Note:</strong> Laravel and Symfony are mature, full-featured frameworks with massive ecosystems, extensive documentation, and large communities. SiroPHP is not a replacement — it is a <strong className="text-gray-300">niche tool</strong> for teams who prioritize API debugging workflow, zero dependencies, and minimal resource usage. Each framework excels in its own domain. Choose what fits your project.</p>
             <p className="mt-4">
               <a href="/docs" className="text-cyan-400 hover:text-cyan-300 underline">Full benchmark report →</a>
             </p>
