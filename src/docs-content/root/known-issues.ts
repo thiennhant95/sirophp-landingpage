@@ -12,8 +12,8 @@ export const doc: Doc = {
   content: [
   {
     "type": "h2",
-    "id": "v0-34-known-issues",
-    "text": "v0.34 Known Issues"
+    "id": "v0-35-known-issues",
+    "text": "v0.35 Known Issues"
   },
   {
     "type": "h3",

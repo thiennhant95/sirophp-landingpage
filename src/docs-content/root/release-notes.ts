@@ -12,6 +12,22 @@ export const doc: Doc = {
   content: [
   {
     "type": "h2",
+    "id": "v0-35-0-2026-06-07",
+    "text": "v0.35.0 (2026-06-07)"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Redis-backed rate limiter driver for high-traffic production deployments",
+      "Email verification flow with token-based confirmation and resend support",
+      "Demo workflow mode for quick prototyping and client presentations",
+      "Debug improvements: enhanced trace filtering, replay diff highlighting, structured error output",
+      "PHPStan level max: 0 errors across core + skeleton",
+      "Full test suite passing: 19K+ core tests, 463 skeleton tests — 0 failures"
+    ]
+  },
+  {
+    "type": "h2",
     "id": "v0-34-0-2026-06-04",
     "text": "v0.34.0 (2026-06-04)"
   },
