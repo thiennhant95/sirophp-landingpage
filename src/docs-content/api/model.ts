@@ -230,7 +230,7 @@ export const doc: Doc = {
   {
     "type": "h2",
     "id": "accessors-mutators-v0-28",
-    "text": "Accessors & Mutators (v0.34+)"
+    "text": "Accessors & Mutators (v0.35.0+)"
   },
   {
     "type": "p",
@@ -285,7 +285,7 @@ export const doc: Doc = {
   {
     "type": "h2",
     "id": "virtual-attributes-with-appends-v0-28",
-    "text": "Virtual Attributes with Appends (v0.34+)"
+    "text": "Virtual Attributes with Appends (v0.35.0+)"
   },
   {
     "type": "p",
@@ -308,7 +308,7 @@ export const doc: Doc = {
   {
     "type": "h2",
     "id": "datetime-auto-formatting-v0-28",
-    "text": "DateTime Auto-Formatting (v0.34+)"
+    "text": "DateTime Auto-Formatting (v0.35.0+)"
   },
   {
     "type": "p",

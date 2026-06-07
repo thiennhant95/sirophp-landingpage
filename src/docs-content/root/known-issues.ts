@@ -41,7 +41,7 @@ export const doc: Doc = {
       [
         "No partial rollback for specific migration",
         "Low",
-        "`migrate:rollback --step=N` or `migrate:fresh` (v0.34.0)"
+        "`migrate:rollback --step=N` or `migrate:fresh` (v0.35.0)"
       ]
     ]
   },

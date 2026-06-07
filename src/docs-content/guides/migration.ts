@@ -16,13 +16,13 @@ export const doc: Doc = {
   },
   {
     "type": "h2",
-    "id": "v0-33-v0-34-current",
-    "text": "v0.33 → v0.34 (Current)"
+    "id": "v0-34-v0-35-0-current",
+    "text": "v0.34 → v0.35.0 (Current)"
   },
   {
     "type": "code",
     "lang": "bash",
-    "code": "composer update sirosoft/core:^0.34\r"
+    "code": "composer update sirosoft/core:^0.35.0\r"
   },
   {
     "type": "h3",
