@@ -307,7 +307,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Check current memory\r\n$memory = memory_get_usage(true) / 1024 / 1024; // MB\r\nLogger::info(\"Memory usage: {$memory}MB\");\r\n\r\n// Peak memory\r\n$peak = memory_get_peak_usage(true) / 1024 / 1024;\r\nLogger::info(\"Peak memory: {$peak}MB\");\r"
+    "code": "// Check current memory\r\n$memory = memory_get_usage(true) / 1024 / 1024; // MB\r\nLogger::debug(\"Memory usage: {$memory}MB\");\r\n\r\n// Peak memory\r\n$peak = memory_get_peak_usage(true) / 1024 / 1024;\r\nLogger::debug(\"Peak memory: {$peak}MB\");\r"
   },
   {
     "type": "h2",
@@ -388,7 +388,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "use Siro\\Core\\Logger;\r\n\r\n$start = microtime(true);\r\n\r\n// Your code here\r\n$result = $this->processData();\r\n\r\n$duration = (microtime(true) - $start) * 1000;\r\n\r\nLogger::info('Processing completed', [\r\n    'duration_ms' => round($duration, 2),\r\n    'records_processed' => count($result),\r\n]);\r"
+    "code": "use Siro\\Core\\Logger;\r\n\r\n$start = microtime(true);\r\n\r\n// Your code here\r\n$result = $this->processData();\r\n\r\n$duration = (microtime(true) - $start) * 1000;\r\n\r\nLogger::debug('Processing completed', [\r\n    'duration_ms' => round($duration, 2),\r\n    'records_processed' => count($result),\r\n]);\r"
   },
   {
     "type": "h2",
@@ -488,7 +488,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Add to controller\r\nLogger::info('Memory', [\r\n    'current' => memory_get_usage(true) / 1024 / 1024,\r\n    'peak' => memory_get_peak_usage(true) / 1024 / 1024,\r\n]);\r"
+    "code": "// Add to controller\r\nLogger::debug('Memory', [\r\n    'current' => memory_get_usage(true) / 1024 / 1024,\r\n    'peak' => memory_get_peak_usage(true) / 1024 / 1024,\r\n]);\r"
   },
   {
     "type": "p",

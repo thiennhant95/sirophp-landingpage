@@ -97,9 +97,9 @@ const featureGroups = [
     title: 'Performance',
     color: 'teal',
     items: [
-      '~0.5ms cold boot (Linux+OPcache) / ~3ms (Windows)',
-      '~4MB+ RAM per request — framework ~30MB peak, PHP baseline ~2MB',
-      '~360K routes/sec — O(1) cached route matching',
+      '~1ms cold boot (Linux+OPcache) / ~8ms (Windows, no OPcache)',
+      '~16KB RAM per request — framework ~0.5MB base memory, zero overhead on peak',
+      '~239K routes/sec static — 14,971 ops/sec dynamic',
       'Minimal dependencies — no supply chain risk',
       'FrankenPHP support — production Docker images included',
     ],

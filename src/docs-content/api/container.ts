@@ -156,7 +156,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$container->rebinding('cache', function ($c, $instance) {\r\n    // Called when 'cache' binding is overwritten\r\n    $c->make(Logger::class)->info('Cache driver changed');\r\n});\r"
+    "code": "$container->rebinding('cache', function ($c, $instance) {\r\n    // Called when 'cache' binding is overwritten\r\n    $c->make(Logger::class)->debug('Cache driver changed');\r\n});\r"
   },
   {
     "type": "h2",

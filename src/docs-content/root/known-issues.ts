@@ -114,7 +114,7 @@ export const doc: Doc = {
     ],
     "rows": [
       [
-        "Queue only DB-based (Redis driver planned for v1.0)",
+        "Queue: DB driver (default), Redis driver (QUEUE_DRIVER=redis)",
         "Low",
         "Use database queue with retries"
       ],
@@ -148,7 +148,7 @@ export const doc: Doc = {
         "Build with any frontend"
       ],
       [
-        "No WebSocket",
+        "No native WebSocket (Mercure/SSE available via FrankenPHP)",
         "HTTP-only",
         "Use polling or Pusher"
       ],

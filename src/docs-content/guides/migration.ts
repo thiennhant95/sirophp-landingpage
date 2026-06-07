@@ -32,9 +32,7 @@ export const doc: Doc = {
   {
     "type": "ul",
     "items": [
-      "**Database::connection()** now returns raw PDO directly. Use `DB::table()` for the QueryBuilder instead.",
-      "**API Response Contract v1**: All responses now use standardized envelope format — update any custom response formatting.",
-      "**CSRF token rotation**: Tokens are invalidated after use — update frontend to expect new token header."
+      "**Database::connection()** now returns raw PDO directly. Use `DB::table()` for the QueryBuilder instead."
     ]
   },
   {
@@ -45,10 +43,12 @@ export const doc: Doc = {
   {
     "type": "ul",
     "items": [
-      "**API Versioning**: middleware `version` added to `/api` group",
-      "**ETag**: middleware `etag` auto-returns `304 Not Modified`",
-      "**Metrics**: GET `/metrics` endpoint (OpenMetrics format)",
-      "**Auth caching**: User DB query cached per request"
+      "**Redis queue driver** — set `QUEUE_DRIVER=redis`",
+      "**Mercure/WebSocket integration** — real-time SSE via Mercure hub",
+      "**Rate limiter Redis driver** — shared Redis connection via CacheInstance",
+      "**Email verification flow** — `POST /api/auth/verify-email/resend`",
+      "**Validation nesting** — `items.*.product_id` syntax",
+      "**Debug workflow demo** — `php siro demo`"
     ]
   },
   {

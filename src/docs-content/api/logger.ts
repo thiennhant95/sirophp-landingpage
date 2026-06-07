@@ -56,7 +56,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// These values are REDACTED in log output\r\nLogger::info('Login', [\r\n    'password' => 'secret123',           // → [REDACTED]\r\n    'token' => 'eyJ...',                 // → [REDACTED]  \r\n    'authorization' => 'Bearer eyJ...',  // → [REDACTED]\r\n    'credit_card' => '4111-1111-1111',   // → [REDACTED]\r\n    'x-api-key' => 'abc123',            // → [REDACTED]\r\n    'cookie' => 'session=abc',          // → [REDACTED]\r\n]);\r"
+    "code": "// These values are REDACTED in log output\r\nLogger::debug('Login', [\r\n    'password' => 'secret123',           // → [REDACTED]\r\n    'token' => 'eyJ...',                 // → [REDACTED]  \r\n    'authorization' => 'Bearer eyJ...',  // → [REDACTED]\r\n    'credit_card' => '4111-1111-1111',   // → [REDACTED]\r\n    'x-api-key' => 'abc123',            // → [REDACTED]\r\n    'cookie' => 'session=abc',          // → [REDACTED]\r\n]);\r"
   },
   {
     "type": "p",

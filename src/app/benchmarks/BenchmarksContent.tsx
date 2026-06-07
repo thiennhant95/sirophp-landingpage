@@ -24,7 +24,7 @@ export function BenchmarksContent() {
         <div className="grid md:grid-cols-3 gap-6">
           <FadeIn delay={300}>
             <div className="bg-gradient-to-br from-cyan-900/20 to-cyan-800/10 border border-cyan-500/30 rounded-lg p-6">
-              <div className="text-5xl font-bold text-cyan-400 mb-2">~2.4ms</div>
+              <div className="text-5xl font-bold text-cyan-400 mb-2">~1ms (Linux+OPcache) / ~8ms (Windows, no OPcache)</div>
               <div className="text-sm text-gray-400 mb-2">Cold Boot (no OPcache)</div>
               <div className="text-xs text-gray-500">~0.5ms with OPcache</div>
             </div>
