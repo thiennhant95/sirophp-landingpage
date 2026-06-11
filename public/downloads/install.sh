@@ -125,7 +125,13 @@ if $NEED_DOWNLOAD; then
     fi
     if $SHA_OK && [ -f "$SHA_FILE" ]; then
         EXPECTED=$(cut -d' ' -f1 < "$SHA_FILE" | tr '[:upper:]' '[:lower:]')
-        ACTUAL=$(sha256sum "$SIRO_PHAR" 2>/dev/null | cut -d' ' -f1 | tr '[:upper:]' '[:lower:]')
+        if command -v sha256sum >/dev/null 2>&1; then
+            ACTUAL=$(sha256sum "$SIRO_PHAR" 2>/dev/null | cut -d' ' -f1 | tr '[:upper:]' '[:lower:]')
+        elif command -v shasum >/dev/null 2>&1; then
+            ACTUAL=$(shasum -a 256 "$SIRO_PHAR" 2>/dev/null | cut -d' ' -f1 | tr '[:upper:]' '[:lower:]')
+        else
+            ACTUAL=""
+        fi
         if [ "$EXPECTED" != "$ACTUAL" ]; then
             log_fail "Siro CLI checksum mismatch. File may be corrupted."
             rm -f "$SIRO_PHAR"
