@@ -192,7 +192,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$col = Collection::make(['name' => 'Siro', 'version' => '0.34']);\r\n\r\n$col->toArray();         // ['name' => 'Siro', 'version' => '0.34']\r\n$col->toJson();          // '{\"name\":\"Siro\",\"version\":\"0.34\"}'\r\n$col->implode(', ');     // 'Siro, 0.34'\r"
+    "code": "$col = Collection::make(['name' => 'Siro', 'version' => '0.35.0']);\r\n\r\n$col->toArray();         // ['name' => 'Siro', 'version' => '0.35.0']\r\n$col->toJson();          // '{\"name\":\"Siro\",\"version\":\"0.35.0\"}'\r\n$col->implode(', ');     // 'Siro, 0.35.0'\r"
   },
   {
     "type": "h2",
