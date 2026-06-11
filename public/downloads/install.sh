@@ -1,5 +1,5 @@
 #!/bin/sh
-# Siro - 1 command, 0 dependency PHP API Framework (v0.32.1)
+# Siro - 1 command, 0 dependency PHP API Framework (v0.35.0)
 # Usage: curl -sS https://sirophp.com/downloads/install.sh | bash
 # Or:    curl -sS https://sirophp.com/downloads/install.sh | bash -s my-api
 
@@ -8,7 +8,7 @@ set -eu
 RED='\033[0;31m'; GREEN='\033[0;32m'; CYAN='\033[0;36m'; YELLOW='\033[0;33m'; NC='\033[0m'
 
 PROJECT_NAME=""; PHP_VERSION="8.2"; NO_PROJECT=false; QUIET=false
-VERSION="0.32.0"
+VERSION="0.35.0"
 SIRO_DIR="$HOME/.siro"; SIRO_PHAR="$SIRO_DIR/siro.phar"
 
 while [ $# -gt 0 ]; do case "$1" in
