@@ -1,5 +1,5 @@
 #!/bin/sh
-# Siro - 1 command, 0 dependency PHP API Framework (v0.32.0)
+# Siro - 1 command, 0 dependency PHP API Framework (v0.32.1)
 # Usage: curl -sS https://sirophp.com/downloads/install.sh | bash
 # Or:    curl -sS https://sirophp.com/downloads/install.sh | bash -s my-api
 
@@ -114,6 +114,28 @@ if $NEED_DOWNLOAD; then
     elif command -v wget >/dev/null 2>&1; then
         wget -q "$PHAR_URL" -O "$SIRO_PHAR"
     fi
+    # Verify SHA-256 checksum
+    SHA_URL="https://sirophp.com/downloads/siro.phar.sha256"
+    SHA_FILE="$HOME/.siro/siro.phar.sha256"
+    SHA_OK=false
+    if command -v curl >/dev/null 2>&1; then
+        curl -sSL --connect-timeout 15 "$SHA_URL" -o "$SHA_FILE" 2>/dev/null && SHA_OK=true
+    elif command -v wget >/dev/null 2>&1; then
+        wget -q "$SHA_URL" -O "$SHA_FILE" 2>/dev/null && SHA_OK=true
+    fi
+    if $SHA_OK && [ -f "$SHA_FILE" ]; then
+        EXPECTED=$(cut -d' ' -f1 < "$SHA_FILE" | tr '[:upper:]' '[:lower:]')
+        ACTUAL=$(sha256sum "$SIRO_PHAR" 2>/dev/null | cut -d' ' -f1 | tr '[:upper:]' '[:lower:]')
+        if [ "$EXPECTED" != "$ACTUAL" ]; then
+            log_fail "Siro CLI checksum mismatch. File may be corrupted."
+            rm -f "$SIRO_PHAR"
+            exit 1
+        fi
+        log_ok "Siro CLI verified (SHA-256)"
+        rm -f "$SHA_FILE"
+    else
+        log_warn "Checksum unavailable — skipping verification"
+    fi
     chmod +x "$SIRO_PHAR" 2>/dev/null || true
     log_ok "Siro CLI downloaded"
 fi
@@ -147,10 +169,11 @@ export PATH="$HOME/.local/bin:$PATH"
 if command -v composer >/dev/null 2>&1 || [ -f "$COMPOSER_BIN" ]; then
     log_ok "Composer already installed"
 else
+    COMPOSER_URL="https://getcomposer.org/composer.phar"
     if command -v curl >/dev/null 2>&1; then
-        curl -sSL --connect-timeout 15 --max-time 60 "https://getcomposer.org/composer.phar" -o "$COMPOSER_BIN"
+        curl -sSL --connect-timeout 15 --max-time 60 "$COMPOSER_URL" -o "$COMPOSER_BIN"
     elif command -v wget >/dev/null 2>&1; then
-        wget -q "https://getcomposer.org/composer.phar" -O "$COMPOSER_BIN"
+        wget -q "$COMPOSER_URL" -O "$COMPOSER_BIN"
     fi
     chmod +x "$COMPOSER_BIN"
     log_ok "Composer installed"
@@ -217,5 +240,7 @@ else
     echo "    php siro new my-api"
     echo "    php siro runtime list"
     echo "    php siro runtime install 8.3"
+    echo ""
+    echo "  To uninstall: rm -rf $SIRO_DIR && rm ~/.local/bin/siro"
     echo ""
 fi

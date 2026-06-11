@@ -27,6 +27,20 @@ $logWarn = if ($Quiet) { $null } else { { Write-Host "  [WARN] $args" -Foregroun
 $logFail = { Write-Host "  [FAIL] $args" -ForegroundColor Red }
 $logStep = if ($Quiet) { $null } else { { Write-Host "`n  $args" -ForegroundColor Cyan } }
 
+function Verify-Checksum($file, $expectedHash) {
+    if (-not $expectedHash) { return $true }
+    try {
+        $hash = (Get-FileHash -Path $file -Algorithm SHA256).Hash.ToLower()
+        if ($hash -ne $expectedHash.ToLower()) {
+            & $logWarn "Checksum mismatch (expected: $expectedHash, got: $hash)"
+            return $false
+        }
+        return $true
+    } catch {
+        return $false
+    }
+}
+
 function Download-File($url, $dest, $label) {
     $retries = 3
     for ($try = 1; $try -le $retries; $try++) {
@@ -178,6 +192,21 @@ if ($skipPhar) {
 } else {
     $ok = Download-File "https://sirophp.com/downloads/siro.phar" $siroPhar "Siro CLI"
     if (-not $ok) { & $logFail "Failed to download Siro CLI."; exit 1 }
+    # Verify SHA-256 checksum
+    $shaFile = "$env:TEMP\siro.phar.sha256"
+    $shaOk = Download-File "https://sirophp.com/downloads/siro.phar.sha256" $shaFile "checksum"
+    if ($shaOk -and (Test-Path $shaFile)) {
+        $expected = (Get-Content $shaFile -Raw).Trim().Split(' ')[0]
+        if (-not (Verify-Checksum $siroPhar $expected)) {
+            & $logFail "Siro CLI checksum mismatch. File may be corrupted."
+            Remove-Item $siroPhar -Force -ErrorAction SilentlyContinue
+            exit 1
+        }
+        & $logOK "Siro CLI verified (SHA-256)"
+        Remove-Item $shaFile -Force -ErrorAction SilentlyContinue
+    } else {
+        & $logWarn "Checksum unavailable — skipping verification"
+    }
     & $logOK "Siro CLI downloaded"
 }
 
@@ -229,7 +258,6 @@ if ($CreateProject) {
     
     $siroCorePaths = @(
         "./siro-core", "../siro-core",
-        "D:/VietVang/SiroSoft/siro-core",
         "$env:USERPROFILE/.siro/siro-core"
     )
     $foundSiroCore = $null

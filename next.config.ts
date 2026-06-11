@@ -42,6 +42,14 @@ const nextConfig: NextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=86400' },
         ],
       },
+      {
+        source: '/downloads/siro.phar',
+        headers: [
+          { key: 'Content-Type', value: 'application/phar' },
+          { key: 'Content-Disposition', value: 'attachment; filename="siro.phar"' },
+          { key: 'Cache-Control', value: 'public, max-age=3600' },
+        ],
+      },
     ];
   },
 };
