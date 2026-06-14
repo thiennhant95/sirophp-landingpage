@@ -234,7 +234,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "namespace App\\Events;\r\n\r\nuse Siro\\Core\\Event;\r\n\r\nfinal class UserCreatedEvent\r\n{\r\n    public static function dispatch(mixed $payload = null): void\r\n    {\r\n        Event::emit('user_created_event', $payload);\r\n    }\r\n\r\n    public static function listen(callable $callback): void\r\n    {\r\n        Event::on('user_created_event', $callback);\r\n    }\r\n}\r\n\r\n// Usage\r\nUserCreatedEvent::dispatch(['id' => 1, 'email' => 'user@example.com']);\r\n\r\n// Register listener\r\nUserCreatedEvent::listen(function ($payload) {\r\n    // Handle event\r\n});\r"
+    "code": "// Usage\r\nEvent::emit('user.created', ['id' => 1, 'email' => 'user@example.com']);\r\n\r\n// Register listener\r\nEvent::on('user.created', function ($payload) {\r\n    // Handle event\r\n});\r"
   },
   {
     "type": "h2",

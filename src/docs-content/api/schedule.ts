@@ -32,7 +32,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// In routes/schedule.php\r\n\r\nSchedule::command('log:cleanup')\r\n    ->daily();\r\n\r\nSchedule::command('queue:work --queue=emails')\r\n    ->everyMinute()\r\n    ->withoutOverlapping();\r\n\r\nSchedule::call(function () {\r\n    DB::table('sessions')->where('expires_at', '<', now())->delete();\r\n})->hourly();\r"
+    "code": "// In routes/schedule.php\r\n\r\nSchedule::command('log:cleanup')\r\n    ->daily();\r\n\r\nSchedule::command('queue:work --queue=emails')\r\n    ->everyMinute()\r\n    ->withoutOverlapping();\r\n\r\nSchedule::call(function () {\r\n    DB::table('sessions')->where('expires_at', '<', date('Y-m-d H:i:s'))->delete();\r\n})->hourly();\r"
   },
   {
     "type": "h2",
