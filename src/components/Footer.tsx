@@ -75,7 +75,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-colors"
             >
               <span className="text-xs text-gray-400">Packagist</span>
-              <span className="text-xs font-semibold text-cyan-400">v0.35.0</span>
+              <span className="text-xs font-semibold text-cyan-400">v0.40.0</span>
             </a>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10">
               <span className="text-xs text-gray-400">PHPStan</span>

@@ -12,6 +12,22 @@ export const doc: Doc = {
   content: [
   {
     "type": "h2",
+    "id": "v0-40-0-2026-08-21",
+    "text": "v0.40.0 (2026-08-21)"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "**Enterprise quality gates**: line coverage 80% statements; Infection MSI — Auth 82%, Middleware 83%",
+      "Skeleton test suite expanded to **742 tests, 0 failures** (mutation-style suites for Controllers, Services, Repositories, Resources)",
+      "Security fix: `squizlabs/php_codesniffer` bumped past CVE-2026-67434 (OS command injection)",
+      "`config/deploy.json` no longer tracked by git (credential hygiene)",
+      "Model identity map fixed: correct invalidation on insert / cross-instance update / delete",
+      "Core dependency updated to `sirosoft/core ^0.40.0` — JWT RS256 hardening, Redis throttle, audit trail improvements"
+    ]
+  },
+  {
+    "type": "h2",
     "id": "v0-35-0-2026-06-07",
     "text": "v0.35.0 (2026-06-07)"
   },

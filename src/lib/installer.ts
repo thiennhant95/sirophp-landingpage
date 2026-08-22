@@ -1,6 +1,6 @@
 export const INSTALLER = {
-  version: "0.35.0",
-  publishedAt: "2026-06-07",
+  version: "0.40.0",
+  publishedAt: "2026-08-21",
   pharFilename: "siro.phar",
   commands: {
     powershell: {

@@ -16,8 +16,18 @@ export const doc: Doc = {
   },
   {
     "type": "h2",
-    "id": "v0-34-v0-35-0-current",
-    "text": "v0.34 → v0.35.0 (Current)"
+    "id": "v0-35-v0-40-0-current",
+    "text": "v0.35.x → v0.40.0 (Current)"
+  },
+  {
+    "type": "code",
+    "lang": "bash",
+    "code": "composer update sirosoft/core\r\n# hoặc với skeleton project:\r\ncomposer require sirosoft/api:^0.40.0"
+  },
+  {
+    "type": "h2",
+    "id": "v0-34-v0-35-0",
+    "text": "v0.34 → v0.35.0"
   },
   {
     "type": "code",
