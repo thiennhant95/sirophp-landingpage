@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import Stats from '@/components/Stats';
 import Features from '@/components/Features';
@@ -8,7 +8,7 @@ import InstallSection from '@/components/InstallSection';
 import CTA from '@/components/CTA';
 
 export const metadata: Metadata = {
-  title: 'SiroPHP â€” The Fastest Feedback Loop for API Developers',
+  title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
     description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, ~0.5ms cold boot (Linux+OPcache) / ~3ms (Windows), ~4MB+ RAM per request.',
   keywords: [
     'sirophp',
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
   ],
     alternates: { canonical: 'https://sirophp.com' },
   openGraph: {
-    title: 'SiroPHP â€” The Fastest Feedback Loop for API Developers',
+    title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
   description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, ~0.5ms cold boot (Linux+OPcache) / ~3ms (Windows), ~4MB+ RAM per request.',
     type: 'website',
     url: 'https://sirophp.com',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SiroPHP â€” The Fastest Feedback Loop for API Developers',
+    title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
     description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay.',
   },
 };
@@ -54,7 +54,7 @@ export default function Home() {
         name: 'How is SiroPHP different from Laravel?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, ~0.5ms cold boot (Linux) vs 60-101ms, and ~4MB+ RAM vs ~84MB. It focuses on pure API development with built-in debugging workflow â€” no Blade, no asset compiling, no service providers.',
+          text: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, ~0.5ms cold boot (Linux) vs 60-101ms, and ~4MB+ RAM vs ~84MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
         },
       },
       {
