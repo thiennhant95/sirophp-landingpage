@@ -5,6 +5,14 @@ import FadeIn from '@/components/FadeIn';
 export const metadata: Metadata = {
   title: 'FAQ — Frequently Asked Questions | SiroPHP',
   description: 'Common questions about SiroPHP: installation, features, comparison with Laravel, production readiness, debugging workflow, and more.',
+  keywords: [
+    'sirophp faq',
+    'is sirophp free',
+    'sirophp vs laravel which better',
+    'php framework production ready',
+    'sirophp requirements php version',
+    'how does request replay work',
+  ],
   alternates: { canonical: 'https://sirophp.com/faq' },
   openGraph: {
     title: 'FAQ — Frequently Asked Questions | SiroPHP',

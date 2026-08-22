@@ -26,7 +26,16 @@ export default function SecurityPage() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Security - SiroPHP | Security-Hardened PHP Framework',
-    description: 'Security-hardened by default with 42 attack vectors tested, zero vulnerabilities. JWT auth, rate limiting, CSRF protection built-in.',
+  description: 'Security-hardened by default with 42 attack vectors tested, zero vulnerabilities. JWT auth, rate limiting, CSRF protection built-in.',
+  keywords: [
+    'secure php api framework',
+    'php security headers csp',
+    'jwt rs256 php framework',
+    'csrf protection php built-in',
+    'php rate limiting security',
+    'dast tested php framework',
+    'bcrypt password hashing php',
+  ],
     url: 'https://sirophp.com/security',
   };
 

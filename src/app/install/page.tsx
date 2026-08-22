@@ -4,6 +4,16 @@ import DownloadButton from '@/components/DownloadButton';
 export const metadata: Metadata = {
   title: 'Install SiroPHP — One Command Setup',
   description: 'Install SiroPHP in seconds. Zero-dependency installer for Windows, macOS, and Linux. Download PHAR or use Composer.',
+  keywords: [
+    'install sirophp',
+    'install php api framework',
+    'php framework installer windows linux macos',
+    'composer create php api project',
+    'siro cli install',
+    'php phar installer',
+    'get started php rest api',
+    'one command php setup',
+  ],
   alternates: { canonical: 'https://sirophp.com/install' },
   openGraph: {
     title: 'Install SiroPHP — One Command Setup',

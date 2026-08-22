@@ -5,6 +5,14 @@ import FadeIn from '@/components/FadeIn';
 export const metadata: Metadata = {
   title: 'Tutorials — PHP API Development',
   description: 'Step-by-step tutorials for building APIs with SiroPHP. Learn CRUD scaffolding, authentication, debugging, and deployment.',
+  keywords: [
+    'sirophp tutorial',
+    'php api tutorial for beginners',
+    'php crud api tutorial step by step',
+    'learn php rest api development',
+    'php jwt authentication tutorial',
+    'php framework deployment guide',
+  ],
   alternates: { canonical: 'https://sirophp.com/tutorials' },
   openGraph: {
     title: 'Tutorials — PHP API Development',

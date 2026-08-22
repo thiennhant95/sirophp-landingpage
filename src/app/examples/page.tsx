@@ -5,6 +5,14 @@ import FadeIn from '@/components/FadeIn';
 export const metadata: Metadata = {
   title: 'Code Examples — SiroPHP API Framework',
   description: 'Real code examples for building APIs with SiroPHP. CRUD scaffolding, JWT authentication, request replay, and CLI testing snippets.',
+  keywords: [
+    'sirophp examples',
+    'php api example code',
+    'ecommerce api php source code',
+    'blog api php example',
+    'php crud endpoint examples',
+    'rest api php sample project',
+  ],
   alternates: { canonical: 'https://sirophp.com/examples' },
   openGraph: {
     title: 'Code Examples — SiroPHP API Framework',

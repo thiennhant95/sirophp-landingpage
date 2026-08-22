@@ -26,7 +26,17 @@ export default function BenchmarksPage() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Benchmarks - SiroPHP | Performance Comparison',
-    description: 'Blazing fast performance: ~3ms cold boot (Win) / ~0.5ms (Linux), ~4MB+ baseline RAM (~30MB peak), ~360K routes/sec. Compare with Laravel and Symfony.',
+  description: 'Blazing fast performance: ~3ms cold boot (Win) / ~0.5ms (Linux), ~4MB+ baseline RAM (~30MB peak), ~360K routes/sec. Compare with Laravel and Symfony.',
+  keywords: [
+    'fastest php framework benchmark',
+    'php framework performance comparison',
+    'php framework cold boot time',
+    'sirophp vs laravel performance',
+    'php framework memory usage',
+    'php micro framework speed',
+    'laravel vs symfony vs sirophp',
+    'route dispatch benchmark php',
+  ],
     url: 'https://sirophp.com/benchmarks',
   };
 

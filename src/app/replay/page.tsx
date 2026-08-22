@@ -6,6 +6,15 @@ import { ReplayContent } from './ReplayContent';
 export const metadata: Metadata = {
   title: 'Request Replay - SiroPHP | Debug Production Bugs',
   description: 'Capture, replay, and fix production bugs with confidence. CLI commands: --diff, --edit, --set, --test, --dry-run for safe debugging and regression test generation.',
+  keywords: [
+    'request replay php',
+    'replay http request debug production',
+    'debug production api php',
+    'capture api request php',
+    'api regression test generation',
+    'php bug reproduction tool',
+    'trace id debugging php',
+  ],
   alternates: { canonical: '/replay' },
   openGraph: {
     title: 'SiroPHP Request Replay - Debug Production Bugs',

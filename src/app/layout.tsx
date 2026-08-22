@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GARouteTracker from "@/components/GARouteTracker";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -138,22 +139,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }} 
         />
         
-        {/* Google Analytics - Lazy load */}
-        <Script 
-          async 
-          src="https://www.googletagmanager.com/gtag/js?id=G-S34G5E8PMK" 
-          strategy="lazyOnload" 
+        {/* Google Analytics 4 - load early, track reliably */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-S34G5E8PMK"
+          strategy="afterInteractive"
         />
-        <Script 
-          id="gtag-config" 
-          strategy="lazyOnload" 
+        <Script
+          id="gtag-config"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-S34G5E8PMK');`,
-          }} 
+gtag('config', 'G-S34G5E8PMK', { send_page_view: true });`,
+          }}
         />
+        <GARouteTracker />
         <Navbar />
         {children}
         <Footer />

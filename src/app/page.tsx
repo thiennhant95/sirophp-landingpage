@@ -10,7 +10,19 @@ import CTA from '@/components/CTA';
 export const metadata: Metadata = {
   title: 'SiroPHP â€” The Fastest Feedback Loop for API Developers',
     description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, ~0.5ms cold boot (Linux+OPcache) / ~3ms (Windows), ~4MB+ RAM per request.',
-  alternates: { canonical: 'https://sirophp.com' },
+  keywords: [
+    'sirophp',
+    'php api framework',
+    'fastest php framework',
+    'build rest api php fast',
+    'php crud generator',
+    'request replay debugging php',
+    'zero dependency php framework',
+    'laravel alternative lightweight',
+    'php framework with cli testing',
+    'production debugging php api',
+  ],
+    alternates: { canonical: 'https://sirophp.com' },
   openGraph: {
     title: 'SiroPHP â€” The Fastest Feedback Loop for API Developers',
   description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, ~0.5ms cold boot (Linux+OPcache) / ~3ms (Windows), ~4MB+ RAM per request.',

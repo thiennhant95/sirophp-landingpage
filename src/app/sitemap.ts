@@ -40,12 +40,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  const standaloneRoutes: MetadataRoute.Sitemap = standaloneSlugs.map((slug) => ({
+  const blogPosts = [
+  { slug: 'how-to-debug-apis-in-php', date: '2026-01-15' },
+  { slug: 'php-api-testing-from-terminal', date: '2026-01-22' },
+  { slug: 'request-replay-debug-production-bugs', date: '2026-01-29' },
+  { slug: 'master-cli-api-testing', date: '2026-02-05' },
+  { slug: 'debug-production-bugs-minutes', date: '2026-02-12' },
+  { slug: 'build-api-under-1-hour', date: '2026-02-19' },
+  { slug: 'sirophp-vs-laravel-comparison', date: '2026-05-07' },
+]
+
+const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((p) => ({
+  url: `${baseUrl}/blog/${p.slug}`,
+  lastModified: new Date(p.date),
+  changeFrequency: 'monthly' as const,
+  priority: 0.8,
+}))
+
+const standaloneRoutes: MetadataRoute.Sitemap = standaloneSlugs.map((slug) => ({
     url: `${baseUrl}/documentation/${slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...docIndexRoutes, ...guideRoutes, ...apiRoutes, ...standaloneRoutes]
+  return [...staticRoutes, ...blogRoutes, ...docIndexRoutes, ...guideRoutes, ...apiRoutes, ...standaloneRoutes]
 }

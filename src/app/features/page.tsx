@@ -134,7 +134,17 @@ export default function FeaturesPage() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Features — SiroPHP | Build Fast. Debug Faster.',
-    description: 'Explore all SiroPHP features: CRUD scaffolding, CLI API testing, request replay, trace logging, OpenAPI docs, and more.',
+  description: 'Explore all SiroPHP features: CRUD scaffolding, CLI API testing, request replay, trace logging, OpenAPI docs, and more.',
+  keywords: [
+    'sirophp features',
+    'php api framework features',
+    'crud scaffolding php',
+    'openapi auto generation php',
+    'built-in jwt authentication php framework',
+    'rate limiting php framework built in',
+    'audit log php framework',
+    'trace logging api php',
+  ],
     url: 'https://sirophp.com/features',
   };
 
