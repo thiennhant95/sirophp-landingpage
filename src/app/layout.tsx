@@ -37,9 +37,14 @@ export const metadata: Metadata = {
     "PHP framework",
     "API framework",
     "fast php",
+    "php 8.2 framework",
+    "zero dependency php framework",
+    "laravel alternative",
     "trace id",
     "request replay",
     "cli api testing",
+    "jwt rs256 php",
+    "mutation testing php",
     "micro framework",
     "developer experience",
   ],
@@ -67,6 +72,28 @@ export const metadata: Metadata = {
   },
 };
 
+const softwareJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'SiroPHP',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'PHP 8.2+, Linux, macOS, Windows',
+  description:
+    'Production-first PHP API framework with built-in debugging, request replay, and testing workflows. Zero dependencies.',
+  softwareVersion: '0.40.0',
+  url: 'https://sirophp.com',
+  downloadUrl: 'https://sirophp.com/downloads/install.ps1',
+  author: { '@type': 'Organization', name: 'SiroSoft', url: 'https://github.com/SiroSoft' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  license: 'https://opensource.org/licenses/MIT',
+  sameAs: [
+    'https://github.com/SiroSoft/siro-core',
+    'https://github.com/SiroSoft/SiroPHP',
+    'https://packagist.org/packages/sirosoft/api',
+    'https://packagist.org/packages/sirosoft/core',
+  ],
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -84,6 +111,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className="min-h-full flex flex-col bg-black text-white [overscroll-behavior:contain]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+        />
         {/* GTM noscript fallback */}
         <noscript>
           <iframe 

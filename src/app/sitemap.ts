@@ -1,122 +1,51 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from 'next'
+import { allGuides } from '@/docs-content/guides'
+import { allApiRefs } from '@/docs-content/api'
+import { standaloneSlugs } from '@/docs-content/standalone'
+
+const baseUrl = 'https://sirophp.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://sirophp.com';
-  
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/docs`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/tutorials`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/examples`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/blog/sirophp-vs-laravel-comparison`,
-      lastModified: new Date('2026-05-07'),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/build-api-under-1-hour`,
-      lastModified: new Date('2026-02-19'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/debug-production-bugs-minutes`,
-      lastModified: new Date('2026-02-12'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/master-cli-api-testing`,
-      lastModified: new Date('2026-02-05'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/how-to-debug-apis-in-php`,
-      lastModified: new Date('2026-01-15'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/php-api-testing-from-terminal`,
-      lastModified: new Date('2026-01-22'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog/request-replay-debug-production-bugs`,
-      lastModified: new Date('2026-01-29'),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/security`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/benchmarks`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/replay`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/features`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ];
+  const now = new Date()
+
+  const staticRoutes: MetadataRoute.Sitemap = [
+    { url: baseUrl, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/docs`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/documentation`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/tutorials`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${baseUrl}/faq`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/examples`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+  ]
+
+  const docIndexRoutes: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/documentation/guides`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/documentation/api`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/documentation/conventions/responses`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/documentation/examples/blog`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/documentation/examples/ecommerce`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+  ]
+
+  const guideRoutes: MetadataRoute.Sitemap = Object.keys(allGuides).map((slug) => ({
+    url: `${baseUrl}/documentation/guides/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  const apiRoutes: MetadataRoute.Sitemap = Object.keys(allApiRefs).map((slug) => ({
+    url: `${baseUrl}/documentation/api/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  const standaloneRoutes: MetadataRoute.Sitemap = standaloneSlugs.map((slug) => ({
+    url: `${baseUrl}/documentation/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  return [...staticRoutes, ...docIndexRoutes, ...guideRoutes, ...apiRoutes, ...standaloneRoutes]
 }
