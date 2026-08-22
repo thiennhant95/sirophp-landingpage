@@ -1,0 +1,33 @@
+# SiroPHP
+
+> Production-first PHP API framework with built-in debugging, request replay, and testing workflows. Zero dependencies.
+
+SiroPHP lets you scaffold CRUD APIs in seconds (`make:crud`), debug production bugs instantly by replaying captured requests (`api:why` → `replay --diff`), and ship with enterprise quality gates (80% line coverage, Infection MSI ~83%).
+
+## Key facts
+
+- Current version: v0.40.0 (core) / v0.40.0 (skeleton)
+- Requires: PHP 8.2+, ext-pdo, ext-json, ext-mbstring
+- License: MIT
+- Cold boot: ~0.5 ms (Linux) / ~3 ms (Windows); ~300K route dispatches/sec; ~4 MB baseline RAM
+- Tests: 406 core tests + 742 skeleton tests passing; 17,851 fuzz checks; 157 DAST security checks
+
+## Main pages
+
+- [Home](https://sirophp.com/): overview, benchmarks, install command
+- [Install](https://sirophp.com/install): one-command installer for Windows/macOS/Linux
+- [Docs](https://sirophp.com/docs): quick start and CLI reference
+- [Documentation](https://sirophp.com/documentation): guides index, API reference index
+- [Guides](https://sirophp.com/documentation/guides): auth, database, caching, queues, testing, deployment
+- [API reference](https://sirophp.com/documentation/api): every class and method
+- [Release notes](https://sirophp.com/documentation/release-notes): changelog per version
+- [Benchmarks](https://sirophp.com/benchmarks): performance vs Laravel/Symfony
+- [Blog](https://sirophp.com/blog): tutorials on debugging, replay, CLI testing
+- [Security](https://sirophp.com/security): hardening defaults, DAST results
+
+## Packages
+
+- Packagist skeleton: https://packagist.org/packages/sirosoft/api
+- Packagist core: https://packagist.org/packages/sirosoft/core
+- GitHub core: https://github.com/SiroSoft/siro-core
+- GitHub skeleton: https://github.com/SiroSoft/SiroPHP
