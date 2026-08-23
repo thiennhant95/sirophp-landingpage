@@ -8,6 +8,7 @@ const posts = [
   { slug: 'debug-production-bugs-minutes', title: 'Debug Production Bugs in Minutes, Not Hours', date: '2026-02-12' },
   { slug: 'build-api-under-1-hour', title: 'Build a REST API in Under 1 Hour with SiroPHP', date: '2026-02-19' },
   { slug: 'sirophp-vs-laravel-comparison', title: 'SiroPHP vs Laravel: A Practical Comparison for Modern API Development', date: '2026-05-07' },
+  { slug: 'sirophp-showcase-live-demo', title: 'SiroPHP Showcase: A Live Full-Stack Demo You Can Click Right Now', date: '2026-08-23' },
 ]
 
 function escapeXml(s: string): string {

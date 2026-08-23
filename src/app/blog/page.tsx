@@ -34,7 +34,15 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
-    slug: 'sirophp-vs-laravel-comparison',
+slug: 'sirophp-showcase-live-demo',
+    title: 'SiroPHP Showcase: A Live Full-Stack Demo You Can Click Right Now',
+    excerpt: 'Stop reading feature lists. Log into the live SiroPHP Showcase — dashboard CRUD, API explorer, OpenAPI docs and a 14-topic Learn course. Demo login included.',
+    date: '2026-08-23',
+    readTime: '6 min read',
+    tags: ['showcase', 'live demo', 'product', 'full-stack'],
+  },
+  {
+slug: 'sirophp-vs-laravel-comparison',
     title: 'SiroPHP vs Laravel: A Practical Comparison for Modern API Development',
     excerpt: 'Compare SiroPHP and Laravel across 15 dimensions: performance, dependencies, debugging workflow, hosting costs, and when to choose each.',
     date: '2026-05-07',

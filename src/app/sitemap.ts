@@ -48,6 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   { slug: 'debug-production-bugs-minutes', date: '2026-02-12' },
   { slug: 'build-api-under-1-hour', date: '2026-02-19' },
   { slug: 'sirophp-vs-laravel-comparison', date: '2026-05-07' },
+  { slug: 'sirophp-showcase-live-demo', date: '2026-08-23' },
 ]
 
 const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((p) => ({

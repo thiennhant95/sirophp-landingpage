@@ -430,6 +430,17 @@ php siro replay --diff`}
                   </Link>
                 </div>
               </div>
+
+              {/* Related: live demo */}
+              <div className="my-10 p-5 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
+                <p className="text-sm text-gray-300">
+                  🆕 Prefer clicking over reading? Explore the{' '}
+                  <Link href="/blog/sirophp-showcase-live-demo" className="text-cyan-400 hover:underline font-semibold">
+                    SiroPHP Showcase — a live full-stack demo
+                  </Link>{' '}
+                  you can log into right now, no install needed.
+                </p>
+              </div>
             </div>
           </FadeIn>
         </div>
