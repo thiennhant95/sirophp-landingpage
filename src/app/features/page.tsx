@@ -112,7 +112,7 @@ const featureGroups = [
       'make:test --from-trace=<id> — auto-generate PHPUnit test from real trace',
       'test:regression [--limit=N] [--fail] — replay traces, detect regressions',
       'Run tests — php siro test [--filter] [--coverage]',
-      '19,496 tests, 100% pass rate',
+      '20,900+ tests, 100% pass rate',
       'PHPStan Level Max with baseline',
     ],
   },

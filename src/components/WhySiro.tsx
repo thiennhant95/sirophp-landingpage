@@ -4,7 +4,7 @@ import FadeIn from './FadeIn';
 
 const reasons = [
   { icon: '🪶', text: 'Minimal dependencies — no supply chain risk, no composer audit' },
-  { icon: '⚡', text: '~3ms cold boot (Win) / ~0.5ms (Linux), ~4MB+ baseline RAM — budget-friendly hosting' },
+  { icon: '⚡', text: '2.4ms cold boot (measured) / ~0.5ms OPcache (estimated), ~4MB+ baseline RAM — budget-friendly hosting' },
   { icon: '📖', text: 'Readable core architecture — understand the entire framework in one afternoon' },
   { icon: '🚀', text: 'Ship production APIs in under one hour with make:crud' },
   { icon: '🔄', text: 'Replay any production bug with full execution context — SQL, HTTP, queued jobs' },
