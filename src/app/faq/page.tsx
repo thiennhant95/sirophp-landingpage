@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     q: 'Is SiroPHP production ready?',
-    a: 'Yes. 19,496 tests with 100% pass rate, security audited (42 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, env 5-tier chain, FrankenPHP support, and log sanitization.',
+    a: 'Yes. 20,000+ tests with 100% pass rate, security audited (42 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, env 5-tier chain, FrankenPHP support, and log sanitization.',
   },
   {
     q: 'What databases does SiroPHP support?',

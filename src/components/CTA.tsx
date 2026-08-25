@@ -39,7 +39,7 @@ export default function CTA() {
           <span className="w-1 h-1 rounded-full bg-gray-600" />
           <span>MIT Licensed</span>
           <span className="w-1 h-1 rounded-full bg-gray-600" />
-          <span>742 tests passing (skeleton)</span>
+          <span>745 tests passing (skeleton)</span>
         </div>
       </div>
     </section>
