@@ -49,8 +49,10 @@ php siro make:crud products
 php siro api:why GET /api/products
 php siro db:why abc123 --slow
 
-# Replay — reproduce with test generation
-php siro replay a1b2c3d4 --test
+# Replay — risk-aware reproduction
+php siro replay a1b2c3d4
+⚠ Side-effect risks: 2 DB writes, 1 HTTP call
+→ Use --force to execute risky replays
 
 # Fix with watch mode — auto re-test on save
 php siro fix

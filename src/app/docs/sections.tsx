@@ -78,16 +78,17 @@ export const sections: DocSection[] = [
       'php siro api:why GET /api/products',
       'php siro db:why abc123 --slow',
       'php siro replay a1b2c3d4',
+      'php siro replay a1b2c3d4 --force',
       'php siro replay a1b2c3d4 --test',
-      'php siro replay',
       'php siro fix',
       'php siro log:trace a1b2c3d4',
       'php siro log:slow --limit=10',
     ],
     note: (
       <>
-        Every response includes X-Siro-Trace-Id. No guessing. No log diving.<br/>
-        <span className="text-gray-500 text-xs">api:why — debug a specific request by METHOD+path. db:why — EXPLAIN query with index suggestions. replay (alias) — replay latest trace. fix — watch mode auto re-tests on save. --test flag generates a regression test from the replay.</span>
+        Every response includes X-Siro-Trace-Id. Traces capture SQL, outbound HTTP, and queued jobs.<br/>
+        Replay analyzes side-effect risks before execution — risky traces require --force.<br/>
+        <span className="text-gray-500 text-xs">api:why — debug a specific request by METHOD+path. db:why — EXPLAIN query with index suggestions. --test generates a regression test from the replay.</span>
       </>
     ),
     nextId: 'production-safety',
@@ -97,7 +98,7 @@ export const sections: DocSection[] = [
     id: 'production-safety',
     num: '05',
     title: 'Production Safety',
-    desc: 'Safe debugging in production. No data leaks.',
+    desc: 'Risk-aware debugging in production. No data leaks.',
     commands: [
       'php siro replay a1b2c3d4 --dry-run',
       'php siro replay a1b2c3d4 --diff',
@@ -108,8 +109,8 @@ export const sections: DocSection[] = [
     ],
     note: (
       <>
-        Credentials auto-[REDACTED]. Dry-run by default in production. Replay lock prevents accidental writes.<br/>
-        <span className="text-gray-500 text-xs">--format=postman exports a Postman collection from traces. doctor --prod checks production readiness. rate:status shows rate limiter state.</span>
+        Credentials auto-[REDACTED]. Risky replays blocked by default — --force to execute. Audit trail for every replay.<br/>
+        <span className="text-gray-500 text-xs">--dry-run previews without executing. --format=postman exports a Postman collection from traces. doctor --prod checks production readiness.</span>
       </>
     ),
     nextId: 'openapi',
@@ -158,7 +159,7 @@ export const sections: DocSection[] = [
     ],
     note: (
       <>
-        <span className="text-gray-500 text-xs">log:tail -f tails realtime logs. log:top shows slowest requests. log:stats gives summary. log:cleanup --dry-run previews deletion. log:replay --test generates regression tests from traces. --force bypasses POST safe mode. debug:health checks logging health.</span>
+        <span className="text-gray-500 text-xs">log:tail -f tails realtime logs. log:top shows slowest requests. log:stats gives summary. log:cleanup --dry-run previews deletion. log:replay --test generates regression tests from traces. --force required for risky replays. debug:health checks logging health.</span>
       </>
     ),
     nextId: 'queue-system',

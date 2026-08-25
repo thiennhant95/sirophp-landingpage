@@ -22,7 +22,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "php siro why                     # Last request analysis\r\nphp siro api:why POST /orders    # Trace specific request by method+path\r\nphp siro log:trace <id>          # View full trace\r\nphp siro log:replay <id>         # Replay request\r\nphp siro fix <id>                # Replay + verify fix\r\nphp siro log:replay <id> --test  # Generate regression test from trace\r"
+    "code": "php siro why                     # Last request analysis\r\nphp siro api:why POST /orders    # Trace specific request by method+path\r\nphp siro log:trace <id>          # View full trace\r\nphp siro log:replay <id>         # Replay request (risk-aware)\r\nphp siro log:replay <id> --force # Replay risky trace (DB writes, HTTP)\r\nphp siro log:replay <id> --dry-run  # Preview without executing\r\nphp siro fix <id>                # Replay + verify fix\r\nphp siro log:replay <id> --test  # Generate regression test from trace\r"
   },
   {
     "type": "h2",
@@ -67,10 +67,11 @@ export const doc: Doc = {
     "items": [
       "Method, path, status code",
       "Request headers and body",
-      "SQL queries with timing",
+      "SQL queries with timing and row counts",
+      "Outbound HTTP calls via Siro\\Http (method, URL, status, duration)",
+      "Queued jobs dispatched during request",
       "Middleware execution timeline",
       "Exception message and stack trace",
-      "N+1 query detection",
       "Total execution time"
     ]
   },
@@ -81,17 +82,17 @@ export const doc: Doc = {
   },
   {
     "type": "p",
-    "text": "The signature Siro feature — replay any captured request."
+    "text": "The signature Siro feature — replay any captured request with risk-aware safety. Before replaying, Siro analyzes the trace for potential side effects (DB writes, outbound HTTP, queued jobs). Risky traces require --force to execute."
   },
   {
     "type": "h3",
-    "id": "safe-replay-production-default",
-    "text": "Safe Replay (production default)"
+    "id": "safe-replay",
+    "text": "Safe Replay"
   },
   {
     "type": "code",
     "lang": "bash",
-    "code": "# Dry-run (default in production — no side effects)\r\nphp siro log:replay siro_a1b2c3d4\r\n\r\n# With diff (compare before/after fix)\r\nphp siro log:replay siro_a1b2c3d4 --diff\r"
+    "code": "# Auto-executes if no risks detected\r\nphp siro log:replay siro_a1b2c3d4\r\n\r\n# Preview without executing (always safe)\r\nphp siro log:replay siro_a1b2c3d4 --dry-run\r\n\r\n# With diff (compare before/after fix)\r\nphp siro log:replay siro_a1b2c3d4 --diff\r"
   },
   {
     "type": "h3",
@@ -106,12 +107,12 @@ export const doc: Doc = {
   {
     "type": "h3",
     "id": "force-execution",
-    "text": "Force Execution"
+    "text": "Force Execution (risky traces)"
   },
   {
     "type": "code",
     "lang": "bash",
-    "code": "# Execute replay with side effects (use with caution)\r\nphp siro log:replay siro_a1b2c3d4 --force\r\n\r\n# With HTTPS\r\nphp siro log:replay siro_a1b2c3d4 --force --https\r\n\r\n# Skip SSL verification\r\nphp siro log:replay siro_a1b2c3d4 --force --insecure\r"
+    "code": "# Execute replay (required for risky traces or write methods)\r\nphp siro log:replay siro_a1b2c3d4 --force\r\n\r\n# With HTTPS\r\nphp siro log:replay siro_a1b2c3d4 --force --https\r\n\r\n# Skip SSL verification\r\nphp siro log:replay siro_a1b2c3d4 --force --insecure\r"
   },
   {
     "type": "h3",
@@ -199,16 +200,28 @@ export const doc: Doc = {
         "Response status"
       ],
       [
-        "`headers`",
+        "`request_headers`",
         "Request headers (sensitive values redacted)"
       ],
       [
-        "`body`",
+        "`request_body`",
         "Request body"
       ],
       [
+        "`response_body`",
+        "Response body"
+      ],
+      [
         "`queries`",
-        "Array of SQL queries with timing"
+        "SQL queries with timing and row counts"
+      ],
+      [
+        "`outbound_http`",
+        "External HTTP calls via Siro\\Http"
+      ],
+      [
+        "`queue_jobs`",
+        "Jobs dispatched during request"
       ],
       [
         "`middleware`",
@@ -219,20 +232,8 @@ export const doc: Doc = {
         "Exception class and message"
       ],
       [
-        "`trace`",
-        "Stack trace (debug mode only)"
-      ],
-      [
         "`duration_ms`",
         "Total request duration"
-      ],
-      [
-        "`memory_mb`",
-        "Memory usage"
-      ],
-      [
-        "`n_plus_one`",
-        "N+1 query detection results"
       ],
       [
         "`ip`",
@@ -266,7 +267,7 @@ export const doc: Doc = {
       ],
       [
         "`log:replay <id>`",
-        "Replay request (--edit, --diff, --force)"
+        "Replay request (risk-aware: --force for risky traces, --dry-run to preview)"
       ],
       [
         "`log:tail`",

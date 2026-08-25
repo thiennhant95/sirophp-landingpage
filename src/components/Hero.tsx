@@ -11,7 +11,8 @@ const demoSteps = [
     { cmd: '> php siro replay abc123 --diff', output: '▶ Comparing with baseline...', delay: 800 },
     { cmd: '', output: '✓ Response time: 245ms → 89ms (-64%)', delay: 400 },
     { cmd: '', output: '✓ Memory usage: 12MB → 4MB (-67%)', delay: 400 },
-    { cmd: '> php siro replay abc123 --edit', output: '✏️ Opening in default editor...', delay: 600 },
+    { cmd: '> php siro replay xyz789', output: '⚠ Side-effect risks detected: 2 DB writes, 1 HTTP call', delay: 600 },
+    { cmd: '', output: '→ Replay blocked. Use --force to execute.', delay: 400 },
   ];
 
 export default function Hero() {
@@ -46,7 +47,7 @@ export default function Hero() {
         </h1>
               
         <p className="text-lg sm:text-xl text-gray-400 mb-4 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in" style={{ animationDelay: '300ms' }}>
-          Generate full CRUD APIs in minutes. Replay real production requests. Fix bugs directly from your terminal.
+          Generate full CRUD APIs in minutes. Understand production failures with full execution context. Fix bugs directly from your terminal.
         </p>
         
         {/* Quick Install Command */}

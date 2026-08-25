@@ -7,7 +7,7 @@ const reasons = [
   { icon: '⚡', text: '~3ms cold boot (Win) / ~0.5ms (Linux), ~4MB+ baseline RAM — budget-friendly hosting' },
   { icon: '📖', text: 'Readable core architecture — understand the entire framework in one afternoon' },
   { icon: '🚀', text: 'Ship production APIs in under one hour with make:crud' },
-  { icon: '🔄', text: 'Replay any production bug — stop guessing what went wrong' },
+  { icon: '🔄', text: 'Replay any production bug with full execution context — SQL, HTTP, queued jobs' },
   { icon: '🔓', text: 'No lock-in — migrate to Laravel anytime, patterns are compatible' },
 ];
 
@@ -23,9 +23,10 @@ php siro make:crud products
 php siro migrate
 php siro serve  # → localhost:8080
 
-# 🐞 Debug — replay production request
+# 🐞 Debug — replay with risk awareness
 php siro replay a1b2c3d4
-  └── Full context: headers, body, SQL, timing`;
+  └── Context: SQL, outbound HTTP, queued jobs
+  └── Risky replays require --force`;
 
 export default function WhySiro() {
   return (

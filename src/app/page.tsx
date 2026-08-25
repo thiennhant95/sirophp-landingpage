@@ -9,7 +9,7 @@ import CTA from '@/components/CTA';
 
 export const metadata: Metadata = {
   title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
-    description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, ~0.5ms cold boot (Linux+OPcache) / ~3ms (Windows), ~4MB+ RAM per request.',
+    description: 'Build APIs in minutes, not hours. Debug production bugs with full execution context — SQL, outbound HTTP, queued jobs. Risk-aware replay. Zero dependencies, ~0.5ms cold boot.',
   keywords: [
     'sirophp',
     'php api framework',
@@ -78,7 +78,7 @@ export default function Home() {
         name: 'How does production debugging work?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Every response includes an X-Siro-Trace-Id header. Use php siro replay <trace_id> to reproduce the exact request, complete with headers, body, SQL queries, and timing.',
+          text: 'Every response includes an X-Siro-Trace-Id header. Traces capture request context including SQL queries, outbound HTTP calls, and queued jobs. Replay analyzes the trace for side-effect risks before execution — risky replays require explicit confirmation.',
         },
       },
       {

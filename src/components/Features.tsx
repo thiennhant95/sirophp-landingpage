@@ -24,20 +24,20 @@ const features: FeatureCard[] = [
   },
   {
     icon: '🔄',
-    title: 'Replay Production Requests',
-    description: 'Replay real production requests from your terminal. php siro replay &lt;trace_id&gt; restores full context.',
+    title: 'Side-Effect-Aware Replay',
+    description: 'Replay production requests with visibility into DB writes, outbound HTTP, and queued jobs. Risky replays guarded by default.',
     tag: 'debug',
   },
   {
     icon: '🧠',
-    title: 'Trace Every Request',
-    description: 'Every response includes X-Siro-Trace-Id. View full context: headers, body, SQL queries, timing.',
+    title: 'Full Execution Context',
+    description: 'Every trace captures SQL queries, outbound HTTP calls, queued jobs, middleware timeline, and exceptions — not just headers and body.',
     tag: 'debug',
   },
   {
     icon: '🔒',
     title: 'Production-Safe Debugging',
-    description: 'Sensitive data auto-sanitized in logs. Replay locked with --dry-run in production. Full audit trail for every replay.',
+    description: 'Sensitive data auto-sanitized. Risky replays blocked by default. Audit trail for every replay execution.',
     tag: 'debug',
   },
   {

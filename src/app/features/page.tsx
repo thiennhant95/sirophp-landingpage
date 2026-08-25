@@ -46,12 +46,12 @@ const featureGroups = [
     title: 'Replay & Debug',
     color: 'purple',
     items: [
-      'Production request replay — restore full context with php siro replay <trace_id>',
-      'Diff comparison — --diff compares before/after performance metrics',
+      'Side-effect-aware replay — analyzes DB writes, outbound HTTP, and queued jobs before execution',
+      'Risk guard — risky traces blocked by default, --force to execute',
+      'Diff comparison — --diff compares before/after response',
       'Edit workflow — --edit opens code in default editor for quick fixes',
-      'Env override — --set key=val tests different configurations',
-      'Dry-run mode — --dry-run previews without executing (safe in production)',
-      'Test generation — --test creates a PHPUnit regression test from trace',
+      'Dry-run mode — --dry-run previews without executing',
+      'Test generation — --test creates a PHPUnit regression test from trace with provenance',
     ],
   },
   {
