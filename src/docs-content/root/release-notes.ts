@@ -12,6 +12,22 @@ export const doc: Doc = {
   content: [
   {
     "type": "h2",
+    "id": "v1-0-0-2026-09-07",
+    "text": "v1.0.0 (2026-09-07) — First Stable Release"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "First stable release — API stability promise in effect. **No breaking changes from v0.40.0**",
+      "Engine requirement: `sirosoft/core ^1.0.0` (Packagist, MIT)",
+      "Skeleton test suite: **742 tests, 1,126 assertions, 0 failures** (19 skipped)",
+      "95 CLI commands, all smoke-tested; PHPStan level max, 0 errors; `composer audit`, 0 advisories",
+      "Dev Dashboard + production page now report `v1.0.0`; OpenAPI spec `info.version 1.0.0`",
+      "Upgrade: `composer update sirosoft/core` then `composer require sirosoft/api:^1.0.0` — zero migration steps"
+    ]
+  },
+  {
+    "type": "h2",
     "id": "v0-40-0-2026-08-21",
     "text": "v0.40.0 (2026-08-21)"
   },

@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     "developer experience",
   ],
   alternates: {
-    canonical: "/",
+    canonical: "https://sirophp.com/",
   },
   openGraph: {
     title: "SiroPHP — Build APIs Fast. Debug Faster.",
@@ -60,12 +60,21 @@ export const metadata: Metadata = {
     siteName: "SiroPHP",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "https://sirophp.com/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "SiroPHP — Build APIs Fast. Debug Faster.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "SiroPHP — Build APIs Fast. Debug Faster.",
     description:
-      "Build APIs in seconds. Debug production bugs instantly. A lightweight PHP API framework built for rapid development.",
+      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.5ms OPcache (estimated).",
+    images: ["https://sirophp.com/opengraph-image"],
   },
   robots: {
     index: true,
@@ -81,7 +90,7 @@ const softwareJsonLd = {
   operatingSystem: 'PHP 8.2+, Linux, macOS, Windows',
   description:
     'Production-first PHP API framework with built-in debugging, request replay, and testing workflows. Zero dependencies.',
-  softwareVersion: '0.40.0',
+  softwareVersion: '1.0.0',
   url: 'https://sirophp.com',
   downloadUrl: 'https://sirophp.com/downloads/install.ps1',
   author: { '@type': 'Organization', name: 'SiroSoft', url: 'https://github.com/SiroSoft' },

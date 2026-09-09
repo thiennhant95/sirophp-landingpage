@@ -99,11 +99,11 @@ export const doc: Doc = {
   {
     "type": "h2",
     "id": "cli-command-reference",
-    "text": "91 Commands at Your Fingertips"
+    "text": "95 Commands at Your Fingertips"
   },
   {
     "type": "p",
-    "text": "SiroPHP ships with 91 CLI commands covering debug, testing, code generation, database, and production operations. Here's the complete reference:"
+    "text": "SiroPHP ships with 95 CLI commands covering debug, testing, code generation, database, and production operations. Here's the complete reference:"
   },
   {
     "type": "h3",
@@ -190,7 +190,7 @@ export const doc: Doc = {
   },
   {
     "type": "p",
-    "text": "That's it. One framework. 91 commands. 5-second debug cycles. No setup required."
+    "text": "That's it. One framework. 95 commands. 5-second debug cycles. No setup required."
   }
   ],
 }

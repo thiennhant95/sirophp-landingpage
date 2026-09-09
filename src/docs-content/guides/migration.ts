@@ -4,7 +4,7 @@ import type { Doc } from '../types'
 export const doc: Doc = {
   meta: {
     title: "Migration Guide",
-    description: "No breaking changes. All v0.x versions are backward compatible.",
+    description: "No breaking changes. All v0.x and v1.x versions are backward compatible.",
     category: "guide",
     order: 0,
     icon: "📚",
@@ -12,12 +12,22 @@ export const doc: Doc = {
   content: [
   {
     "type": "p",
-    "text": "No breaking changes. All v0.x versions are backward compatible."
+    "text": "No breaking changes. All v0.x and v1.x versions are backward compatible."
   },
   {
     "type": "h2",
-    "id": "v0-35-v0-40-0-current",
-    "text": "v0.35.x → v0.40.0 (Current)"
+    "id": "v0-40-x-v1-0-0-current",
+    "text": "v0.40.x → v1.0.0 (Current)"
+  },
+  {
+    "type": "code",
+    "lang": "bash",
+    "code": "composer update sirosoft/core\r\n# hoặc với skeleton project:\r\ncomposer require sirosoft/api:^1.0.0"
+  },
+  {
+    "type": "h2",
+    "id": "v0-35-v0-40-0",
+    "text": "v0.35.x → v0.40.0"
   },
   {
     "type": "code",

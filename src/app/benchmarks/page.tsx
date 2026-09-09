@@ -5,7 +5,7 @@ import { BenchmarksContent } from './BenchmarksContent';
 
 export const metadata: Metadata = {
   title: 'Benchmarks - SiroPHP | Performance Comparison',
-  description: 'Blazing fast performance: 2.4ms cold boot (measured) / ~0.5ms OPcache (estimated), ~4MB+ baseline RAM (~30MB peak), ~360K routes/sec. Compare with Laravel and Symfony.',
+  description: 'Blazing fast performance: 2.4ms cold boot (measured) / ~0.5ms OPcache (estimated), ~4MB+ baseline RAM (~30MB peak), ~361K routes/sec. Compare with Laravel and Symfony.',
   alternates: { canonical: '/benchmarks' },
   openGraph: {
     title: 'SiroPHP Benchmarks - Fastest PHP Framework',
@@ -26,7 +26,7 @@ export default function BenchmarksPage() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Benchmarks - SiroPHP | Performance Comparison',
-  description: 'Blazing fast performance: 2.4ms cold boot (measured) / ~0.5ms OPcache (estimated), ~4MB+ baseline RAM (~30MB peak), ~360K routes/sec. Compare with Laravel and Symfony.',
+  description: 'Blazing fast performance: 2.4ms cold boot (measured) / ~0.5ms OPcache (estimated), ~4MB+ baseline RAM (~30MB peak), ~361K routes/sec. Compare with Laravel and Symfony.',
   keywords: [
     'fastest php framework benchmark',
     'php framework performance comparison',

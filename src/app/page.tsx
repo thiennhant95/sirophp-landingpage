@@ -54,7 +54,7 @@ export default function Home() {
         name: 'How is SiroPHP different from Laravel?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, ~0.5ms cold boot (Linux) vs 60-101ms, and ~4MB+ RAM vs ~84MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
+          text: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, 2.4ms cold boot (Windows, measured) vs 60ms (Laravel), and ~4MB+ RAM vs ~84MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
         },
       },
       {

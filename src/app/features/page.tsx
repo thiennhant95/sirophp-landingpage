@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Features — SiroPHP | Build Fast. Debug Faster.',
@@ -97,9 +95,9 @@ const featureGroups = [
     title: 'Performance',
     color: 'teal',
     items: [
-      '~1ms cold boot (Linux+OPcache) / ~8ms (Windows, no OPcache)',
-      '~16KB RAM per request — framework ~0.5MB base memory, zero overhead on peak',
-      '~239K routes/sec static — 14,971 ops/sec dynamic',
+      '2.4ms cold boot (Windows, measured) / ~0.5ms OPcache (estimated)',
+      '~4MB framework baseline — zero overhead on peak',
+      '~361K routes/sec static — 297K ops/sec dynamic',
       'Minimal dependencies — no supply chain risk',
       'FrankenPHP support — production Docker images included',
     ],
@@ -151,7 +149,6 @@ export default function FeaturesPage() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Navbar />
       <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <FadeIn>
           <Link href="/" className="text-cyan-400 hover:text-cyan-300 text-sm mb-8 inline-block">&larr; Back to Home</Link>
@@ -207,7 +204,6 @@ export default function FeaturesPage() {
           </FadeIn>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

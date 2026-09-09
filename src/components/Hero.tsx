@@ -37,7 +37,7 @@ export default function Hero() {
           <span className="text-cyan-400">⚡</span>
           <span className="text-gray-300 text-sm">Lightweight API Framework</span>
           <span className="text-gray-600">|</span>
-          <span className="text-emerald-400 text-sm font-semibold">20K+ Tests</span>
+          <span className="text-emerald-400 text-sm font-semibold">v1.0.0 Stable</span>
         </div>
               
         {/* Main heading - H1 for SEO - CRITICAL: Must render immediately */}
@@ -74,15 +74,15 @@ export default function Hero() {
         {/* Performance Badges */}
         <div className="flex flex-wrap justify-center gap-3 mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '450ms' }}>
           <a 
-            href="https://github.com/SiroSoft/SiroPHP/blob/main/PERFORMANCE.md" 
+            href="https://github.com/SiroSoft/siro-core/blob/main/BENCHMARK.md" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/30 text-xs text-gray-300 transition-colors cursor-pointer"
           >
-             🚀 ~360K Routes/sec
+             🚀 ~361K Routes/sec
           </a>
           <a 
-            href="https://github.com/SiroSoft/SiroPHP/blob/main/PERFORMANCE.md" 
+            href="https://github.com/SiroSoft/siro-core/blob/main/BENCHMARK.md" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/30 text-xs text-gray-300 transition-colors cursor-pointer"
@@ -90,7 +90,7 @@ export default function Hero() {
             ⚡ O(1) Cached Route Matching
           </a>
           <a 
-            href="https://github.com/SiroSoft/SiroPHP/blob/main/PERFORMANCE.md" 
+            href="https://github.com/SiroSoft/siro-core/blob/main/BENCHMARK.md" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/30 text-xs text-gray-300 transition-colors cursor-pointer"
