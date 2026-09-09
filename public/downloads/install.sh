@@ -1,5 +1,5 @@
 #!/bin/sh
-# Siro - 1 command, 0 dependency PHP API Framework (v0.35.0)
+# Siro - 1 command, 0 dependency PHP API Framework (v1.0.0)
 # Usage: curl -sS https://sirophp.com/downloads/install.sh | bash
 # Or:    curl -sS https://sirophp.com/downloads/install.sh | bash -s my-api
 
@@ -8,7 +8,7 @@ set -eu
 RED='\033[0;31m'; GREEN='\033[0;32m'; CYAN='\033[0;36m'; YELLOW='\033[0;33m'; NC='\033[0m'
 
 PROJECT_NAME=""; PHP_VERSION="8.2"; NO_PROJECT=false; QUIET=false
-VERSION="0.35.0"
+VERSION="1.0.0"
 SIRO_DIR="$HOME/.siro"; SIRO_PHAR="$SIRO_DIR/siro.phar"
 
 while [ $# -gt 0 ]; do case "$1" in
@@ -125,13 +125,7 @@ if $NEED_DOWNLOAD; then
     fi
     if $SHA_OK && [ -f "$SHA_FILE" ]; then
         EXPECTED=$(cut -d' ' -f1 < "$SHA_FILE" | tr '[:upper:]' '[:lower:]')
-        if command -v sha256sum >/dev/null 2>&1; then
-            ACTUAL=$(sha256sum "$SIRO_PHAR" 2>/dev/null | cut -d' ' -f1 | tr '[:upper:]' '[:lower:]')
-        elif command -v shasum >/dev/null 2>&1; then
-            ACTUAL=$(shasum -a 256 "$SIRO_PHAR" 2>/dev/null | cut -d' ' -f1 | tr '[:upper:]' '[:lower:]')
-        else
-            ACTUAL=""
-        fi
+        ACTUAL=$(sha256sum "$SIRO_PHAR" 2>/dev/null | cut -d' ' -f1 | tr '[:upper:]' '[:lower:]')
         if [ "$EXPECTED" != "$ACTUAL" ]; then
             log_fail "Siro CLI checksum mismatch. File may be corrupted."
             rm -f "$SIRO_PHAR"
@@ -224,41 +218,29 @@ if [ "$NO_PROJECT" = false ]; then
     ELAPSED=$((END_TIME - START_TIME))
 
     echo ""
-    echo "  ╔══════════════════════════════════════════════════╗"
-    echo "  ║     Project ready in ${ELAPSED}s                  ║"
-    echo "  ║                                                  ║"
-    echo "  ║  cd $PROJECT_NAME                                ║"
-    echo "  ║  php siro serve                      :8080       ║"
-    echo "  ║  php siro demo                    Debug workflow ║"
-    echo "  ║  php siro make:crud product       CRUD generator ║"
-    echo "  ║  php siro api:test          Test any endpoint     ║"
-    echo "  ║  php siro list                    91 commands     ║"
-    echo "  ║                                                  ║"
-    echo "  ║  5 languages:   en/vi/de/zh/ja                  ║"
-    echo "  ║  OpenAPI spec:  http://localhost:8080/openapi.json║"
-    echo "  ║  Swagger UI:    http://localhost:8080/docs.html  ║"
-    echo "  ║  Health check:  php siro doctor                  ║"
-    echo "  ║                                                  ║"
-    echo "  ║  MySQL: php siro db init --mysql                 ║"
-    echo "  ║  Admin UI: https://github.com/SiroSoft           ║"
-    echo "  ║                                                  ║"
-    echo "  ║  Docs: https://sirophp.com/documentation         ║"
-    echo "  ╚══════════════════════════════════════════════════╝"
+    echo "+--------------------------------------------+"
+    echo "|   >> Project ready (SQLite default)        |"
+    echo "|                                            |"
+    echo "|   cd $PROJECT_NAME                         |"
+    echo "|   php siro serve                           |"
+    echo "|   http://localhost:8080                    |"
+    echo "|                                            |"
+    echo "|   For databases:                           |"
+    echo "|   php siro db init --mysql             |"
+    echo "|     (MariaDB portable)                 |"
+    echo "|   php siro db init --mysql-official    |"
+    echo "|     (MySQL Community Server)           |"
+    echo "+--------------------------------------------+"
     echo ""
-    echo "  > To uninstall: rm -rf $SIRO_DIR && rm ~/.local/bin/siro"
+    echo "  Done in ${ELAPSED}s  |  To uninstall: rm -rf $SIRO_DIR && rm ~/.local/bin/siro"
     echo ""
 else
-    echo "  ╔══════════════════════════════════════════════════╗"
-    echo "  ║     Siro CLI installed                          ║"
-    echo "  ║                                                  ║"
-    echo "  ║  php siro new my-api        Create new project   ║"
-    echo "  ║  php siro demo              Debug workflow demo  ║"
-    echo "  ║  php siro list              91 commands          ║"
-    echo "  ║  php siro --version                              ║"
-    echo "  ║                                                  ║"
-    echo "  ║  Docs: https://sirophp.com/documentation         ║"
-    echo "  ╚══════════════════════════════════════════════════╝"
     echo ""
-    echo "  > To uninstall: rm -rf $SIRO_DIR && rm ~/.local/bin/siro"
+    echo "  [OK] Siro CLI installed. Usage:"
+    echo "    php siro new my-api"
+    echo "    php siro runtime list"
+    echo "    php siro runtime install 8.3"
+    echo ""
+    echo "  To uninstall: rm -rf $SIRO_DIR && rm ~/.local/bin/siro"
     echo ""
 fi

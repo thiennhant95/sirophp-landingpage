@@ -1,0 +1,19 @@
+{
+    "version": "1.0.0",
+    "phar": {
+        "url": "https:\/\/sirophp.com\/siro.phar",
+        "sha256": "b6e708ec2c0c5c1468c7fd986b4b7a100508aa5f1d9a3195711e772841ba0913",
+        "size": 29042441
+    },
+    "runtime": {
+        "8.2": {
+            "windows": "https:\/\/windows.php.net\/downloads\/releases\/php-8.2.33-nts-Win32-vs16-x64.zip"
+        },
+        "8.3": {
+            "windows": "https:\/\/windows.php.net\/downloads\/releases\/php-8.3.33-nts-Win32-vs16-x64.zip"
+        },
+        "8.4": {
+            "windows": "https:\/\/windows.php.net\/downloads\/releases\/php-8.4.24-nts-Win32-vs16-x64.zip"
+        }
+    }
+}

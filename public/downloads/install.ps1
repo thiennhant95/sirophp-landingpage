@@ -9,7 +9,7 @@ param(
     [switch]$Quiet
 )
 
-$ScriptVersion = "0.35.0"
+$ScriptVersion = "1.0.0"
 
 if ($Help) {
     Write-Host "Siro Framework Installer v$ScriptVersion"
@@ -115,10 +115,10 @@ if (-not $phpExe) {
     if (-not $targetPhpDir) { $targetPhpDir = $phpDirCandidates[0] }
 
     if (-not (Test-Path "$targetPhpDir\php.exe")) {
-        & $logStep "Step 1: Installing PHP 8.2.31..."
+        & $logStep "Step 1: Installing PHP 8.2.33..."
         
         $phpZip = "$env:TEMP\php-install-$PID.zip"
-        $phpJob = Start-BackgroundDownload "https://windows.php.net/downloads/releases/php-8.2.31-nts-Win32-vs16-x64.zip" $phpZip "PHP 8.2.31"
+        $phpJob = Start-BackgroundDownload "https://windows.php.net/downloads/releases/php-8.2.33-nts-Win32-vs16-x64.zip" $phpZip "PHP 8.2.33"
         
         # While PHP downloads, prepare directories
         if (-not (Test-Path $targetPhpDir)) { New-Item -ItemType Directory -Force -Path $targetPhpDir | Out-Null }
@@ -157,7 +157,7 @@ if (-not $phpExe) {
         }
         
         $env:Path = "$targetPhpDir;$env:Path"
-        & $logOK "PHP 8.2.31 installed at $targetPhpDir"
+        & $logOK "PHP 8.2.33 installed at $targetPhpDir"
     } else {
         $env:Path = "$targetPhpDir;$env:Path"
         & $logOK "PHP found at $targetPhpDir"
@@ -205,7 +205,7 @@ if ($skipPhar) {
         & $logOK "Siro CLI verified (SHA-256)"
         Remove-Item $shaFile -Force -ErrorAction SilentlyContinue
     } else {
-        & $logWarn "Checksum unavailable — skipping verification"
+        & $logWarn "Checksum unavailable -- skipping verification"
     }
     & $logOK "Siro CLI downloaded"
 }
