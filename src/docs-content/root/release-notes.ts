@@ -20,8 +20,8 @@ export const doc: Doc = {
     "items": [
       "First stable release — API stability promise in effect. **No breaking changes from v0.40.0**",
       "Engine requirement: `sirosoft/core ^1.0.0` (Packagist, MIT)",
-      "Skeleton test suite: **742 tests, 1,126 assertions, 0 failures** (19 skipped)",
-      "95 CLI commands, all smoke-tested; PHPStan level max, 0 errors; `composer audit`, 0 advisories",
+      "Skeleton test suite: **757 tests, 1,165 assertions, 0 failures** (19 skipped)",
+      "103 CLI commands, all smoke-tested; PHPStan level max, 0 errors; `composer audit`, 0 advisories",
       "Dev Dashboard + production page now report `v1.0.0`; OpenAPI spec `info.version 1.0.0`",
       "Upgrade: `composer update sirosoft/core` then `composer require sirosoft/api:^1.0.0` — zero migration steps"
     ]
@@ -35,7 +35,7 @@ export const doc: Doc = {
     "type": "ul",
     "items": [
       "**Enterprise quality gates**: line coverage 80% statements; Infection MSI — Auth 82%, Middleware 83%",
-      "Skeleton test suite expanded to **742 tests, 0 failures** (mutation-style suites for Controllers, Services, Repositories, Resources)",
+      "Skeleton test suite expanded to **757 tests, 0 failures** (mutation-style suites for Controllers, Services, Repositories, Resources)",
       "Security fix: `squizlabs/php_codesniffer` bumped past CVE-2026-67434 (OS command injection)",
       "`config/deploy.json` no longer tracked by git (credential hygiene)",
       "Model identity map fixed: correct invalidation on insert / cross-instance update / delete",

@@ -103,7 +103,7 @@ export const doc: Doc = {
   },
   {
     "type": "p",
-    "text": "SiroPHP ships with 95 CLI commands covering debug, testing, code generation, database, and production operations. Here's the complete reference:"
+    "text": "SiroPHP ships with 103 CLI commands covering debug, testing, code generation, database, and production operations. Here's the complete reference:"
   },
   {
     "type": "h3",

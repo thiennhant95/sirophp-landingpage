@@ -9,7 +9,7 @@ import CTA from '@/components/CTA';
 
 export const metadata: Metadata = {
   title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
-    description: 'Build APIs in minutes, not hours. Debug production bugs with full execution context — SQL, outbound HTTP, queued jobs. Risk-aware replay. Zero dependencies, ~0.5ms cold boot.',
+    description: 'Build APIs in minutes, not hours. Debug production bugs with full execution context — SQL, outbound HTTP, queued jobs. Risk-aware replay. Zero dependencies, ~0.35ms cold boot (measured).',
   keywords: [
     'sirophp',
     'php api framework',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     alternates: { canonical: 'https://sirophp.com' },
   openGraph: {
     title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
-  description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, 2.4ms cold boot (Windows, measured) / ~0.5ms OPcache (estimated), ~4MB+ RAM per request.',
+  description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, 2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured), ~4MB+ RAM per request.',
     type: 'website',
     url: 'https://sirophp.com',
   },
@@ -86,7 +86,7 @@ export default function Home() {
         name: 'Is SiroPHP production ready?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. 20,900+ tests with 100% pass rate, security audited (42 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, env 5-tier chain, FrankenPHP support, and log sanitization.',
+          text: 'Yes. 21,300+ tests with 100% pass rate, security audited (42 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, env 5-tier chain, FrankenPHP support, and log sanitization.',
         },
       },
     ],

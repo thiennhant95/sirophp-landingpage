@@ -44,7 +44,7 @@ export default function DownloadButton() {
           showMeta ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <span>~2.5 MB</span>
+        <span>~28 MB</span>
         {hasGitHubRelease && (
           <>
             <span>•</span>

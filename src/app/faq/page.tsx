@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: 'How is SiroPHP different from Laravel?',
-    a: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, ~0.5ms cold boot (Linux) vs 60-101ms, and ~4MB+ RAM vs ~84MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
+    a: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, ~0.35ms cold boot (measured, prod Linux) vs 60-100ms, and ~4MB+ RAM vs ~84MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
   },
   {
     q: 'How do I install SiroPHP?',
@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     q: 'Is SiroPHP production ready?',
-    a: 'Yes. 20,000+ tests with 100% pass rate, security audited (42 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, env 5-tier chain, FrankenPHP support, and log sanitization.',
+    a: 'Yes. 21,300+ tests with 100% pass rate, security audited (42 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, env 5-tier chain, FrankenPHP support, and log sanitization.',
   },
   {
     q: 'What databases does SiroPHP support?',
@@ -69,7 +69,7 @@ const faqs = [
   },
   {
     q: 'Is SiroPHP suitable for serverless deployment?',
-    a: 'Yes. With ~0.5ms cold boot (Linux+OPcache) and ~4MB+ memory usage, SiroPHP is ideal for serverless platforms like AWS Lambda, Vercel, and Laravel Vapor.',
+    a: 'Yes. With ~0.35ms cold boot (measured, prod Linux) and ~4MB+ memory usage, SiroPHP is ideal for serverless platforms like AWS Lambda, Vercel, and Laravel Vapor.',
   },
   {
     q: 'What is .env.local and how does env priority work?',

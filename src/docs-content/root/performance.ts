@@ -553,8 +553,8 @@ export const doc: Doc = {
     ],
     "rows": [
       [
-        "**SiroPHP v1.0.0**",
-        "**~361K**",
+        "**SiroPHP v1.0.6**",
+        "**~370K***",
         "**~4MB**",
         "**0**",
         "**2.4ms (Win, measured)**"
@@ -591,7 +591,7 @@ export const doc: Doc = {
   },
   {
     "type": "p",
-    "text": "SiroPHP is 2000-4000x faster than Laravel! 🚀"
+    "text": "* Ops/s is in-process microbenchmark (`php benchmark.php`); HTTP throughput on production (FrankenPHP) measures ~700 req/s. See /benchmarks for methodology."
   },
   {
     "type": "h2",

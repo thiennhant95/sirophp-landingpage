@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | SiroPHP",
   },
   description:
-      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.5ms OPcache (estimated).",
+      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured).",
   keywords: [
     "SiroPHP",
     "PHP framework",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SiroPHP — Build APIs Fast. Debug Faster.",
     description:
-    "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.5ms OPcache (estimated).",
+    "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured).",
     url: "https://sirophp.com",
     siteName: "SiroPHP",
     type: "website",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SiroPHP — Build APIs Fast. Debug Faster.",
     description:
-      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.5ms OPcache (estimated).",
+      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured).",
     images: ["https://sirophp.com/opengraph-image"],
   },
   robots: {

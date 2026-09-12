@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 const comparisonData = [
   { feature: 'Dependencies', siro: '0', laravel: '~200 packages', winner: 'siro' },
-  { feature: 'Cold Boot Time', siro: '~0.5ms (Linux)', laravel: '~60-101ms', winner: 'siro' },
+  { feature: 'Cold Boot Time', siro: '~0.35ms (prod Linux, measured)', laravel: '~60-100ms', winner: 'siro' },
   { feature: 'Memory per Request', siro: '~4MB+', laravel: '~84MB', winner: 'siro' },
   { feature: 'API Debugging', siro: 'Built-in trace + replay', laravel: 'Requires Telescope or 3rd party', winner: 'siro' },
   { feature: 'CRUD Scaffolding', siro: 'One command: make:crud', laravel: 'make:model -mcr', winner: 'siro' },
@@ -191,20 +191,22 @@ export default function ComparisonArticle() {
 
               <h3 className="text-2xl font-semibold text-white mb-3">Cold Boot Time</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
-                SiroPHP boots in <strong className="text-white">~0.5ms (Linux+OPcache)</strong> because it has zero 
+                SiroPHP 
+                boots in <strong className="text-white">~0.35ms (prod Linux, measured)</strong> because it has zero
                 dependencies and no service container to warm up. Laravel takes 
-                <strong className="text-white"> 60-101ms</strong> due to its ~200 packages, facades, 
+                <strong className="text-white"> 60-100ms</strong> due to its ~200 packages, facades, 
                 service providers, and configuration loading.
               </p>
               <p className="text-gray-400 leading-relaxed mb-6">
                 For serverless environments (Vercel, Laravel Vapor, AWS Lambda), this difference 
-                matters. A 60-101ms cold start vs ~0.5ms can significantly impact your API response times 
+                matters. A 
+                60-100ms cold start vs ~0.35ms can significantly impact your API response times
                 under variable load.
               </p>
 
               <h3 className="text-2xl font-semibold text-white mb-3">Memory Usage</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
-                SiroPHP uses <strong className="text-white">~4MB+ RAM per request</strong> (PHP baseline ~2MB, framework ~30MB peak). Laravel 
+                SiroPHP uses <strong className="text-white">~4MB+ RAM per request</strong> (PHP baseline ~2MB, ~6MB peak measured). Laravel 
                 uses <strong className="text-white">~84MB</strong>. On a $6/month VPS, SiroPHP can 
                 handle hundreds of concurrent requests. Laravel struggles with even moderate traffic 
                 on the same hardware.
