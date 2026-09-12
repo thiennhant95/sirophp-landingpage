@@ -2,7 +2,6 @@
 
 import React from 'react';
 import FadeIn from '@/components/FadeIn';
-import { LiveReplayDemo } from '@/components/LiveReplayDemo';
 
 export function ReplayContent() {
   return (
@@ -15,8 +14,6 @@ export function ReplayContent() {
           Debug production bugs with confidence. Capture, replay, and fix issues without affecting live traffic.
         </p>
       </FadeIn>
-
-      <LiveReplayDemo />
 
       {/* How It Works */}
       <section className="mb-20">
