@@ -33,6 +33,7 @@ export default async function ApiPage({ params }: Props) {
 
   return <DocPage
     doc={doc}
+    canonical={`https://sirophp.com/documentation/api/${slug}`}
     prev={prevSlug ? { slug: `/documentation/api/${prevSlug}`, title: allApiRefs[prevSlug].meta.title } : undefined}
     next={nextSlug ? { slug: `/documentation/api/${nextSlug}`, title: allApiRefs[nextSlug].meta.title } : undefined}
   />

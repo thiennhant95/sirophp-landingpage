@@ -35,5 +35,5 @@ export default async function StandalonePage({ params }: Props) {
   const prev = nav.prev ? { slug: `/documentation/${nav.prev}`, title: standaloneDocs[nav.prev]?.meta?.title || '' } : undefined
   const next = nav.next ? { slug: `/documentation/${nav.next}`, title: standaloneDocs[nav.next]?.meta?.title || '' } : undefined
 
-  return <DocPage doc={doc} prev={prev} next={next} />
+  return <DocPage doc={doc} canonical={`https://sirophp.com/documentation/${slugStr}`} prev={prev} next={next} />
 }

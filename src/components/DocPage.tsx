@@ -10,9 +10,30 @@ interface DocPageProps {
   doc: Doc
   prev?: { slug: string; title: string }
   next?: { slug: string; title: string }
+  canonical?: string
 }
 
-export default function DocPage({ doc, prev, next }: DocPageProps) {
+export default function DocPage({ doc, prev, next, canonical }: DocPageProps) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'TechArticle',
+        headline: doc.meta.title,
+        description: doc.meta.description,
+        ...(canonical ? { url: canonical, mainEntityOfPage: canonical } : {}),
+        author: { '@type': 'Organization', name: 'SiroSoft' },
+        publisher: { '@type': 'Organization', name: 'SiroSoft' },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Documentation', ...(canonical ? { item: 'https://sirophp.com/documentation' } : {}) },
+          { '@type': 'ListItem', position: 2, name: doc.meta.title, ...(canonical ? { item: canonical } : {}) },
+        ],
+      },
+    ],
+  }
   const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([])
 
   const onHeadings = useCallback((h: { id: string; text: string; level: number }[]) => {
@@ -21,6 +42,7 @@ export default function DocPage({ doc, prev, next }: DocPageProps) {
 
   return (
     <main className="min-h-screen bg-black lg:flex">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <DocSidebar />
 
       <div className="flex-1 min-w-0">

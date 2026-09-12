@@ -33,6 +33,7 @@ export default async function GuidePage({ params }: Props) {
 
   return <DocPage
     doc={doc}
+    canonical={`https://sirophp.com/documentation/guides/${slug}`}
     prev={prevSlug ? { slug: `/documentation/guides/${prevSlug}`, title: allGuides[prevSlug].meta.title } : undefined}
     next={nextSlug ? { slug: `/documentation/guides/${nextSlug}`, title: allGuides[nextSlug].meta.title } : undefined}
   />

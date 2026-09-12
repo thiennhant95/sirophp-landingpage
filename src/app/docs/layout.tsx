@@ -1,20 +1,28 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Docs — Quick Start & CLI Reference',
-  description:
-    'SiroPHP documentation hub: quick start, install, CLI reference (95 commands), and production debugging workflow. Build APIs fast, debug faster.',
-  keywords: ['sirophp docs', 'siro cli commands', 'php api framework docs', 'sirophp quick start', 'php framework documentation'],
+  title: 'Docs — SiroPHP API Framework',
+  description: 'Build an API with auth in 5 minutes. 6 commands, zero bloat, instant debugging. Interactive SiroPHP documentation.',
+  keywords: [
+    'sirophp docs',
+    'php api documentation',
+    'php crud scaffolding guide',
+  ],
   alternates: { canonical: 'https://sirophp.com/docs' },
   openGraph: {
-    title: 'SiroPHP Docs — Quick Start & CLI Reference',
-    description:
-      'SiroPHP documentation hub: quick start, install, CLI reference (95 commands), and production debugging workflow.',
+    title: 'Docs — SiroPHP API Framework',
+    description: 'Build an API with auth in 5 minutes. Interactive documentation with command palette and copy-paste snippets.',
     url: 'https://sirophp.com/docs',
+    siteName: 'SiroPHP',
     type: 'website',
   },
-}
+  twitter: {
+    card: 'summary',
+    title: 'Docs — SiroPHP API Framework',
+    description: 'Build an API with auth in 5 minutes. 6 commands, zero bloat.',
+  },
+};
 
-export default function MetaLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+export default function DocsLayout({ children }: { children: React.ReactNode }) {
+  return children;
 }
