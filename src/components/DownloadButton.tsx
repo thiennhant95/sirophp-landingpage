@@ -44,7 +44,7 @@ export default function DownloadButton() {
           showMeta ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <span>~28 MB</span>
+        <span title="Self-contained installer: bundles PHP runtime + framework so it runs without pre-installed PHP">~28 MB (PHP runtime included)</span>
         {hasGitHubRelease && (
           <>
             <span>•</span>

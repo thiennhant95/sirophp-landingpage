@@ -122,14 +122,57 @@ export function BenchmarksContent() {
           <FadeIn delay={1000}>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">Estimated</span>
+                <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/20 text-green-400 border border-green-500/30">Measured</span>
               </div>
-              <div className="text-4xl font-bold text-purple-400 mb-2">~0.5 ms</div>
-              <div className="text-sm text-gray-400">Linux + OPcache (production)</div>
-              <div className="text-xs text-gray-500 mt-2">Estimated from framework load profile. Not directly measured.</div>
+              <div className="text-4xl font-bold text-purple-400 mb-2">~0.35 ms</div>
+              <div className="text-sm text-gray-400">Prod Linux, FrankenPHP (skeleton boot p50)</div>
+              <div className="text-xs text-gray-500 mt-2">Measured 2026-09-12 on live server, min 0.31ms / max 28ms (first-hit outlier).</div>
             </div>
           </FadeIn>
         </div>
+      </section>
+
+      {/* HTTP throughput in the wild */}
+      <section className="mb-20">
+        <FadeIn delay={800}>
+          <h2 className="text-3xl font-bold mb-4">HTTP Throughput in the Wild</h2>
+          <p className="text-gray-400 mb-8 max-w-3xl">
+            Microbenchmarks measure overhead. What matters for APIs is requests/sec over HTTP.
+            Independent sources below — different hardware, so read ratios, not absolutes.
+          </p>
+        </FadeIn>
+
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="border-b border-gray-800">
+                <th className="text-left py-4 px-6 text-gray-400 font-medium">Framework</th>
+                <th className="text-right py-4 px-6 text-gray-400 font-medium">HTTP req/s</th>
+                <th className="text-left py-4 px-6 text-gray-400 font-medium">Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { fw: 'SiroPHP (FrankenPHP, prod)', rps: '~700', src: 'Measured 2026-09-12, live server, 2000 req / 50 conn, 0 failed', hot: true },
+                { fw: 'Laravel', rps: '299', src: 'Sharkbench 2025-08-24, Ryzen 7 7800X3D, Docker', hot: false },
+                { fw: 'Symfony', rps: '941', src: 'Sharkbench 2025-08-24, Ryzen 7 7800X3D, Docker', hot: false },
+                { fw: 'Hyperf (Swoole)', rps: '~104K', src: 'Project README, Aliyun 8c16G, wrk 1024 conn', hot: false },
+                { fw: 'FrankenPHP worker (baseline)', rps: '~10K', src: 'PHP-Runtime-Benchmark, 1 CPU core', hot: false },
+              ].map((row, index) => (
+                <tr key={index} className="border-b border-gray-800/50 hover:bg-gray-900/30 transition-colors">
+                  <td className={`py-4 px-6 font-medium ${row.hot ? 'text-cyan-400' : 'text-gray-300'}`}>{row.fw}</td>
+                  <td className={`py-4 px-6 text-right font-mono ${row.hot ? 'text-cyan-400' : 'text-gray-400'}`}>{row.rps}</td>
+                  <td className="py-4 px-6 text-gray-500 text-xs">{row.src}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-gray-600 mt-3">
+          Honest reading: SiroPHP beats Laravel ~2x on HTTP throughput, trails Symfony and Swoole-coroutine
+          frameworks on raw speed — and wins where they don&apos;t compete: request tracing, replay, and zero-dependency ops.
+          Slim/Lumen have no comparable independent HTTP numbers published here; Slim wins raw dispatch by design (dispatcher-only, no ORM/auth/tracing).
+        </p>
       </section>
 
       {/* Design Philosophy — Qualitative, no misleading numbers */}
@@ -190,11 +233,15 @@ export function BenchmarksContent() {
             <div className="mt-4 pt-4 border-t border-gray-800">
               <p className="text-xs text-gray-500">
                 <strong className="text-gray-400">Evidence classification:</strong> All Key Metrics are <strong className="text-green-400">Measured</strong> values from benchmark.php.
-                Where a value is <strong className="text-yellow-400">Estimated</strong> (e.g., Linux+OPcache cold boot), it is clearly labeled.
-                No <strong className="text-gray-500">Unverified</strong> claims appear on this page.
+                No <strong className="text-yellow-400">Estimated</strong> or <strong className="text-gray-500">Unverified</strong> claims appear on this page.
               </p>
               <p className="text-xs text-gray-500 mt-2">
                 <strong className="text-gray-400">Note:</strong> Microbenchmarks measure framework overhead only. Real-world throughput depends on PHP runtime (FPM/FrankenPHP/Swoole), hardware, OPcache, and business logic.
+                Production HTTP throughput (FrankenPHP) measures ~700 req/s on our live server.
+              </p>
+              <p className="text-xs text-gray-500 mt-2">
+                <strong className="text-gray-400">Reproduce:</strong> <code className="text-cyan-400">php benchmark.php</code> in siro-core, <code className="text-cyan-400">php scripts/bench-boot.php</code> for cold boot.
+                Disable Xdebug first (<code className="text-cyan-400">xdebug.mode=off</code>) — coverage mode slows every call ~6x and invalidates results.
               </p>
             </div>
             <p className="mt-4">
