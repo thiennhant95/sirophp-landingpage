@@ -220,7 +220,7 @@ export default function ShowcaseArticle() {
               </div>
 
               <ul className="list-disc pl-5 space-y-2 text-gray-400 mb-6">
-                <li>Zero known CVEs across backend and frontend dependencies</li>
+                 <li>Dependency and security checks are part of the project release process</li>
                 <li>CAPTCHA-protected login with one-time server-side tokens</li>
                 <li>JWT rotation with token-theft detection on the API layer</li>
                 <li>Isolated Docker deployment — MySQL, FrankenPHP, Next.js on a private network</li>

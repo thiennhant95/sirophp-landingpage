@@ -104,7 +104,7 @@ export default function Article2() {
                 debug, and automate your PHP APIs without ever leaving your terminal.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                <strong className="text-white">SiroPHP is a lightweight PHP API framework</strong> that 
+                 <strong className="text-white">SiroPHP is a lightweight PHP API workflow</strong> that
                 includes native CLI testing tools. Unlike traditional PHP frameworks that require external 
                 tools like Postman, SiroPHP lets you test endpoints directly from your terminal with 
                 auto-authentication and instant feedback.

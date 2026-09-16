@@ -111,7 +111,7 @@ export default function Article4() {
               keyboard-driven testing that integrates seamlessly with your development process.
             </p>
             <p className="text-gray-400 leading-relaxed mb-8">
-                <strong className="text-white">SiroPHP is a lightweight PHP API framework</strong> that 
+                <strong className="text-white">SiroPHP is a lightweight PHP API workflow</strong> that
                 includes native CLI testing tools. With features like auto-authentication, request 
                 history, and automation scripts, you can test APIs faster than ever before.
             </p>
@@ -300,22 +300,22 @@ php siro api:test --history
             <h3 className="text-2xl font-semibold text-white mb-3">Save & Reuse Commands</h3>
             <div className="bg-white/5 rounded-lg p-4 mb-6 border border-white/10">
               <pre className="text-gray-300 text-sm overflow-x-auto">
-{`# Save a complex request
+{`# Save a complex request to a named collection
 php siro api:test POST /api/orders \
   user_id=123 \
   product_id=456 \
   quantity=2 \
-  --save=create-order
+  --collection-save=create-order
 
-# Reuse anytime
-php siro api:test --run=create-order
+# Run the saved collection
+php siro api:test --collection=create-order
 
-# Update saved command
+# Save another request to the collection
 php siro api:test POST /api/orders \
   user_id=123 \
   product_id=789 \
   quantity=1 \
-  --save=create-order --overwrite`}
+  --collection-save=create-order`}
               </pre>
             </div>
 
@@ -407,11 +407,9 @@ jobs:
             <h3 className="text-2xl font-semibold text-white mb-3">Tip 1: Use Environment Variables</h3>
             <div className="bg-white/5 rounded-lg p-4 mb-6 border border-white/10">
               <pre className="text-gray-300 text-sm overflow-x-auto">
-{`# Set base URL in .env
-API_BASE_URL=http://localhost:8080
-
-# Use in tests
-php siro api:test GET /api/users --base=$API_BASE_URL`}
+{`# Start the project&apos;s local server
+php siro serve
+php siro api:test GET /api/users`}
               </pre>
             </div>
 

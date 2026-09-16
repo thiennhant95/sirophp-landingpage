@@ -106,10 +106,10 @@ export default function Article3() {
               <p className="text-gray-400 leading-relaxed mb-8">
                 <strong className="text-white">Request replay</strong> changes everything. Instead of 
                 guessing what happened, you can replay the exact request that caused the error—with 
-                the exact same data, headers, and environment state.
+                 the captured request data and relevant headers, subject to redaction and replay safety checks.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                <strong className="text-white">SiroPHP is a lightweight PHP API framework</strong> with 
+                 <strong className="text-white">SiroPHP is a lightweight PHP API workflow</strong> with
                 built-in request replay technology. Every API request is automatically captured with a 
                 unique trace ID, allowing you to reproduce production bugs instantly without any manual setup.
               </p>
@@ -150,8 +150,8 @@ export default function Article3() {
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed mb-8">
-                The problem? You&apos;re missing critical information: exact payload, authentication state, 
-                environment variables, database state, and more.
+                 The problem? You&apos;re missing critical information: exact payload, authentication state,
+                 request metadata, database queries, and timing details.
               </p>
 
               <h2 id="how-replay-works" className="text-3xl font-bold text-white mb-4">
@@ -166,8 +166,8 @@ export default function Article3() {
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">Step 1: Capture</h3>
                     <p className="text-gray-400 text-sm">
-                      Every request is logged with complete metadata: headers, body, auth tokens, 
-                      environment, and database queries.
+                       Traces record request metadata, body, sanitized headers, authentication context,
+                       and database queries available during execution.
                     </p>
                   </div>
                 </div>

@@ -109,7 +109,7 @@ export default function Article1() {
                 response payload, the right debugging workflow can save you hours of frustration.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                <strong className="text-white">SiroPHP is a lightweight PHP API framework</strong> designed 
+                 <strong className="text-white">SiroPHP is a lightweight PHP API workflow</strong> designed
                 specifically for developers who need to debug production APIs quickly. With built-in 
                 request tracing, replay functionality, and CLI testing tools, you can fix bugs in minutes 
                 instead of hours.
@@ -198,8 +198,8 @@ php siro log:trace siro_abc123def456`}
               <ul className="list-disc list-inside text-gray-400 space-y-2 mb-6 ml-4">
                 <li>Exact request payload and headers</li>
                 <li>Authentication state</li>
-                <li>Environment variables</li>
-                <li>Database state at the time of request</li>
+                 <li>Request metadata and sanitized headers</li>
+                 <li>SQL queries and timing captured during the request</li>
               </ul>
 
               <div className="p-6 rounded-xl border border-white/10 bg-black/50 mb-8">
@@ -241,8 +241,8 @@ php siro api:test POST /api/users \
               </div>
 
               <p className="text-gray-400 leading-relaxed mb-8">
-                The best part? CLI testing includes automatic authentication, so you don&apos;t need to 
-                manually handle tokens or sessions.
+                 The CLI keeps request commands repeatable. Authentication flows can be exercised with
+                 the supported <code>--as=&lt;role&gt;</code> option when the project provides that user.
               </p>
 
               {/* Section 5 */}

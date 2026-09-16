@@ -4,7 +4,7 @@ import FadeIn from '@/components/FadeIn';
 
 export const metadata: Metadata = {
   title: 'Build Your First API in Under 1 Hour with SiroPHP',
-  description: 'Stop writing boilerplate code. Learn how to scaffold complete CRUD APIs in seconds with one command. From zero to production-ready API in under an hour.',
+  description: 'Learn how to scaffold a production-ready CRUD API module with one deterministic command, then customize and test it in under an hour.',
   keywords: [
     'php api scaffolding',
     'crud api generator php',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Build Your First API in Under 1 Hour with SiroPHP | SiroPHP',
-    description: 'Scaffold complete CRUD APIs in seconds with one command. From zero to production-ready API in under an hour.',
+    description: 'Scaffold a production-ready CRUD API module with one command, then customize and test it in under an hour.',
     type: 'article',
     publishedTime: '2026-02-19',
     url: 'https://sirophp.com/blog/build-api-under-1-hour',
@@ -38,7 +38,7 @@ export default function Article6() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Build Your First API in Under 1 Hour with SiroPHP',
-    description: 'Stop writing boilerplate code. Learn how to scaffold complete CRUD APIs in seconds with one command. From zero to production-ready API in under an hour.',
+    description: 'Learn how to scaffold a production-ready CRUD API module with one deterministic command, then customize and test it in under an hour.',
     image: 'https://sirophp.com/opengraph-image.png',
     author: {
       '@type': 'Organization',
@@ -107,12 +107,12 @@ export default function Article6() {
               validation, tests...
             </p>
             <p className="text-gray-400 leading-relaxed mb-6">
-              What if you could generate all of that in <strong className="text-white">30 seconds</strong>? 
+               What if you could generate the structure in <strong className="text-white">one command</strong>?
               Not a prototype. Not a skeleton. A fully functional, production-ready API with proper 
               structure, validation, and tests.
             </p>
             <p className="text-gray-400 leading-relaxed mb-8">
-              With <strong className="text-white">SiroPHP&apos;s intelligent scaffolding system</strong>, 
+               With <strong className="text-white">SiroPHP&apos;s deterministic scaffolding command</strong>,
               you can. Let me show you how to go from zero to a complete API in under an hour.
             </p>
 
@@ -122,7 +122,7 @@ export default function Article6() {
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#the-problem" className="hover:text-cyan-400 transition-colors">1. The Boilerplate Problem</a></li>
                 <li><a href="#quick-start" className="hover:text-cyan-400 transition-colors">2. Quick Start: Install & Setup (5 minutes)</a></li>
-                <li><a href="#one-command-crud" className="hover:text-cyan-400 transition-colors">3. One-Command CRUD Generation (30 seconds)</a></li>
+                 <li><a href="#one-command-crud" className="hover:text-cyan-400 transition-colors">3. One-Command CRUD Generation</a></li>
                 <li><a href="#what-generated" className="hover:text-cyan-400 transition-colors">4. What Gets Generated?</a></li>
                 <li><a href="#customize" className="hover:text-cyan-400 transition-colors">5. Customize & Extend</a></li>
                 <li><a href="#complete-project" className="hover:text-cyan-400 transition-colors">6. Building a Complete Project in 1 Hour</a></li>
@@ -220,7 +220,7 @@ php siro migrate`}
 
             {/* Section 3 */}
             <h2 id="one-command-crud" className="text-3xl font-bold text-white mb-4">
-              3. One-Command CRUD Generation (30 seconds)
+               3. One-Command CRUD Generation
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
               Here&apos;s where the magic happens. Instead of manually creating files, use the 
@@ -235,16 +235,17 @@ php siro make:crud products
 # Output:
 ✓ Created: database/migrations/2026_02_19_create_products_table.php
 ✓ Created: app/Models/Product.php
+✓ Created: app/Repositories/ProductRepository.php
+✓ Created: app/Services/ProductService.php
 ✓ Created: app/Controllers/ProductController.php
+✓ Created: app/Resources/ProductResource.php
 ✓ Updated: routes/api.php
-✓ Created: tests/ProductApiTest.php
-
-Generated 5 files in 0.3 seconds! 🚀`}
+✓ Created: tests/Feature/ProductsTest.php`}
               </pre>
             </div>
 
             <p className="text-gray-400 leading-relaxed mb-6">
-              That&apos;s it. In less than a second, you have a fully functional CRUD API. Let&apos;s see 
+               That&apos;s it. You now have the generated structure for a functional CRUD API. Let&apos;s see
               what was generated.
             </p>
 
@@ -361,14 +362,18 @@ class ProductController extends Controller
             <div className="bg-white/5 rounded-lg p-4 mb-6 border border-white/10">
               <pre className="text-gray-300 text-sm overflow-x-auto">
 {`// routes/api.php (automatically updated)
-Route::apiResource('products', ProductController::class);
+$router->get('/products', [ProductController::class, 'index']);
+$router->get('/products/{id}', [ProductController::class, 'show']);
+$router->post('/products', [ProductController::class, 'store']);
+$router->put('/products/{id}', [ProductController::class, 'update']);
+$router->delete('/products/{id}', [ProductController::class, 'delete']);
 
 // Generates:
 // GET    /api/products           → index
 // GET    /api/products/{id}      → show
 // POST   /api/products           → store
 // PUT    /api/products/{id}      → update
-// DELETE /api/products/{id}      → destroy`}
+// DELETE /api/products/{id}      → delete`}
               </pre>
             </div>
 
@@ -410,11 +415,7 @@ class ProductApiTest extends TestCase
             <h3 className="text-2xl font-semibold text-white mb-3">Add Custom Fields</h3>
             <div className="bg-white/5 rounded-lg p-4 mb-6 border border-white/10">
               <pre className="text-gray-300 text-sm overflow-x-auto">
-{`# Regenerate with custom fields
-php siro make:crud products \
-  --fields="name:string,description:text,price:decimal,sku:string,category_id:foreign"
-
-# Or edit migration manually and re-run
+{`# Edit the generated migration manually, then re-run
 php siro migrate:fresh`}
               </pre>
             </div>
@@ -476,7 +477,7 @@ $validated = $request->validate([
                 </div>
                 <div>
                   <h4 className="text-white font-semibold mb-1">Generate Core Resources</h4>
-                  <p className="text-gray-400 text-sm">Products, Categories, Users (3 commands, 30 seconds each)</p>
+                   <p className="text-gray-400 text-sm">Products, Categories, Users (three deterministic generator runs)</p>
                 </div>
               </div>
 

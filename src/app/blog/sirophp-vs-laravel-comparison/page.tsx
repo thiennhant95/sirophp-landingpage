@@ -192,8 +192,8 @@ export default function ComparisonArticle() {
               <h3 className="text-2xl font-semibold text-white mb-3">Cold Boot Time</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
                 SiroPHP 
-                boots in <strong className="text-white">~0.35ms (prod Linux, measured)</strong> because it has zero
-                dependencies and no service container to warm up. Laravel takes 
+                 boots in <strong className="text-white">~0.35ms (prod Linux, measured)</strong> because its runtime
+                 surface is small and it avoids a large service container. Laravel takes
                 <strong className="text-white"> 60-100ms</strong> due to its ~200 packages, facades, 
                 service providers, and configuration loading.
               </p>
@@ -415,7 +415,7 @@ php siro replay --diff`}
                   Try SiroPHP for Your Next API
                 </h3>
                 <p className="text-gray-400 mb-6">
-                  Zero dependencies. Built-in debugging. Ships in minutes.
+                  Minimal runtime dependencies. Built-in debugging. Ships in minutes.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link

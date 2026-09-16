@@ -110,8 +110,8 @@ export default function Article5() {
               industry. The root cause isn&apos;t bad code—it&apos;s <strong className="text-white">bad debugging tools</strong>.
             </p>
             <p className="text-gray-400 leading-relaxed mb-8">
-              What if you could reproduce that exact production bug on your local machine in under 
-              5 minutes? With <strong className="text-white">request replay technology</strong>, you can.
+               What if you could inspect the captured request and replay it against a safe local or staging
+               target? With <strong className="text-white">request replay technology</strong>, you can.
             </p>
 
             {/* Table of Contents */}
@@ -151,7 +151,7 @@ export default function Article5() {
                 <h3 className="text-lg font-semibold text-white mb-3">🔒 Environment Differences</h3>
                 <ul className="text-gray-400 text-sm space-y-2">
                   <li>• Different server configurations</li>
-                  <li>• Production-only environment variables</li>
+                   <li>• Request metadata and sanitized headers</li>
                   <li>• Load balancer behavior</li>
                   <li>• CDN caching layers</li>
                 </ul>
@@ -198,7 +198,7 @@ export default function Article5() {
               3. Request Replay: A Better Way
             </h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-                <strong className="text-white">SiroPHP is a lightweight PHP API framework</strong> with 
+                 <strong className="text-white">SiroPHP is a lightweight PHP API workflow</strong> with
                 built-in request replay technology. Every API request is automatically captured with 
                 complete context, allowing you to reproduce any issue instantly.
             </p>
@@ -233,7 +233,7 @@ export default function Article5() {
 
             <h3 className="text-2xl font-semibold text-white mb-3">Step 1: Automatic Trace ID Generation</h3>
             <p className="text-gray-400 leading-relaxed mb-4">
-              Every request to your SiroPHP API automatically receives a unique trace ID:
+               Requests handled by the tracing middleware receive a unique trace ID:
             </p>
             <div className="bg-white/5 rounded-lg p-4 mb-6 border border-white/10">
               <pre className="text-gray-300 text-sm overflow-x-auto">
@@ -251,7 +251,7 @@ Content-Type: application/json
 
             <h3 className="text-2xl font-semibold text-white mb-3">Step 2: Capture Complete Context</h3>
             <p className="text-gray-400 leading-relaxed mb-4">
-              SiroPHP automatically logs everything about the request:
+               SiroPHP records the request context available to the trace:
             </p>
             <ul className="list-disc list-inside text-gray-400 space-y-2 mb-6 ml-4">
               <li>Full request body (with sensitive data redacted)</li>
@@ -261,7 +261,7 @@ Content-Type: application/json
               <li>All SQL queries executed (with bindings and timing)</li>
               <li>Execution time breakdown</li>
               <li>Memory usage</li>
-              <li>Authentication context</li>
+               <li>Authentication context when available</li>
             </ul>
 
             <h3 className="text-2xl font-semibold text-white mb-3">Step 3: View Trace Details</h3>
@@ -399,8 +399,8 @@ curl -X GET 'http://localhost:8080/api/users/123' \
             <div className="bg-white/5 rounded-lg p-4 mb-6 border border-white/10">
               <pre className="text-gray-300 text-sm overflow-x-auto">
 {`# .env configuration
-LOG_RETENTION_DAYS=30        # Keep traces for 30 days
-LOG_MAX_SIZE=50MB            # Rotate when reaching 50MB`}
+LOG_RETENTION_DAYS=30
+LOG_MAX_SIZE=50MB`}
               </pre>
             </div>
 
