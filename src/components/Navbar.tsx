@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 const navLinks = [
   { href: '/#features', label: 'Features' },
   { href: '/#why-siro', label: 'Why Siro' },
+  { href: '/#ecosystem', label: 'Ecosystem' },
   { href: '/blog', label: 'Blog' },
   { href: '/tutorials', label: 'Tutorials' },
   { href: '/docs', label: 'Docs' },

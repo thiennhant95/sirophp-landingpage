@@ -1,16 +1,16 @@
 # SiroPHP
 
-> Production-first PHP API framework with built-in debugging, request replay, and testing workflows. Zero dependencies.
+> Deterministic PHP API workflow with built-in debugging, request replay, and testing workflows. Minimal runtime dependencies.
 
-SiroPHP lets you scaffold CRUD APIs in seconds (`make:crud`), debug production bugs instantly by replaying captured requests (`api:why` → `replay --diff`), and ship with enterprise quality gates (80% line coverage, Infection MSI ~83%).
+SiroPHP lets you scaffold production-ready CRUD API modules in minutes (`make:crud`), understand production failures with captured execution context (`api:why` → `replay --diff`), and turn real traces into regression tests.
 
 ## Key facts
 
-- Current version: v0.40.0 (core) / v0.40.0 (skeleton)
+- Current Core version: v1.0.12
 - Requires: PHP 8.2+, ext-pdo, ext-json, ext-mbstring
 - License: MIT
-- Cold boot: ~0.5 ms (Linux) / ~3 ms (Windows); ~300K route dispatches/sec; ~4 MB baseline RAM
-- Tests: 406 core tests + 742 skeleton tests passing; 17,851 fuzz checks; 157 DAST security checks
+- Cold boot: ~0.35 ms (Linux) / 2.4 ms (Windows, measured); ~370K route dispatches/sec; ~4 MB baseline RAM
+- Tests: 21K+ Core tests executed; SiroPHP skeleton has 757 tests
 
 ## Main pages
 

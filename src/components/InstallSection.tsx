@@ -15,7 +15,7 @@ export default function InstallSection() {
             Get Started in Seconds
           </h2>
           <p className="text-gray-400 text-lg mb-4 max-w-2xl mx-auto">
-            One command. Zero dependencies. Choose your platform.
+             One command. Choose the install path that fits your environment.
           </p>
         </FadeIn>
 
@@ -36,7 +36,7 @@ export default function InstallSection() {
           <div className="mt-12 flex items-center justify-center gap-2 text-sm text-gray-500">
             <span>System requirements: PHP 8.2+</span>
             <span className="w-1 h-1 rounded-full bg-gray-600" />
-            <span>ext-pdo, ext-json, ext-mbstring</span>
+             <span>PHP 8.2+ · Composer or standalone installer</span>
             <span className="w-1 h-1 rounded-full bg-gray-600" />
             <Link href="/install" className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2">
               Full install guide →

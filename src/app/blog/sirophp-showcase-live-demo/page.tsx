@@ -251,9 +251,9 @@ php siro migrate && php siro serve`}</code>
 
               <p className="text-gray-400 leading-relaxed mb-6">
                 Then keep the{' '}
-                <a href="/documentation" className="text-cyan-400 hover:underline">
-                  documentation
-                </a>{' '}
+                 <Link href="/documentation" className="text-cyan-400 hover:underline">
+                   documentation
+                 </Link>{' '}
                 open — its examples mirror the Showcase endpoints exactly.
               </p>
 

@@ -1,6 +1,6 @@
 # SiroPHP Landing Page
 
-The official website for **SiroPHP** — the zero-dependency PHP API framework with built-in debugging, AI integration, and enterprise security.
+The official website for **SiroPHP** — the deterministic PHP API workflow with built-in debugging, optional AI/MCP integration, and production-focused security.
 
 Built with Next.js 16 + TypeScript + Tailwind CSS.
 

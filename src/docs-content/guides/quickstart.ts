@@ -450,7 +450,7 @@ export const doc: Doc = {
   {
     "type": "ol",
     "items": [
-      "**Use `make:crud` for rapid development** - Generates full CRUD in 2 seconds",
+      "**Use `make:crud` for rapid development** - Generates a complete API module in minutes",
       "**Enable config caching in production** - `php siro config:cache`",
       "**Use eager loading to prevent N+1 queries** - `Model::with('relation')`",
       "**Queue heavy operations** - Don't block HTTP requests",

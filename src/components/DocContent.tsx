@@ -141,14 +141,13 @@ function Heading({ level, id, text }: { level: 2 | 3; id: string; text: string }
 }
 
 export default function DocContent({ blocks, onHeadings }: DocContentProps) {
-  const headingRef = useRef<{ id: string; text: string; level: number }[]>([])
-
-  if (onHeadings && headingRef.current.length === 0) {
-    headingRef.current = blocks
-      .filter((b): b is ContentBlock & { type: 'h2' | 'h3' } => b.type === 'h2' || b.type === 'h3')
-      .map((b) => ({ id: b.id, text: (b as any).text, level: b.type === 'h2' ? 2 : 3 }))
-    setTimeout(() => onHeadings(headingRef.current), 0)
-  }
+  useEffect(() => {
+    if (!onHeadings) return
+    const headings = blocks
+      .filter((b): b is Extract<ContentBlock, { type: 'h2' | 'h3' }> => b.type === 'h2' || b.type === 'h3')
+      .map((b) => ({ id: b.id, text: b.text, level: b.type === 'h2' ? 2 : 3 }))
+    onHeadings(headings)
+  }, [blocks, onHeadings])
 
   return (
     <div className="space-y-1">

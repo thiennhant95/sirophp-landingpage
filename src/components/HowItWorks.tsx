@@ -42,10 +42,10 @@ const steps: Step[] = [
   },
 ];
 
-const cliExample = `# Build — full CRUD in 2 seconds
+const cliExample = `# Build — generate the API module
 php siro make:crud products
 
-# Why — diagnose root cause
+# Why — inspect the execution context
 php siro api:why GET /api/products
 php siro db:why abc123 --slow
 

@@ -14,7 +14,7 @@ export const sections: DocSection[] = [
     id: 'quick-start',
     num: '01',
     title: 'Quick Start',
-    desc: 'From zero to running in 2 commands.',
+    desc: 'From zero to a running API in a few commands.',
     commands: [
       'composer create-project sirosoft/api my-app',
       'cd my-app && php siro key:generate',
@@ -28,7 +28,7 @@ export const sections: DocSection[] = [
     id: 'first-crud',
     num: '02',
     title: 'First CRUD API',
-    desc: 'Scaffold a complete CRUD in 2 seconds.',
+    desc: 'Scaffold a complete API module in minutes.',
     commands: [
       'php siro make:crud products',
       'php siro make:crud products --simple --seed --force',
@@ -38,7 +38,7 @@ export const sections: DocSection[] = [
     note: (
       <>
         Generated files:
-        <span className="text-gray-300"> app/Models/Product.php, app/Controllers/ProductController.php, database/migrations/..., routes/api.php (5 routes), tests/Feature/...</span><br/>
+        <span className="text-gray-300"> app/Models/Product.php, app/Repositories/ProductRepository.php, app/Services/ProductService.php, app/Resources/ProductResource.php, routes/api.php, tests/Feature/...</span><br/>
         <span className="text-gray-500 text-xs">Flags: --simple (minimal files), --seed (auto seed), --force (overwrite existing)</span>
       </>
     ),
@@ -120,7 +120,7 @@ export const sections: DocSection[] = [
     id: 'openapi',
     num: '06',
     title: 'OpenAPI + Postman',
-    desc: 'API docs generated from your validation rules.',
+    desc: 'Generate OpenAPI and Swagger docs from your project contract.',
     commands: [
       'php siro make:openapi --with-swagger',
       'php siro make:postman',

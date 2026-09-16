@@ -187,13 +187,13 @@ export default function DocumentationIndex() {
             <div className="p-8 sm:p-12 rounded-2xl border border-white/10 bg-gradient-to-br from-cyan-500/5 to-purple-500/5">
               <h2 className="text-3xl font-bold text-white mb-4">Ship your API now</h2>
               <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-                6 commands from zero to API with auth. No Laravel bloat. No config hell.
+                 Go from a fresh project to a tested API with auth, docs, and a repeatable CLI workflow.
               </p>
               <Link
                 href="https://github.com/SiroSoft/SiroPHP"
                 className="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
               >
-                Get Started on GitHub →
+                 Create your first API →
               </Link>
             </div>
           </div>

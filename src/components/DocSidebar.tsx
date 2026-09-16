@@ -117,17 +117,6 @@ function SidebarContent({ onNavigate }: { onNavigate: () => void }) {
     localStorage.setItem('doc-sidebar-expanded', JSON.stringify(next))
   }
 
-  // Auto-expand the category containing the active page
-  useEffect(() => {
-    for (const cat of categories) {
-      if (cat.items.some((i) => pathname === i.slug)) {
-        if (!expanded[cat.label]) {
-          toggleCategory(cat.label)
-        }
-      }
-    }
-  }, [pathname])
-
   const catCounts = categories.map((cat) => ({
     ...cat,
     filteredItems: cat.items.filter((i) =>
@@ -216,7 +205,6 @@ function SidebarContent({ onNavigate }: { onNavigate: () => void }) {
 }
 
 export default function DocSidebar() {
-  const pathname = usePathname()
   const [open, setOpen] = useState(false)
 
   useEffect(() => {

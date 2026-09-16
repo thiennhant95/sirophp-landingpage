@@ -4,12 +4,13 @@ import Stats from '@/components/Stats';
 import Features from '@/components/Features';
 import HowItWorks from '@/components/HowItWorks';
 import WhySiro from '@/components/WhySiro';
+import Ecosystem from '@/components/Ecosystem';
 import InstallSection from '@/components/InstallSection';
 import CTA from '@/components/CTA';
 
 export const metadata: Metadata = {
   title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
-    description: 'Build APIs in minutes, not hours. Debug production bugs with full execution context — SQL, outbound HTTP, queued jobs. Risk-aware replay. Zero dependencies, ~0.35ms cold boot (measured).',
+    description: 'Build production-ready APIs in minutes. Understand production failures with full execution context — SQL, outbound HTTP, queued jobs. Fix bugs from your terminal.',
   keywords: [
     'sirophp',
     'php api framework',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     alternates: { canonical: 'https://sirophp.com' },
   openGraph: {
     title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
-  description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay. Zero dependencies, 2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured), ~4MB+ RAM per request.',
+    description: 'Build production-ready APIs in minutes. Understand production failures with full execution context and fix bugs from your terminal.',
     type: 'website',
     url: 'https://sirophp.com',
   },
@@ -46,7 +47,7 @@ export default function Home() {
         name: 'What is SiroPHP?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SiroPHP is a lightweight PHP API framework built for rapid development and instant debugging. It features minimal dependencies, CRUD scaffolding, full request tracing, and one-command production bug replay.',
+           text: 'SiroPHP is a deterministic PHP API workflow built for rapid development and production debugging. It features minimal runtime dependencies, CRUD scaffolding, full request tracing, and one-command production bug replay.',
         },
       },
       {
@@ -54,7 +55,7 @@ export default function Home() {
         name: 'How is SiroPHP different from Laravel?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, 2.4ms cold boot (Windows, measured) vs 60ms (Laravel), and ~4MB+ RAM vs ~84MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
+           text: 'SiroPHP focuses on API development with a smaller runtime surface and an integrated debugging workflow. It provides conventions for routing, validation, resources, tracing, replay, and testing without requiring a large application stack.',
         },
       },
       {
@@ -62,7 +63,7 @@ export default function Home() {
         name: 'How do I install SiroPHP?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Zero-dependency one-liner: run "iwr https://sirophp.com/downloads/install.ps1 | iex" (Windows) or "curl -sS https://sirophp.com/downloads/install.sh | bash" (macOS/Linux). For existing PHP environments: "composer create-project sirosoft/api my-app". Download the PHAR at sirophp.com/install.',
+           text: 'Use the standalone installer on Windows, macOS, or Linux, or create a project with "composer create-project sirosoft/api my-app" when PHP and Composer are already installed.',
         },
       },
       {
@@ -70,7 +71,7 @@ export default function Home() {
         name: 'How do I build APIs fast with SiroPHP?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Use "php siro make:crud products" to generate full CRUD endpoints with model, migration, controller, routes, and tests in 2 seconds. Then run "php siro serve" to start the dev server.',
+           text: 'Use "php siro make:crud products" to generate a module with model, migration, repository, service, resource, controller, routes, and feature tests. Then run "php siro migrate" and "php siro serve".',
         },
       },
       {
@@ -86,7 +87,7 @@ export default function Home() {
         name: 'Is SiroPHP production ready?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. 21,300+ tests with 100% pass rate, security audited (42 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, env 5-tier chain, FrankenPHP support, and log sanitization.',
+           text: 'SiroPHP is actively tested and ships with JWT auth, rate limiting, CSRF protection, brute-force protection, environment validation, log sanitization, and production health checks. Review the current release checks and security documentation before deploying.',
         },
       },
     ],
@@ -100,6 +101,7 @@ export default function Home() {
       <Features />
       <HowItWorks />
       <WhySiro />
+      <Ecosystem />
       <InstallSection />
       <CTA />
     </main>

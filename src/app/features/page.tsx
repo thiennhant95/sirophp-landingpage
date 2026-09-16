@@ -3,11 +3,11 @@ import Link from 'next/link';
 import FadeIn from '@/components/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'Features — SiroPHP | Build Fast. Debug Faster.',
+  title: 'Features — SiroPHP | Build APIs in Minutes. Debug Instantly.',
   description: 'Explore all SiroPHP features: CRUD scaffolding, CLI API testing, request replay, trace logging, OpenAPI docs, and more.',
   alternates: { canonical: 'https://sirophp.com/features' },
   openGraph: {
-    title: 'Features — SiroPHP | Build Fast. Debug Faster.',
+    title: 'Features — SiroPHP | Build APIs in Minutes. Debug Instantly.',
     description: 'Full-featured PHP API framework with CLI debugging, request replay, CRUD scaffolding, and production-safe tooling.',
     type: 'website',
     url: 'https://sirophp.com/features',
@@ -21,9 +21,9 @@ const featureGroups = [
     title: 'Build',
     color: 'emerald',
     items: [
-      'CRUD scaffolding — php siro make:crud generates model, migration, controller, routes, tests in 2 seconds',
+      'CRUD scaffolding — php siro make:crud generates model, migration, repository, service, resource, controller, routes, and tests',
       'CLI API testing — test endpoints from terminal with auto-auth, no Postman or cURL needed',
-      'Auto OpenAPI/Swagger docs — generated from validation rules, always in sync',
+      'OpenAPI/Swagger docs — generate API documentation from the routes and contract',
       'Bash/Zsh tab completion for all CLI commands',
       'PHPStorm IDE helper with autocomplete and inline documentation',
     ],
@@ -59,7 +59,7 @@ const featureGroups = [
     items: [
       'Sensitive data auto-sanitized in logs',
       'Replay lock prevents accidental writes in production',
-      'Penetration tested — 42 attack vectors, 0 vulnerabilities',
+      'Security-focused defaults — request data, paths, replay, and common API risks are guarded',
       'Brute force protection — auto lockout after 5 failed attempts',
       'JWT auth, rate limiting, CSRF protection built in',
     ],
@@ -98,7 +98,7 @@ const featureGroups = [
       '2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured)',
       '~4MB framework baseline — zero overhead on peak',
       '~370K routes/sec static — 297K ops/sec dynamic',
-      'Minimal dependencies — no supply chain risk',
+      'Minimal runtime dependencies — a smaller supply-chain surface',
       'FrankenPHP support — production Docker images included',
     ],
   },
@@ -110,7 +110,7 @@ const featureGroups = [
       'make:test --from-trace=<id> — auto-generate PHPUnit test from real trace',
       'test:regression [--limit=N] [--fail] — replay traces, detect regressions',
       'Run tests — php siro test [--filter] [--coverage]',
-      '21,300+ tests, 100% pass rate',
+      '21K+ Core tests executed in the current release suite',
       'PHPStan Level Max with baseline',
     ],
   },
@@ -131,7 +131,7 @@ export default function FeaturesPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Features — SiroPHP | Build Fast. Debug Faster.',
+     name: 'Features — SiroPHP | Build APIs in Minutes. Debug Instantly.',
   description: 'Explore all SiroPHP features: CRUD scaffolding, CLI API testing, request replay, trace logging, OpenAPI docs, and more.',
   keywords: [
     'sirophp features',

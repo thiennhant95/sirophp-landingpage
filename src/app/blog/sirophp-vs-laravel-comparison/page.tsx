@@ -117,7 +117,7 @@ export default function ComparisonArticle() {
               </p>
               <p className="text-gray-400 leading-relaxed mb-6">
                 <strong className="text-white">SiroPHP</strong> takes a different approach. It&apos;s a 
-                lightweight PHP API framework with zero dependencies, built-in debugging, and 
+                 lightweight PHP API workflow with minimal runtime dependencies, built-in debugging, and
                 CLI-first workflow. It doesn&apos;t try to replace Laravel for every use case — it 
                 excels where Laravel is overkill.
               </p>
@@ -336,7 +336,7 @@ php siro replay --diff`}
                 </div>
                 <div className="p-4 rounded-lg border border-cyan-500/20 bg-cyan-500/5">
                   <h4 className="text-cyan-400 font-semibold mb-1">Budget-constrained hosting</h4>
-                  <p className="text-gray-400 text-sm">32MB RAM, $6/month VPS, zero dependencies — runs anywhere.</p>
+                  <p className="text-gray-400 text-sm">Small runtime footprint and modest hosting requirements for focused APIs.</p>
                 </div>
               </div>
 
@@ -406,7 +406,7 @@ php siro replay --diff`}
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
                 The best part? You don&apos;t have to choose permanently. Start with SiroPHP for 
-                rapid development. If your project grows beyond its scope, migrate to Laravel 
+                  rapid development. If your project grows beyond its scope, Laravel remains a strong choice with a broader ecosystem.
                 without pain. You get speed now with an upgrade path later.
               </p>
 

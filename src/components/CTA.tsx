@@ -16,7 +16,7 @@ export default function CTA() {
             Build Fast. Debug Faster.
           </h2>
           <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-            A lightweight PHP framework for rapid API development and instant production debugging. Minimal dependencies. Full request tracing. One-command replay.
+             Generate production-ready APIs, then understand and replay production failures with full execution context.
           </p>
         </FadeIn>
         
@@ -25,7 +25,7 @@ export default function CTA() {
             href="https://github.com/SiroSoft/SiroPHP"
             className="px-8 py-4 bg-white text-black hover:bg-gray-100 font-semibold rounded-lg transition-all duration-200"
           >
-            Get Started on GitHub →
+             Create your first API →
           </Link>
           <Link
             href="https://packagist.org/packages/sirosoft/core"
@@ -39,7 +39,7 @@ export default function CTA() {
           <span className="w-1 h-1 rounded-full bg-gray-600" />
           <span>MIT Licensed</span>
           <span className="w-1 h-1 rounded-full bg-gray-600" />
-          <span>757 tests · 1,165 assertions passing (skeleton v1.0.1)</span>
+           <span>Open source · MIT licensed · Core v1.0.12</span>
         </div>
       </div>
     </section>

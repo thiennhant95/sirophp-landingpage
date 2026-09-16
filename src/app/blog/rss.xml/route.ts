@@ -1,5 +1,3 @@
-import { NextResponse } from 'next/server'
-
 const posts = [
   { slug: 'how-to-debug-apis-in-php', title: 'How to Debug PHP APIs: From Logs to Request Replay', date: '2026-01-15' },
   { slug: 'php-api-testing-from-terminal', title: 'PHP API Testing From the Terminal', date: '2026-01-22' },

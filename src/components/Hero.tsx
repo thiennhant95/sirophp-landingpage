@@ -5,9 +5,9 @@ import FadeIn from './FadeIn';
 import { useState, useEffect } from 'react';
 
 const demoSteps = [
-    { cmd: '> php siro why', output: '🤖 AI analyzing your codebase...', delay: 800 },
-    { cmd: '', output: '✓ Detected performance bottlenecks in 3 endpoints', delay: 600 },
-    { cmd: '', output: '✓ Found N+1 query pattern in /api/users', delay: 600 },
+    { cmd: '> php siro api:why GET /api/products', output: 'Tracing route, middleware, SQL, and response...', delay: 800 },
+    { cmd: '', output: '✓ Request completed: 200 OK · 2 SQL queries · 45ms', delay: 600 },
+    { cmd: '', output: '✓ Full execution context captured', delay: 600 },
     { cmd: '> php siro replay abc123 --diff', output: '▶ Comparing with baseline...', delay: 800 },
     { cmd: '', output: '✓ Response time: 245ms → 89ms (-64%)', delay: 400 },
     { cmd: '', output: '✓ Memory usage: 12MB → 4MB (-67%)', delay: 400 },
@@ -37,7 +37,7 @@ export default function Hero() {
           <span className="text-cyan-400">⚡</span>
           <span className="text-gray-300 text-sm">Lightweight API Framework</span>
           <span className="text-gray-600">|</span>
-          <span className="text-emerald-400 text-sm font-semibold">v1.0.0 Stable</span>
+          <span className="text-emerald-400 text-sm font-semibold">Core v1.0.12</span>
         </div>
               
         {/* Main heading - H1 for SEO - CRITICAL: Must render immediately */}
@@ -47,7 +47,7 @@ export default function Hero() {
         </h1>
               
         <p className="text-lg sm:text-xl text-gray-400 mb-4 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in" style={{ animationDelay: '300ms' }}>
-          Generate full CRUD APIs in minutes. Understand production failures with full execution context. Fix bugs directly from your terminal.
+           Generate production-ready CRUD APIs in minutes. Understand production failures with full execution context. Fix bugs directly from your terminal.
         </p>
         
         {/* Quick Install Command */}
@@ -67,8 +67,8 @@ export default function Hero() {
         </div>
         
         <p className="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in" style={{ animationDelay: '400ms' }}>
-          A lightweight PHP framework built for rapid API development and instant production debugging.
-          Minimal dependencies. Full request tracing. php siro replay &lt;trace_id&gt;.
+           A deterministic PHP API workflow built for rapid development and production debugging.
+           Minimal runtime dependencies. Full request tracing. php siro replay &lt;trace_id&gt;.
         </p>
         
         {/* Performance Badges */}

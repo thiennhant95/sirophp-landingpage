@@ -25,11 +25,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'What is SiroPHP?',
-    a: 'SiroPHP is a lightweight PHP API framework built for rapid development and instant debugging. It features minimal dependencies, CRUD scaffolding, full request tracing, and one-command production bug replay.',
+     a: 'SiroPHP is a deterministic PHP API workflow built for rapid development and production debugging. It features minimal runtime dependencies, CRUD scaffolding, full request tracing, and one-command production bug replay.',
   },
   {
     q: 'How is SiroPHP different from Laravel?',
-    a: 'SiroPHP has minimal dependencies vs Laravel\'s ~200 packages, ~0.35ms cold boot (measured, prod Linux) vs 60-100ms, and ~4MB+ RAM vs ~84MB. It focuses on pure API development with built-in debugging workflow — no Blade, no asset compiling, no service providers.',
+     a: 'SiroPHP focuses on API development with a smaller runtime surface and an integrated debugging workflow. It provides conventions for routing, validation, resources, tracing, replay, and testing without requiring a large application stack.',
   },
   {
     q: 'How do I install SiroPHP?',
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: 'How do I build APIs fast with SiroPHP?',
-    a: 'Use "php siro make:crud products" to generate full CRUD endpoints with model, migration, controller, routes, and tests in 2 seconds. Then run "php siro serve" to start the dev server.',
+     a: 'Use "php siro make:crud products" to generate a module with model, migration, repository, service, resource, controller, routes, and feature tests. Then run "php siro migrate" and "php siro serve".',
   },
   {
     q: 'How does production debugging work?',
@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     q: 'Is SiroPHP production ready?',
-    a: 'Yes. 21,300+ tests with 100% pass rate, security audited (42 attack vectors, 0 vulnerabilities), and features like JWT auth, rate limiting, CSRF protection, brute force protection, env 5-tier chain, FrankenPHP support, and log sanitization.',
+     a: 'SiroPHP is actively tested and ships with JWT auth, rate limiting, CSRF protection, brute-force protection, environment validation, log sanitization, and production health checks. Review the current release checks and security documentation before deploying.',
   },
   {
     q: 'What databases does SiroPHP support?',
@@ -57,7 +57,7 @@ const faqs = [
   },
   {
     q: 'Can I migrate from SiroPHP to Laravel later?',
-    a: 'Yes. SiroPHP\'s patterns are Laravel-compatible: Models, QueryBuilder, Validation, Routes, and Middleware all follow similar conventions. Migration is straightforward without a full rewrite.',
+     a: 'SiroPHP uses readable PHP and familiar API patterns. Moving to another framework still requires project-specific work, but generated code avoids a proprietary runtime lock-in.',
   },
   {
     q: 'Does SiroPHP have authentication built in?',
@@ -65,11 +65,11 @@ const faqs = [
   },
   {
     q: 'Can I generate API documentation automatically?',
-    a: 'Yes. "php siro make:openapi" generates OpenAPI/Swagger documentation from your validation rules. "php siro make:postman" generates a Postman collection.',
+     a: 'Yes. "php siro make:openapi" generates an OpenAPI 3.0.3 document and optional Swagger UI. "php siro make:postman" generates a Postman collection.',
   },
   {
     q: 'Is SiroPHP suitable for serverless deployment?',
-    a: 'Yes. With ~0.35ms cold boot (measured, prod Linux) and ~4MB+ memory usage, SiroPHP is ideal for serverless platforms like AWS Lambda, Vercel, and Laravel Vapor.',
+     a: 'SiroPHP has a small runtime footprint and can suit lightweight container or serverless-style deployments. Validate the platform runtime, database connection model, and queue requirements for your workload.',
   },
   {
     q: 'What is .env.local and how does env priority work?',

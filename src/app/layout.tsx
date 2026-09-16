@@ -28,11 +28,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sirophp.com"),
   title: {
-    default: "SiroPHP — Build APIs Fast. Debug Faster.",
+    default: "SiroPHP — Build APIs in Minutes. Debug Instantly.",
     template: "%s | SiroPHP",
   },
   description:
-      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured).",
+      "Build production-ready APIs in minutes. Understand production failures with full execution context and fix bugs from your terminal.",
   keywords: [
     "SiroPHP",
     "PHP framework",
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     canonical: "https://sirophp.com/",
   },
   openGraph: {
-    title: "SiroPHP — Build APIs Fast. Debug Faster.",
+    title: "SiroPHP — Build APIs in Minutes. Debug Instantly.",
     description:
-    "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured).",
+    "Build production-ready APIs in minutes. Understand production failures with full execution context and fix bugs from your terminal.",
     url: "https://sirophp.com",
     siteName: "SiroPHP",
     type: "website",
@@ -65,15 +65,15 @@ export const metadata: Metadata = {
         url: "https://sirophp.com/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "SiroPHP — Build APIs Fast. Debug Faster.",
+        alt: "SiroPHP — Build APIs in Minutes. Debug Instantly.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SiroPHP — Build APIs Fast. Debug Faster.",
+    title: "SiroPHP — Build APIs in Minutes. Debug Instantly.",
     description:
-      "Build APIs in seconds with CRUD scaffolding. Debug production bugs instantly with request replay. Minimal dependencies. 2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured).",
+      "Build production-ready APIs in minutes. Understand production failures with full execution context and fix bugs from your terminal.",
     images: ["https://sirophp.com/opengraph-image"],
   },
   robots: {
@@ -89,8 +89,8 @@ const softwareJsonLd = {
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'PHP 8.2+, Linux, macOS, Windows',
   description:
-    'Production-first PHP API framework with built-in debugging, request replay, and testing workflows. Zero dependencies.',
-  softwareVersion: '1.0.0',
+    'Production-first PHP API workflow with built-in debugging, request replay, and testing workflows. Minimal runtime dependencies.',
+    softwareVersion: '1.0.12',
   url: 'https://sirophp.com',
   downloadUrl: 'https://sirophp.com/downloads/install.ps1',
   author: { '@type': 'Organization', name: 'SiroSoft', url: 'https://github.com/SiroSoft' },

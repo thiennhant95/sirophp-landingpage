@@ -621,7 +621,7 @@ export const doc: Doc = {
   {
     "type": "ol",
     "items": [
-      "**Performance** - Minimal overhead, zero dependencies",
+      "**Performance** - Minimal runtime overhead and a small dependency surface",
       "**Simplicity** - Easy to understand and use",
       "**Security** - Safe defaults, protection against common vulnerabilities",
       "**Developer Experience** - Powerful CLI tools, clear error messages"

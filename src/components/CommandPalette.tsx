@@ -11,11 +11,11 @@ interface SearchItem {
 
 const searchableSections: SearchItem[] = [
   { id: 'quick-start', title: 'Quick Start', desc: 'From zero to running in 2 commands.', commands: ['composer create-project sirosoft/api my-app', 'cd my-app && php siro key:generate', 'php siro serve'] },
-  { id: 'first-crud', title: 'First CRUD API', desc: 'Scaffold a complete CRUD in 2 seconds.', commands: ['php siro make:crud products', 'php siro migrate'] },
+  { id: 'first-crud', title: 'First CRUD API', desc: 'Scaffold a complete API module in minutes.', commands: ['php siro make:crud products', 'php siro migrate'] },
   { id: 'testing', title: 'Testing APIs', desc: 'Test endpoints right from your terminal.', commands: ['php siro t GET /api/products', 'php siro t POST /api/products name=Laptop price=999', 'php siro t POST /api/auth/login email=admin@test.com password=secret --as=admin', 'php siro t GET /api/products --as=admin --loop=50'] },
   { id: 'debugging', title: 'Debugging Workflow', desc: 'Find and fix bugs in seconds.', commands: ['php siro why', 'php siro replay a1b2c3d4', 'php siro fix', 'php siro log:trace a1b2c3d4', 'php siro log:slow --limit=10'] },
   { id: 'production-safety', title: 'Production Safety', desc: 'Safe debugging in production.', commands: ['php siro replay a1b2c3d4 --dry-run', 'php siro replay a1b2c3d4 --diff', 'php siro log:export --status=500 --format=json --output=errors.json', 'php siro doctor --prod'] },
-  { id: 'openapi', title: 'OpenAPI + Postman', desc: 'API docs from your validation rules.', commands: ['php siro make:openapi --with-swagger', 'php siro make:postman'] },
+  { id: 'openapi', title: 'OpenAPI + Postman', desc: 'Generate API docs and collections from your project.', commands: ['php siro make:openapi --with-swagger', 'php siro make:postman'] },
   { id: 'deploy', title: 'Deploy', desc: 'Ship to production in one command.', commands: ['php siro deploy --init', 'php siro optimize', 'docker compose up -d'] },
   { id: 'real-examples', title: 'Real Examples', desc: 'Copy-paste working code.', commands: ['php siro make:auth', 'php siro make:crud orders', 'php siro make:service Payment', 'php siro make:job SendWelcomeEmail', 'php siro make:test ProductApi'] },
 ]

@@ -3,7 +3,7 @@ import InstallCommands from '@/components/InstallCommands';
 import DownloadButton from '@/components/DownloadButton';
 export const metadata: Metadata = {
   title: 'Install SiroPHP — One Command Setup',
-  description: 'Install SiroPHP in seconds. Zero-dependency installer for Windows, macOS, and Linux. Download PHAR or use Composer.',
+  description: 'Install SiroPHP in seconds with a standalone installer or Composer. Start building a PHP API on Windows, macOS, or Linux.',
   keywords: [
     'install sirophp',
     'install php api framework',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://sirophp.com/install' },
   openGraph: {
     title: 'Install SiroPHP — One Command Setup',
-    description: 'Install SiroPHP in seconds. Zero-dependency installer for Windows, macOS, and Linux.',
+    description: 'Install SiroPHP in seconds with a standalone installer or Composer on Windows, macOS, or Linux.',
     url: 'https://sirophp.com/install',
   },
 };
@@ -114,7 +114,7 @@ export default function InstallPage() {
           <div className="grid sm:grid-cols-3 gap-4">
             {[
               { step: '1', title: 'Create a Project', desc: `Run "siro new my-api" or "composer create-project sirosoft/api my-app" to scaffold a new API skeleton.` },
-              { step: '2', title: 'Build Your First CRUD', desc: 'Run "php siro make:crud products" to generate model, migration, controller, and routes in 2 seconds.' },
+               { step: '2', title: 'Build Your First CRUD', desc: 'Run "php siro make:crud products" to generate the API module, routes, and feature tests.' },
               { step: '3', title: 'Start the Dev Server', desc: 'Run "php siro serve" and open http://localhost:8080. Your API is live.' },
             ].map((item) => (
               <div key={item.step} className="bg-white/5 border border-white/10 rounded-lg p-6">

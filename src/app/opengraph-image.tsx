@@ -36,12 +36,12 @@ export default function Image() {
         <span style={{ fontSize: '64px', fontWeight: 800, color: '#ffffff' }}>SiroPHP</span>
       </div>
       <div style={{ fontSize: '36px', color: '#ffffff', fontWeight: 700, marginBottom: '20px' }}>
-        Build APIs Fast. Debug Faster.
+        Build APIs in Minutes. Debug Instantly.
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <span style={{ fontSize: '22px', color: '#9ca3af' }}>Lightweight PHP API Framework</span>
         <span style={{ fontSize: '16px', color: '#6b7280', marginTop: '8px' }}>
-          Zero Dependencies • ~0.35ms Boot (prod) • ~4MB+ RAM
+          Minimal runtime • ~0.35ms Boot (prod) • ~4MB+ RAM
         </span>
       </div>
     </div>,

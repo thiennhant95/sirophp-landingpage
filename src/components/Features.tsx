@@ -13,13 +13,13 @@ const features: FeatureCard[] = [
   {
     icon: '⚡',
     title: 'Fast CRUD Scaffolding',
-    description: 'Generate full API endpoints with model, migration, controller, routes, and tests in 2 seconds.',
+    description: 'Generate a runnable API module with model, migration, repository, service, resource, routes, and feature tests.',
     tag: 'build',
   },
   {
     icon: '🔥',
     title: 'CLI API Testing',
-    description: 'Test endpoints directly from terminal with auto-auth. No Postman. No cURL. Just instant feedback.',
+    description: 'Exercise endpoints directly from your terminal with repeatable request commands and fast feedback.',
     tag: 'build',
   },
   {
@@ -43,13 +43,13 @@ const features: FeatureCard[] = [
   {
     icon: '📄',
     title: 'Auto OpenAPI Docs',
-    description: 'Generate Swagger UI and Postman collection automatically from your validation rules. Docs that never go stale.',
+    description: 'Generate OpenAPI, Swagger UI, and Postman collections from your API contract and routes.',
     tag: 'ship',
   },
   {
     icon: '🪶',
     title: 'Lightweight Core',
-    description: 'Minimal dependencies. Runs on $2/month hosting. Readable architecture you can understand in one afternoon.',
+    description: 'Small runtime surface, readable PHP, and deployment requirements that fit modest hosting.',
     tag: 'ship',
   },
   {
@@ -73,7 +73,7 @@ const features: FeatureCard[] = [
   {
     icon: '🛡️',
     title: 'Penetration Tested',
-    description: '42 attack vectors verified. SQL injection, XSS, CSRF, path traversal — all blocked by default.',
+    description: 'Security-focused defaults and automated checks for common API risks including injection and path traversal.',
     tag: 'ship',
   },
   {
