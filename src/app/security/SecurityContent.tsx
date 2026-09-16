@@ -11,7 +11,7 @@ export function SecurityContent() {
           Security First<span className="text-cyan-400">.</span>
         </h1>
         <p className="text-xl text-gray-400 mb-12 max-w-3xl">
-          Security-hardened by default. Zero vulnerabilities, zero compromises.
+           Security-focused defaults, regression-tested controls, and clear deployment guidance.
         </p>
       </FadeIn>
 
@@ -28,12 +28,12 @@ export function SecurityContent() {
           <FadeIn delay={300}>
             <div className="bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
               <div className="text-5xl font-bold text-green-400 mb-2">42</div>
-              <div className="text-sm text-gray-400 mb-4">Attack Vectors Tested</div>
+               <div className="text-sm text-gray-400 mb-4">Security Tests Executed</div>
               <div className="flex items-center gap-2 text-green-400">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="font-semibold">0 Vulnerabilities Found</span>
+                 <span className="font-semibold">0 Exploitable Findings in Tested Scope</span>
               </div>
             </div>
           </FadeIn>
@@ -48,26 +48,26 @@ export function SecurityContent() {
         </div>
       </section>
 
-      {/* Attack Vectors Blocked */}
+       {/* Tested security controls */}
       <section className="mb-20">
         <FadeIn delay={500}>
-          <h2 className="text-3xl font-bold mb-8">Attack Vectors Blocked</h2>
+           <h2 className="text-3xl font-bold mb-8">Tested Security Controls</h2>
         </FadeIn>
         
         <div className="grid md:grid-cols-3 gap-4">
           {[
-            { name: 'SQL Injection', status: 'blocked', icon: '🔒' },
-            { name: 'Cross-Site Scripting (XSS)', status: 'blocked', icon: '🔒' },
-            { name: 'Cross-Site Request Forgery (CSRF)', status: 'blocked', icon: '🔒' },
-            { name: 'Path Traversal', status: 'blocked', icon: '🔒' },
-            { name: 'Brute Force Attacks', status: 'blocked', icon: '🔒' },
-            { name: 'Rate Limiting Bypass', status: 'blocked', icon: '🔒' },
-            { name: 'Header Injection', status: 'blocked', icon: '🔒' },
-            { name: 'Session Hijacking', status: 'blocked', icon: '🔒' },
-            { name: 'File Upload Exploits', status: 'blocked', icon: '🔒' },
-            { name: 'XML External Entities (XXE)', status: 'blocked', icon: '🔒' },
-            { name: 'Server-Side Request Forgery (SSRF)', status: 'blocked', icon: '🔒' },
-            { name: 'Insecure Deserialization', status: 'blocked', icon: '🔒' },
+             { name: 'SQL Injection', status: 'mitigated', icon: '🔒' },
+             { name: 'Cross-Site Scripting (XSS)', status: 'mitigated', icon: '🔒' },
+             { name: 'Cross-Site Request Forgery (CSRF)', status: 'mitigated', icon: '🔒' },
+             { name: 'Path Traversal', status: 'mitigated', icon: '🔒' },
+             { name: 'Brute Force Attacks', status: 'mitigated', icon: '🔒' },
+             { name: 'Rate Limiting Bypass', status: 'mitigated', icon: '🔒' },
+             { name: 'Header Injection', status: 'mitigated', icon: '🔒' },
+             { name: 'Session Hijacking', status: 'mitigated', icon: '🔒' },
+             { name: 'File Upload Exploits', status: 'mitigated', icon: '🔒' },
+             { name: 'XML External Entities (XXE)', status: 'mitigated', icon: '🔒' },
+             { name: 'Server-Side Request Forgery (SSRF)', status: 'mitigated', icon: '🔒' },
+             { name: 'Insecure Deserialization', status: 'mitigated', icon: '🔒' },
           ].map((vector, index) => (
             <FadeIn key={index} delay={600 + index * 50}>
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-4 hover:border-red-500/50 transition-colors">
@@ -77,7 +77,7 @@ export function SecurityContent() {
                     <span className="font-medium">{vector.name}</span>
                   </div>
                   <span className="text-xs font-semibold text-green-400 bg-green-400/10 px-2 py-1 rounded">
-                    BLOCKED
+                     MITIGATED
                   </span>
                 </div>
               </div>
@@ -101,12 +101,12 @@ export function SecurityContent() {
             },
             {
               title: 'Rate Limiting',
-              description: 'Configurable rate limits per endpoint to prevent abuse and DDoS attacks.',
+               description: 'Configurable rate limits per endpoint to reduce abuse and protect application resources.',
               tag: 'protection',
             },
             {
               title: 'CSRF Protection',
-              description: 'Automatic CSRF token generation and validation for all state-changing requests.',
+               description: 'CSRF token generation and validation middleware for state-changing requests.',
               tag: 'security',
             },
             {
@@ -158,7 +158,7 @@ export function SecurityContent() {
             <div>
               <div className="text-4xl font-bold text-purple-400 mb-2">Audited</div>
               <div className="text-sm text-gray-400">Core Packages</div>
-              <div className="text-xs text-gray-500 mt-2">Security reviewed</div>
+               <div className="text-xs text-gray-500 mt-2">Controls reviewed</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-purple-400 mb-2">Pinned</div>

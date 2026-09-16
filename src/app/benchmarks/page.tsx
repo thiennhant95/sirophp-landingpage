@@ -8,15 +8,15 @@ export const metadata: Metadata = {
   description: 'Blazing fast performance: 2.4ms cold boot (measured) / ~0.35ms prod Linux (measured), ~4MB+ baseline RAM (~6MB peak), ~370K routes/sec. Compare with Laravel and Symfony.',
   alternates: { canonical: '/benchmarks' },
   openGraph: {
-    title: 'SiroPHP Benchmarks - Fastest PHP Framework',
-    description: '2.4ms cold boot (measured) / ~0.35ms prod Linux (measured), minimal memory usage. See how SiroPHP compares with Laravel and Symfony.',
+  title: 'SiroPHP Benchmarks - PHP API Performance Measurements',
+  description: 'Measured cold boot, component overhead, memory baseline, and independent HTTP throughput context for SiroPHP.',
     url: 'https://sirophp.com/benchmarks',
     siteName: 'SiroPHP',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SiroPHP Benchmarks - Fastest PHP Framework',
+    title: 'SiroPHP Benchmarks - PHP API Performance Measurements',
     description: '2.4ms cold boot (measured) / ~0.35ms prod Linux (measured), ~4MB+ baseline RAM (~6MB peak). PHP framework performance benchmarks.',
   },
 };

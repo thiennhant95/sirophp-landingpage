@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Docs — SiroPHP API Framework',
-  description: 'Build an API with auth in 5 minutes. 6 commands, zero bloat, instant debugging. Interactive SiroPHP documentation.',
+  description: 'Build an API with auth in minutes using a focused command flow, traceable requests, and repeatable debugging.',
   keywords: [
     'sirophp docs',
     'php api documentation',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     title: 'Docs — SiroPHP API Framework',
-    description: 'Build an API with auth in 5 minutes. 6 commands, zero bloat.',
+    description: 'Build an API with auth in minutes using a focused command flow and traceable requests.',
   },
 };
 

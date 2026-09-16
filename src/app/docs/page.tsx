@@ -28,7 +28,7 @@ export default function DocsPage() {
               SiroPHP <span className="gradient-text">Docs</span>
             </h1>
             <p className="text-gray-400 text-xl max-w-2xl mb-6">
-              Build an API with auth in 5 minutes. 6 commands, zero bloat, instant debugging.
+               Build an API with auth in minutes. A focused command flow, traceable requests, and repeatable debugging.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 mb-8">

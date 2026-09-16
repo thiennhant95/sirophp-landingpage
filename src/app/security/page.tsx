@@ -4,20 +4,20 @@ import Footer from '@/components/Footer';
 import { SecurityContent } from './SecurityContent';
 
 export const metadata: Metadata = {
-  title: 'Security - SiroPHP | Security-Hardened PHP Framework',
-  description: 'Security-hardened by default with 42 attack vectors tested, zero vulnerabilities. JWT auth, rate limiting, CSRF protection built-in.',
+  title: 'Security - SiroPHP | Security-Focused PHP API Workflow',
+  description: 'Security-focused defaults with 42 security regression tests and no exploitable vulnerabilities identified in the tested scope.',
   alternates: { canonical: '/security' },
   openGraph: {
-    title: 'SiroPHP Security - Zero Vulnerabilities Framework',
-    description: '42 attack vectors verified. SQL injection, XSS, CSRF all blocked by default. Production-ready security.',
+    title: 'SiroPHP Security - Tested API Security Controls',
+    description: '42 security regression tests and defense-in-depth controls for SQL injection, XSS, CSRF, authentication, and more.',
     url: 'https://sirophp.com/security',
     siteName: 'SiroPHP',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SiroPHP Security - Zero Vulnerabilities Framework',
-    description: '42 attack vectors verified. Zero vulnerabilities found. Security-hardened by default for PHP.',
+    title: 'SiroPHP Security - Tested API Security Controls',
+    description: 'Security regression tests and security-focused defaults for PHP APIs.',
   },
 };
 
@@ -26,7 +26,7 @@ export default function SecurityPage() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Security - SiroPHP | Security-Hardened PHP Framework',
-  description: 'Security-hardened by default with 42 attack vectors tested, zero vulnerabilities. JWT auth, rate limiting, CSRF protection built-in.',
+  description: 'Security-focused defaults with 42 security regression tests and no exploitable vulnerabilities identified in the tested scope.',
   keywords: [
     'secure php api framework',
     'php security headers csp',

@@ -153,13 +153,13 @@ export const sections: DocSection[] = [
       'php siro log:stats --days=7',
       'php siro log:cleanup --days=30 --dry-run',
       'php siro log:cleanup --days=30',
-      'php siro log:replay --test',
-      'php siro log:replay --force',
+       'php siro log:replay a1b2c3d4 --test',
+       'php siro log:replay a1b2c3d4 --force',
       'php siro debug:health',
     ],
     note: (
       <>
-        <span className="text-gray-500 text-xs">log:tail -f tails realtime logs. log:top shows slowest requests. log:stats gives summary. log:cleanup --dry-run previews deletion. log:replay --test generates regression tests from traces. --force required for risky replays. debug:health checks logging health.</span>
+         <span className="text-gray-500 text-xs">log:tail -f tails realtime logs. log:top shows slowest requests. log:stats gives summary. log:cleanup --dry-run previews deletion. log:replay &lt;trace_id&gt; --test generates regression tests from a trace. --force is required for risky replays. debug:health checks logging health.</span>
       </>
     ),
     nextId: 'queue-system',

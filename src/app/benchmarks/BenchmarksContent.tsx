@@ -11,7 +11,7 @@ export function BenchmarksContent() {
           Performance<span className="text-cyan-400">.</span>
         </h1>
         <p className="text-xl text-gray-400 mb-12 max-w-3xl">
-          Blazing fast performance with minimal resource usage. Built for production at scale.
+           Measured framework overhead and production context, with methodology included.
         </p>
       </FadeIn>
 
@@ -42,7 +42,7 @@ export function BenchmarksContent() {
             <div className="bg-gradient-to-br from-green-900/20 to-green-800/10 border border-green-500/30 rounded-lg p-6">
               <div className="text-5xl font-bold text-green-400 mb-2">~4 MB</div>
               <div className="text-sm text-gray-400 mb-2">Framework Memory Baseline</div>
-              <div className="text-xs text-gray-500">Zero Composer dependencies loaded.</div>
+              <div className="text-xs text-gray-500">No third-party Composer packages loaded in this isolated benchmark.</div>
             </div>
           </FadeIn>
         </div>
@@ -169,8 +169,8 @@ export function BenchmarksContent() {
           </table>
         </div>
         <p className="text-xs text-gray-600 mt-3">
-          Honest reading: SiroPHP beats Laravel ~2x on HTTP throughput, trails Symfony and Swoole-coroutine
-          frameworks on raw speed — and wins where they don&apos;t compete: request tracing, replay, and zero-dependency ops.
+           Honest reading: SiroPHP beats Laravel ~2x on the listed HTTP measurement, trails Symfony and Swoole-coroutine
+           frameworks on raw speed — and focuses on request tracing, replay, and a small runtime surface.
           Slim/Lumen have no comparable independent HTTP numbers published here; Slim wins raw dispatch by design (dispatcher-only, no ORM/auth/tracing).
         </p>
       </section>
@@ -199,7 +199,7 @@ export function BenchmarksContent() {
                 { metric: 'Focus', siro: 'API + Debug workflow', laravel: 'Full-stack web', symfony: 'Enterprise web' },
                 { metric: 'Template Engine', siro: 'None (API-first)', laravel: 'Blade', symfony: 'Twig' },
                 { metric: 'ORM', siro: 'Minimal, no deps', laravel: 'Eloquent', symfony: 'Doctrine' },
-                { metric: 'Dependencies', siro: 'Zero', laravel: '~60 packages', symfony: '~100+' },
+                 { metric: 'Dependencies', siro: 'Minimal runtime surface', laravel: '~60 packages', symfony: '~100+' },
                 { metric: 'Learning Curve', siro: 'Low', laravel: 'Medium', symfony: 'Steep' },
                 { metric: 'Ecosystem', siro: 'Niche', laravel: 'Massive', symfony: 'Very large' },
               ].map((row, index) => (
