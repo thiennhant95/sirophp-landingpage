@@ -10,7 +10,7 @@ const categories = [
     icon: '🚀',
     color: 'from-cyan-500 to-blue-500',
     items: [
-      { href: '/documentation/guides/quickstart', label: 'Quick Start', desc: 'Build an API in 5 minutes' },
+       { href: '/documentation/guides/quickstart', label: 'Quick Start', desc: 'Build an API in minutes' },
       { href: '/documentation/workflow', label: 'Developer Workflow', desc: 'Zero to production workflow' },
       { href: '/documentation/guides/deployment', label: 'Deployment', desc: 'Ship to production' },
     ],

@@ -43,7 +43,8 @@ export default function InstallPage() {
         <section className="mb-16">
           <h2 className="text-2xl font-semibold mb-4">Download PHAR</h2>
           <p className="text-gray-400 mb-6">
-            The standalone PHAR binary includes the runtime manager and project scaffolding.
+            The standalone installer PHAR is published separately from the Core package and includes
+            the runtime manager and project scaffolding. Check the linked release for its exact binary version.
           </p>
           <DownloadButton />
           <div className="mt-6 text-sm text-gray-500 space-y-1">
