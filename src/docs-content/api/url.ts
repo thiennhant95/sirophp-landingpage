@@ -42,7 +42,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// In controller\r\n$data = URL::validateRequest();\r\n\r\nif ($data === null) {\r\n    return Response::error('Invalid or expired link', 400);\r\n}\r\n\r\n$email = $data['params']['email'] ?? '';\r\n// Process password reset\r"
+    "code": "// In controller\r\n$data = URL::validate($_GET['payload'] ?? '', $_GET['signature'] ?? '');\r\n\r\nif ($data === null) {\r\n    return Response::error('Invalid or expired link', 400);\r\n}\r\n\r\n$email = $data['params']['email'] ?? '';\r\n// Process password reset\r"
   },
   {
     "type": "h2",
@@ -52,7 +52,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Generate link\r\n$token = bin2hex(random_bytes(32));\r\nUser::where('email', $email)->update(['reset_token' => hash('sha256', $token)]);\r\n\r\n$link = URL::signed('/api/auth/reset-password', [\r\n    'email' => $email,\r\n    'token' => $token,\r\n], 3600);\r\n\r\n// Email the link to user\r\nMail::to($email)->subject('Reset Your Password')->html($link);\r\n\r\n// Controller validates\r\npublic function resetPassword(Request $request): Response\r\n{\r\n    $data = URL::validateRequest();\r\n    if ($data === null) {\r\n        return Response::error('Invalid or expired reset link', 400);\r\n    }\r\n    // Process reset...\r\n}\r"
+    "code": "// Generate link\r\n$token = bin2hex(random_bytes(32));\r\nUser::where('email', $email)->update(['reset_token' => hash('sha256', $token)]);\r\n\r\n$link = URL::signed('/api/auth/reset-password', [\r\n    'email' => $email,\r\n    'token' => $token,\r\n], 3600);\r\n\r\n// Email the link to user\r\nMail::to($email)->subject('Reset Your Password')->html($link);\r\n\r\n// Controller validates\r\npublic function resetPassword(Request $request): Response\r\n{\r\n    $data = URL::validate($request->get('payload', ''), $request->get('signature', ''));\r\n    if ($data === null) {\r\n        return Response::error('Invalid or expired reset link', 400);\r\n    }\r\n    // Process reset...\r\n}\r"
   },
   {
     "type": "h2",
@@ -75,7 +75,7 @@ export const doc: Doc = {
         "Validate signature and expiry"
       ],
       [
-        "`validateRequest(bool $throw)`",
+        "`validate(string $payload, string $signature, bool $throw = false)`",
         "Validate from current request"
       ]
     ]

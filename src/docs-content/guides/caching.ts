@@ -115,7 +115,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "# Cache configuration files for faster boot\r\nphp siro config:cache\r\n\r\n# Cache routes for faster routing\r\nphp siro route:cache\r\n\r\n# Full optimization\r\nphp siro optimize\r"
+    "code": "# Cache configuration files for faster boot\r\nphp siro config:cache\r\n\r\n# Full optimization\r\nphp siro optimize\r"
   },
   {
     "type": "h2",

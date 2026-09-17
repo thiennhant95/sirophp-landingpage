@@ -206,7 +206,7 @@ export const sections: DocSection[] = [
     commands: [
       'php siro new my-project',
       'php siro trace:list',
-      'php siro traces',
+      'php siro trace:list',
       'php siro make:auth',
       'php siro make:crud orders --seed',
       'php siro make:service Payment',

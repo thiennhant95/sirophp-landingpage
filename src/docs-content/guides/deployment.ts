@@ -138,7 +138,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "json",
-    "code": "// deploy.json\r\n{\r\n    \"strategy\": \"git\",\r\n    \"remote\": \"user@your-server.com:/var/www/myapp\",\r\n    \"branch\": \"main\",\r\n    \"commands\": [\r\n        \"composer install --no-dev --optimize-autoloader\",\r\n        \"php siro migrate --force\",\r\n        \"php siro config:cache\",\r\n        \"sudo systemctl restart php8.2-fpm\"\r\n    ]\r\n}\r"
+    "code": "// deploy.json\r\n{\r\n    \"strategy\": \"git\",\r\n    \"remote\": \"user@your-server.com:/var/www/myapp\",\r\n    \"branch\": \"main\",\r\n    \"commands\": [\r\n        \"composer install --no-dev --optimize-autoloader\",\r\n        \"php siro migrate\",\r\n        \"php siro config:cache\",\r\n        \"sudo systemctl restart php8.2-fpm\"\r\n    ]\r\n}\r"
   },
   {
     "type": "p",
@@ -161,7 +161,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "json",
-    "code": "// deploy.json\r\n{\r\n    \"strategy\": \"rsync\",\r\n    \"host\": \"your-server.com\",\r\n    \"user\": \"deploy\",\r\n    \"path\": \"/var/www/myapp\",\r\n    \"exclude\": [\r\n        \".git\",\r\n        \"node_modules\",\r\n        \"storage/logs/*.log\",\r\n        \"vendor\"\r\n    ],\r\n    \"commands\": [\r\n        \"composer install --no-dev\",\r\n        \"php siro migrate --force\",\r\n        \"php siro optimize\"\r\n    ]\r\n}\r"
+    "code": "// deploy.json\r\n{\r\n    \"strategy\": \"rsync\",\r\n    \"host\": \"your-server.com\",\r\n    \"user\": \"deploy\",\r\n    \"path\": \"/var/www/myapp\",\r\n    \"exclude\": [\r\n        \".git\",\r\n        \"node_modules\",\r\n        \"storage/logs/*.log\",\r\n        \"vendor\"\r\n    ],\r\n    \"commands\": [\r\n        \"composer install --no-dev\",\r\n        \"php siro migrate\",\r\n        \"php siro optimize\"\r\n    ]\r\n}\r"
   },
   {
     "type": "p",
@@ -193,7 +193,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "#!/bin/bash\r\n# deploy.sh\r\n\r\necho \"Starting deployment...\"\r\n\r\n# Pull latest code\r\ngit pull origin main\r\n\r\n# Install dependencies\r\ncomposer install --no-dev --optimize-autoloader\r\n\r\n# Run migrations\r\nphp siro migrate --force\r\n\r\n# Optimize\r\nphp siro config:cache\r\n\r\n# Restart services\r\nsudo systemctl restart php8.2-fpm\r\nsudo systemctl restart nginx\r\n\r\necho \"Deployment complete!\"\r"
+    "code": "#!/bin/bash\r\n# deploy.sh\r\n\r\necho \"Starting deployment...\"\r\n\r\n# Pull latest code\r\ngit pull origin main\r\n\r\n# Install dependencies\r\ncomposer install --no-dev --optimize-autoloader\r\n\r\n# Run migrations\r\nphp siro migrate\r\n\r\n# Optimize\r\nphp siro config:cache\r\n\r\n# Restart services\r\nsudo systemctl restart php8.2-fpm\r\nsudo systemctl restart nginx\r\n\r\necho \"Deployment complete!\"\r"
   },
   {
     "type": "p",
@@ -483,7 +483,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "# 1. Enable maintenance mode (allows your IP)\r\nphp siro down --allow=YOUR_IP_ADDRESS\r\n\r\n# 2. Deploy code\r\ngit pull origin main\r\ncomposer install --no-dev\r\nphp siro migrate --force\r\nphp siro optimize\r\n\r\n# 3. Test health endpoint\r\ncurl http://localhost/api/health\r\n\r\n# 4. Disable maintenance mode\r\nphp siro up\r"
+    "code": "# 1. Enable maintenance mode (allows your IP)\r\nphp siro down --allow=YOUR_IP_ADDRESS\r\n\r\n# 2. Deploy code\r\ngit pull origin main\r\ncomposer install --no-dev\r\nphp siro migrate\r\nphp siro optimize\r\n\r\n# 3. Test health endpoint\r\ncurl http://localhost/api/health\r\n\r\n# 4. Disable maintenance mode\r\nphp siro up\r"
   },
   {
     "type": "h3",
@@ -542,7 +542,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "docker-compose -f docker-compose.prod.yml up -d\r\ndocker-compose -f docker-compose.prod.yml exec app php siro migrate --force\r\ndocker-compose -f docker-compose.prod.yml exec app php siro optimize\r"
+    "code": "docker-compose -f docker-compose.prod.yml up -d\r\ndocker-compose -f docker-compose.prod.yml exec app php siro migrate\r\ndocker-compose -f docker-compose.prod.yml exec app php siro optimize\r"
   },
   {
     "type": "h2",

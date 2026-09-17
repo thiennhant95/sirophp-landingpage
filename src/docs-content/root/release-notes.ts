@@ -197,7 +197,7 @@ export const doc: Doc = {
       "**New package**: `sirosoft/mcp-server` — AI Agent MCP server for SiroPHP",
       "**9 MCP tools**: `analyze_project`, `read_documentation`, `execute_cli` (sandboxed), `write_file`, `patch_file` (diff mode), `scaffold_model`, `scaffold_controller`, `scaffold_migration`, `scaffold_resource`",
       "**24 resources** across 3 providers: `siro://docs/*` (14 docs), `siro://app/*` (9 project data), `siro://debug/*` (traces & errors)",
-      "**CLI command**: `php siro mcp:serve` — starts JSON-RPC 2.0 server over stdio",
+      "**MCP integration**: the release included JSON-RPC 2.0 tooling for local development",
       "**Sandbox security**: 31-command whitelist, blocklist (`tinker`, `shell`, `exec`), destructive gate with `--force`",
       "**Auto-discovery** via `extra.siro.commands` in Composer"
     ]

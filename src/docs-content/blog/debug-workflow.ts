@@ -123,7 +123,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "# Run tests\r\nphp siro test\r\nphp siro test:fuzz\r\nphp siro test:chaos\r\nphp siro test:property\r\nphp siro test:unit\r\nphp siro test:integration\r\nphp siro test:feature\r\nphp siro test:edge-case\r\nphp siro test:cli\r\n\r\n# Coverage & quality\r\nphp siro test:coverage\r\nphp siro test:mutate\r\nphp siro test:type-coverage\r\nphp siro lint:check\r\nphp siro lint:fix\r\nphp siro phpstan\r\n\r\n# API testing\r\nphp siro api:test GET /api/users\r\nphp siro api:test POST /api/orders --data '{\"product\": 1}'\r\nphp siro api:smoke\r\nphp siro api:validate-spec"
+    "code": "# Run the project test suite\r\nphp siro test\r\nphp siro test --filter=Product --coverage\r\n\r\n# Generate a test from a trace\r\nphp siro make:test ProductApi --from-trace=a1b2c3d4\r\n\r\n# API testing\r\nphp siro api:test GET /api/users\r\nphp siro api:test POST /api/orders --body '{\"product\": 1}'\r\nphp siro api:test GET /api/orders --loop=10"
   },
   {
     "type": "h3",
@@ -133,7 +133,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "# Generate code\r\nphp siro make:controller UserController\r\nphp siro make:model Product\r\nphp siro make:migration create_orders_table\r\nphp siro make:middleware AuthMiddleware\r\nphp siro make:validator CreateOrderValidator\r\nphp siro make:event OrderCreated\r\nphp siro make:listener SendOrderConfirmation\r\nphp siro make:mail WelcomeEmail\r\nphp siro make:command ImportProducts\r\nphp siro make:resource UserResource\r\nphp siro make:test UserApiTest\r\nphp siro make:factory OrderFactory\r\nphp siro make:seeder ProductSeeder\r\nphp siro make:policy OrderPolicy\r\nphp siro make:observer UserObserver\r\nphp siro make:scope ActiveProductsScope\r\nphp siro make:cast MoneyCast\r\nphp siro make:rule ValidOrderStatus\r\nphp siro make:channel OrderChannel\r\nphp siro make:notification OrderShipped\r\nphp siro make:form-request CreateOrderRequest\r\nphp siro make:collection UserCollection\r\nphp siro make:exception InsufficientStockException\r\nphp siro make:helper StringHelper\r\n\r\n# Database\r\nphp siro db:migrate\r\nphp siro db:rollback\r\nphp siro db:seed\r\nphp siro db:reset\r\nphp siro db:refresh\r\nphp siro db:wipe\r\nphp siro db:status\r\nphp siro db:monitor\r\nphp siro db:backup\r\nphp siro db:restore"
+    "code": "# Generate code\r\nphp siro make:controller UserController\r\nphp siro make:model Product\r\nphp siro make:migration create_orders_table\r\nphp siro make:middleware AuthMiddleware\r\nphp siro make:request CreateOrderRequest\r\nphp siro make:event OrderCreated\r\nphp siro make:listener SendOrderConfirmation\r\nphp siro make:mail WelcomeEmail\r\nphp siro make:resource UserResource\r\nphp siro make:test UserApiTest\r\nphp siro make:factory OrderFactory\r\nphp siro make:seeder ProductSeeder\r\nphp siro make:observer UserObserver\r\nphp siro make:rule ValidOrderStatus\r\nphp siro make:mail OrderShipped\r\nphp siro make:repository OrderRepository\r\nphp siro make:service OrderService\r\n\r\n# Database\r\nphp siro migrate\r\nphp siro migrate:rollback\r\nphp siro db:seed\r\nphp siro db:backup\r\nphp siro db:restore backup.sql"
   },
   {
     "type": "h3",
@@ -143,7 +143,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "# Deploy\r\nphp siro deploy:check\r\nphp siro deploy:env\r\nphp siro deploy:migrate\r\nphp siro deploy:optimize\r\nphp siro deploy:health\r\n\r\n# Security\r\nphp siro security:check\r\nphp siro security:audit\r\nphp siro security:scan\r\nphp siro security:keys:generate\r\nphp siro env:check\r\n\r\n# Monitoring\r\nphp siro monitor:routes\r\nphp siro monitor:cache\r\nphp siro monitor:queue\r\nphp siro monitor:scheduler\r\nphp siro monitor:events\r\nphp siro monitor:logins\r\n\r\n# Maintenance\r\nphp siro cache:clear\r\nphp siro config:cache\r\nphp siro route:cache\r\nphp siro route:list\r\nphp siro schedule:run\r\nphp siro queue:work\r\nphp siro queue:restart\r\nphp siro storage:link\r\nphp siro storage:cleanup\r\nphp siro app:version\r\nphp siro app:info"
+    "code": "# Pre-deploy checks\r\nphp siro env:check\r\nphp siro doctor --prod\r\nphp siro optimize\r\nphp siro deploy --init\r\n\r\n# Security and maintenance\r\nphp siro rate:status\r\nphp siro config:cache\r\nphp siro route:list\r\nphp siro storage:link\r\nphp siro schedule:run\r\nphp siro queue:work\r\n\r\n# Observability\r\nphp siro log:stats --days=7\r\nphp siro log:top --limit=10\r\nphp siro debug:health"
   },
   {
     "type": "note",

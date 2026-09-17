@@ -558,7 +558,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "# 1. Validate environment\r\nphp siro env:check\r\n\r\n# Checks:\r\n# ✅ .env file exists\r\n# ✅ Required variables set\r\n# ✅ JWT_SECRET strength (min 32 chars)\r\n# ✅ APP_DEBUG is false\r\n# ✅ PHP extensions loaded\r\n# ✅ Storage directories writable\r\n\r\n# 2. Run security tests\r\nphp vendor/bin/phpunit --testsuite=Security\r\n\r\n# 3. Check rate limiting\r\nphp siro rate:status\r\n\r\n# 4. Verify HTTPS\r\ncurl -I https://yourdomain.com/api/health\r\n# Should return: Strict-Transport-Security header\r\n\r\n# 5. Test CORS\r\nphp siro api:test GET /api/users --cors\r"
+    "code": "# 1. Validate environment\r\nphp siro env:check\r\n\r\n# Checks:\r\n# ✅ .env file exists\r\n# ✅ Required variables set\r\n# ✅ JWT_SECRET strength (min 32 chars)\r\n# ✅ APP_DEBUG is false\r\n# ✅ PHP extensions loaded\r\n# ✅ Storage directories writable\r\n\r\n# 2. Run security tests\r\nphp vendor/bin/phpunit --testsuite=Security\r\n\r\n# 3. Check rate limiting\r\nphp siro rate:status\r\n\r\n# 4. Verify HTTPS\r\ncurl -I https://yourdomain.com/api/health\r\n# Should return: Strict-Transport-Security header\r\n\r\n# 5. Test CORS\r\nphp siro api:test GET /api/users\r"
   },
   {
     "type": "h3",

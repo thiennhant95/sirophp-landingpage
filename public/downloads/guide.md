@@ -239,7 +239,7 @@ cd my-api
 siro serve              # â†’ php siro serve
 siro make:crud Product  # â†’ php siro make:crud Product
 siro migrate            # â†’ php siro migrate
-siro db:init --mysql    # â†’ php siro db:init --mysql
+siro db:init --mysql    # â†’ php siro db init --mysql
 siro test               # â†’ php siro test
 siro route:list         # â†’ php siro route:list
 siro tinker             # â†’ php siro tinker
@@ -300,7 +300,7 @@ composer create-project sirosoft/api my-api
 cd my-api
 
 # Auto-detects your existing MySQL on port 3306
-php siro db:init --mysql
+php siro db init --mysql
 
 php siro serve
 ```
@@ -309,10 +309,10 @@ php siro serve
 
 ```bash
 # Currently using SQLite
-siro db:init --mysql       # Switch to MySQL/MariaDB
+siro db init --mysql       # Switch to MySQL/MariaDB
 
 # Currently using MySQL
-siro db:init                # Switch back to SQLite
+siro db init                # Switch back to SQLite
 ```
 
 ---

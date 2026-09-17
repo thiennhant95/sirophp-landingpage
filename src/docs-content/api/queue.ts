@@ -106,7 +106,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "bash",
-    "code": "# List failed jobs\r\nphp siro queue:status\r\n\r\n# Retry all failed jobs\r\nphp siro queue:retry --all\r\n\r\n# Retry specific job\r\nphp siro queue:retry --id=42\r\n\r\n# Clear failed jobs\r\nphp siro queue:flush\r"
+    "code": "# List failed jobs\r\nphp siro queue:status\r\n\r\n# Retry all failed jobs\r\nphp siro queue:retry all\r\n\r\n# Retry specific job\r\nphp siro queue:retry 42\r\n\r\n# Clear failed jobs\r\nphp siro queue:flush\r"
   },
   {
     "type": "h2",
