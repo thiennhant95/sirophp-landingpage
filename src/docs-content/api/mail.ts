@@ -79,7 +79,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "Mail::send(new WelcomeMail($user->name, $user->email));\r"
+    "code": "Mail::to($user->email)\r\n    ->subject('Welcome, ' . $user->name)\r\n    ->html('<h1>Welcome!</h1>')\r\n    ->send();\r"
   },
   {
     "type": "h2",
@@ -89,7 +89,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "Mail::to('user@example.com')\r\n    ->subject('Invoice')\r\n    ->html('<p>Your invoice is attached.</p>')\r\n    ->attach('/path/to/invoice.pdf')\r\n    ->attach('/path/to/terms.pdf', ['name' => 'terms.pdf'])\r\n    ->send();\r"
+    "code": "Mail::to('user@example.com')\r\n    ->subject('Invoice')\r\n    ->html('<p>Your invoice is attached.</p>')\r\n    ->attach('/path/to/invoice.pdf')\r\n    ->attach('/path/to/terms.pdf', 'terms.pdf')\r\n    ->send();\r"
   },
   {
     "type": "h2",
@@ -99,7 +99,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Queue email (requires queue worker running)\r\nMail::to('user@example.com')\r\n    ->subject('Welcome')\r\n    ->html('<h1>Welcome</h1>')\r\n    ->queue();\r\n\r\n// Delay delivery\r\nMail::to('user@example.com')\r\n    ->subject('Follow-up')\r\n    ->html('<h1>How are you?</h1>')\r\n    ->later(3600); // 1 hour later\r"
+    "code": "// Queue email (requires queue worker running)\r\nMail::to('user@example.com')\r\n    ->subject('Welcome')\r\n    ->html('<h1>Welcome</h1>')\r\n    ->queue();\r\n\r\n// Delay delivery\r\nMail::to('user@example.com')\r\n    ->subject('Follow-up')\r\n    ->html('<h1>How are you?</h1>')\r\n    ->sendLater(3600); // 1 hour later\r"
   },
   {
     "type": "p",

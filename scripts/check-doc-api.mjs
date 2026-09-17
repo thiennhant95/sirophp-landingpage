@@ -21,7 +21,10 @@ for (const [name, file] of Object.entries(coreFiles)) {
 
 function publicMethods(file) {
   const content = readFileSync(file, 'utf8')
-  return new Set([...content.matchAll(/public\s+(?:static\s+)?function\s+(\w+)\s*\(/g)].map((match) => match[1]))
+  return {
+    all: new Set([...content.matchAll(/public\s+(?:static\s+)?function\s+(\w+)\s*\(/g)].map((match) => match[1])),
+    static: new Set([...content.matchAll(/public\s+static\s+function\s+(\w+)\s*\(/g)].map((match) => match[1])),
+  }
 }
 
 const methods = Object.fromEntries(Object.entries(coreFiles).map(([name, file]) => [name, publicMethods(file)]))
@@ -55,7 +58,11 @@ for (const file of files) {
   const content = readFileSync(file, 'utf8')
   for (const check of checks) {
     for (const match of content.matchAll(check.pattern)) {
-      if (!methods[check.className].has(match[1])) {
+      const classMethods = methods[check.className]
+      const valid = check.type === 'class'
+        ? classMethods.static.has(match[1])
+        : classMethods.all.has(match[1])
+      if (!valid) {
         invalid.push(`${relative(root, file)}: ${check.className}::${match[1]}`)
       }
     }

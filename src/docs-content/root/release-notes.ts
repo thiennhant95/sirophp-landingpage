@@ -178,7 +178,7 @@ export const doc: Doc = {
   {
     "type": "ul",
     "items": [
-      "**core v0.29.5**: Updated `sirosoft/core` constraint from `^0.28.1` to `^0.29.5` - `ModelQueryBuilder::__call()` now proxies to parent `QueryBuilder` (e.g. `whereNull`, `whereRaw`, `whereIn`) - `Response::getStatusCode()` alias for Laravel compatibility"
+       "**core v0.29.5**: Updated `sirosoft/core` constraint from `^0.28.1` to `^0.29.5` - `ModelQueryBuilder::__call()` now proxies to parent `QueryBuilder` (e.g. `whereNull`, `whereRaw`, `whereIn`) - response status access was aligned with Laravel compatibility"
     ]
   },
   {
