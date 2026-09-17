@@ -9,7 +9,7 @@ param(
     [switch]$Quiet
 )
 
-$ScriptVersion = "1.0.0"
+$ScriptVersion = "1.0.12"
 
 if ($Help) {
     Write-Host "Siro Framework Installer v$ScriptVersion"

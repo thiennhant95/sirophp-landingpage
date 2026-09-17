@@ -1,9 +1,9 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.12",
     "phar": {
         "url": "https:\/\/sirophp.com\/siro.phar",
-        "sha256": "b6e708ec2c0c5c1468c7fd986b4b7a100508aa5f1d9a3195711e772841ba0913",
-        "size": 29042441
+        "sha256": "b3ea2f7178fe121d34ce27b092fc999fde7f60c30fa184220c4950a667062eed",
+        "size": 29966439
     },
     "runtime": {
         "8.2": {
