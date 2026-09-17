@@ -62,7 +62,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Public URL for local files\r\n$url = Storage::url('avatars/1.jpg');\r\n// Returns: \"/storage/avatars/1.jpg\"\r\n\r\n// Public URL for S3\r\n$url = Storage::url('avatars/1.jpg');\r\n// Returns: \"https://bucket.s3.amazonaws.com/avatars/1.jpg\"\r\n\r\n// Temporary signed URL (S3 only)\r\n$url = Storage::temporaryUrl('avatars/1.jpg', 3600);\r"
+    "code": "// Public URL for local files\r\n$url = Storage::url('avatars/1.jpg');\r\n// Returns: \"/storage/avatars/1.jpg\"\r\n\r\n// Public URL for configured storage\r\n$url = Storage::url('avatars/1.jpg');\r\n// Returns the configured public storage URL\r"
   },
   {
     "type": "h2",
@@ -72,7 +72,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// List files\r\n$files = Storage::files('avatars');\r\n\r\n// List with subdirectories\r\n$allFiles = Storage::allFiles('avatars');\r\n\r\n// List directories\r\n$directories = Storage::directories('avatars');\r\n\r\n// Create directory\r\nStorage::makeDirectory('avatars/thumbs');\r\n\r\n// Delete directory\r\nStorage::deleteDirectory('avatars/thumbs');\r"
+    "code": "// List files\r\n$files = Storage::files('avatars');\r"
   },
   {
     "type": "h2",
@@ -82,7 +82,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Set ACL\r\nStorage::put('public/file.txt', $contents, ['visibility' => 'public']);\r\n\r\n// Copy between buckets\r\nStorage::copy('bucket1/file.txt', 'bucket2/file.txt');\r\n\r\n// Move\r\nStorage::move('old/path.txt', 'new/path.txt');\r\n\r\n// Get metadata\r\n$size = Storage::size('file.txt');\r\n$mime = Storage::mimeType('file.txt');\r\n$lastModified = Storage::lastModified('file.txt');\r"
+    "code": "// Copy between paths\r\nStorage::copy('old/file.txt', 'archive/file.txt');\r\n\r\n// Get metadata\r\n$size = Storage::size('file.txt');\r\n$lastModified = Storage::lastModified('file.txt');\r"
   },
   {
     "type": "h2",

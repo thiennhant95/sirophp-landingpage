@@ -7,6 +7,9 @@ const coreFiles = {
   Router: join(coreRoot, 'Router.php'),
   Request: join(coreRoot, 'Request.php'),
   Response: join(coreRoot, 'Response.php'),
+  Storage: join(coreRoot, 'Storage.php'),
+  Mail: join(coreRoot, 'Mail.php'),
+  Queue: join(coreRoot, 'Queue.php'),
 }
 
 for (const [name, file] of Object.entries(coreFiles)) {
@@ -41,6 +44,9 @@ const checks = [
   { type: 'class', className: 'Router', pattern: /\bRouter::(\w+)\s*\(/g },
   { type: 'class', className: 'Request', pattern: /\bRequest::(\w+)\s*\(/g },
   { type: 'class', className: 'Response', pattern: /\bResponse::(\w+)\s*\(/g },
+  { type: 'class', className: 'Storage', pattern: /\bStorage::(\w+)\s*\(/g },
+  { type: 'class', className: 'Mail', pattern: /\bMail::(\w+)\s*\(/g },
+  { type: 'class', className: 'Queue', pattern: /\bQueue::(\w+)\s*\(/g },
   { type: 'router', className: 'Router', pattern: /\$(?:router|r)->(\w+)\s*\(/g },
   { type: 'request', className: 'Request', pattern: /\$request->(\w+)\s*\(/g },
 ]
