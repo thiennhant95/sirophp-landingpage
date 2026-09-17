@@ -35,6 +35,11 @@ jobs:
         env:
           SIRO_CORE_CONSOLE: ${{ github.workspace }}/siro-core/Console.php
 
+      - name: Validate Core API examples
+        run: npm run check:api
+        env:
+          SIRO_CORE_ROOT: ${{ github.workspace }}/siro-core
+
       - name: Lint
         run: npm run lint
 

@@ -175,7 +175,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// ❌ Cannot extend\r\nclass MyRouter extends Router { } // Compilation error\r\n\r\n// ✅ Correct approach\r\n$router->middleware([CustomMiddleware::class]);\r"
+    "code": "// ❌ Cannot extend\r\nclass MyRouter extends Router { } // Compilation error\r\n\r\n// ✅ Correct approach\r\n$router->setRouteMiddleware('GET', '/reports', [CustomMiddleware::class]);\r"
   },
   {
     "type": "h2",

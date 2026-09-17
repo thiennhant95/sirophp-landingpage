@@ -198,7 +198,7 @@ export const doc: Doc = {
     "items": [
       "Always validate on the server side — never trust client input.",
       "Use specific rules rather than generic ones (`email` instead of just `required`).",
-      "Sanitize input with `$request->string()`, `$request->integer()`, `$request->boolean()`.",
+      "Sanitize input with `$request->string()`, `$request->int()`, `$request->bool()`.",
       "Define custom rules with clear error messages using `:field` placeholder.",
       "Keep validation rules in FormRequest classes for reusable, single-responsibility controllers."
     ]

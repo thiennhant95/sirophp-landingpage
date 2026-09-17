@@ -37,7 +37,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// All input as array\r\n$all = $request->all();\r\n\r\n// Single value with type\r\n$name    = $request->string('name');          // string\r\n$price   = $request->float('price');           // float\r\n$age     = $request->int('age');               // int\r\n$active  = $request->bool('active');           // bool\r\n$tags    = $request->array('tags');            // array\r\n$raw     = $request->input('key', 'default');  // mixed\r\n\r\n// Query string only\r\n$page   = $request->queryInt('page', 1);\r\n$search = $request->queryString('search', '');\r\n$filter = $request->query('sort', 'id');\r\n\r\n// Check if key exists\r\nif ($request->has('email')) { ... }\r"
+    "code": "// All input as array\r\n$all = $request->all();\r\n\r\n// Single value with type\r\n$name    = $request->string('name');\r\n$price   = $request->float('price');\r\n$age     = $request->int('age');\r\n$active  = $request->bool('active');\r\n$tags    = $request->array('tags');\r\n$raw     = $request->input('key', 'default');\r\n\r\n// Query string only\r\n$page   = $request->queryInt('page', 1);\r\n$search = $request->queryString('search', '');\r\n$filter = $request->query('sort', 'id');\r\n\r\n// Check if key exists\r\nif (array_key_exists('email', $request->all())) { ... }\r"
   },
   {
     "type": "h3",
@@ -72,7 +72,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// GET /api/products/{id}\r\n$id = $request->param('id');         // string|null\r\n$id = $request->paramInt('id');      // int (0 if missing)\r\n$id = $request->paramString('slug'); // string|null\r"
+    "code": "// GET /api/products/{id}\r\n$id = $request->param('id');          // mixed|null\r\n$id = (int) $request->param('id', 0); // int (0 if missing)\r\n$slug = $request->param('slug');      // mixed|null\r"
   },
   {
     "type": "h2",
@@ -82,7 +82,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "$token    = $request->header('Authorization');      // string|null\r\n$ct       = $request->header('Content-Type', 'json'); // with default\r\n$accept   = $request->header('Accept', '*/*');\r\n$userAgent = $request->userAgent();                   // shortcut\r\n$ip       = $request->ip();                           // client IP\r\n$method   = $request->method();                       // GET, POST, ...\r\n$path     = $request->path();                         // /api/products\r"
+    "code": "$token = $request->header('Authorization');\r\n$ct = $request->header('Content-Type', 'json');\r\n$accept = $request->header('Accept', '*/*');\r\n$userAgent = $request->header('User-Agent');\r\n$ip = $request->ip();\r\n$method = $request->method();\r\n$path = $request->path();\r"
   },
   {
     "type": "h2",
@@ -112,7 +112,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Trace ID for debugging\r\n$traceId = $request->traceId();\r\n\r\n// Request timing\r\n$startTime = $request->server('REQUEST_TIME_FLOAT');\r\n\r\n// Full URL\r\n$url = $request->fullUrl();\r\n\r\n// Scheme\r\n$isHttps = $request->isSecure();\r"
+    "code": "// Request context available from the core abstraction\r\n$method = $request->method();\r\n$path = $request->path();\r\n$ip = $request->ip();\r\n$host = $request->header('Host', 'localhost');\r"
   },
   {
     "type": "h2",
@@ -178,16 +178,6 @@ export const doc: Doc = {
         "Get query param as string"
       ],
       [
-        "`has(string $key)`",
-        "`bool`",
-        "Check if key exists"
-      ],
-      [
-        "`paramInt(string $key)`",
-        "`int`",
-        "Get route param as int"
-      ],
-      [
         "`method()`",
         "`string`",
         "HTTP method"
@@ -203,11 +193,6 @@ export const doc: Doc = {
         "Client IP"
       ],
       [
-        "`userAgent()`",
-        "`string`",
-        "User agent"
-      ],
-      [
         "`setUser(array $user)`",
         "`void`",
         "Set authenticated user"
@@ -218,14 +203,9 @@ export const doc: Doc = {
         "Validate and return"
       ],
       [
-        "`isSecure()`",
-        "`bool`",
-        "Check HTTPS"
-      ],
-      [
-        "`fullUrl()`",
-        "`string`",
-        "Full request URL"
+        "`header(string $name, ?string $default)`",
+        "`string|null`",
+        "Get a request header"
       ]
     ]
   }

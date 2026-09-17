@@ -352,7 +352,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "// Controller\r\n$query = Product::query();\r\n\r\nif ($request->has('category_id')) {\r\n    $query->where('category_id', $request->int('category_id'));\r\n}\r\n\r\nif ($request->has('search')) {\r\n    $query->where('name', 'LIKE', '%' . $request->string('search') . '%');\r\n}\r\n\r\n$products = $query->paginate(20);\r"
+    "code": "// Controller\r\n$query = Product::query();\r\n$input = $request->all();\r\n\r\nif (array_key_exists('category_id', $input)) {\r\n    $query->where('category_id', $request->int('category_id'));\r\n}\r\n\r\nif (array_key_exists('search', $input)) {\r\n    $query->where('name', 'LIKE', '%' . $request->string('search') . '%');\r\n}\r\n\r\n$products = $query->paginate(20);\r"
   },
   {
     "type": "h3",

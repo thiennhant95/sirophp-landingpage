@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:docs": "node scripts/check-doc-commands.mjs",
+    "check:api": "node scripts/check-doc-api.mjs",
     "test": "vitest run"
   },
   "browserslist": {
