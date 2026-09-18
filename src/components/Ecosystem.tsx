@@ -2,6 +2,13 @@ import FadeIn from './FadeIn';
 
 const products = [
   {
+    name: 'SiroPHP Showcase',
+    label: 'Live demo',
+    description: 'Click through a live full-stack app with CRUD, API explorer, OpenAPI docs, and guided lessons.',
+    href: 'https://showcase.sirophp.com',
+    accent: 'border-fuchsia-400/30 hover:border-fuchsia-400/60',
+  },
+  {
     name: 'SiroPHP Skeleton',
     label: 'Start here',
     description: 'The official backend starter for building a secure, production-ready API.',
