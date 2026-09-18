@@ -14,6 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Checkout Core command registry
+        uses: actions/checkout@v4
+        with:
+          repository: SiroSoft/siro-core
+          path: siro-core
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -22,6 +27,8 @@ jobs:
       - run: npm run check:version
       - run: npm run verify:release
       - run: npm run check:docs
+        env:
+          SIRO_CORE_CONSOLE: ${{ github.workspace }}/siro-core/Console.php
       - run: npm run check:api
       - run: npm run check:links
       - run: npm run check:security
