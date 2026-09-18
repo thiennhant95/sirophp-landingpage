@@ -18,7 +18,13 @@
 - [ ] Confirm installer assets and release tag are public.
 - [ ] Merge the landing page change to `main`.
 - [ ] Confirm `CI`, `Documentation`, and `Production Monitor` workflows pass.
-- [ ] Verify `/api/latest-version`, `/install`, and download URLs in production.
+- [ ] Verify `/` returns `200` in production.
+- [ ] Verify `/docs` returns `200` and renders the docs landing page.
+- [ ] Verify `/documentation` returns `200` and renders the documentation index.
+- [ ] Verify representative `/documentation/*` API and guide routes return `200`.
+- [ ] Verify `/api/latest-version` returns the release version.
+- [ ] Verify `/install` and all download URLs in production.
+- [ ] Verify `/sitemap.xml` and `/robots.txt` return `200`.
 
 ## After Release
 
