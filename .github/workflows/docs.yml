@@ -46,6 +46,9 @@ jobs:
       - name: Validate version consistency
         run: npm run check:version
 
+      - name: Validate security configuration
+        run: npm run check:security
+
       - name: Lint
         run: npm run lint
 

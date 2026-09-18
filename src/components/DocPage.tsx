@@ -76,6 +76,18 @@ export default function DocPage({ doc, prev, next, canonical }: DocPageProps) {
 
             <DocContent blocks={doc.content} onHeadings={onHeadings} />
 
+            <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-5 text-xs text-gray-500">
+              <span>Found an issue with this page?</span>
+              <a
+                href={`https://github.com/SiroSoft/SiroPHP/issues/new?title=${encodeURIComponent(`Docs: ${doc.meta.title}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-400/80 hover:text-cyan-300 transition-colors"
+              >
+                Report it on GitHub
+              </a>
+            </div>
+
             {/* Prev / Next Navigation */}
             <nav className="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 gap-4 sm:gap-8">
               <div>
