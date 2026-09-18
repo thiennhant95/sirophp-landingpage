@@ -144,7 +144,7 @@ Show installer version.
 
 ```bash
 siro version
-# Siro Installer v1.0.13
+# Siro Installer v1.0.14
 ```
 
 ### Database commands (auto-delegated in project dir)
@@ -368,4 +368,4 @@ User command: siro <cmd>
 
 ---
 
-*Siro Installer v1.0.13 — September 2026*
+*Siro Installer v1.0.14 — September 2026*

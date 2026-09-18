@@ -17,12 +17,12 @@ export const doc: Doc = {
   {
     "type": "h2",
     "id": "v1-0-x-v1-0-13-current",
-    "text": "v1.0.x → v1.0.13 (Current)"
+    "text": "v1.0.x → v1.0.14 (Current)"
   },
   {
     "type": "code",
     "lang": "bash",
-    "code": "composer update sirosoft/core\r\n# in a skeleton project, keep sirosoft/core at ^1.0.13"
+    "code": "composer update sirosoft/core\r\n# in a skeleton project, keep sirosoft/core at ^1.0.14"
   },
   {
     "type": "h2",

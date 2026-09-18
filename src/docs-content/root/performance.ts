@@ -553,7 +553,7 @@ export const doc: Doc = {
     ],
     "rows": [
       [
-        "**SiroPHP Core v1.0.13**",
+        "**SiroPHP Core v1.0.14**",
         "**~370K***",
         "**~4MB**",
         "**0**",
