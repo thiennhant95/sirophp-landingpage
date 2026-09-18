@@ -1,0 +1,30 @@
+name: Production Monitor
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check production endpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          for url in \
+            https://sirophp.com/ \
+            https://sirophp.com/docs \
+            https://sirophp.com/documentation \
+            https://sirophp.com/install \
+            https://sirophp.com/downloads/install.ps1 \
+            https://sirophp.com/downloads/install.sh \
+            https://sirophp.com/downloads/guide.md \
+            https://sirophp.com/api/latest-version; do
+            curl --fail --silent --show-error --location --max-time 30 --head "$url" >/dev/null
+            echo "OK $url"
+          done

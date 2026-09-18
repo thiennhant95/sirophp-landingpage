@@ -10,6 +10,12 @@ const coreFiles = {
   Storage: join(coreRoot, 'Storage.php'),
   Mail: join(coreRoot, 'Mail.php'),
   Queue: join(coreRoot, 'Queue.php'),
+  Model: join(coreRoot, 'Model.php'),
+  Logger: join(coreRoot, 'Logger.php'),
+  Session: join(coreRoot, 'Session.php'),
+  Event: join(coreRoot, 'Event.php'),
+  Validator: join(coreRoot, 'Validator.php'),
+  FormRequest: join(coreRoot, 'FormRequest.php'),
 }
 
 for (const [name, file] of Object.entries(coreFiles)) {
@@ -50,8 +56,14 @@ const checks = [
   { type: 'class', className: 'Storage', pattern: /\bStorage::(\w+)\s*\(/g },
   { type: 'class', className: 'Mail', pattern: /\bMail::(\w+)\s*\(/g },
   { type: 'class', className: 'Queue', pattern: /\bQueue::(\w+)\s*\(/g },
+  { type: 'class', className: 'Model', pattern: /\bModel::(\w+)\s*\(/g },
+  { type: 'class', className: 'Logger', pattern: /\bLogger::(\w+)\s*\(/g },
+  { type: 'class', className: 'Session', pattern: /\bSession::(\w+)\s*\(/g },
+  { type: 'class', className: 'Event', pattern: /\bEvent::(\w+)\s*\(/g },
+  { type: 'class', className: 'Validator', pattern: /\bValidator::(\w+)\s*\(/g },
   { type: 'router', className: 'Router', pattern: /\$(?:router|r)->(\w+)\s*\(/g },
   { type: 'request', className: 'Request', pattern: /\$request->(\w+)\s*\(/g },
+  { type: 'instance', className: 'FormRequest', pattern: /\$(?:formRequest|form_request)->(\w+)\s*\(/g },
 ]
 
 for (const file of files) {

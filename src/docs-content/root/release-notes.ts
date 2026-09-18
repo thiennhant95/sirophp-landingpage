@@ -360,7 +360,7 @@ export const doc: Doc = {
       "**IDOR**: User ID ownership checks on Order and Post controllers (index/show/update/delete)",
       "**XSS**: All 6 Resource transformers use `htmlspecialchars()` with ENT_QUOTES | ENT_HTML5",
       "**JWT validation**: Algorithm mismatch detection, no \"none\" bypass possible",
-      "**Session fixation**: `Session::regenerate()` called after every login",
+      "**Session fixation**: `$session->regenerate()` called after every login",
       "**Token storage**: Reset/verification tokens hashed with SHA-256 before DB insert",
       "**Log sanitization**: Passwords, tokens, credit cards auto-redacted"
     ]

@@ -142,7 +142,7 @@ export const doc: Doc = {
   {
     "type": "code",
     "lang": "php",
-    "code": "<?php\r\n\r\ndeclare(strict_types=1);\r\n\r\nnamespace App\\Middleware;\r\n\r\nuse Siro\\Core\\Request;\r\nuse Siro\\Core\\Response;\r\n\r\nfinal class LogRequestMiddleware\r\n{\r\n    public function handle(Request $request, callable $next): Response\r\n    {\r\n        // Before controller\r\n        $start = microtime(true);\r\n\r\n        $response = $next($request);\r\n\r\n        // After controller\r\n        $duration = (microtime(true) - $start) * 1000;\r\n        Logger::info(\"{$request->method()} {$request->path()} — {$duration}ms\");\r\n\r\n        return $response;\r\n    }\r\n}\r"
+    "code": "<?php\r\n\r\ndeclare(strict_types=1);\r\n\r\nnamespace App\\Middleware;\r\n\r\nuse Siro\\Core\\Request;\r\nuse Siro\\Core\\Response;\r\n\r\nfinal class LogRequestMiddleware\r\n{\r\n    public function handle(Request $request, callable $next): Response\r\n    {\r\n        // Before controller\r\n        $start = microtime(true);\r\n\r\n        $response = $next($request);\r\n\r\n        // After controller\r\n        $duration = (microtime(true) - $start) * 1000;\r\n        Logger::debug(\"{$request->method()} {$request->path()} — {$duration}ms\");\r\n\r\n        return $response;\r\n    }\r\n}\r"
   },
   {
     "type": "h3",

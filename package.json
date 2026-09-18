@@ -10,6 +10,8 @@
     "check:docs": "node scripts/check-doc-commands.mjs",
     "check:api": "node scripts/check-doc-api.mjs",
     "check:links": "node scripts/check-doc-links.mjs",
+    "check:version": "node scripts/check-version.mjs",
+    "verify:release": "node scripts/verify-release.mjs",
     "test": "vitest run"
   },
   "browserslist": {

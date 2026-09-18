@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GARouteTracker from "@/components/GARouteTracker";
+import { INSTALLER } from "@/lib/installer";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -90,7 +91,7 @@ const softwareJsonLd = {
   operatingSystem: 'PHP 8.2+, Linux, macOS, Windows',
   description:
     'Production-first PHP API workflow with built-in debugging, request replay, and testing workflows. Minimal runtime dependencies.',
-    softwareVersion: '1.0.12',
+    softwareVersion: INSTALLER.version,
   url: 'https://sirophp.com',
   downloadUrl: 'https://sirophp.com/downloads/install.ps1',
   author: { '@type': 'Organization', name: 'SiroSoft', url: 'https://github.com/SiroSoft' },

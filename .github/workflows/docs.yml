@@ -43,6 +43,9 @@ jobs:
       - name: Validate documentation links
         run: npm run check:links
 
+      - name: Validate version consistency
+        run: npm run check:version
+
       - name: Lint
         run: npm run lint
 
