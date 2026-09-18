@@ -1,5 +1,5 @@
 export const INSTALLER = {
-  version: "1.0.12",
+  version: "1.0.13",
   publishedAt: "2026-09-16",
   pharFilename: "siro.phar",
   commands: {

@@ -39,7 +39,7 @@ export default function CTA() {
           <span className="w-1 h-1 rounded-full bg-gray-600" />
           <span>MIT Licensed</span>
           <span className="w-1 h-1 rounded-full bg-gray-600" />
-           <span>Open source · MIT licensed · Core v1.0.12</span>
+           <span>Open source · MIT licensed · Core v1.0.13</span>
         </div>
       </div>
     </section>
