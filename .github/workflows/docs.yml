@@ -40,6 +40,9 @@ jobs:
         env:
           SIRO_CORE_ROOT: ${{ github.workspace }}/siro-core
 
+      - name: Validate documentation links
+        run: npm run check:links
+
       - name: Lint
         run: npm run lint
 
