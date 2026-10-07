@@ -709,7 +709,7 @@ export const doc: Doc = {
   },
   {
     "type": "p",
-    "text": "Email: security@sirosoft.com PGP Key: Available on request Response Time: Within 48 hours"
+    "text": "Email: info@sirophp.com PGP Key: Available on request Response Time: Within 48 hours"
   },
   {
     "type": "p",
