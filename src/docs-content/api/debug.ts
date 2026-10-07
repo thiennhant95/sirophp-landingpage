@@ -135,7 +135,7 @@ export const doc: Doc = {
   },
   {
     "type": "p",
-    "text": "No other framework — PHP, Node, Go, Rust, Python, Ruby — has this complete flow."
+    "text": "As far as we know, no other framework — PHP, Node, Go, Rust, Python or Ruby — ships this complete flow. Found one? Tell us and we'll correct this line."
   },
   {
     "type": "h2",
