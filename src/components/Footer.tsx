@@ -23,6 +23,20 @@ export default function Footer() {
             <p className="text-gray-400 text-sm">
               Build fast. Debug faster.
             </p>
+            <div className="mt-4 space-y-2 text-sm">
+              <a
+                href="mailto:info@sirophp.com"
+                className="block text-gray-400 hover:text-white transition-colors"
+              >
+                info@sirophp.com
+              </a>
+              <a
+                href="mailto:founder@sirophp.com"
+                className="block text-gray-400 hover:text-white transition-colors"
+              >
+                founder@sirophp.com
+              </a>
+            </div>
           </div>
 
           {/* Links */}
