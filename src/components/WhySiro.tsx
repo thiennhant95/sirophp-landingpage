@@ -3,8 +3,8 @@
 import FadeIn from './FadeIn';
 
 const reasons = [
-  { icon: '🪶', text: 'Minimal runtime dependencies — a smaller supply-chain surface to review' },
-  { icon: '⚡', text: '2.4ms cold boot (measured) / ~0.35ms prod Linux (measured), ~4MB+ baseline RAM — budget-friendly hosting' },
+  { icon: '🪶', text: 'Minimal runtime surface — a smaller supply chain to review' },
+  { icon: '⚡', text: '2.4ms cold boot (measured) / ~0.5ms (Linux + OPcache), ~4MB+ baseline RAM — budget-friendly hosting' },
   { icon: '📖', text: 'Readable core architecture — understand the entire framework in one afternoon' },
   { icon: '🚀', text: 'Ship production APIs in under one hour with make:crud' },
   { icon: '🔄', text: 'Replay any production bug with full execution context — SQL, HTTP, queued jobs' },

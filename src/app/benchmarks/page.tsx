@@ -5,7 +5,7 @@ import { BenchmarksContent } from './BenchmarksContent';
 
 export const metadata: Metadata = {
   title: 'Benchmarks - SiroPHP | Performance Comparison',
-  description: 'Blazing fast performance: 2.4ms cold boot (measured) / ~0.35ms prod Linux (measured), ~4MB+ baseline RAM (~6MB peak), ~370K routes/sec. Compare with Laravel and Symfony.',
+  description: 'Blazing fast performance: 2.4ms cold boot (measured) / ~0.5ms (Linux + OPcache), ~4MB+ baseline RAM (~6MB peak), ~370K routes/sec. Compare with Laravel and Symfony.',
   alternates: { canonical: '/benchmarks' },
   openGraph: {
   title: 'SiroPHP Benchmarks - PHP API Performance Measurements',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'SiroPHP Benchmarks - PHP API Performance Measurements',
-    description: '2.4ms cold boot (measured) / ~0.35ms prod Linux (measured), ~4MB+ baseline RAM (~6MB peak). PHP framework performance benchmarks.',
+    description: '2.4ms cold boot (measured) / ~0.5ms (Linux + OPcache), ~4MB+ baseline RAM (~6MB peak). PHP framework performance benchmarks.',
   },
 };
 
@@ -26,7 +26,7 @@ export default function BenchmarksPage() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Benchmarks - SiroPHP | Performance Comparison',
-  description: 'Blazing fast performance: 2.4ms cold boot (measured) / ~0.35ms prod Linux (measured), ~4MB+ baseline RAM (~6MB peak), ~370K routes/sec. Compare with Laravel and Symfony.',
+  description: 'Blazing fast performance: 2.4ms cold boot (measured) / ~0.5ms (Linux + OPcache), ~4MB+ baseline RAM (~6MB peak), ~370K routes/sec. Compare with Laravel and Symfony.',
   keywords: [
     'fastest php framework benchmark',
     'php framework performance comparison',

@@ -95,10 +95,10 @@ const featureGroups = [
     title: 'Performance',
     color: 'teal',
     items: [
-      '2.4ms cold boot (Windows, measured) / ~0.35ms prod Linux (measured)',
+      '2.4ms cold boot (Windows, measured) / ~0.5ms (Linux + OPcache)',
       '~4MB framework baseline — zero overhead on peak',
       '~370K routes/sec static — 297K ops/sec dynamic',
-      'Minimal runtime dependencies — a smaller supply-chain surface',
+      'Minimal runtime surface — a smaller supply chain to review',
       'FrankenPHP support — production Docker images included',
     ],
   },

@@ -37,7 +37,7 @@ export default function Hero() {
           <span className="text-cyan-400">⚡</span>
           <span className="text-gray-300 text-sm">Lightweight API Framework</span>
           <span className="text-gray-600">|</span>
-           <span className="text-emerald-400 text-sm font-semibold">Core v1.0.14</span>
+           <span className="text-emerald-400 text-sm font-semibold">Core v1.3.0</span>
         </div>
               
         {/* Main heading - H1 for SEO - CRITICAL: Must render immediately */}
@@ -68,7 +68,7 @@ export default function Hero() {
         
         <p className="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in" style={{ animationDelay: '400ms' }}>
            A deterministic PHP API workflow built for rapid development and production debugging.
-           Minimal runtime dependencies. Full request tracing. php siro replay &lt;trace_id&gt;.
+           Minimal runtime surface. Full request tracing. php siro replay &lt;trace_id&gt;.
         </p>
         
         {/* Performance Badges */}

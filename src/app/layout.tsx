@@ -90,7 +90,7 @@ const softwareJsonLd = {
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'PHP 8.2+, Linux, macOS, Windows',
   description:
-    'Production-first PHP API workflow with built-in debugging, request replay, and testing workflows. Minimal runtime dependencies.',
+    'Production-first PHP API workflow with built-in debugging, request replay, and testing workflows. Minimal runtime surface.',
     softwareVersion: INSTALLER.version,
   url: 'https://sirophp.com',
   downloadUrl: 'https://sirophp.com/downloads/install.ps1',
