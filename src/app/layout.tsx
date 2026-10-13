@@ -53,6 +53,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://sirophp.com/",
   },
+  authors: [{ name: "SiroSoft", url: "https://github.com/SiroSoft" }],
+  creator: "SiroSoft",
+  publisher: "SiroSoft",
   openGraph: {
     title: "SiroPHP — Build APIs in Minutes. Debug Instantly.",
     description:
@@ -97,11 +100,13 @@ const softwareJsonLd = {
   author: { '@type': 'Organization', name: 'SiroSoft', url: 'https://github.com/SiroSoft' },
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   license: 'https://opensource.org/licenses/MIT',
+  dateModified: '2026-10-13',
   sameAs: [
     'https://github.com/SiroSoft/siro-core',
     'https://github.com/SiroSoft/SiroPHP',
     'https://packagist.org/packages/sirosoft/api',
     'https://packagist.org/packages/sirosoft/core',
+    'https://discord.gg/sirophp',
   ],
 }
 

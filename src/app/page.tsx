@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Hero from '@/components/Hero';
 import Stats from '@/components/Stats';
 import Features from '@/components/Features';
@@ -7,10 +8,11 @@ import WhySiro from '@/components/WhySiro';
 import Ecosystem from '@/components/Ecosystem';
 import InstallSection from '@/components/InstallSection';
 import CTA from '@/components/CTA';
+import { homeFaqs } from '@/lib/faq-home';
 
 export const metadata: Metadata = {
   title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
-    description: 'Build production-ready APIs in minutes. Understand production failures with full execution context — SQL, outbound HTTP, queued jobs. Fix bugs from your terminal.',
+    description: 'Build production-ready APIs in minutes. See full failure context — SQL, HTTP, jobs — and fix bugs from your terminal.',
   keywords: [
     'sirophp',
     'php api framework',
@@ -41,56 +43,11 @@ export default function Home() {
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'What is SiroPHP?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-           text: 'SiroPHP is a deterministic PHP API workflow built for rapid development and production debugging. It features minimal runtime dependencies, CRUD scaffolding, full request tracing, and one-command production bug replay.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How is SiroPHP different from Laravel?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-           text: 'SiroPHP focuses on API development with a smaller runtime surface and an integrated debugging workflow. It provides conventions for routing, validation, resources, tracing, replay, and testing without requiring a large application stack.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How do I install SiroPHP?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-           text: 'Use the standalone installer on Windows, macOS, or Linux, or create a project with "composer create-project sirosoft/api my-app" when PHP and Composer are already installed.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How do I build APIs fast with SiroPHP?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-           text: 'Use "php siro make:crud products" to generate a module with model, migration, repository, service, resource, controller, routes, and feature tests. Then run "php siro migrate" and "php siro serve".',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How does production debugging work?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Every response includes an X-Siro-Trace-Id header. Traces capture request context including SQL queries, outbound HTTP calls, and queued jobs. Replay analyzes the trace for side-effect risks before execution — risky replays require explicit confirmation.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Is SiroPHP production ready?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-           text: 'SiroPHP is actively tested and ships with JWT auth, rate limiting, CSRF protection, brute-force protection, environment validation, log sanitization, and production health checks. Review the current release checks and security documentation before deploying.',
-        },
-      },
-    ],
+    mainEntity: homeFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
   };
 
   return (
@@ -103,6 +60,29 @@ export default function Home() {
       <WhySiro />
       <Ecosystem />
       <InstallSection />
+      <section aria-labelledby="home-faq-heading" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 id="home-faq-heading" className="text-3xl sm:text-4xl font-bold mb-4 text-center">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-gray-400 text-center mb-12">
+            Quick answers — <Link href="/faq" className="text-cyan-400 hover:text-cyan-300">see all questions →</Link>
+          </p>
+          <div className="space-y-4">
+            {homeFaqs.map((faq) => (
+              <details
+                key={faq.q}
+                className="group p-6 rounded-xl border border-white/10 bg-white/5"
+              >
+                <summary className="cursor-pointer text-white font-semibold">
+                  {faq.q}
+                </summary>
+                <p className="mt-4 text-gray-400 leading-relaxed">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
       <CTA />
     </main>
   );
