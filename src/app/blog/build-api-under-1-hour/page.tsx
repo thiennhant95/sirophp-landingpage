@@ -573,6 +573,16 @@ $validated = $request->validate([
                   View Core Framework
                 </Link>
               </div>
+              {/* Related: framework decision guide */}
+              <div className="my-10 p-5 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
+                <p className="text-sm text-gray-300">
+                  Still choosing a stack? Read the{' '}
+                  <Link href="/blog/php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams" className="text-cyan-400 hover:underline font-semibold">
+                    PHP API framework decision guide
+                  </Link>{' '}
+                  — framework, micro-framework, or vanilla PHP, decided with measurements.
+                </p>
+              </div>
             </div>
           </FadeIn>
         </div>
