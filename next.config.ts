@@ -39,7 +39,7 @@ const nextConfig: NextConfig = {
         source: '/robots.txt',
         headers: [
           { key: 'Content-Type', value: 'text/plain' },
-          { key: 'Cache-Control', value: 'public, max-age=86400' },
+          { key: 'Cache-Control', value: 'public, max-age=300, s-maxage=300' },
         ],
       },
       {
