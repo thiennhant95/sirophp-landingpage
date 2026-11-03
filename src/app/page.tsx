@@ -31,11 +31,13 @@ export const metadata: Metadata = {
     description: 'Build production-ready APIs in minutes. Understand production failures with full execution context and fix bugs from your terminal.',
     type: 'website',
     url: 'https://sirophp.com',
+    images: [{ url: 'https://sirophp.com/opengraph-image.png', width: 1200, height: 630, alt: 'SiroPHP — Build APIs in Minutes. Debug Instantly.' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'SiroPHP — The Fastest Feedback Loop for API Developers',
     description: 'Build APIs in minutes, not hours. Debug production bugs instantly with request replay.',
+    images: ['https://sirophp.com/opengraph-image.png'],
   },
 };
 
