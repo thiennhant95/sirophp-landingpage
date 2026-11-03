@@ -1,4 +1,7 @@
 const posts = [
+  // sr:begin php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams
+  { slug: "php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams", title: "PHP API Framework or Vanilla PHP? A Decision Guide for API Teams", date: "2026-11-03" },
+  // sr:end php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams
   { slug: 'how-to-debug-apis-in-php', title: 'How to Debug PHP APIs: From Logs to Request Replay', date: '2026-01-15' },
   { slug: 'php-api-testing-from-terminal', title: 'PHP API Testing From the Terminal', date: '2026-01-22' },
   { slug: 'request-replay-debug-production-bugs', title: 'Request Replay: Debug Production Bugs Without Reproduction', date: '2026-01-29' },

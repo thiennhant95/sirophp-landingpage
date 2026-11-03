@@ -48,6 +48,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   const blogPosts = [
+  // sr:begin php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams
+  { slug: "php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams", date: "2026-11-03" },
+  // sr:end php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams
   { slug: 'how-to-debug-apis-in-php', date: '2026-01-15' },
   { slug: 'php-api-testing-from-terminal', date: '2026-01-22' },
   { slug: 'request-replay-debug-production-bugs', date: '2026-01-29' },

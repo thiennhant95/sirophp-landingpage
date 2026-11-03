@@ -1,1 +1,9 @@
-[]
+[
+ {
+  "slug": "php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams",
+  "title": "PHP API Framework or Vanilla PHP? A Decision Guide for API Teams",
+  "desc": "PHP API Framework or Vanilla PHP? A Decision Guide for API Teams Last updated: November 2026 Short answer: if your product is an API and nothing else,…",
+  "date": "2026-11-03",
+  "minutes": 9
+ }
+]

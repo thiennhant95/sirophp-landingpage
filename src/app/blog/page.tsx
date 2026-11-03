@@ -33,6 +33,17 @@ export const metadata: Metadata = {
 };
 
 const blogPosts = [
+  // sr:begin php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams
+  {
+    slug: "php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams",
+    title: "PHP API Framework or Vanilla PHP? A Decision Guide for API Teams",
+    excerpt: "PHP API Framework or Vanilla PHP? A Decision Guide for API Teams Last updated: November 2026 Short answer: if your product is an API and nothing else,…",
+    date: "2026-11-03",
+    readTime: "9 min read",
+    category: "Tutorial",
+    tags: [],
+  },
+  // sr:end php-api-framework-or-vanilla-php-a-decision-guide-for-api-teams
   {
 slug: 'sirophp-showcase-live-demo',
     title: 'SiroPHP Showcase: A Live Full-Stack Demo You Can Click Right Now',
