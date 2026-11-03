@@ -33,17 +33,6 @@ export const metadata: Metadata = {
 };
 
 const blogPosts = [
-  // sr:begin kiem-thu-driver-next-js-se-xoa
-  {
-    slug: "kiem-thu-driver-next-js-se-xoa",
-    title: "Kiem thu driver Next.js se xoa",
-    excerpt: "Kiểm thử driver Next.js (sẽ xoá) Đây là bài kiểm thử tự động để xác nhận pipeline đăng bài của SyrupRank hoạt động trên site Next.js…",
-    date: "2026-11-03",
-    readTime: "1 min read",
-    category: "Tutorial",
-    tags: [],
-  },
-  // sr:end kiem-thu-driver-next-js-se-xoa
   {
 slug: 'sirophp-showcase-live-demo',
     title: 'SiroPHP Showcase: A Live Full-Stack Demo You Can Click Right Now',
