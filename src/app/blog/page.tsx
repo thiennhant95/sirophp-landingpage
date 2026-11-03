@@ -33,6 +33,17 @@ export const metadata: Metadata = {
 };
 
 const blogPosts = [
+  // sr:begin e2e-lan-2-xoa-ngay
+  {
+    slug: "e2e-lan-2-xoa-ngay",
+    title: "E2E lan 2 xoa ngay",
+    excerpt: "E2E lan 2 (xoa ngay) Bai kiem thu thu hai de xac nhan lenh xoa bai commit that su. Noi dung kiem thu. Noi dung kiem thu. Noi dung kiem thu. Noi dung kiem thu…",
+    date: "2026-11-03",
+    readTime: "1 min read",
+    category: "Tutorial",
+    tags: [],
+  },
+  // sr:end e2e-lan-2-xoa-ngay
   {
 slug: 'sirophp-showcase-live-demo',
     title: 'SiroPHP Showcase: A Live Full-Stack Demo You Can Click Right Now',

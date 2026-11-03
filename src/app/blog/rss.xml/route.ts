@@ -1,4 +1,7 @@
 const posts = [
+  // sr:begin e2e-lan-2-xoa-ngay
+  { slug: "e2e-lan-2-xoa-ngay", title: "E2E lan 2 xoa ngay", date: "2026-11-03" },
+  // sr:end e2e-lan-2-xoa-ngay
   { slug: 'how-to-debug-apis-in-php', title: 'How to Debug PHP APIs: From Logs to Request Replay', date: '2026-01-15' },
   { slug: 'php-api-testing-from-terminal', title: 'PHP API Testing From the Terminal', date: '2026-01-22' },
   { slug: 'request-replay-debug-production-bugs', title: 'Request Replay: Debug Production Bugs Without Reproduction', date: '2026-01-29' },
