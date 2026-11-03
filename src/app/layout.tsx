@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://sirophp.com/opengraph-image",
+        url: "https://sirophp.com/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "SiroPHP — Build APIs in Minutes. Debug Instantly.",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     title: "SiroPHP — Build APIs in Minutes. Debug Instantly.",
     description:
       "Build production-ready APIs in minutes. Understand production failures with full execution context and fix bugs from your terminal.",
-    images: ["https://sirophp.com/opengraph-image"],
+    images: ["https://sirophp.com/opengraph-image.png"],
   },
   robots: {
     index: true,
